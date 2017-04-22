@@ -207,7 +207,7 @@ var WIva300: TWIva300;
 
 implementation
 
-uses DM, DMConta, General, Globales, UEspere, ccStr, Math, MenuPrincipal;
+uses DM, DMConta, General, Globales, UEspere, ccStr, Math;
 {$R *.DFM}
 
 procedure TWIva300.FormCreate(Sender: TObject);

@@ -1,247 +1,111 @@
 program scAccounting;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 uses
   Vcl.Forms,
-  DM in 'Fuentes\DM.pas' {DMRef: TDataModule},
-  DMConta in 'Fuentes\DMConta.pas' {DMContaRef: TDataModule},
-  DMControl in 'Fuentes\DMControl.pas' {DMControlRef: TDataModule},
-  General in 'Fuentes\General.pas',
-  Globales in 'Fuentes\Globales.pas',
-  Login in 'Fuentes\Login.pas' {FormLogin},
-  MenuPrincipal in 'Fuentes\MenuPrincipal.pas' {FormPrincipal},
-  Proyectos in 'Fuentes\Proyectos.pas' {WProyectos},
-  Splash in 'Fuentes\Splash.pas' {FormSplash},
-  UActualizacionBD in 'Fuentes\UActualizacionBD.pas' {WActualizacionBD},
-  UAnaliticas in 'Fuentes\UAnaliticas.pas' {WAnaliticas},
-  UCierreEjercicio in 'Fuentes\UCierreEjercicio.pas' {WCierreEjercicio},
-  UComerciales in 'Fuentes\UComerciales.pas' {WComerciales},
-  UConceptos in 'Fuentes\UConceptos.pas' {WConceptos},
-  UCuentas in 'Fuentes\UCuentas.pas' {WCuentas},
-  UDelegaciones in 'Fuentes\UDelegaciones.pas' {WDelegaciones},
-  UDepartamentos in 'Fuentes\UDepartamentos.pas' {WDepartamentos},
-  UDetalleIVA in 'Fuentes\UDetalleIVA.pas' {WDetalleIVA},
-  UEmpresas in 'Fuentes\UEmpresas.pas' {WEmpresas},
-  UEnlaceContable in 'Fuentes\UEnlaceContable.pas' {WEnlaceContable},
-  UEspere in 'Fuentes\UEspere.pas' {WEspere},
-  UFormasPago in 'Fuentes\UFormasPago.pas' {WFormasPago},
-  UGeneracionAsiento in 'Fuentes\UGeneracionAsiento.pas' {WGeneracionAsiento},
-  UGrupos in 'Fuentes\UGrupos.pas' {WGrupos},
-  UImportacion in 'Fuentes\UImportacion.pas' {WImportacion},
-  UAmortizaciones in 'Fuentes\Amortizaciones\UAmortizaciones.pas' {WAmortizaciones},
-  UAmortizacionesModel in 'Fuentes\Amortizaciones\UAmortizacionesModel.pas' {DataModuleAmortizaciones: TDataModule},
-  UBalAcumulados in 'Fuentes\BalAcumulados\UBalAcumulados.pas',
-  UBalAcumuladosModel in 'Fuentes\BalAcumulados\UBalAcumuladosModel.pas',
-  UBalExplotacion in 'Fuentes\BalExplotacion\UBalExplotacion.pas',
-  UBalExplotacionModel in 'Fuentes\BalExplotacion\UBalExplotacionModel.pas',
-  UBorradoDiario in 'Fuentes\BorradoDiario\UBorradoDiario.pas',
-  UBorradoDiarioModel in 'Fuentes\BorradoDiario\UBorradoDiarioModel.pas',
-  UCargaApuntes in 'Fuentes\CargaApuntes\UCargaApuntes.pas',
-  UCargaApuntesModel in 'Fuentes\CargaApuntes\UCargaApuntesModel.pas',
-  UCargaAsiento in 'Fuentes\CargaAsientos\UCargaAsiento.pas',
-  UCargaAsientoModel in 'Fuentes\CargaAsientos\UCargaAsientoModel.pas',
-  UEditApunte in 'Fuentes\CargaAsientos\UEditApunte.pas',
-  UCargaCobrosPagos in 'Fuentes\CargaCobrosPagos\UCargaCobrosPagos.pas',
-  UCargaCobrosPagosModel in 'Fuentes\CargaCobrosPagos\UCargaCobrosPagosModel.pas',
-  UCargaRapidaFacturas in 'Fuentes\CargaRapidaFacturas\UCargaRapidaFacturas.pas',
-  UCargaRapidaFacturasModel in 'Fuentes\CargaRapidaFacturas\UCargaRapidaFacturasModel.pas',
-  UEditLineaIVA in 'Fuentes\CargaRapidaFacturas\UEditLineaIVA.pas',
-  UCargaRapidaNominas in 'Fuentes\CargaRapidaNominas\UCargaRapidaNominas.pas',
-  UCargaRapidaNominasModel in 'Fuentes\CargaRapidaNominas\UCargaRapidaNominasModel.pas',
-  UEditEmpleado in 'Fuentes\CargaRapidaNominas\UEditEmpleado.pas',
-  UCarteraEfectos in 'Fuentes\CarteraEfectos\UCarteraEfectos.pas',
-  UCarteraEfectosModel in 'Fuentes\CarteraEfectos\UCarteraEfectosModel.pas',
-  UCopiaAsientos in 'Fuentes\CopiaAsientos\UCopiaAsientos.pas',
-  UCopiaAsientosModel in 'Fuentes\CopiaAsientos\UCopiaAsientosModel.pas',
-  UDiario in 'Fuentes\Diario\UDiario.pas',
-  UDiarioModel in 'Fuentes\Diario\UDiarioModel.pas',
-  UEfectosComerciales in 'Fuentes\EfectosComerciales\UEfectosComerciales.pas',
-  UEfectosComercialesModel in 'Fuentes\EfectosComerciales\UEfectosComercialesModel.pas',
-  UFiltro347 in 'Fuentes\Filtro347\UFiltro347.pas',
-  UFiltro347Model in 'Fuentes\Filtro347\UFiltro347Model.pas',
-  UFiltroBalances in 'Fuentes\FiltroBalances\UFiltroBalances.pas',
-  UFiltroBalancesModel in 'Fuentes\FiltroBalances\UFiltroBalancesModel.pas',
-  UFiltroLibroFacturasEmitidas in 'Fuentes\FiltroLibroFacturasEmitidas\UFiltroLibroFacturasEmitidas.pas',
-  UFiltroLibroFacturasEmitidasModel in 'Fuentes\FiltroLibroFacturasEmitidas\UFiltroLibroFacturasEmitidasModel.pas',
-  UFiltroMayorSubcuenta in 'Fuentes\FiltroMayorSubcuenta\UFiltroMayorSubcuenta.pas',
-  UFiltroMayorSubcuentaModel in 'Fuentes\FiltroMayorSubcuenta\UFiltroMayorSubcuentaModel.pas',
-  UFiltroSitPgGg in 'Fuentes\FiltroSitPgGg\UFiltroSitPgGg.pas',
-  UFiltroSitPgGgModel in 'Fuentes\FiltroSitPgGg\UFiltroSitPgGgModel.pas',
-  ccChildForm in 'Fuentes\icenet\ccChildForm.pas',
-  ccDBIntegrity in 'Fuentes\icenet\ccDBIntegrity.pas',
-  ccStr in 'Fuentes\icenet\ccStr.pas',
-  CustomModel in 'Fuentes\icenet\CustomModel.pas',
-  FormHandler in 'Fuentes\icenet\FormHandler.pas',
-  UtilesMDIForms in 'Fuentes\icenet\UtilesMDIForms.pas',
-  SQLConnect in 'Fuentes\icenet\SQLConnect.pas',
-  UIrpf110 in 'Fuentes\IRPF110\UIrpf110.pas',
-  UIRPF110Model in 'Fuentes\IRPF110\UIRPF110Model.pas',
-  UIrpf115 in 'Fuentes\IRPF115\UIrpf115.pas',
-  UIRPF115Model in 'Fuentes\IRPF115\UIRPF115Model.pas',
-  UISoc202 in 'Fuentes\ISoc202\UISoc202.pas',
-  UISoc202Model in 'Fuentes\ISoc202\UISoc202Model.pas',
-  UIVA300 in 'Fuentes\IVA300\UIVA300.pas',
-  UIVA300Model in 'Fuentes\IVA300\UIVA300Model.pas',
-  UParametrizacion in 'Fuentes\Parametrizacion\UParametrizacion.pas',
-  UParametrizacionModel in 'Fuentes\Parametrizacion\UParametrizacionModel.pas',
-  URecalculoSaldos in 'Fuentes\RecalculoSaldos\URecalculoSaldos.pas',
-  URecalculoSaldosModel in 'Fuentes\RecalculoSaldos\URecalculoSaldosModel.pas',
-  UFiltroListadosAsientos in 'Fuentes\UFiltroListadosAsientos\UFiltroListadosAsientos.pas',
-  UFiltroListadosAsientosModel in 'Fuentes\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas',
-  UFiltroListadosMayor in 'Fuentes\UFiltroListadosMayor\UFiltroListadosMayor.pas',
-  UFiltroListadosMayorModel in 'Fuentes\UFiltroListadosMayor\UFiltroListadosMayorModel.pas',
-  UNuevaSubcuenta in 'Fuentes\UNuevaSubcuenta.pas',
-  USituacionEfecto in 'Fuentes\USituacionEfecto.pas',
-  UVencimientos in 'Fuentes\UVencimientos.pas',
-  UUtilEmpresas in 'Fuentes\UUtilEmpresas.pas',
-  UPaises in 'Fuentes\UPaises.pas',
-  UParametrizacionFacturacion in 'Fuentes\UParametrizacionFacturacion.pas',
-  UPlanAnalico in 'Fuentes\UPlanAnalico.pas',
-  UPlanContable in 'Fuentes\UPlanContable.pas',
-  UPunteoDiario in 'Fuentes\UPunteoDiario.pas',
-  USecciones in 'Fuentes\USecciones.pas',
-  USubCuentas in 'Fuentes\USubCuentas.pas',
-  UTiposDiario in 'Fuentes\UTiposDiario.pas',
-  UTitulos in 'Fuentes\UTitulos.pas',
-  UTraspasoApuntes in 'Fuentes\UTraspasoApuntes.pas',
-  UTraspasoDatos in 'Fuentes\UTraspasoDatos.pas',
-  UUsuarios in 'Fuentes\UUsuarios.pas',
-  Tools in 'Fuentes\icenet\Tools.pas';
+  DM in 'Source\DM.pas' {DMRef: TDataModule},
+  DMConta in 'Source\DMConta.pas' {DMContaRef: TDataModule},
+  DMControl in 'Source\DMControl.pas' {DMControlRef: TDataModule},
+  General in 'Source\General.pas',
+  Globales in 'Source\Globales.pas',
+  Login in 'Source\Login.pas' {FormLogin},
+  MainMenu in 'Source\MainMenu.pas' {MainMenuForm},
+  Proyectos in 'Source\Proyectos.pas' {WProyectos},
+  Splash in 'Source\Splash.pas' {FormSplash},
+  UActualizacionBD in 'Source\UActualizacionBD.pas' {WActualizacionBD},
+  UAnaliticas in 'Source\UAnaliticas.pas' {WAnaliticas},
+  UCierreEjercicio in 'Source\UCierreEjercicio.pas' {WCierreEjercicio},
+  UComerciales in 'Source\UComerciales.pas' {WComerciales},
+  UConceptos in 'Source\UConceptos.pas' {WConceptos},
+  UCuentas in 'Source\UCuentas.pas' {WCuentas},
+  UDelegaciones in 'Source\UDelegaciones.pas' {WDelegaciones},
+  UDepartamentos in 'Source\UDepartamentos.pas' {WDepartamentos},
+  UDetalleIVA in 'Source\UDetalleIVA.pas' {WDetalleIVA},
+  UEmpresas in 'Source\UEmpresas.pas' {WEmpresas},
+  UEnlaceContable in 'Source\UEnlaceContable.pas' {WEnlaceContable},
+  UEspere in 'Source\UEspere.pas' {WEspere},
+  UFormasPago in 'Source\UFormasPago.pas' {WFormasPago},
+  UGeneracionAsiento in 'Source\UGeneracionAsiento.pas' {WGeneracionAsiento},
+  UGrupos in 'Source\UGrupos.pas' {WGrupos},
+  UImportacion in 'Source\UImportacion.pas' {WImportacion},
+  UAmortizaciones in 'Source\Amortizaciones\UAmortizaciones.pas' {WAmortizaciones},
+  UAmortizacionesModel in 'Source\Amortizaciones\UAmortizacionesModel.pas' {DataModuleAmortizaciones: TDataModule},
+  UBalAcumulados in 'Source\BalAcumulados\UBalAcumulados.pas',
+  UBalAcumuladosModel in 'Source\BalAcumulados\UBalAcumuladosModel.pas',
+  UBalExplotacion in 'Source\BalExplotacion\UBalExplotacion.pas',
+  UBalExplotacionModel in 'Source\BalExplotacion\UBalExplotacionModel.pas',
+  UBorradoDiario in 'Source\BorradoDiario\UBorradoDiario.pas',
+  UBorradoDiarioModel in 'Source\BorradoDiario\UBorradoDiarioModel.pas',
+  UCargaApuntes in 'Source\CargaApuntes\UCargaApuntes.pas',
+  UCargaApuntesModel in 'Source\CargaApuntes\UCargaApuntesModel.pas',
+  UCargaAsiento in 'Source\CargaAsientos\UCargaAsiento.pas',
+  UCargaAsientoModel in 'Source\CargaAsientos\UCargaAsientoModel.pas',
+  UEditApunte in 'Source\CargaAsientos\UEditApunte.pas',
+  UCargaCobrosPagos in 'Source\CargaCobrosPagos\UCargaCobrosPagos.pas',
+  UCargaCobrosPagosModel in 'Source\CargaCobrosPagos\UCargaCobrosPagosModel.pas',
+  UCargaRapidaFacturas in 'Source\CargaRapidaFacturas\UCargaRapidaFacturas.pas',
+  UCargaRapidaFacturasModel in 'Source\CargaRapidaFacturas\UCargaRapidaFacturasModel.pas',
+  UEditLineaIVA in 'Source\CargaRapidaFacturas\UEditLineaIVA.pas',
+  UCargaRapidaNominas in 'Source\CargaRapidaNominas\UCargaRapidaNominas.pas',
+  UCargaRapidaNominasModel in 'Source\CargaRapidaNominas\UCargaRapidaNominasModel.pas',
+  UEditEmpleado in 'Source\CargaRapidaNominas\UEditEmpleado.pas',
+  UCarteraEfectos in 'Source\CarteraEfectos\UCarteraEfectos.pas',
+  UCarteraEfectosModel in 'Source\CarteraEfectos\UCarteraEfectosModel.pas',
+  UCopiaAsientos in 'Source\CopiaAsientos\UCopiaAsientos.pas',
+  UCopiaAsientosModel in 'Source\CopiaAsientos\UCopiaAsientosModel.pas',
+  UDiario in 'Source\Diario\UDiario.pas',
+  UDiarioModel in 'Source\Diario\UDiarioModel.pas',
+  UEfectosComerciales in 'Source\EfectosComerciales\UEfectosComerciales.pas',
+  UEfectosComercialesModel in 'Source\EfectosComerciales\UEfectosComercialesModel.pas',
+  UFiltro347 in 'Source\Filtro347\UFiltro347.pas',
+  UFiltro347Model in 'Source\Filtro347\UFiltro347Model.pas',
+  UFiltroBalances in 'Source\FiltroBalances\UFiltroBalances.pas',
+  UFiltroBalancesModel in 'Source\FiltroBalances\UFiltroBalancesModel.pas',
+  UFiltroLibroFacturasEmitidas in 'Source\FiltroLibroFacturasEmitidas\UFiltroLibroFacturasEmitidas.pas',
+  UFiltroLibroFacturasEmitidasModel in 'Source\FiltroLibroFacturasEmitidas\UFiltroLibroFacturasEmitidasModel.pas',
+  UFiltroMayorSubcuenta in 'Source\FiltroMayorSubcuenta\UFiltroMayorSubcuenta.pas',
+  UFiltroMayorSubcuentaModel in 'Source\FiltroMayorSubcuenta\UFiltroMayorSubcuentaModel.pas',
+  UFiltroSitPgGg in 'Source\FiltroSitPgGg\UFiltroSitPgGg.pas',
+  UFiltroSitPgGgModel in 'Source\FiltroSitPgGg\UFiltroSitPgGgModel.pas',
+  ccChildForm in 'Source\icenet\ccChildForm.pas',
+  ccDBIntegrity in 'Source\icenet\ccDBIntegrity.pas',
+  ccStr in 'Source\icenet\ccStr.pas',
+  CustomModel in 'Source\icenet\CustomModel.pas',
+  FormHandler in 'Source\icenet\FormHandler.pas',
+  UtilesMDIForms in 'Source\icenet\UtilesMDIForms.pas',
+  SQLConnect in 'Source\icenet\SQLConnect.pas',
+  UIrpf110 in 'Source\IRPF110\UIrpf110.pas',
+  UIRPF110Model in 'Source\IRPF110\UIRPF110Model.pas',
+  UIrpf115 in 'Source\IRPF115\UIrpf115.pas',
+  UIRPF115Model in 'Source\IRPF115\UIRPF115Model.pas',
+  UISoc202 in 'Source\ISoc202\UISoc202.pas',
+  UISoc202Model in 'Source\ISoc202\UISoc202Model.pas',
+  UIVA300 in 'Source\IVA300\UIVA300.pas',
+  UIVA300Model in 'Source\IVA300\UIVA300Model.pas',
+  UParametrizacion in 'Source\Parametrizacion\UParametrizacion.pas',
+  UParametrizacionModel in 'Source\Parametrizacion\UParametrizacionModel.pas',
+  URecalculoSaldos in 'Source\RecalculoSaldos\URecalculoSaldos.pas',
+  URecalculoSaldosModel in 'Source\RecalculoSaldos\URecalculoSaldosModel.pas',
+  UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas',
+  UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas',
+  UFiltroListadosMayor in 'Source\UFiltroListadosMayor\UFiltroListadosMayor.pas',
+  UFiltroListadosMayorModel in 'Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas',
+  UNuevaSubcuenta in 'Source\UNuevaSubcuenta.pas',
+  USituacionEfecto in 'Source\USituacionEfecto.pas',
+  UVencimientos in 'Source\UVencimientos.pas',
+  UUtilEmpresas in 'Source\UUtilEmpresas.pas',
+  UPaises in 'Source\UPaises.pas',
+  UParametrizacionFacturacion in 'Source\UParametrizacionFacturacion.pas',
+  UPlanAnalico in 'Source\UPlanAnalico.pas',
+  UPlanContable in 'Source\UPlanContable.pas',
+  UPunteoDiario in 'Source\UPunteoDiario.pas',
+  USecciones in 'Source\USecciones.pas',
+  USubCuentas in 'Source\USubCuentas.pas',
+  UTiposDiario in 'Source\UTiposDiario.pas',
+  UTitulos in 'Source\UTitulos.pas',
+  UTraspasoApuntes in 'Source\UTraspasoApuntes.pas',
+  UTraspasoDatos in 'Source\UTraspasoDatos.pas',
+  UUsuarios in 'Source\UUsuarios.pas',
+  Tools in 'Source\icenet\Tools.pas';
 
 {$R *.res}
 
@@ -249,6 +113,6 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDMControlRef, DMControlRef);
-  Application.CreateForm(TFormPrincipal, FormPrincipal);
+  Application.CreateForm(TMainMenuForm, MainMenuForm);
   Application.Run;
 end.

@@ -1,12 +1,13 @@
-unit MenuPrincipal;
+unit MainMenu;
 
 interface
 
-uses Windows, Menus, AppEvnts, ImgList, Controls, Buttons, ExtCtrls, Graphics, Classes, Forms, SysUtils,
-     DB, jpeg, System.ImageList;
+uses System.ImageList, System.Classes, System.SysUtils,
+     WinAPI.Windows,
+     Vcl.Forms, Vcl.AppEvnts, Vcl.ImgList, Vcl.Controls, Vcl.Buttons, Vcl.ExtCtrls,  Vcl.Imaging.jpeg, Vcl.Menus;
      
 type
-  TFormPrincipal = class(TForm)
+  TMainMenuForm = class(TForm)
     ImageList: TImageList;
     ApplicationEvents: TApplicationEvents;
     Panel1: TPanel;
@@ -20,7 +21,7 @@ type
     BtnCargaFacturasVenta: TSpeedButton;
     BtnCargaSimplificada: TSpeedButton;
     BtnCargaCobrosPagos: TSpeedButton;
-    MenuPrincipal: TMainMenu;
+    MainMenu: TMainMenu;
     MenuItemMaestros: TMenuItem;
     MenuItemTiposDiario: TMenuItem;
     MenuItemFormasPago: TMenuItem;
@@ -34,7 +35,6 @@ type
     MenuItemTraspasoDatos: TMenuItem;
     MenuItemActualizacionDB: TMenuItem;
     MenuItemVentana: TMenuItem;
-    Image2: TImage;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
@@ -99,30 +99,33 @@ type
     procedure MenuItemContabilidadClick(Sender: TObject);
    private
    public
-     RejillaActiva :Word;
    end;
 
-var FormPrincipal   :TFormPrincipal;
-    totalPaginas :Double;
+var MainMenuForm :TMainMenuForm;
 
 implementation
 
-uses Dialogs, General, Globales, DM, DMConta, DMControl, Registry, UtilesMDIForms,
-     IBX.IB, ShellApi, UAmortizaciones, UAnaliticas, UBalAcumulados, UBalExplotacion, UBorradoDiario,
+uses System.Win.Registry, WinAPI.ShellApi,
+     VCL.Dialogs,
+     DM, DMConta, DMControl,
+     General, Globales, UtilesMDIForms,
+     IBX.IB,
+     Login, Splash,
+     UAmortizaciones, UAnaliticas, UBalAcumulados, UBalExplotacion, UBorradoDiario,
      UCargaApuntes, UCargaCobrosPagos, UCargaRapidaFacturas, UCargaRapidaNominas, UCarteraEfectos,
      UCierreEjercicio, UComerciales, UConceptos, UCopiaAsientos, UCuentas, UDelegaciones, UDepartamentos,
      UDiario, UEmpresas, UEnlaceContable, UEspere, UFiltro347, UFiltroBalances, UFiltroLibroFacturasEmitidas,
      UFiltroListadosAsientos, UFiltroListadosMayor, UFiltroSitPgGg, UFormasPago, UGrupos, UImportacion,
-     UIrpf110, UIrpf115, UISoc202, Login, UPaises, UParametrizacion, UParametrizacionFacturacion,
+     UIrpf110, UIrpf115, UISoc202, UPaises, UParametrizacion, UParametrizacionFacturacion,
      UPlanAnalico, UPlanContable, Proyectos, UPunteoDiario, URecalculoSaldos,
      USecciones, USubCuentas, UTiposDiario, UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios,
-     Splash, UActualizacionBD;
-     
+     UActualizacionBD;
+
 {$R *.DFM}
 
-procedure TFormPrincipal.FormCreate(Sender: TObject);
+procedure TMainMenuForm.FormCreate(Sender: TObject);
 begin
-   Config.AppFolder    := ExtractFilePath(Application.ExeName);
+   Config.AppFolder := ExtractFilePath(Application.ExeName);
    if not DirectoryExists(Config.ImagesFolder) then begin
       raise Exception.Create('No existe el directorio : '+Config.ImagesFolder);
    end;
@@ -143,13 +146,13 @@ begin
    DMControlRef.AbrirEmpresa(Config.ActiveID_ENTERPRISE);
 end;
 
-procedure TFormPrincipal.FormShow(Sender: TObject);
+procedure TMainMenuForm.FormShow(Sender: TObject);
 begin
    Self.Caption := Space(15) + Config.ActiveDS_ENTERPRISE + Space(15) + '-' + space(5) +
       'senCille ACCOUNTING SMEs Ver 0.0 -alfa-';
 end;
 
-procedure TFormPrincipal.ApplicationEventsException(Sender: TObject; E: Exception);
+procedure TMainMenuForm.ApplicationEventsException(Sender: TObject; E: Exception);
 var Mensaje  :string;
     Busca    :string;
     Posicion :Cardinal;
@@ -177,7 +180,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TMainMenuForm.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 begin
    CanClose := MessageDlg('¿Desea finalizar la aplicación?', mtConfirmation, [mbYes, mbNo], 0) = mrYes;
    if CanClose then begin
@@ -190,72 +193,70 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemSalirClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemSalirClick(Sender: TObject);
 begin
    Close;
 end;
 
-procedure TFormPrincipal.MenuItemAcercaDeClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemAcercaDeClick(Sender: TObject);
 begin
    ShellExecute(handle, 'open', PChar('http://sencille.es'), nil, nil, SW_MAXIMIZE);
 end;
 
-procedure TFormPrincipal.MenuItemContabilidadClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemContabilidadClick(Sender: TObject);
 begin
    ShellExecute(handle, 'open', PChar('http://sencille.es/ayuda/contabilidad'), nil, nil, SW_MAXIMIZE);
 end;
 
-{XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}
-
-procedure TFormPrincipal.MenuItemGruposClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemGruposClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WGRUPOS') then Exit;
    InsertMDIForm(Self, TWGrupos);
 end;
 
-procedure TFormPrincipal.MenuItemProvinciasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemProvinciasClick(Sender: TObject);
 begin
    {if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPROVINCIAS') then Exit;
    InsertMDIForm(Self, TFormProvincias);}
 end;
 
-procedure TFormPrincipal.MenuItemPaisesClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemPaisesClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPAISES') then Exit;
    InsertMDIForm(Self, TWPaises);
 end;
 
-procedure TFormPrincipal.MenuItemConceptosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemConceptosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCONCEPTOS') then Exit;
    InsertMDIForm(Self, TWConceptos);
 end;
 
-procedure TFormPrincipal.MenuItemUsuariosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemUsuariosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WUSUARIOS') then Exit;
    InsertMDIForm(Self, TWUsuarios);
 end;
 
-procedure TFormPrincipal.MenuItemTitulosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemTitulosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WTITULOS') then Exit;
    InsertMDIForm(Self, TWTitulos);
 end;
 
-procedure TFormPrincipal.MenuItemCuentasCuentasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCuentasCuentasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCUENTAS') then Exit;
    InsertMDIForm(Self, TWCuentas);
 end;
 
-procedure TFormPrincipal.MenuItemSubCuentasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemSubCuentasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WSUBCUENTAS') then Exit;
    InsertMDIForm(Self, TWSubcuentas);
 end;
 
-procedure TFormPrincipal.MenuItemListadoAsientosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemListadoAsientosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLISTADOSASIENTOS') then Exit;
    WFiltroListadosAsientos := TWFiltroListadosAsientos.Create(nil);
@@ -267,7 +268,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemMayorClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemMayorClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLISTADOSMAYOR') then Exit;
    WFiltroListadosMayor := TWFiltroListadosMayor.Create(nil);
@@ -279,7 +280,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemGeneralClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemGeneralClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPARAMETRIZACION') then Exit;
    WParametrizacion := TWParametrizacion.Create(nil);
@@ -290,7 +291,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemFacturacionClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemFacturacionClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPARAMETRIZACION') then Exit;
    WParametrizacionFacturacion := TWParametrizacionFacturacion.Create(nil);
@@ -301,7 +302,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemRecalculoSaldosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemRecalculoSaldosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WRECALCULOSALDOS') then Exit;
    WRecalculoSaldos := TWRecalculoSaldos.Create(nil);
@@ -312,7 +313,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemTraspasoApuntesEntreCuentasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemTraspasoApuntesEntreCuentasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WTRASPASOAPUNTES') then Exit;
    WTraspasoApuntes := TWTraspasoApuntes.Create(nil);
@@ -323,7 +324,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemProcesoAutomatizadoClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemProcesoAutomatizadoClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCIERREEJERCICIO') then Exit;
    WCierreEjercicio := TWCierreEjercicio.Create(nil);
@@ -334,7 +335,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemModelo300Click(Sender: TObject);
+procedure TMainMenuForm.MenuItemModelo300Click(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLIBROFACTEMITIDAS') then Exit;
    WFiltroLibroFactEmitidas := TWFiltroLibroFactEmitidas.Create(nil);
@@ -346,7 +347,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemLibroFacturasEmitidasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemLibroFacturasEmitidasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLIBROFACTEMITIDAS') then Exit;
    WFiltroLibroFactEmitidas := TWFiltroLibroFactEmitidas.Create(nil);
@@ -358,7 +359,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemLibroFacturasRecibidasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemLibroFacturasRecibidasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLIBROFACTEMITIDAS') then Exit;
    WFiltroLibroFactEmitidas := TWFiltroLibroFactEmitidas.Create(nil);
@@ -370,7 +371,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemOperacionesTerceros347Click(Sender: TObject);
+procedure TMainMenuForm.MenuItemOperacionesTerceros347Click(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTRO347') then Exit;
    WFiltro347 := TWFiltro347.Create(nil);
@@ -382,7 +383,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemSumasYSaldosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemSumasYSaldosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROBALANCES') then Exit;
    WFiltroBalances := TWFiltroBalances.Create(nil);
@@ -394,7 +395,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemSituacionClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemSituacionClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROSITPGGG') then Exit;
    WFiltroSitPgGg := TWFiltroSitPgGg.Create(nil);
@@ -406,7 +407,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemPerdidasYGananciasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemPerdidasYGananciasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROSITPGGG') then Exit;
    WFiltroSitPgGg := TWFiltroSitPgGg.Create(nil);
@@ -418,7 +419,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemFacturasCompraClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemFacturasCompraClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARGARAPIDAFACTURAS') then Exit;
    WCargaRapidaFacturas := TWCargaRapidaFacturas.Create(nil);
@@ -430,7 +431,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemCargaSimplificadaClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCargaSimplificadaClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARGAAPUNTES') then Exit;
    WCargaApuntes := TWCargaApuntes.Create(nil);
@@ -441,13 +442,13 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemCargaAsientosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCargaAsientosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WDIARIO') then Exit;
    InsertMDIForm(Self, TWDiario);
 end;
 
-procedure TFormPrincipal.MenuItemTraspasoDatosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemTraspasoDatosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WTRASPASODATOS') then Exit;
    WTraspasoDatos := TWTraspasoDatos.Create(nil);
@@ -458,7 +459,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemBorradoGeneralAsientosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemBorradoGeneralAsientosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WBORRADODIARIO') then Exit;
    WBorradoDiario := TWBorradoDiario.Create(nil);
@@ -469,7 +470,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemPunteoAutomaticoAsientos(Sender: TObject);
+procedure TMainMenuForm.MenuItemPunteoAutomaticoAsientos(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPUNTEODIARIO') then Exit;
    WPunteoDiario := TWPunteoDiario.Create(nil);
@@ -480,7 +481,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemAmortizacionesClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemAmortizacionesClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WAMORTIZACIONES') then Exit;
    WAmortizaciones := TWAmortizaciones.Create(nil);
@@ -491,7 +492,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemCarteraEfectosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCarteraEfectosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARTERAEFECTOS') then Exit;
    InsertMDIForm(Self, TWCarteraEfectos); {No está probado aún}
@@ -499,13 +500,13 @@ begin
    //WCarteraEfectos.Show;
 end;
 
-procedure TFormPrincipal.MenuItemCuentasAnaliticasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCuentasAnaliticasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WANALITICAS') then Exit;
    InsertMDIForm(Self, TWAnaliticas);
 end;
 
-procedure TFormPrincipal.MenuItemControlEmpresasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemControlEmpresasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WEMPRESAS') then Exit;
    WEmpresas := TWEmpresas.Create(nil);
@@ -517,7 +518,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemLibroFacturasBienesInversion(Sender: TObject);
+procedure TMainMenuForm.MenuItemLibroFacturasBienesInversion(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTROLIBROFACTEMITIDAS') then Exit;
    WFiltroLibroFactEmitidas := TWFiltroLibroFactEmitidas.Create(nil);
@@ -529,7 +530,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemOperacionesCEEClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemOperacionesCEEClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFILTRO347') then Exit;
    WFiltro347 := TWFiltro347.Create(nil);
@@ -541,7 +542,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemEnlaceContableClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemEnlaceContableClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WENLACECONTABLE') then Exit;
    WEnlaceContable := TWEnlaceContable.Create(nil);
@@ -552,7 +553,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemFacturasVentaClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemFacturasVentaClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARGARAPIDAFACTURAS') then Exit;
    WCargaRapidaFacturas := TWCargaRapidaFacturas.Create(nil);
@@ -564,7 +565,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemNominasClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemNominasClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARGARAPIDANOMINAS') then Exit;
    WCargaRapidaNominas := TWCargaRapidaNominas.Create(nil);
@@ -575,7 +576,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemIRPF110Click(Sender: TObject);
+procedure TMainMenuForm.MenuItemIRPF110Click(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WIRPF110') then Exit;
    WIrpf110 := TWIrpf110.Create(nil);
@@ -586,7 +587,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemImpuestoSociedades202Click(Sender: TObject);
+procedure TMainMenuForm.MenuItemImpuestoSociedades202Click(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WISOC202') then Exit;
    WISoc202 := TWISoc202.Create(nil);
@@ -597,7 +598,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemCopiaAsientosEntreEmpresas(Sender: TObject);
+procedure TMainMenuForm.MenuItemCopiaAsientosEntreEmpresas(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCOPIAASIENTOS') then Exit;
    WCopiaAsientos := TWCopiaAsientos.Create(nil);
@@ -608,7 +609,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemAcumuladosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemAcumuladosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WBALACUMULADOS') then Exit;
    WBalAcumulados := TWBalAcumulados.Create(nil);
@@ -619,7 +620,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemExplotacionClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemExplotacionClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WBALEXPLOTACION') then Exit;
    WBalExplotacion := TWBalExplotacion.Create(nil);
@@ -630,49 +631,49 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemTiposDiarioClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemTiposDiarioClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WTIPOSDIARIO') then Exit;
    InsertMDIForm(Self, TWTiposDiario);
 end;
 
-procedure TFormPrincipal.MenuItemComercialesClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemComercialesClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCOMERCIALES') then Exit;
    InsertMDIForm(Self, TWComerciales);
 end;
 
-procedure TFormPrincipal.MenuItemDelegacionesClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemDelegacionesClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WDELEGACIONES') then Exit;
    InsertMDIForm(Self, TWDelegaciones);
 end;
 
-procedure TFormPrincipal.MenuItemDepartamentosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemDepartamentosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WDEPARTAMENTOS') then Exit;
    InsertMDIForm(Self, TWDepartamentos);
 end;
 
-procedure TFormPrincipal.MenuItemSeccionesClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemSeccionesClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WSECCIONES') then Exit;
    InsertMDIForm(Self, TWSecciones);
 end;
 
-procedure TFormPrincipal.MenuItemProyectosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemProyectosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPROYECTOS') then Exit;
    InsertMDIForm(Self, TWProyectos);
 end;
 
-procedure TFormPrincipal.MenuItemFormasPagoClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemFormasPagoClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WFORMASPAGO') then Exit;
    InsertMDIForm(Self, TWFormasPago);
 end;
 
-procedure TFormPrincipal.MenuItemIRPF115Click(Sender: TObject);
+procedure TMainMenuForm.MenuItemIRPF115Click(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WIRPF115') then Exit;
    WIrpf115 := TWIrpf115.Create(nil);
@@ -683,7 +684,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemImpresionPlanContableClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemImpresionPlanContableClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPLANCONTABLE') then Exit;
    WPlanContable := TWPlanContable.Create(nil);
@@ -691,7 +692,7 @@ begin
    FreeAndNil(WPlanContable);
 end;
 
-procedure TFormPrincipal.MenuItemImpresionPlanAnaliticaClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemImpresionPlanAnaliticaClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPLANANALITICO') then Exit;
    WPlanAnalitico := TWPlanAnalitico.Create(nil);
@@ -699,7 +700,7 @@ begin
    FreeAndNil(WPlanAnalitico);
 end;
 
-procedure TFormPrincipal.MenuItemCobrosPagosClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemCobrosPagosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARGACOBROSPAGOS') then Exit;
    WCargaCobrosPagos := TWCargaCobrosPagos.Create(nil);
@@ -710,7 +711,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemImportacionClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemImportacionClick(Sender: TObject);
 begin
    WImportacion := TWImportacion.Create(nil);
    try
@@ -720,7 +721,7 @@ begin
    end;
 end;
 
-procedure TFormPrincipal.MenuItemActualizacionDBClick(Sender: TObject);
+procedure TMainMenuForm.MenuItemActualizacionDBClick(Sender: TObject);
 begin
    WActualizacionBD := TWActualizacionBD.Create(nil);
    try
