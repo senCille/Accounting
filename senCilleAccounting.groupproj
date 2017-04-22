@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{474BB816-ACDA-4F02-99A1-6EA851AA9AD5}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="scAccounting.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="scAccounting">
+        <MSBuild Projects="scAccounting.dproj"/>
+    </Target>
+    <Target Name="scAccounting:Clean">
+        <MSBuild Projects="scAccounting.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="scAccounting:Make">
+        <MSBuild Projects="scAccounting.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="scAccounting"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="scAccounting:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="scAccounting:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
