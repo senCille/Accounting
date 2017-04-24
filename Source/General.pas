@@ -35,10 +35,10 @@ implementation
 uses Globales, IBX.IBDataBase, IBX.IBQuery, Math, Graphics, TypInfo, DM;
 
 
-const gcClNaveg   = $00FFFCEA;
-      gcclRejilla = $00EDFBFC;
+const gcClNaveg              = $00FFFCEA;
+      gcclRejilla            = $00EDFBFC;
       gcClRejillaDesplegable = $00D9D1C0;
-      gcClFuente  = $00A93F3F;
+      gcClFuente             = $00A93F3F;
 
 procedure ActivarTransacciones(Ventana :TForm);
 var i :Word;

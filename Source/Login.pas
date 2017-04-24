@@ -1,19 +1,25 @@
 unit Login;
+
 interface
-uses Forms, DB, ExtCtrls, SysUtils, Controls, StdCtrls, Classes, Windows, Buttons, Graphics, Messages;
+
+uses System.SysUtils, System.Classes,
+     WinAPI.Windows, WinAPI.Messages,
+     Data.DB,
+     VCL.Forms, VCL.ExtCtrls, VCL.Controls, VCL.StdCtrls, VCL.Buttons, VCL.Graphics,
+     Localization;
 
 type
-   TFormLogin = class(TForm)
+  TFormLogin = class(TForm)
     Label3: TLabel;
-    LabelClave: TLabel;
+    LabelPassword: TLabel;
     EditUser: TEdit;
     EditPassword: TEdit;
     LabelVersion: TLabel;
     Label1: TLabel;
-    ImagenAnagrama: TImage;
-    LabelMensaje: TLabel;
+    ImagenAnagram: TImage;
+    LabelMessage: TLabel;
     Timer: TTimer;
-    LabelMensaje2: TLabel;
+    LabelMessage2: TLabel;
     Panel1: TPanel;
     BtnCancel: TSpeedButton;
     BtnAccept: TSpeedButton;
@@ -23,15 +29,17 @@ type
     procedure BtnCancelClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
-   protected
+  protected
     procedure Paint; override;
     procedure WMNCHitTest(var Msg: TWMNCHitTest) ; message WM_NCHitTest;
-   private
-    Intentos :Integer;
-    procedure MuestraMensaje(prmMensaje :string; prmMensaje2 :string = '');
-   public
-    class function MuestraModal:Boolean;
-   end;
+  private
+    FLang     :TLangLogin;
+    FCommon   :TLangCommon;
+    FAttempts :Integer;
+    procedure ShowMessage(AMessage :string; AMessage2 :string = '');
+  public
+    class function ExecLogin:Boolean;
+  end;
 
 var FormLogin :TFormLogin;
 
@@ -39,7 +47,7 @@ implementation
 uses General, Globales, DMControl, IBX.IBQuery;
 {$R *.DFM}
 
-class function TFormLogin.MuestraModal:Boolean;
+class function TFormLogin.ExecLogin:Boolean;
 begin
    FormLogin := Self.Create(nil);
    try Result := FormLogin.ShowModal = mrOK;
@@ -49,30 +57,35 @@ end;
 
 procedure TFormLogin.FormCreate(Sender: TObject);
 begin
-   Intentos := 1;
+   FLang := TLangLogin.Create;
+   FCommon := TLangCommon.Create;
+   BtnCancel.Caption := FCommon.BtnCancel;
+   BtnAccept.Caption := FCommon.BtnAccept;
+
+   FAttempts := 1;
 end;
 
-procedure TFormLogin.MuestraMensaje(prmMensaje :string; prmMensaje2 :string = '');
+procedure TFormLogin.ShowMessage(AMessage :string; AMessage2 :string = '');
 begin
-   LabelMensaje.Caption  := prmMensaje;
-   LabelMensaje2.Caption := prmMensaje2;
+   LabelMessage.Caption  := AMessage;
+   LabelMessage2.Caption := AMessage2;
    MessageBeep(MB_ICONHAND);
    Timer.Enabled := True;
 end;
 
 procedure TFormLogin.BtnAcceptClick(Sender: TObject);
-   function UsuarioCorrecto(prmUsuario, prmPassword :string):Boolean;
+   function WrongUser(AUser, APassword :string):Boolean;
    var Q :TIBQuery;
    begin
-      Q := DMControlRef.CreateQuery(['SELECT NOMBRE,               ',
-                                     '       CLAVE ,               ',
+      Q := DMControlRef.CreateQuery(['SELECT NOMBRE    ,           ',
+                                     '       CLAVE     ,           ',
                                      '       ID_USUARIO,           ',
                                      '       ID_EMPRESA            ',
                                      'FROM   USUARIOS              ',
                                      'WHERE  NOMBRE = :prmUSUARIO  ',
                                      'AND    CLAVE  = :prmPASSWORD ']);
-      Q.ParamByName('prmUSUARIO' ).AsString := prmUSUARIO;
-      Q.ParamByName('prmPASSWORD').AsString := prmPASSWORD;
+      Q.ParamByName('prmUSUARIO' ).AsString := AUser;
+      Q.ParamByName('prmPASSWORD').AsString := APassword;
       try Q.Open;
           if Q.RecordCount > 0 then begin
              Config.LoggedUser          := Q.FieldByName('NOMBRE'    ).AsString;
@@ -91,16 +104,16 @@ procedure TFormLogin.BtnAcceptClick(Sender: TObject);
    end;
 
 begin
-   if UsuarioCorrecto(UpperCase(Trim(EditUser.Text)), UpperCase(Trim(EditPassword.Text))) then begin
+   if WrongUser(UpperCase(Trim(EditUser.Text)), UpperCase(Trim(EditPassword.Text))) then begin
       ModalResult := mrOK;
    end
    else begin
-      Inc(Intentos);
-      if Intentos > 3 then begin
-         MuestraMensaje('Ha superado el límite de intentos.', 'La aplicación se cerrará automáticamente');
+      Inc(FAttempts);
+      if FAttempts > 3 then begin
+         ShowMessage(FLang.NumberOfAttemptsExceeded, FLang.ApplicationIsGoingToCloseNow);
       end
       else begin
-         MuestraMensaje('El usuario o la contraseña no son correctos.', 'Por favor, inténtelo de nuevo.');
+         ShowMessage(FLang.TheUserOrPasswordAreNotCorrect, FLang.PleaseTryAgain);
       end;
    end;
 end;
@@ -119,16 +132,16 @@ end;
 procedure TFormLogin.FormShow(Sender: TObject);
 begin
    DoubleBuffered := True;
-   ImagenAnagrama.Transparent := True;
+   ImagenAnagram.Transparent := True;
    LabelVersion.Caption := Config.VersionText;
 end;
 
 procedure TFormLogin.TimerTimer(Sender: TObject);
 begin
-   LabelMensaje.Caption := '';
-   LabelMensaje2.Caption := '';
+   LabelMessage.Caption := '';
+   LabelMessage2.Caption := '';
    Timer.Enabled := False;
-   if Intentos > 3 then Application.Terminate;
+   if FAttempts > 3 then Application.Terminate;
 end;
 
 procedure TFormLogin.WMNCHitTest(var Msg: TWMNCHitTest);

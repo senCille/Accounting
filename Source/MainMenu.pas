@@ -126,7 +126,7 @@ uses System.Win.Registry, WinAPI.ShellApi,
 procedure TMainMenuForm.FormCreate(Sender: TObject);
 begin
    if DMControlRef.QControlPEDIR_CLAVE.AsString <> 'N' then begin
-      if not TFormLogin.MuestraModal then Application.Terminate;
+      if not TFormLogin.ExecLogin then Application.Terminate;
       try FormSplash := TFormSplash.Create(nil);
           FormSplash.ActivarTemporizador;
           FormSplash.ShowModal;

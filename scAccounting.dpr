@@ -105,7 +105,8 @@ uses
   UTraspasoApuntes in 'Source\UTraspasoApuntes.pas',
   UTraspasoDatos in 'Source\UTraspasoDatos.pas',
   UUsuarios in 'Source\UUsuarios.pas',
-  Tools in 'Source\icenet\Tools.pas';
+  Tools in 'Source\icenet\Tools.pas',
+  Localization in 'Source\Localization\Localization.pas';
 
 {$R *.res}
 

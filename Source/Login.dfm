@@ -19,7 +19,7 @@ object FormLogin: TFormLogin
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object ImagenAnagrama: TImage
+  object ImagenAnagram: TImage
     Left = 26
     Top = 26
     Width = 143
@@ -2030,7 +2030,7 @@ object FormLogin: TFormLogin
     ParentFont = False
     Transparent = True
   end
-  object LabelClave: TLabel
+  object LabelPassword: TLabel
     Left = 208
     Top = 145
     Width = 59
@@ -2076,7 +2076,7 @@ object FormLogin: TFormLogin
     Transparent = True
     WordWrap = True
   end
-  object LabelMensaje: TLabel
+  object LabelMessage: TLabel
     Left = 176
     Top = 16
     Width = 257
@@ -2091,7 +2091,7 @@ object FormLogin: TFormLogin
     ParentFont = False
     WordWrap = True
   end
-  object LabelMensaje2: TLabel
+  object LabelMessage2: TLabel
     Left = 176
     Top = 40
     Width = 257

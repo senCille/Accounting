@@ -7,6 +7,8 @@ type
    TOperacionEfectos = (GENERAR_ASIENTO, IMPRIMIR_CARTA);
    TPermiso          = (ANIADIR, MODIFICAR, BORRAR, IMPRESION);
 
+   TLanguageType = (ltEnglish, ltSpanish, ltFrench, ltGerman);
+
 const
    // Reports Constants
    INF_ASIENTOS                     =  9;
@@ -47,6 +49,7 @@ const
 
 type
    TConfig = record
+      HMI_Language        :TLanguageType;
       VersionText         :string;
       AppFolder           :string;
       ImagesFolder        :string;  {When delete this Config items, we can delete too the folder in the disk.}
@@ -73,10 +76,10 @@ type
 
 var
    Config :TConfig;
-   
+
 implementation
 
 initialization
-   Config.VersionText := 'Version 0.0 -alfa-';
-
+   Config.VersionText  := 'Version 0.0 -alfa-';
+   Config.HMI_Language := ltEnglish;  {Changing this variable we habe the program transtlated}
 end.
