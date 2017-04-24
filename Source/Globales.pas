@@ -48,7 +48,7 @@ const
    //------------------------------------------------------------------------------
 
 type
-   TConfig = record
+   TConfig = class
       HMI_Language        :TLanguageType;
       VersionText         :string;
       AppFolder           :string;
@@ -72,6 +72,7 @@ type
       FormatoOficial      :Boolean;
       AbortedProcess      :Boolean;
       (**)ReportCurrency  :string;   {This is the next candidate to be eliminated from the program}
+      procedure SetAccountingType(AConceptType :string);
    end;
 
 var
@@ -79,7 +80,16 @@ var
 
 implementation
 
+procedure TConfig.SetAccountingType(AConceptType :string);
+begin
+   if AConceptType = 'N' then TipoConta := ''  else
+   if AConceptType = 'E' then TipoConta := '-'
+   else TipoConta := '+';
+
+end;
+
 initialization
+   Config := TConfig.Create;
    Config.VersionText  := 'Version 0.0 -alfa-';
    Config.HMI_Language := ltEnglish;  {Changing this variable we habe the program transtlated}
 end.

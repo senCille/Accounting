@@ -26,7 +26,9 @@ type
 var WRecalculoSaldos: TWRecalculoSaldos;
 
 implementation
-uses DM, General, Globales, UEspere;
+uses System.DateUtils,
+     DM, Globales, UEspere;
+
 {$R *.DFM}
 
 procedure TWRecalculoSaldos.FormCreate(Sender: TObject);
@@ -71,7 +73,7 @@ end;
 
 procedure TWRecalculoSaldos.FormShow(Sender: TObject);
 begin
-   EditEJERCICIO.Text := IntToStr(Year(Date));
+   EditEJERCICIO.Text := IntToStr(YearOf(Date));
    EditEJERCICIO.SetFocus;
 end;
 

@@ -68,7 +68,8 @@ var WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta;
 
 implementation
 
-uses DM, DMConta, General, Globales, UFiltroListadosMayorModel;
+uses DM, DMConta, Globales, UFiltroListadosMayorModel;
+
 {$R *.DFM}
 
 procedure TWFiltroMayorSubcuenta.FormCreate(Sender: TObject);
@@ -107,7 +108,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(CDSFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
    Config.FormatoOficial := CheckBoxFormatoOficial.Checked;
 
    LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);

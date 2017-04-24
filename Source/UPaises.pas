@@ -1,5 +1,7 @@
 unit UPaises;
+
 interface
+
 uses Buttons, DBClient, IBX.IBDatabase, IBX.IBCustomDataSet, Forms,
      StdCtrls, Grids, Controls, windows, ExtCtrls, Graphics, Classes,
      SysUtils, Messages, DB, Mask, DBCtrls, DBGrids, ComCtrls,
@@ -37,8 +39,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure RejillaTitleButtonClick(Sender: TObject; AFieldName: String);
-    procedure RejillaCalcTitleAttributes(Sender: TObject; AFieldName: String;
-       AFont: TFont; ABrush: TBrush; var ATitleAlignment: TAlignment);
+    procedure RejillaCalcTitleAttributes(Sender: TObject; AFieldName: String; AFont: TFont; ABrush: TBrush; var ATitleAlignment: TAlignment);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure LimpiarFiltro(Sender: TObject);
     procedure BtnReportClick(Sender: TObject);
@@ -53,8 +54,11 @@ type
    end;
 
 var WPaises: TWPaises;
+
 implementation
-uses Dialogs, General, Globales, DM, DMControl;
+
+uses Dialogs, Tools, Globales, DM, DMControl;
+
 {$R *.DFM}
 
 procedure TWPaises.CrearFiltro;
@@ -114,7 +118,8 @@ end;
 
 procedure TWPaises.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QPaisNom);
+   DMRef.QPaisNom.Close;
+   DMRef.QPaisNom.Open;
 end;
 
 procedure TWPaises.BtnAddClick(Sender: TObject);
@@ -266,7 +271,8 @@ begin
    FormManager.AddComp(BtnSave.Name         , fmEdit  );
    FormManager.AddComp(BtnCancel.Name       , fmEdit  );
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'PAIS';
    PrepararQuery;

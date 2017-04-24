@@ -30,6 +30,7 @@ type
   protected
     procedure Loaded; override;
   private
+    procedure OpenQuery(AQuery :TIBDataSet; Select :string);
     function GetTestRunning:Boolean;
   public
     procedure AbrirDataSets;
@@ -47,8 +48,16 @@ var DMControlRef: TDMControlRef;
 
 implementation
 uses System.IOUtils,
-     General, IniFiles, DMConta, DM;
+     IniFiles, DMConta, DM;
 {$R *.DFM}
+
+procedure TDMControlRef.OpenQuery(AQuery :TIBDataSet; Select :string);
+begin
+   AQuery.Close;
+   AQuery.SelectSQL.Clear;
+   AQuery.SelectSQL.Add(Select);
+   AQuery.Open;
+end;
 
 function TDMControlRef.GetTestRunning:Boolean;
 begin
@@ -125,9 +134,9 @@ end;
 
 procedure TDMControlRef.AbrirDataSets;
 begin
-   QueryOpen(QUsuarios, 'SELECT * FROM USUARIOS ORDER BY NOMBRE     ');
-   QueryOpen(QControl , 'SELECT * FROM CONTROL  ORDER BY ID_CONTROL ');
-   QueryOpen(QEmpresas, 'SELECT * FROM EMPRESAS ORDER BY NOMBRE     ');
+   OpenQuery(QUsuarios, 'SELECT * FROM USUARIOS ORDER BY NOMBRE     ');
+   OpenQuery(QControl , 'SELECT * FROM CONTROL  ORDER BY ID_CONTROL ');
+   OpenQuery(QEmpresas, 'SELECT * FROM EMPRESAS ORDER BY NOMBRE     ');
 end;
 
 procedure TDMControlRef.CerrarDataSets;

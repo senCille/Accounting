@@ -82,13 +82,15 @@ type
 var WEmpresas: TWEmpresas;
 
 implementation
-uses DM, DMConta, DMControl, General, Globales, UEspere, UUtilEmpresas;
+
+uses DM, DMConta, DMControl, Tools, Globales, UEspere, UUtilEmpresas;
+
 {$R *.DFM}
 
 procedure TWEmpresas.FormCreate(Sender: TObject);
 begin
    lDuplicado := False;
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
    CrearFiltro;
    FCampoOrden := 'NOMBRE';
    PrepararQuery;

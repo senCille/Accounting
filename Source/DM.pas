@@ -231,6 +231,7 @@ type
   protected
     procedure Loaded; override;
   private
+    procedure OpenQuery(AQuery :TIBDataSet; Select :string);
   public
     procedure AbrirDataSets;
     procedure CerrarDataSets;
@@ -248,8 +249,17 @@ var DMRef: TDMRef;
 
 implementation
 
-uses General, DMControl;
+uses DMControl;
+
 {$R *.DFM}
+
+procedure TDMRef.OpenQuery(AQuery :TIBDataSet; Select :string);
+begin
+   AQuery.Close;
+   AQuery.SelectSQL.Clear;
+   AQuery.SelectSQL.Add(Select);
+   AQuery.Open;
+end;
 
 function TDMRef.CreateQuery(const prmSQL :array of string):TIBQuery;
 var Query :TIBQuery;
@@ -292,27 +302,27 @@ end;
 
 procedure TDMRef.AbrirDataSets;
 begin
-   QueryOpen(QParametros, 'SELECT * FROM PARAMETROS ORDER BY ID_PARAMETROS DESC');
+   OpenQuery(QParametros, 'SELECT * FROM PARAMETROS ORDER BY ID_PARAMETROS DESC');
 
-   QueryOpen(QPaisNom, 'SELECT * FROM PAISES ORDER BY NOMBRE');
+   OpenQuery(QPaisNom, 'SELECT * FROM PAISES ORDER BY NOMBRE');
 
-   QueryOpen(QProvinciasNom  , 'SELECT * FROM PROVINCIAS   ORDER BY NOMBRE         ');
-   QueryOpen(QSeccionNom     , 'SELECT * FROM SECCION      ORDER BY ID_SECCION     ');
-   QueryOpen(QSeccionNom     , 'SELECT * FROM SECCION      ORDER BY NOMBRE         ');
-   QueryOpen(QProyecto       , 'SELECT * FROM PROYECTO     ORDER BY ID_PROYECTO    ');
-   QueryOpen(QProyectoNom    , 'SELECT * FROM PROYECTO     ORDER BY NOMBRE         ');
-   QueryOpen(QDepartamento   , 'SELECT * FROM DEPARTAMENTO ORDER BY ID_DEPARTAMENTO');
-   QueryOpen(QDepartamentoNom, 'SELECT * FROM DEPARTAMENTO ORDER BY NOMBRE         ');
-   QueryOpen(QDelegacion     , 'SELECT * FROM DELEGACION   ORDER BY ID_DELEGACION  ');
-   QueryOpen(QDelegacionNom  , 'SELECT * FROM DELEGACION   ORDER BY NOMBRE         ');
-   QueryOpen(QAnaliticas     , 'SELECT * FROM ANALITICAS   ORDER BY CUENTA         ');
-   QueryOpen(QAnaliticasNom  , 'SELECT * FROM ANALITICAS   ORDER BY NOMBRE         ');
-   QueryOpen(QComercial      , 'SELECT * FROM COMERCIALES  ORDER BY COMERCIAL      ');
-   QueryOpen(QComercialNom   , 'SELECT * FROM COMERCIALES  ORDER BY NOMBRE         ');
-   QueryOpen(QFormaPago      , 'SELECT * FROM FORMAS WHERE OBSOLETO <> "S" ORDER BY FORMAPAGO');
-   QueryOpen(QFormaPagoNom   , 'SELECT * FROM FORMAS WHERE OBSOLETO <> "S" ORDER BY DESCRIBE');
-   QueryOpen(QTipodiario     , 'SELECT * FROM TIPODIARIO   ORDER BY TIPODIARIO     ');
-   QueryOpen(QTipodiarioNom  , 'SELECT * FROM TIPODIARIO   ORDER BY DESCRIPCION    ');
+   OpenQuery(QProvinciasNom  , 'SELECT * FROM PROVINCIAS   ORDER BY NOMBRE         ');
+   OpenQuery(QSeccionNom     , 'SELECT * FROM SECCION      ORDER BY ID_SECCION     ');
+   OpenQuery(QSeccionNom     , 'SELECT * FROM SECCION      ORDER BY NOMBRE         ');
+   OpenQuery(QProyecto       , 'SELECT * FROM PROYECTO     ORDER BY ID_PROYECTO    ');
+   OpenQuery(QProyectoNom    , 'SELECT * FROM PROYECTO     ORDER BY NOMBRE         ');
+   OpenQuery(QDepartamento   , 'SELECT * FROM DEPARTAMENTO ORDER BY ID_DEPARTAMENTO');
+   OpenQuery(QDepartamentoNom, 'SELECT * FROM DEPARTAMENTO ORDER BY NOMBRE         ');
+   OpenQuery(QDelegacion     , 'SELECT * FROM DELEGACION   ORDER BY ID_DELEGACION  ');
+   OpenQuery(QDelegacionNom  , 'SELECT * FROM DELEGACION   ORDER BY NOMBRE         ');
+   OpenQuery(QAnaliticas     , 'SELECT * FROM ANALITICAS   ORDER BY CUENTA         ');
+   OpenQuery(QAnaliticasNom  , 'SELECT * FROM ANALITICAS   ORDER BY NOMBRE         ');
+   OpenQuery(QComercial      , 'SELECT * FROM COMERCIALES  ORDER BY COMERCIAL      ');
+   OpenQuery(QComercialNom   , 'SELECT * FROM COMERCIALES  ORDER BY NOMBRE         ');
+   OpenQuery(QFormaPago      , 'SELECT * FROM FORMAS WHERE OBSOLETO <> "S" ORDER BY FORMAPAGO');
+   OpenQuery(QFormaPagoNom   , 'SELECT * FROM FORMAS WHERE OBSOLETO <> "S" ORDER BY DESCRIBE');
+   OpenQuery(QTipodiario     , 'SELECT * FROM TIPODIARIO   ORDER BY TIPODIARIO     ');
+   OpenQuery(QTipodiarioNom  , 'SELECT * FROM TIPODIARIO   ORDER BY DESCRIPCION    ');
 
    Config.ActiveDS_BUSINESS := DmRef.QParametrosNOMBREFISCAL.AsString;
 end;

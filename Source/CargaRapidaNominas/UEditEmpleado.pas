@@ -52,7 +52,8 @@ var WEditEmpleado: TWEditEmpleado;
 
 implementation
 
-uses DM, General, Globales, UCarteraEfectos, UEspere, Math;
+uses DM, Globales, UCarteraEfectos, UEspere, Math;
+
 {$R *.DFM}
 
 procedure TWEditEmpleado.BtnAcceptClick(Sender: TObject);

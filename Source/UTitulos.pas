@@ -125,14 +125,16 @@ var WTitulos: TWTitulos;
 
 implementation
 
-uses DM, DMControl, General, Globales;
+uses DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWTitulos.FormCreate(Sender: TObject);
 begin
    FormManager := TccFormHandler.Create(Self);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'TITULO';
    PrepararQuery;

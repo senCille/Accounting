@@ -164,7 +164,10 @@ var
 
 implementation
 
-uses Forms, General, UEspere, ccStr, Math, IBX.IBQuery, Dialogs,
+uses System.Math, System.StrUtils,
+     IBX.IBQuery,
+     VCL.Forms, VCL.Dialogs,
+     Tools, UEspere, ccStr,
      Globales, DMControl, DM;
 
 {$R *.dfm}
@@ -263,7 +266,7 @@ begin { Carga de datos en aDecena }
 
    { Conversion a caracter del numero Justificando con 0 a la izquierda }
    cNumero := Trim(FloatToStrF(nEuros,ffFixed,10,2));
-   cNumero := Replicate('0', 18-Length(cNumero)) + cNumero;
+   cNumero := DupeString('0', 18-Length(cNumero)) + cNumero;
 
    { Confección de los grupos }
    for nGrupo:= 1 to 5 do begin
@@ -716,7 +719,7 @@ begin
 
                   DSFichero.indexname := 'NIF';
                   DSFichero.First;
-                  if (empty(QApuntes.FieldByName('nif').AsString)) or
+                  if (IsEmpty(QApuntes.FieldByName('nif').AsString)) or
                      (not DSFichero.FindKey([QApuntes.FieldByName('nif').AsString, QApuntes.FieldByName('TIPOCUENTA').AsString])) then begin
                      DSFichero.Append;
                      DSFichero.Edit;
@@ -813,18 +816,18 @@ begin
             TStrTools.Backchar(Copy(Trim(DmRef.QParametrosTELEFONO.AsString), 1, 9), ' ', 9) +
             // 68-107 (40) Apellidos y Nombre
             TStrTools.BackChar(copy(Trim(DmRef.QParametrosCONTACTO.AsString), 1, 40), ' ', 40) +
-            Replicate(' ', 13) + // 108-120 (13)  Numero justificante de declaracion
+            DupeString(' ', 13) + // 108-120 (13)  Numero justificante de declaracion
             ' ' +  // 121 Declaracion complementaria
             ' ' +  // 122 Declaracion sustitutiva
-            Replicate('0', 13) + // 123-135 (13) Numero de justificante de la declaracion anterior
+            DupeString('0', 13) + // 123-135 (13) Numero de justificante de la declaracion anterior
             '0A';  //  136-137 .. Se pone por defecto Periodo anual
 
          Reg1 := Reg1 + TStrTools.LeadChar(IntToStr(nCompras + nVentas), '0', 9) +
             // 138-146 (9) Numero total de operadores tipo E
             cImporte +  // 147-161 Importe de las operaciones intracomunitarias
-            Replicate('0', 9) +  // 162-170 Numero total de operadores rectificaciones (no se hace)
-            Replicate('0', 15) + // 171-185 Importe de las operaciones rectificaciones (no se hace)
-            Replicate(' ', 65); // 186-250
+            DupeString('0', 9) +  // 162-170 Numero total de operadores rectificaciones (no se hace)
+            DupeString('0', 15) + // 171-185 Importe de las operaciones rectificaciones (no se hace)
+            DupeString(' ', 65); // 186-250
 
          Writeln(F, Reg1);
          if length(Reg1) <> 250 then  begin
@@ -835,7 +838,7 @@ begin
 
          DSFichero.First;
          while not DSFichero.EOF do begin
-            StrPCopy(cTexto, Padr(DSFichero.FieldByName('Descripcion').AsString, 40));
+            StrPCopy(cTexto, TStrTools.Padr(DSFichero.FieldByName('Descripcion').AsString, 40));
             {It's generating the disk file for the model 347}
             {Probably we don't need this functionality, by if yes we shall take into account the line commented.}
             //CharToOEM(cTexto, cDescripcion);
@@ -856,13 +859,13 @@ begin
             // Un Reg2 por cada Operacion declarada
             Reg2 := '2349' + cEjer + TStrTools.LeadChar(Trim(DmRef.QParametrosNIF.AsString), '0', 9) +
                // 9-17 (9)
-               Replicate(' ', 58) + // 18-75 En blanco
+               DupeString(' ', 58) + // 18-75 En blanco
                Copy(Trim(DSFichero.FieldByName('NifEuro').AsString), 1, 2) + // 76-92 (17) Nif Operador comunitario
                TStrTools.Backchar(Trim(Copy(Trim(DSFichero.FieldByName('NifEuro').AsString), 4, 15)), ' ', 15) +
                Copy(cDescripcion, 1, 40) + // 93-132 (40) Razon social operador intracomunitario
                'E' +      // 133 Clave de Operacion
                cImporte + // 134-146 (13) Base Imponible
-               Replicate(' ', 104);// 147-250 Blancos
+               DupeString(' ', 104);// 147-250 Blancos
             Writeln(F, Reg2);
             if length(Reg2) <> 250 then begin
                ShowMessage('Error en longitud Reg2 ' + IntToStr(Length(Reg2)));
@@ -926,12 +929,12 @@ begin
          cImporte := TStrTools.LeadChar(Copy(cEuro, 1, nPosComa - 1) + TStrTools.BackChar(
             Copy(cEuro, nPosComa + 1, 2), '0', 2), '0', 15);
 
-         Reg1 := Reg1 + 'D' + Replicate(' ', 77) + TStrTools.leadchar(IntToStr(nCompras + nVentas), '0', 9) +
+         Reg1 := Reg1 + 'D' + DupeString(' ', 77) + TStrTools.leadchar(IntToStr(nCompras + nVentas), '0', 9) +
             // 136-144 (9) t. op.compras y ventas
             cImporte + // 145-159 (15) t.imp.compras  y ventas
             TStrTools.leadchar('', '0', 9) + // 160-168 (9)  t.inmuebles
             TStrTools.leadchar('', '0', 15) + // 169-183 (15) t.imp.inmuebles
-            Replicate(' ', 67); // Resto de valores no utilizados
+            DupeString(' ', 67); // Resto de valores no utilizados
 
          Writeln(F, Reg1);
          if length(Reg1) <> 250 then  begin
@@ -954,7 +957,7 @@ begin
             end;
 
             cLocal := ' ';
-            if not Empty(DSFichero.FieldByName('arrendador').AsString) then begin
+            if not IsEmpty(DSFichero.FieldByName('arrendador').AsString) then begin
                cLocal := 'X';
             end;
 
@@ -980,13 +983,13 @@ begin
                   Copy(cEuro, nPosComa + 1, 2), '0', 2), '0', 15);
             end;
 
-            StrPCopy(cTexto, Padr(DSFichero.FieldByName('Descripcion').AsString, 40));
+            StrPCopy(cTexto, TStrTools.Padr(DSFichero.FieldByName('Descripcion').AsString, 40));
             {It's generating the disk file for the model 347}
             {Probably we don't need this functionality, by if yes we shall take into account the line commented.}
             //CharToOEM(cTexto, cDescripcion);
 
             Reg2 := Reg2 + TStrTools.leadchar(Trim(DSFichero.FieldByName('Nif').AsString), '0', 9) + // 18-26 (9)
-               Replicate(' ', 9) + // 27-35 (9)
+               DupeString(' ', 9) + // 27-35 (9)
                copy(cDescripcion, 1, 40) + // 36-75 (40)
                'D'; // 76
 
@@ -1003,7 +1006,7 @@ begin
                          // 96-97 (2) importe de la operacion, parte decimal
                ' ' +     // (98) operacion de seguro
                cLocal +  // (99) arrendamiento local negocio
-               Replicate(' ', 151); // (100-250) blancos
+               DupeString(' ', 151); // (100-250) blancos
 
             Writeln(F, Reg2);
             if length(Reg2) <> 250 then begin

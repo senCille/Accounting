@@ -1,8 +1,8 @@
 object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
   Left = 958
   Top = 202
-  Width = 539
-  Height = 461
+  ClientHeight = 422
+  ClientWidth = 523
   Color = 14275008
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
   object GroupBox3: TGroupBox
     Left = 0
     Top = 38
-    Width = 531
-    Height = 348
+    Width = 523
+    Height = 343
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
@@ -30,6 +30,8 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 531
+    ExplicitHeight = 348
     object GroupBox4: TGroupBox
       Left = 11
       Top = 255
@@ -388,14 +390,16 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
   end
   object Panel1: TPanel
     Left = 0
-    Top = 386
-    Width = 531
+    Top = 381
+    Width = 523
     Height = 41
     Align = alBottom
     Color = 14275008
     TabOrder = 1
+    ExplicitTop = 386
+    ExplicitWidth = 531
     DesignSize = (
-      531
+      523
       41)
     object BtnProcess: TButton
       Left = 374
@@ -418,11 +422,12 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 531
+    Width = 523
     Height = 38
     Align = alTop
     Color = 14275008
     TabOrder = 2
+    ExplicitWidth = 531
     object lTitulo: TLabel
       Left = 8
       Top = 4

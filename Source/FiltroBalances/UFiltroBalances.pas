@@ -87,7 +87,10 @@ type
 var WFiltroBalances: TWFiltroBalances;
 
 implementation
-uses DM, DMConta, DMControl, General, Globales;
+
+uses System.StrUtils,
+     DM, DMConta, DMControl, Globales;
+
 {$R *.DFM}
 
 procedure TWFiltroBalances.FormCreate(Sender: TObject);
@@ -104,7 +107,7 @@ begin
    CDSFiltro.Append;
 
    DmContaRef.ObtenerFiltrosDiario(nPrimerAsiento, nUltimoAsiento, dPrimeraFecha, dUltimaFecha);
-   CDSFiltroSUBCUENTA_HASTA.AsString := REPLICATE('9', 10);
+   CDSFiltroSUBCUENTA_HASTA.AsString := DupeString('9', 10);
    CDSFiltroFECHA_DESDE.AsDateTime   := dPrimeraFecha;
    CDSFiltroFECHA_HASTA.AsDateTime   := dUltimaFecha;
    CDSFiltroTIPO_CONCEPTO.AsString   := 'T';
@@ -191,7 +194,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(CDSFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
 
    Empresas := TStringList.Create;
    Empresas.Clear;

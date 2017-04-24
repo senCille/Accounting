@@ -29,7 +29,8 @@ var WActualizacionBD: TWActualizacionBD;
 
 implementation
 
-uses General, Globales, UUTilEmpresas;
+uses Globales, UUTilEmpresas;
+
 {$R *.DFM}
 
 procedure TWActualizacionBD.MostrarActualizacionActual;

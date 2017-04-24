@@ -82,7 +82,9 @@ type
 var WFormasPago: TWFormasPago;
 
 implementation
-uses DM, DMConta, DMControl, General, Globales;
+
+uses DM, DMConta, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWFormasPago.FormCreate(Sender: TObject);
@@ -107,7 +109,7 @@ begin
    FormManager.AddComp(DBNavigator.Name           , fmBrowse);
    FormManager.AddComp(DataGrid.Name              , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
    CrearFiltro;
    FCampoOrden := 'FORMAPAGO';
    PrepararQuery;
@@ -376,8 +378,11 @@ end;
 
 procedure TWFormasPago.RefrescarBD;
 begin
-   QueryRefresh(DMRef.QFormaPago);
-   QueryRefresh(DMRef.QFormaPagoNom);
+   DMRef.QFormaPago.Close;
+   DMRef.QFormaPagoNom.Close;
+
+   DMRef.QFormaPago.Open;
+   DMRef.QFormaPagoNom.Open;
 end;
 
 procedure TWFormasPago.QFicheroNewRecord(DataSet: TDataSet);

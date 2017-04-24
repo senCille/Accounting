@@ -2414,7 +2414,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Width = 64.781144200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2662,7 +2662,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Width = 106.004477910000000000
           Height = 13.999379120000000000
           DataField = 'NIF'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2678,7 +2678,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Width = 72.000046500000000000
           Height = 13.999379120000000000
           DataField = 'Subcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2694,7 +2694,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Width = 293.000504190000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2709,7 +2709,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Left = 569.000682440000000000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2728,7 +2728,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Left = 671.002638080000000000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2748,7 +2748,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Width = 51.004757350000000000
           Height = 13.999379120000000000
           DataField = 'Provincia'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2778,7 +2778,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Top = 6.999689560000008000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2798,7 +2798,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Top = 6.999689560000008000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2845,7 +2845,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Top = 10.998432299999990000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2865,7 +2865,7 @@ object DataModuleFiltro347: TDataModuleFiltro347
           Top = 10.998432299999990000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleBalExplotacion.FRXEnlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric

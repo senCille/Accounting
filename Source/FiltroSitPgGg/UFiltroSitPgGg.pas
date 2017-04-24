@@ -69,7 +69,7 @@ var WFiltroSitPgGg: TWFiltroSitPgGg;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales, DateUtils;
+uses DM, DMConta, DMControl, Globales, DateUtils;
 {$R *.DFM}
 
 procedure TWFiltroSitPgGg.FormCreate(Sender: TObject);
@@ -159,7 +159,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(CDSFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
 
    Empresas := TStringList.Create;
    try

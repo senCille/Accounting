@@ -531,7 +531,7 @@ var WSubCuentas: TWSubCuentas;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales, UCargaAsiento, UCargaRapidaNominas,
+uses DM, DMConta, DMControl, Tools, Globales, UCargaAsiento, UCargaRapidaNominas,
      Math;
 
 {$R *.DFM}
@@ -1405,7 +1405,7 @@ begin
             Q.SQL.Clear;
             // Ahora se borra la subcuenta de retencion ventas
             Q.Close;
-            if not Empty(SubctaRet) then   begin
+            if not IsEmpty(SubctaRet) then   begin
                Q.SQL.Add('delete from subctas where subcuenta=:subcuenta');
                Q.ParamByName('subcuenta').AsString := SubctaRet;
                Q.ExecQuery;
@@ -1413,7 +1413,7 @@ begin
             end;
             // Ahora se borra la subcuenta de amortizacion
             Q.Close;
-            if not Empty(Subctaamor) then   begin
+            if not IsEmpty(Subctaamor) then   begin
                Q.SQL.Add('delete from subctas where subcuenta=:subcuenta');
                Q.ParamByName('subcuenta').AsString := SubctaAmor;
                Q.ExecQuery;
@@ -2017,7 +2017,7 @@ var Q : TIBSQL;
 begin
    ComboBoxLIVA.ReadOnly := False;
 
-   if empty(QFicheroSubcuenta.AsString) then begin
+   if IsEmpty(QFicheroSubcuenta.AsString) then begin
       ComboBoxLIVA.ReadOnly := True;
       EditSUBCUENTA.SetFocus;
       Exit;
@@ -2054,7 +2054,7 @@ begin
    (*if QFicheroPAIS.AsString = 'ES' then  begin
       if QFichero.State in dsEditModes then   begin
          NIF := QFicheroNIF.AsString;
-         if Empty(NIF) then   begin
+         if IsEmpty(NIF) then   begin
             Exit;
          end;
          if NIF[1] in ['A'..'Z'] then   begin
@@ -2155,7 +2155,7 @@ begin
 
       ComboBoxLIVA.ReadOnly := False;
 
-      if Empty(QFicheroSubcuenta.AsString) then begin
+      if IsEmpty(QFicheroSubcuenta.AsString) then begin
          ComboBoxLIVA.ReadOnly := True;
          Exit;
       end;

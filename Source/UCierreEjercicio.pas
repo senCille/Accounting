@@ -48,7 +48,8 @@ type
 var WCierreEjercicio: TWCierreEjercicio;
 
 implementation
-uses DM, DMConta, General, Globales, UEspere, Math;
+uses System.Math, System.DateUtils,
+     DM, DMConta, Globales, UEspere;
 {$R *.DFM}
 
 procedure TWCierreEjercicio.ActualizarAcumulados_Cuentas_Subctas;
@@ -395,7 +396,7 @@ var
    ApunteNormal, ApunteEspecial: Integer;
    cEj:          String;
 begin
-   cEj        := IntToStr(Year(FFechaFin) + 1);
+   cEj        := IntToStr(YearOf(FFechaFin) + 1);
    // Inserción de apuntes
    QInsApunte := TIBQuery.Create(nil);
    QInsApunte.Database := DMRef.BDContab;
@@ -718,7 +719,7 @@ begin
       Q.Close;
       Q.SQL.Clear;
       Q.SQL.Add('EXECUTE PROCEDURE RECALCULOSALDOS (:EJERCICIO)');
-      Q.Params.ByName('EJERCICIO').AsInteger := Year(Date);
+      Q.Params.ByName('EJERCICIO').AsInteger := YearOf(Date);
       Q.ExecQuery;
       Q.Transaction.CommitRetaining;
 
@@ -751,8 +752,8 @@ begin
       Q.SQL.Add('   FECHA_INICIO_EJERCICIO = :FECHAINICIO,');
       Q.SQL.Add('   FECHA_FIN_EJERCICIO = :FECHAFIN       ');
       Q.SQL.Add('WHERE ID_PARAMETROS = :ID_PARAMETROS     ');
-      Q.ParamByName('FECHAINICIO').AsDateTime  := StrToDateTime('01/01/' + IntToStr(Year(Date)));
-      Q.ParamByName('FECHAFIN').AsDateTime     := StrToDateTime('31/12/' + IntToStr(Year(Date)));
+      Q.ParamByName('FECHAINICIO').AsDateTime  := StrToDateTime('01/01/' + IntToStr(YearOf(Date)));
+      Q.ParamByName('FECHAFIN').AsDateTime     := StrToDateTime('31/12/' + IntToStr(YearOf(Date)));
       Q.ParamByName('ID_PARAMETROS').AsInteger := DMRef.QParametrosID_PARAMETROS.AsInteger;
       Q.ExecQuery;
       Q.Transaction.CommitRetaining;

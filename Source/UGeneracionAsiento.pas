@@ -54,7 +54,8 @@ var WGeneracionAsiento: TWGeneracionAsiento;
 
 implementation
 
-uses DM, General, Globales, UCarteraEfectos, UEspere;
+uses DM, Globales, UCarteraEfectos, UEspere;
+
 {$R *.DFM}
 
 procedure TWGeneracionAsiento.BtnAcceptClick(Sender: TObject);

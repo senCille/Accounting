@@ -1,8 +1,8 @@
 object WFiltro347: TWFiltro347
   Left = 828
   Top = 241
-  Width = 544
-  Height = 530
+  ClientHeight = 491
+  ClientWidth = 528
   Color = 14275008
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object WFiltro347: TWFiltro347
   object GroupBox1: TGroupBox
     Left = 0
     Top = 36
-    Width = 536
-    Height = 419
+    Width = 528
+    Height = 414
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
@@ -31,6 +31,8 @@ object WFiltro347: TWFiltro347
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 536
+    ExplicitHeight = 419
     object GroupBox4: TGroupBox
       Left = 11
       Top = 334
@@ -453,14 +455,16 @@ object WFiltro347: TWFiltro347
   end
   object Panel1: TPanel
     Left = 0
-    Top = 455
-    Width = 536
+    Top = 450
+    Width = 528
     Height = 41
     Align = alBottom
     Color = 14275008
     TabOrder = 1
+    ExplicitTop = 455
+    ExplicitWidth = 536
     DesignSize = (
-      536
+      528
       41)
     object BtnAccept: TButton
       Left = 365
@@ -483,11 +487,12 @@ object WFiltro347: TWFiltro347
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 536
+    Width = 528
     Height = 36
     Align = alTop
     Color = 14275008
     TabOrder = 2
+    ExplicitWidth = 536
     object lTitulo: TLabel
       Left = 8
       Top = 6

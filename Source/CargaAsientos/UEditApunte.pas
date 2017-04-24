@@ -78,8 +78,9 @@ var WEditApunte: TWEditApunte;
 
 implementation
 
-uses DM, General, Globales, UCarteraEfectos, UEspere, Math,
+uses DM, Globales, UCarteraEfectos, UEspere, Math,
   DMConta, UDetalleIVA, UNuevaSubcuenta;
+
 {$R *.DFM}
 
 procedure TWEditApunte.BtnAcceptClick(Sender: TObject);

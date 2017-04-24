@@ -70,7 +70,8 @@ var WDepartamentos: TWDepartamentos;
 
 implementation
 
-uses DM, DMControl, General, Globales;
+uses DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWDepartamentos.FormCreate(Sender: TObject);
@@ -92,7 +93,8 @@ begin
    FormManager.AddComp(EditCodigo.Name , fmEdit  );
    FormManager.AddComp(EditNombre.Name , fmEdit  );
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'ID_DEPARTAMENTO';
    PrepararQuery;
@@ -153,8 +155,11 @@ end;
 
 procedure TWDepartamentos.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QDepartamento);
-   QueryRefresh(DmRef.QDepartamentoNom);
+   DMRef.QDepartamento.Close;
+   DMRef.QDepartamentoNom.Close;
+
+   DMRef.QDepartamento.Open;
+   DMRef.QDepartamentoNom.Open;
 end;
 
 procedure TWDepartamentos.BtnAppendClick(Sender: TObject);

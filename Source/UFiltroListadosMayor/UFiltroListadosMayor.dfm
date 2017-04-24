@@ -1,8 +1,8 @@
 object WFiltroListadosMayor: TWFiltroListadosMayor
   Left = 747
   Top = 383
-  Width = 543
-  Height = 562
+  ClientHeight = 523
+  ClientWidth = 527
   Color = 14275008
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,11 +20,12 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 535
+    Width = 527
     Height = 38
     Align = alTop
     Color = 14275008
     TabOrder = 0
+    ExplicitWidth = 535
     object lTitulo: TLabel
       Left = 7
       Top = 7
@@ -50,20 +51,26 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
   object PageControl: TPageControl
     Left = 0
     Top = 38
-    Width = 535
-    Height = 490
+    Width = 527
+    Height = 485
     ActivePage = TabSheetResults
     Align = alClient
     Style = tsFlatButtons
     TabOrder = 1
     OnChanging = PageControlChanging
+    ExplicitWidth = 535
+    ExplicitHeight = 490
     object TabSheetQuery: TTabSheet
       Caption = 'Datos para la Consulta'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox3: TGroupBox
         Left = 0
         Top = 0
-        Width = 527
-        Height = 418
+        Width = 519
+        Height = 413
         Align = alClient
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
@@ -72,6 +79,8 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Font.Style = [fsBold]
         ParentFont = False
         TabOrder = 0
+        ExplicitWidth = 527
+        ExplicitHeight = 418
         object GroupBox4: TGroupBox
           Left = 11
           Top = 329
@@ -676,14 +685,16 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object Panel2: TPanel
         Left = 0
-        Top = 418
-        Width = 527
+        Top = 413
+        Width = 519
         Height = 41
         Align = alBottom
         Color = 14275008
         TabOrder = 1
+        ExplicitTop = 418
+        ExplicitWidth = 527
         DesignSize = (
-          527
+          519
           41)
         object BtnProcess: TButton
           Left = 377
@@ -707,6 +718,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
     object TabSheetResults: TTabSheet
       Caption = 'Resultado de la Consulta'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel3: TPanel
         Left = 0
         Top = 38
@@ -746,10 +761,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Color = 14275008
         TabOrder = 1
         DesignSize = (
-          527
+          519
           38)
         object Cancelar: TButton
-          Left = 377
+          Left = 361
           Top = 9
           Width = 135
           Height = 24
@@ -764,9 +779,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           ParentFont = False
           TabOrder = 0
           OnClick = CancelarClick
+          ExplicitLeft = 377
         end
         object BtnPrint: TButton
-          Left = 228
+          Left = 212
           Top = 9
           Width = 135
           Height = 24
@@ -781,16 +797,18 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           ParentFont = False
           TabOrder = 1
           OnClick = BtnPrintClick
+          ExplicitLeft = 228
         end
       end
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 527
+        Width = 519
         Height = 38
         Align = alTop
         Color = 14275008
         TabOrder = 2
+        ExplicitWidth = 527
         object Label12: TLabel
           Left = 7
           Top = 7
@@ -843,7 +861,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           item
             Expanded = False
             FieldName = 'DESCRIPCION'
-            Width = 64
             Visible = True
           end>
       end
@@ -871,12 +888,14 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object Panel6: TPanel
         Left = 0
-        Top = 383
-        Width = 527
+        Top = 378
+        Width = 519
         Height = 38
         Align = alBottom
         Color = 14275008
         TabOrder = 5
+        ExplicitTop = 383
+        ExplicitWidth = 527
         object Label13: TLabel
           Left = 7
           Top = 7

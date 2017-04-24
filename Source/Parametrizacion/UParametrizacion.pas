@@ -185,7 +185,8 @@ var WParametrizacion: TWParametrizacion;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales;
+uses DM, DMConta, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWParametrizacion.FormCreate(Sender: TObject);
@@ -193,7 +194,8 @@ begin
    FModel := TParametrizacionModel.Create(DMRef.BDContab);
    Caption := '';
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CDSFiltro.CreateDataSet;
    CDSFiltro.Active := True;
    CDSFiltro.Append;

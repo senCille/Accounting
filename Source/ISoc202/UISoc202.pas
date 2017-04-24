@@ -103,7 +103,8 @@ var WISoc202: TWISoc202;
 
 implementation
 
-uses DM, General, Globales, UEspere, ccStr, Math;
+uses System.Math, System.DateUtils, System.StrUtils,
+     DM, Globales, UEspere, ccStr;
 
 {$R *.DFM}
 
@@ -116,9 +117,9 @@ begin
    QISoc202.Active := True;
    QISoc202.Append;
    QIsoc202FECHA_IMPRESION.AsDateTime := date;
-   QIsoc202EJERCICIO.AsInteger       := Year(date);
-   if (Month(Date) >= 1) and (Month(Date) <=  6) then QIsoc202PERIODO.AsString := '1P' else
-   if (Month(Date) >= 7) and (Month(Date) <= 10) then QIsoc202PERIODO.AsString := '2P'
+   QIsoc202EJERCICIO.AsInteger       := YearOf(Date);
+   if (MonthOf(Date) >= 1) and (MonthOf(Date) <=  6) then QIsoc202PERIODO.AsString := '1P' else
+   if (MonthOf(Date) >= 7) and (MonthOf(Date) <= 10) then QIsoc202PERIODO.AsString := '2P'
    else QIsoc202PERIODO.AsString := '3P';
    QISoc202CCC.AsString := DMRef.QParametrosCCC.AsString;
 end;
@@ -168,7 +169,7 @@ begin
       TStrTools.BackChar(DmRef.QParametrosCODADMON.AsString, '0', 5) +
       TStrTools.LeadChar(Copy(Trim(DmRef.QParametrosNIF.AsString), 1, 9), '0', 9) +
       // Nif de 9 posiciones
-      space(4);             // Letras de la etiqueta
+      DupeString(' ', 4);             // Letras de la etiqueta
       // Si es persona fisica es obligatorio poner el campo de nombre
       // Se pondra una coma para separar el nombre de los apellidos (Formato: Apellidos, Nombre)
    cNombreFiscal := Trim(Uppercase(DmRef.QParametrosNOMBREFISCAL.AsString));
@@ -260,18 +261,18 @@ begin
       // B3) A ingresar [20]
       FormatoImporte(QIsoc202CASILLA_13.AsFloat, 13) +
       // Complementaria. Codigo electronico declaracion anterior.
-      Space(16) +
+      DupeString(' ', 16) +
       // Complementaria. Justificante declaracion anterior
-      Space(13);
+      DupeString(' ', 13);
 
    Registro := Registro +
       // Firma. dia
-      TStrTools.Leadchar(IntToStr(Day(QIsoc202FECHA_IMPRESION.AsDateTime)), '0', 2) +
+      TStrTools.Leadchar(IntToStr(DayOf(QIsoc202FECHA_IMPRESION.AsDateTime)), '0', 2) +
       // Firma. mes
-      TStrTools.BackChar(Uppercase(Trim(CMonth(QIsoc202FECHA_IMPRESION.AsDateTime))),
+      TStrTools.BackChar(Uppercase(Trim(FormatDateTime('mmmm', QIsoc202FECHA_IMPRESION.AsDateTime))),
       ' ', 10) +
       // Firma. año
-      TStrTools.Leadchar(copy(IntToStr(year(QIsoc202FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
+      TStrTools.Leadchar(copy(IntToStr(YearOf(QIsoc202FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
 
    // Ingreso. Forma de pago, efectivo (1)
    // Ingreso. Forma de pago, adeudo en cuenta (1)
@@ -307,13 +308,13 @@ begin
    else begin
       Registro := Registro +
          // Ingreso. CCC Entidad
-         TStrTools.LeadChar(space(4), ' ', 4) +
+         TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
          // Ingreso. CCC Oficina
-         TStrTools.LeadChar(space(4), ' ', 4) +
+         TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
          // Ingreso. CCC DC
-         TStrTools.LeadChar(space(2), ' ', 2) +
+         TStrTools.LeadChar(DupeString(' ', 2), ' ', 2) +
          // Ingreso. CCC Cuenta
-         TStrTools.LeadChar(space(10), ' ', 10);
+         TStrTools.LeadChar(DupeString(' ', 10), ' ', 10);
    end;
 
    Registro := Registro +
@@ -321,7 +322,7 @@ begin
       TStrTools.BackChar(Uppercase(Trim(Copy(DmRef.QParametrosCONTACTO.AsString, 1, 100))),
       ' ', 100) +
       // Telefono de contacto
-      TStrTools.BackChar(space(9), ' ', 9) +
+      TStrTools.BackChar(DupeString(' ', 9), ' ', 9) +
       // Observaciones
       TStrTools.BackChar(Uppercase(QIsoc202OBSERVACIONES.AsString), ' ', 350);
    // Fin de Registro

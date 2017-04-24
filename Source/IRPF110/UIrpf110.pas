@@ -147,7 +147,8 @@ var WIrpf110: TWIrpf110;
 
 implementation
 
-uses DM, General, Globales, UEspere, ccStr, Math;
+uses System.Math, System.DateUtils, System.StrUtils,
+     DM, Globales, UEspere, ccStr;
 
 {$R *.DFM}
 
@@ -162,10 +163,10 @@ begin
    QIrpf110FECHA_IMPRESION.AsDateTime := Date;
    QIrpf110FECHA_DESDE.AsDateTime     := Date;
    QIrpf110FECHA_HASTA.AsDateTime     := Date;
-   QIrpf110EJERCICIO.AsInteger        := Year(date);
-        if (Month(Date) >= 1) and (Month(Date) <= 3) then QIrpf110PERIODO.AsString := '1T'
-   else if (Month(Date) >= 4) and (Month(Date) <= 6) then QIrpf110PERIODO.AsString := '2T'
-   else if (Month(Date) >= 7) and (Month(Date) <= 9) then QIrpf110PERIODO.AsString := '3T'
+   QIrpf110EJERCICIO.AsInteger        := YearOf(Date);
+        if (MonthOf(Date) >= 1) and (MonthOf(Date) <= 3) then QIrpf110PERIODO.AsString := '1T'
+   else if (MonthOf(Date) >= 4) and (MonthOf(Date) <= 6) then QIrpf110PERIODO.AsString := '2T'
+   else if (MonthOf(Date) >= 7) and (MonthOf(Date) <= 9) then QIrpf110PERIODO.AsString := '3T'
    else QIrpf110PERIODO.AsString := '4T';
    QIrpf110CCC.AsString := DMRef.QParametrosCCC.AsString;
 end;
@@ -228,7 +229,7 @@ begin
       TStrTools.BackChar(DmRef.QParametrosCODADMON.AsString, '0', 5) +
       TStrTools.LeadChar(Copy(Trim(DmRef.QParametrosNIF.AsString), 1, 9), '0', 9) +
       // Nif de 9 posiciones
-      space(4);             // Letras de la etiqueta
+      DupeString(' ', 4);             // Letras de la etiqueta
 
    // Si es persona fisica es obligatorio poner el campo de nombre
    // Se pondra una coma para separar el nombre de los apellidos (Formato: Apellidos, Nombre)
@@ -331,7 +332,7 @@ begin
    // Ingreso. Forma de pago, adeudo en cuenta (1)
    if RoundTo(QIrpf110LIQUIDACION_24.AsFloat, -2) < 0 then
    begin
-      Registro := Registro + space(2);
+      Registro := Registro + DupeString(' ', 2);
    end
    else begin
       if GroupBoxFormaPago.ItemIndex = 1 then begin
@@ -356,13 +357,13 @@ begin
    else begin
       Registro := Registro +
          // Ingreso. CCC Entidad
-         TStrTools.LeadChar(space(4), ' ', 4) +
+         TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
          // Ingreso. CCC Oficina
-         TStrTools.LeadChar(space(4), ' ', 4) +
+         TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
          // Ingreso. CCC DC
-         TStrTools.LeadChar(space(2), ' ', 2) +
+         TStrTools.LeadChar(DupeString(' ', 2), ' ', 2) +
          // Ingreso. CCC Cuenta
-         TStrTools.LeadChar(space(10), ' ', 10);
+         TStrTools.LeadChar(DupeString(' ', 10), ' ', 10);
    end;
 
    Registro := Registro +
@@ -374,19 +375,19 @@ begin
       TStrTools.BackChar(Uppercase(Trim(Copy(DmRef.QParametrosCONTACTO.AsString, 1, 100))),
       ' ', 100) +
       // Telefono de contacto
-      TStrTools.BackChar(space(9), ' ', 9) +
+      TStrTools.BackChar(DupeString(' ', 9), ' ', 9) +
       // Observaciones
       TStrTools.BackChar(' ', ' ', 350) +
       // Firma Localidad
       TStrTools.BackChar(Uppercase(Trim(Copy(DmRef.QParametrosPOBLACION.AsString, 1, 16))),
       ' ', 16) +
       // Firma. dia
-      TStrTools.Leadchar(IntToStr(Day(QIrpf110FECHA_IMPRESION.AsDateTime)), '0', 2) +
+      TStrTools.Leadchar(IntToStr(DayOf(QIrpf110FECHA_IMPRESION.AsDateTime)), '0', 2) +
       // Firma. mes
-      TStrTools.BackChar(Uppercase(Trim(CMonth(QIrpf110FECHA_IMPRESION.AsDateTime))),
+      TStrTools.BackChar(Uppercase(Trim(FormatDateTime('mmmm', QIrpf110FECHA_IMPRESION.AsDateTime))),
       ' ', 10) +
       // Firma. año
-      TStrTools.Leadchar(copy(IntToStr(year(QIrpf110FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
+      TStrTools.Leadchar(copy(IntToStr(YearOf(QIrpf110FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
    // Fin de Registro
    // Showmessage(IntToStr(Length(Registro)));
 
@@ -560,16 +561,16 @@ begin
    QIrpf110LIQUIDACION_08.AsFloat := RoundTo(nSumaRendimActiv, -2);
    QIrpf110LIQUIDACION_09.AsFloat := RoundTo(nSumaRetenActiv , -2);
 
-   QIrpf110EJERCICIO.AsInteger := Year(FechaIni);
-   if (month(FechaIni) >= 1) and (month(FechaIni) <= 3) then begin
+   QIrpf110EJERCICIO.AsInteger := YearOf(FechaIni);
+   if (MonthOf(FechaIni) >= 1) and (MonthOf(FechaIni) <= 3) then begin
       QIrpf110PERIODO.AsString := '1T';
    end
    else
-   if (month(FechaIni) >= 4) and (month(FechaIni) <= 6) then begin
+   if (MonthOf(FechaIni) >= 4) and (MonthOf(FechaIni) <= 6) then begin
       QIrpf110periodo.AsString := '2T';
    end
    else
-   if (month(FechaIni) >= 7) and (month(FechaIni) <= 9) then begin
+   if (MonthOf(FechaIni) >= 7) and (MonthOf(FechaIni) <= 9) then begin
       QIrpf110periodo.AsString := '3T';
    end
    else begin

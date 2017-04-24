@@ -208,7 +208,7 @@ var
 
 implementation
 
-uses Forms, comctrls, Controls, Graphics, IBX.IBQuery, General, DM, DMConta, UEspere, ccStr, Math,
+uses Forms, comctrls, Controls, Graphics, IBX.IBQuery, DM, DMConta, UEspere, ccStr, Math,
      Globales, DMControl;
 
 {$R *.dfm}

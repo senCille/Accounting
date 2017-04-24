@@ -75,7 +75,9 @@ type
 var WTraspasoDatos: TWTraspasoDatos;
 
 implementation
-uses DM, DMConta, Globales, DateUtils, General, Math;
+
+uses DM, DMConta, Globales, DateUtils, Tools, Math;
+
 {$R *.DFM}
 
 procedure TWTraspasoDatos.BtnEdtAceptarClick(Sender: TObject);
@@ -846,7 +848,7 @@ begin
          else begin
             cContrapartida := Fichero.FieldByName('Contrapartida').AsString;
          end;
-         if not Empty(cContrapartida) then begin
+         if not IsEmpty(cContrapartida) then begin
             // Verificar que existe la contrapartida
             QAux.Close;
             QAux.sql.Clear;
@@ -969,34 +971,34 @@ begin
          QAux.SQl.Clear;
          QAux.Sql.Add('INSERT INTO AMORTIZA (SUBCUENTA,FCOMPRA,FINICIO,FULTAMOR,');
          QAux.Sql.Add(' FFINAMOR,');
-         if Day(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
+         if DayOf(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
             QAux.Sql.Add(' FBAJA,');
          end;
-         if not Empty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
+         if not IsEmpty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
             QAux.SQL.Add(' CENTROCOSTE,');
          end;
          QAux.Sql.Add(' PERIODO,ANUAL,FACTURA,');
          QAux.Sql.Add(' VCOMPRA,VRESIDUAL,VAMOR,VEJPINICIO,VEJAINICIO,VEJPAMOR,VEJAAMOR,');
          Qaux.Sql.Add(' CLASE) VALUES (:SUBCUENTA,:FCOMPRA,:FINICIO,:FULTAMOR,');
          QAux.Sql.Add(' :FFINAMOR,');
-         if Day(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
+         if DayOf(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
             QAux.SQL.Add(' :FBAJA,');
          end;
-         if not Empty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
+         if not IsEmpty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
             QAux.SQL.Add(' :CENTROCOSTE,');
          end;
          QAux.SQL.Add(' :PERIODO,:ANUAL,:FACTURA,');
          QAux.SQL.Add(' :VCOMPRA,:VRESIDUAL,:VAMOR,:VEJPINICIO,:VEJAINICIO,:VEJPAMOR,:VEJAAMOR,');
          QAux.SQL.Add(' :CLASE)');
          QAux.Params.ByName('SUBCUENTA').AsString := Fichero.FieldByName('SUBCUENTA').AsString;
-         if not Empty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
+         if not IsEmpty(Fichero.FieldByName('CENTROCOSTE').AsString) then begin
             QAux.Params.byname('CENTROCOSTE').AsString := Fichero.FieldByName('CENTROCOSTE').AsString;
          end;
          QAux.Params.ByName('FCOMPRA').AsDateTime  := Fichero.FieldByName('FCOMPRA').AsDateTime;
          QAux.Params.ByName('FINICIO').AsDateTime  := Fichero.FieldByName('FINICIO').AsDateTime;
          QAux.Params.ByName('FULTAMOR').AsDateTime := Fichero.FieldByName('FULTAMOR').AsDateTime;
          QAux.Params.ByName('FFINAMOR').AsDateTime := Fichero.FieldByName('FFINAMOR').AsDateTime;
-         if Day(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
+         if DayOf(Fichero.FieldByName('fbaja').AsDateTime) <> 0 then begin
             QAux.Params.ByName('FBAJA').AsDateTime := Fichero.FieldByName('FBAJA').AsDateTime;
          end;
          QAux.Params.ByName('PERIODO').AsString   := Fichero.FieldByName('PERIODO').AsString;
@@ -1198,7 +1200,7 @@ begin
             end;
          end;
          
-         if (cbDiarioJl.Checked) and (not Empty(Fichero.FieldByName('NumeroFactura').AsString)) and
+         if (cbDiarioJl.Checked) and (not IsEmpty(Fichero.FieldByName('NumeroFactura').AsString)) and
             (Fichero.FieldByName('Fechavto').AsDateTime >= StartOfTheYear(Date)) then begin
             // Solo si es de cliente o proveedor
             QChequeo1.Close;
@@ -1233,7 +1235,7 @@ begin
             end;
          end;
          // Antes de dar de alta verificar si existe el centro de coste
-         if (not cbDos.Checked) and (not Empty(Fichero.FieldByName('centrocoste').AsString)) then begin
+         if (not cbDos.Checked) and (not IsEmpty(Fichero.FieldByName('centrocoste').AsString)) then begin
             QChequeo.Close;
             QChequeo.ParamByName('cuenta').AsString := Fichero.FieldByName('centrocoste').AsString;
             QChequeo.ExecQuery;
@@ -1336,7 +1338,7 @@ begin
             QAuxD.Sql.Clear;
             QAuxD.Sql.Add(' INSERT INTO DIARIO (ID_DIARIO,APUNTE,ASIENTO,BASEIMPONIBLE,');
             QAuxD.Sql.Add(' COMENTARIO,DEBEHABER,FECHA,');
-            if not Empty(Fichero.FieldByName('centrocoste').AsString) then begin
+            if not IsEmpty(Fichero.FieldByName('centrocoste').AsString) then begin
                QAuxD.Sql.Add(' CUENTA_ANALITICA,');
             end;
             QAuxD.SQL.Add(' IMPORTE,IVA,NIF,');
@@ -1350,7 +1352,7 @@ begin
 
             QAuxD.SQL.Add(' VALUES (:ID_DIARIO,:APUNTE,:ASIENTO,:BASEIMPONIBLE,');
             QAuxD.SQL.Add(' :COMENTARIO,:DEBEHABER,:FECHA,');
-            if not Empty(Fichero.FieldByName('centrocoste').AsString) then begin
+            if not IsEmpty(Fichero.FieldByName('centrocoste').AsString) then begin
                QAuxD.SQL.Add(':CUENTA_ANALITICA,');
             end;
             QAuxD.SQL.Add(' :IMPORTE,:IVA,:NIF,');
@@ -1380,7 +1382,7 @@ begin
             QAuxD.ParamByName('BASEIMPONIBLE').AsFloat := RoundTo(Fichero.FieldByName('BASEIMPONIBLE').AsFloat, -2);
             QAuxD.ParamByName('ID_CONCEPTOS').AsString := Fichero.FieldByName('CONCEPTO').AsString;
             QAuxD.ParamByName('SUBCUENTA').AsString    := Fichero.FieldByName('SUBCUENTA').AsString;
-            if not Empty(Fichero.FieldByName('centrocoste').AsString) then begin
+            if not IsEmpty(Fichero.FieldByName('centrocoste').AsString) then begin
                QAuxD.ParamByName('CUENTA_ANALITICA').AsString := Fichero.FieldByName('CENTROCOSTE').AsString;
             end;
             QAuxD.ParamByName('COMENTARIO').AsString     := Fichero.FieldByName('COMENTARIO').AsString;

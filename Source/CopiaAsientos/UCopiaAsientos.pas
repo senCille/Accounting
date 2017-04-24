@@ -56,7 +56,7 @@ var WCopiaAsientos: TWCopiaAsientos;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales, UEspere, ccStr;
+uses DM, DMConta, DMControl, Globales, UEspere, ccStr;
 {$R *.DFM}
 
 procedure TWCopiaAsientos.FormCreate(Sender: TObject);

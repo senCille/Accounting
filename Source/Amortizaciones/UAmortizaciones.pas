@@ -63,7 +63,7 @@ var WAmortizaciones: TWAmortizaciones;
 
 implementation
 
-uses DM, DMConta, General, Globales, UEspere, ccStr, Math;
+uses DM, DMConta, Globales, UEspere, ccStr, Math;
 
 {$R *.DFM}
 

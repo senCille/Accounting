@@ -71,7 +71,8 @@ var WSecciones: TWSecciones;
 
 implementation
 
-uses DM, DMControl, General, Globales;
+uses DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWSecciones.FormCreate(Sender: TObject);
@@ -92,7 +93,8 @@ begin
    FormManager.AddComp(Navigator.Name             , fmBrowse);
    FormManager.AddComp(DataGrid.Name              , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'ID_SECCION';
    PrepararQuery;
@@ -153,8 +155,11 @@ end;
 
 procedure TWSecciones.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QSeccion);
-   QueryRefresh(DmRef.QSeccionNom);
+   DMRef.QSeccion.Close;
+   DMRef.QSeccionNom.Close;
+
+   DMRef.QSeccion.Open;
+   DMRef.QSeccionNom.Open;
 end;
 
 procedure TWSecciones.FormKeyPress(Sender: TObject; var Key: Char);

@@ -195,7 +195,7 @@ var WCargaRapidaFacturas: TWCargaRapidaFacturas;
 
 implementation
 
-uses DM, DMConta, General, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
+uses DM, DMConta, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
      UCargaRapidaNominas, UFiltroMayorSubcuenta, UNuevaSubcuenta, UVencimientos;
 
 {$R *.DFM}
@@ -256,8 +256,7 @@ begin
    {-----------------------------------}
 
 
-   ActivarTransacciones(Self);
-
+   ActivateTransactions(Self, DMRef.BDContab);
 
    // Búsqueda subcuenta
    {$Message Warn 'Hay que eliminar esta funcionalidad. Quitando la opcion en Parámetros y luego en los forms afectados'}
@@ -606,7 +605,7 @@ begin
    end;
 
    // Verificar numero de factura.
-   if Empty(QFicheroNUMEROFACTURA.AsString) then begin
+   if IsEmpty(QFicheroNUMEROFACTURA.AsString) then begin
       if MessageDlg('No ha indicado número de factura ¿Confirma?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then begin
          EditNUMEROFACTURA.SetFocus;
          Exit;
@@ -644,7 +643,7 @@ begin
    end;
 
    // Verificar subcuenta no este vacia
-   if Empty(QFicheroSUBCUENTA.AsString) then begin
+   if IsEmpty(QFicheroSUBCUENTA.AsString) then begin
       ComboBoxCD_SUBCUENTA.SetFocus;
       (*if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then begin
          dblSubcuentaN.SetFocus;
@@ -682,7 +681,7 @@ begin
       QSubcuentas.ParamByName('subcuenta').AsString := QFicheroSUBCUENTA.AsString;
       QSubcuentas.ExecQuery;
       cSubCtaRetVenta := QSubcuentas.FieldByName('SubctaRet').AsString;
-      if empty(QSubcuentas.FieldByName('SubctaRet').AsString) then begin
+      if IsEmpty(QSubcuentas.FieldByName('SubctaRet').AsString) then begin
          DatabaseError('No tiene subcuenta de retención en el cliente seleccionado en esta factura.');
       end;
    end;
@@ -696,7 +695,7 @@ begin
 
    // Chequeos
    if CheckBoxRealizarPago.Checked then  begin
-      if Empty(QFicheroBANCO.AsString) then begin
+      if IsEmpty(QFicheroBANCO.AsString) then begin
          ComboBoxCD_SUBCUENTA_BANCO.SetFocus;
          (*if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then begin
             dblBancoN.SetFocus;
@@ -711,7 +710,7 @@ begin
          EditFECHAVTO.SetFocus;
          DatabaseError('Fecha de Cobro / Pago no válida.');
       end;
-      if Empty(QFicheroCTOBANCO.AsString) then begin
+      if IsEmpty(QFicheroCTOBANCO.AsString) then begin
          ComboCD_CONCEPTO_BANCO.SetFocus;
          DatabaseError('El Concepto Banco / Caja seleccionado no puede estar vacío.');
       end;
@@ -720,7 +719,7 @@ begin
    // Generacion del asiento
    nAsiento        := DMContaRef.ObtenerNumeroAsiento;
    nAsientoFactura := nAsiento;
-   lCondAnalitica  := not Empty(QFicheroANALITICA.AsString);
+   lCondAnalitica  := not IsEmpty(QFicheroANALITICA.AsString);
 
    QDiario := TIBSql.Create(nil);
    QDiario.Database := DMRef.BDContab;
@@ -818,7 +817,7 @@ begin
    end;
 
    cComentario := Copy(QSubcuentas.FieldByName('descripcion').AsString, 1, 40);
-   if empty(QFicheroCOMENTARIO.AsString) then begin
+   if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
       QDiario.parambyname('comentario').AsString := cComentario;
    end
    else begin
@@ -955,7 +954,7 @@ begin
             QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
          end;
 
-         if empty(QFicheroCOMENTARIO.AsString) then begin
+         if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
             QDiario.parambyname('comentario').AsString := cComentario;
          end
          else begin
@@ -1110,7 +1109,7 @@ begin
 
             QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
-            if Empty(QFicheroCOMENTARIO.AsString) then begin
+            if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
                QDiario.parambyname('comentario').AsString := cComentario;
             end
             else begin
@@ -1173,7 +1172,7 @@ begin
             QDiario.parambyname('Contrapartida').AsString := QFicheroSUBCUENTA.AsString;
             QDiario.parambyname('Importe').AsFloat := RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat, -3);
             QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
-            if Empty(QFicheroCOMENTARIO.AsString) then begin
+            if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
                QDiario.parambyname('comentario').AsString := cComentario;
             end
             else begin
@@ -1295,7 +1294,7 @@ begin
 
       QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
-      if Empty(QFicheroCOMENTARIO.AsString) then begin
+      if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          QDiario.parambyname('comentario').AsString := cComentario;
       end
       else begin
@@ -1382,7 +1381,7 @@ begin
 
       QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
-      if Empty(QFicheroCOMENTARIO.AsString) then begin
+      if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          QDiario.parambyname('comentario').AsString := cComentario;
       end
       else begin
@@ -1503,7 +1502,7 @@ begin
 
       QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
-      if Empty(QFicheroCOMENTARIO.AsString) then begin
+      if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          QDiario.parambyname('comentario').AsString := cComentario;
       end
       else begin
@@ -1561,7 +1560,7 @@ begin
       QDiario.parambyname('importe').AsFloat := RoundTo(QFicheroIMPORTE.AsFloat, -3);
       QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
-      if not Empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          QDiario.parambyname('comentario').AsString := QFicheroCOMENTARIO.AsString;
       end
       else begin
@@ -1615,7 +1614,7 @@ begin
       QDiario.parambyname('Fecha').AsDateTime := QFicheroFECHAVTO.AsDateTime;
       QDiario.parambyname('importe').AsFloat := RoundTo(QFicheroIMPORTE.AsFloat, -3);
       QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          QDiario.parambyname('comentario').AsString := QFicheroCOMENTARIO.AsString;
       end
       else begin
@@ -1753,7 +1752,7 @@ procedure TWCargaRapidaFacturas.EditNIFExit(Sender: TObject);
 begin
    (*ComboCD_CONCEPTO.SetFocus;
    cNif := QFicheroNIF.AsString;
-   if empty(cNif) then begin
+   if IsEmpty(cNif) then begin
       exit;
    end;
    if cNif[1] in ['A'..'Z'] then begin
@@ -2180,7 +2179,7 @@ begin
       // Primero vaciar el fichero
       DMContaRef.QInformesConta.EmptyDataset;
 
-      PonerTipoConta('T');
+      Config.SetAccountingType('T');
       LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);
       try
          LMayorModel.LanzarInfMayor(True,

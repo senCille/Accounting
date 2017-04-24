@@ -210,7 +210,7 @@ var WCargaAsiento: TWCargaAsiento;
 
 implementation
 
-uses DM, DMConta, General, UFiltroListadosMayorModel, UEspere, UNuevaSubcuenta,
+uses DM, DMConta, Tools, UFiltroListadosMayorModel, UEspere, UNuevaSubcuenta,
      UFiltroLibroFacturasEmitidas, Math;
 {$R *.DFM}
 
@@ -255,7 +255,7 @@ begin
    FormManager.AddComp(ComboBoxSeccion.Name               , fmEdit  );
    FormManager.AddComp(ComboBoxProyecto.Name              , fmEdit  );
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    {----------------------------------------------------------------------------------------------------------}
    QDiarioIMPORTE.DisplayFormat       := '###,###,##0.#0';
@@ -699,7 +699,7 @@ begin
    Screen.Cursor := crHourGlass;
    try
       while not QDiario.EOF do begin
-         if (Empty(QDiarioSUBCUENTA.AsString)) then begin
+         if (IsEmpty(QDiarioSUBCUENTA.AsString)) then begin
             DatabaseError('No se puede dejar la subcuenta en blanco.');
          end else
          if QDiarioID_CONCEPTOS.AsString = '' then begin
@@ -875,7 +875,7 @@ begin
 
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(QFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(QFiltroTIPO_CONCEPTO.AsString);
    Config.FormatoOficial := False;
    Config.ReportCurrency := 'E';
 

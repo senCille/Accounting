@@ -1,8 +1,8 @@
 object WFiltroListadosAsientos: TWFiltroListadosAsientos
   Left = 950
   Top = 353
-  Width = 530
-  Height = 505
+  ClientHeight = 466
+  ClientWidth = 514
   Color = 14275008
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object WFiltroListadosAsientos: TWFiltroListadosAsientos
   object GroupBox1: TGroupBox
     Left = 0
     Top = 36
-    Width = 522
-    Height = 394
+    Width = 514
+    Height = 389
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
@@ -31,6 +31,8 @@ object WFiltroListadosAsientos: TWFiltroListadosAsientos
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 522
+    ExplicitHeight = 394
     object GroupBox2: TGroupBox
       Left = 14
       Top = 8
@@ -473,11 +475,12 @@ object WFiltroListadosAsientos: TWFiltroListadosAsientos
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 522
+    Width = 514
     Height = 36
     Align = alTop
     Color = 14275008
     TabOrder = 1
+    ExplicitWidth = 522
     object lTitulo: TLabel
       Left = 7
       Top = 5
@@ -502,14 +505,16 @@ object WFiltroListadosAsientos: TWFiltroListadosAsientos
   end
   object Panel2: TPanel
     Left = 0
-    Top = 430
-    Width = 522
+    Top = 425
+    Width = 514
     Height = 41
     Align = alBottom
     Color = 14275008
     TabOrder = 2
+    ExplicitTop = 430
+    ExplicitWidth = 522
     DesignSize = (
-      522
+      514
       41)
     object BtnProcess: TButton
       Left = 344

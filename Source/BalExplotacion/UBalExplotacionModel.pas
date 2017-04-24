@@ -126,8 +126,10 @@ var
 
 implementation
 
-uses Forms, Globales, DMControl, UEspere, General, Math, Variants,
-     IBX.IBQuery, DM;
+uses System.Math, System.Variants, System.DateUtils, System.StrUtils,
+     VCL.Forms,
+     IBX.IBQuery,
+     DM, DMControl, Globales, UEspere;
 
 {$R *.dfm}
 
@@ -230,11 +232,11 @@ begin
       FechaInicial   := AFechaDesde;
       FechaFinal     := AFechaHasta;
       FechaImpresion := AFechaImprimir;
-      PonerTipoConta(ATipoConcepto);
+      Config.SetAccountingType(ATipoConcepto);
       Config.ReportCurrency := 'E';
 
-      nMesIni := Month(AFechaDesde);
-      nMesFin := Month(AFechaHasta);
+      nMesIni := MonthOf(AFechaDesde);
+      nMesFin := MonthOf(AFechaHasta);
 
       // Siempre compara con concepto normal que son los que se ponen al cierre
       if AConSaldosEjAnt then ATipoConcepto := 'N';
@@ -350,8 +352,8 @@ begin
       QDiario.Close;
       QDiario.Database    := AConnection;
       //QDiario.Transaction := AConnection.DefaultTransaction; {DmRef.BDContab.DefaultTransaction;}
-      QDiario.ParamByName('SUBCUENTA1').AsString   := '7' + Replicate('0', Config.MaxLengthAccounts - 1);
-      QDiario.ParamByName('SUBCUENTA2').AsString   := '7' + Replicate('9', Config.MaxLengthAccounts - 1);
+      QDiario.ParamByName('SUBCUENTA1').AsString   := '7' + DupeString('0', Config.MaxLengthAccounts - 1);
+      QDiario.ParamByName('SUBCUENTA2').AsString   := '7' + DupeString('9', Config.MaxLengthAccounts - 1);
       QDiario.ParamByName('FECHA1'    ).AsDateTime := AFechaDesde;
       QDiario.ParamByName('FECHA2'    ).AsDateTime := AFechaHasta;
       QDiario.Open;
@@ -551,8 +553,8 @@ begin
          QDiario.Close;
          QDiario.Database    := AConsolida; {DmRef.IBDConsolida;}
          //QDiario.Transaction := AConsolida.DefaultTransaction;  {DmRef.IBDConsolida.DefaultTransaction;}
-         QDiario.ParamByName('Subcuenta1').AsString := '7' + Replicate('0', Config.MaxLengthAccounts - 1);
-         QDiario.ParamByName('Subcuenta2').AsString := '7' + Replicate('9', Config.MaxLengthAccounts - 1);
+         QDiario.ParamByName('Subcuenta1').AsString := '7' + DupeString('0', Config.MaxLengthAccounts - 1);
+         QDiario.ParamByName('Subcuenta2').AsString := '7' + DupeString('9', Config.MaxLengthAccounts - 1);
          QDiario.ParamByName('Fecha1').AsDateTime := AFechaDesde;
          QDiario.ParamByName('Fecha2').AsDateTime := AFechaHasta;
          QDiario.Open;
@@ -674,8 +676,8 @@ begin
       QDiario.Close;
       QDiario.Database    := AConnection;
       //QDiario.Transaction := AConnection.DefaultTransaction; { DMRef.BDContab.DefaultTransaction;}
-      QDiario.ParamByName('Subcuenta1').AsString := '6' + Replicate('0', Config.MaxLengthAccounts - 1);
-      QDiario.ParamByName('Subcuenta2').AsString := '6' + Replicate('9', Config.MaxLengthAccounts - 1);
+      QDiario.ParamByName('Subcuenta1').AsString := '6' + DupeString('0', Config.MaxLengthAccounts - 1);
+      QDiario.ParamByName('Subcuenta2').AsString := '6' + DupeString('9', Config.MaxLengthAccounts - 1);
       QDiario.ParamByName('Fecha1').AsDateTime := AFechaDesde;
       QDiario.ParamByName('Fecha2').AsDateTime := AFechaHasta;
       QDiario.Open;
@@ -802,8 +804,8 @@ begin
          QDiario.Close;
          QDiario.Database    := AConsolida; {DmRef.IBDConsolida;}
          //QDiario.Transaction := AConsolida.DefaultTransaction;  {DmRef.IBDConsolida.DefaultTransaction;}
-         QDiario.parambyname('Subcuenta1').AsString := '6' + Replicate('0', Config.MaxLengthAccounts - 1);
-         QDiario.parambyname('Subcuenta2').AsString := '6' + Replicate('9', Config.MaxLengthAccounts - 1);
+         QDiario.parambyname('Subcuenta1').AsString := '6' + DupeString('0', Config.MaxLengthAccounts - 1);
+         QDiario.parambyname('Subcuenta2').AsString := '6' + DupeString('9', Config.MaxLengthAccounts - 1);
          QDiario.parambyname('Fecha1').AsDateTime := AFechaDesde;
          QDiario.parambyname('Fecha2').AsDateTime := AFechaHasta;
          QDiario.Open;

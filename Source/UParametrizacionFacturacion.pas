@@ -268,7 +268,8 @@ var WParametrizacionFacturacion: TWParametrizacionFacturacion;
 
 implementation
 
-uses Dialogs, General, Globales, DM, IBX.IBQuery;
+uses Dialogs, Tools, DM, IBX.IBQuery;
+
 {$R *.DFM}
 
 procedure TWParametrizacionFacturacion.BtnNavCerrarClick(Sender: TObject);
@@ -283,7 +284,7 @@ begin
    PageControl2.ActivePage := TabSheetRegimGeneral;
    PageControl1.ActivePage := TabSheetSales;
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    QSubCuentas.Database := DMRef.BDContab;
    QSubCuentas.Open;

@@ -321,8 +321,8 @@ object DataModuleCopiaAsientos: TDataModuleCopiaAsientos
         '   ')
     ParamCheck = True
     UniDirectional = False
-    Left = 107
-    Top = 119
+    Left = 91
+    Top = 183
     object IBStringField1: TIBStringField
       DisplayWidth = 10
       FieldName = 'SUBCUENTA'
@@ -342,8 +342,8 @@ object DataModuleCopiaAsientos: TDataModuleCopiaAsientos
   object SLSubcuentas: TDataSource
     AutoEdit = False
     DataSet = QLSubCuentas
-    Left = 183
-    Top = 119
+    Left = 167
+    Top = 183
   end
   object QEmpresas: TIBDataSet
     Database = DMControlRef.BDControl
@@ -360,8 +360,8 @@ object DataModuleCopiaAsientos: TDataModuleCopiaAsientos
       'WHERE CERRADA = '#39'N'#39)
     ParamCheck = True
     UniDirectional = False
-    Left = 98
-    Top = 28
+    Left = 82
+    Top = 92
     object QEmpresasNOMBRE: TIBStringField
       DisplayWidth = 40
       FieldName = 'NOMBRE'
@@ -398,19 +398,19 @@ object DataModuleCopiaAsientos: TDataModuleCopiaAsientos
   object SEmpresas: TDataSource
     AutoEdit = False
     DataSet = QEmpresas
-    Left = 171
-    Top = 30
+    Left = 155
+    Top = 94
   end
   object DBEmpresa: TIBDatabase
     LoginPrompt = False
     DefaultTransaction = Transaccion
     ServerType = 'IBServer'
-    Left = 424
-    Top = 16
+    Left = 408
+    Top = 80
   end
   object Transaccion: TIBTransaction
     DefaultDatabase = DBEmpresa
-    Left = 488
-    Top = 16
+    Left = 472
+    Top = 80
   end
 end

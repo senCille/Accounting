@@ -28,7 +28,7 @@ var WUtilEmpresas: TWUtilEmpresas;
 
 implementation
 
-uses DM, General, Globales, UActualizacionBD, UEspere;
+uses DM, Globales, UActualizacionBD, UEspere;
 
 {$R *.DFM}
 

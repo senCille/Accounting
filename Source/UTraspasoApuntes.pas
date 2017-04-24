@@ -40,7 +40,9 @@ var WTraspasoApuntes: TWTraspasoApuntes;
 
 implementation
 
-uses General, DM, DMConta, Globales, UNuevaSubcuenta;
+uses System.StrUtils,
+     DM, DMConta, Globales, UNuevaSubcuenta;
+
 {$R *.DFM}
 
 procedure TWTraspasoApuntes.CrearFiltro;
@@ -56,7 +58,7 @@ end;
 
 procedure TWTraspasoApuntes.InicializarFiltro;
 begin
-   CDSFiltro.FieldByName('SubcuentaDestino').AsString := Replicate('9', 10);
+   CDSFiltro.FieldByName('SubcuentaDestino').AsString := DupeString('9', 10);
 end;
 
 procedure TWTraspasoApuntes.TraspasarApuntes;

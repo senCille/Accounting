@@ -60,7 +60,8 @@ var WBorradoDiario: TWBorradoDiario;
 
 implementation
 
-uses General, DM, DMConta, Globales, UEspere, ccStr, Math;
+uses DM, DMConta, Globales, UEspere, ccStr, Math;
+
 {$R *.DFM}
 
 procedure TWBorradoDiario.FormCreate(Sender: TObject);

@@ -71,7 +71,9 @@ type
 var WTiposDiario: TWTiposDiario;
 
 implementation
-uses DM, DMControl, General, Globales;
+
+uses DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWTiposDiario.FormCreate(Sender: TObject);
@@ -92,7 +94,8 @@ begin
    FormManager.AddComp(Navigator.Name             , fmBrowse);
    FormManager.AddComp(DataGrid.Name              , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'TIPODIARIO';
    PrepararQuery;
@@ -153,8 +156,11 @@ end;
 
 procedure TWTiposDiario.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QTipoDiario);
-   QueryRefresh(DmRef.QTipodiarioNom);
+   DMRef.QTipoDiario.Close;
+   DMRef.QTipodiarioNom.Close;
+
+   DMRef.QTipoDiario.Open;
+   DMRef.QTipodiarioNom.Open;
 end;
 
 procedure TWTiposDiario.FormKeyPress(Sender: TObject; var Key: Char);

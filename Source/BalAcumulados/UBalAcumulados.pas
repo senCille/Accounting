@@ -80,7 +80,10 @@ type
 var WBalAcumulados: TWBalAcumulados;
 
 implementation
-uses DM, DMConta, General, Globales, UEspere, ccStr;
+
+uses System.StrUtils,
+     DM, DMConta, Globales, UEspere, ccStr;
+
 {$R *.DFM}
 
 procedure TWBalAcumulados.FormCreate(Sender: TObject);
@@ -106,7 +109,7 @@ begin
    
    QFiltro.Active := True;
    QFiltro.Append;
-   QFiltroSUBCUENTA_HASTA.AsString  := REPLICATE('9', Config.MaxLengthAccounts);
+   QFiltroSUBCUENTA_HASTA.AsString  := DupeString('9', Config.MaxLengthAccounts);
    QFiltroFECHA_DESDE.AsDateTime    := dPrimeraFecha;
    QFiltroFECHA_HASTA.AsDateTime    := dUltimaFecha;
    QFiltroTIPO_CONCEPTO.AsString    := 'T';
@@ -138,7 +141,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(QFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(QFiltroTIPO_CONCEPTO.AsString);
    Config.ReportCurrency := 'E';
 
    if RGAcumulacion.ItemIndex = 0 then  begin

@@ -74,7 +74,9 @@ type
 var WEnlaceContable: TWEnlaceContable;
 
 implementation
-uses DM, DMConta, General, Globales, UEspere, Math, UDiarioModel;
+
+uses DM, DMConta, Globales, UEspere, Math, UDiarioModel;
+
 {$R *.DFM}
 
 procedure TWEnlaceContable.CrearFichero;
@@ -1727,8 +1729,8 @@ var FechaInicial :TDateTime;
     FechaFinal   :TDateTime;
     Model        :TDiarioModel;
 begin
-   // Necesarios para el informe
-   PonerTipoConta('T');
+   // Necessary for the report
+   Config.SetAccountingType('T');
    Config.ReportCurrency := 'E';
    Config.FormatoOficial := False;
 

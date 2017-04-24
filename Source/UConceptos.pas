@@ -93,7 +93,9 @@ type
 var WConceptos: TWConceptos;
 
 implementation
-uses DM, DMConta, DMControl, General, Globales;
+
+uses DM, DMConta, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWConceptos.FormCreate(Sender: TObject);
@@ -122,7 +124,7 @@ begin
    FormManager.AddComp(RadioGroupCLASE.Name         , fmEdit  );
    FormManager.AddComp(CheckBoxOBSOLETO.Name        , fmEdit  );
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    QSubCuentas.Open;
 
@@ -189,8 +191,11 @@ end;
 
 procedure TWConceptos.RefrescarBD;
 begin
-   QueryRefresh(DmContaRef.QConceptos);
-   QueryRefresh(DmContaRef.QConceptosDesc);
+   DMContaRef.QConceptos.Close;
+   DMContaRef.QConceptosDesc.Close;
+
+   DMContaRef.QConceptos.Open;
+   DMContaRef.QConceptosDesc.Open;
 end;
 
 procedure TWConceptos.BtnAppendClick(Sender: TObject);

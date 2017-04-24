@@ -5,7 +5,6 @@ uses
   DM in 'Source\DM.pas' {DMRef: TDataModule},
   DMConta in 'Source\DMConta.pas' {DMContaRef: TDataModule},
   DMControl in 'Source\DMControl.pas' {DMControlRef: TDataModule},
-  General in 'Source\General.pas',
   Globales in 'Source\Globales.pas',
   Login in 'Source\Login.pas' {FormLogin},
   MainMenu in 'Source\MainMenu.pas' {MainMenuForm},

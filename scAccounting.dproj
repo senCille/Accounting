@@ -114,7 +114,6 @@
             <Form>DMControlRef</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Source\General.pas"/>
         <DCCReference Include="Source\Globales.pas"/>
         <DCCReference Include="Source\Login.pas">
             <Form>FormLogin</Form>

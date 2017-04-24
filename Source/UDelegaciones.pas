@@ -70,7 +70,8 @@ var WDelegaciones: TWDelegaciones;
 
 implementation
 
-uses DM, DMControl, General, Globales;
+uses DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWDelegaciones.FormCreate(Sender: TObject);
@@ -92,7 +93,7 @@ begin
    FormManager.AddComp(EditCodigo.Name , fmEdit  );
    FormManager.AddComp(EditNombre.Name , fmEdit  );
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
    CrearFiltro;
    FCampoOrden := 'ID_DELEGACION';
    PrepararQuery;
@@ -155,8 +156,11 @@ end;
 
 procedure TWDelegaciones.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QDelegacion);
-   QueryRefresh(DmRef.QDelegacionNom);
+   DMRef.QDelegacion.Close;
+   DMRef.QDelegacionNom.Close;
+
+   DMRef.QDelegacion.Open;
+   DMRef.QDelegacionNom.Open;
 end;
 
 procedure TWDelegaciones.BtnAppendClick(Sender: TObject);

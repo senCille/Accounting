@@ -71,7 +71,8 @@ var WIrpf115: TWIrpf115;
 
 implementation
 
-uses DM, General, Globales, UEspere, ccStr, Math;
+uses System.Math, System.DateUtils, System.StrUtils,
+     DM, Globales, UEspere, ccStr;
 
 {$R *.DFM}
 
@@ -86,10 +87,10 @@ begin
    QIrpf115FECHA_IMPRESION.AsDateTime := Date;
    QIrpf115FECHA_DESDE.AsDateTime     := Date;
    QIrpf115FECHA_HASTA.AsDateTime     := Date;
-   QIrpf115EJERCICIO.AsInteger        := Year(date);
-        if (Month(Date) >= 1) and (Month(Date) <= 3) then QIrpf115PERIODO.AsString := '1T'
-   else if (Month(Date) >= 4) and (Month(Date) <= 6) then QIrpf115PERIODO.AsString := '2T'
-   else if (Month(Date) >= 7) and (Month(Date) <= 9) then QIrpf115PERIODO.AsString := '3T'
+   QIrpf115EJERCICIO.AsInteger        := YearOf(date);
+        if (MonthOf(Date) >= 1) and (MonthOf(Date) <= 3) then QIrpf115PERIODO.AsString := '1T'
+   else if (MonthOf(Date) >= 4) and (MonthOf(Date) <= 6) then QIrpf115PERIODO.AsString := '2T'
+   else if (MonthOf(Date) >= 7) and (MonthOf(Date) <= 9) then QIrpf115PERIODO.AsString := '3T'
    else QIrpf115PERIODO.AsString := '4T';
 
    QIrpf115CCC.AsString := DMRef.QParametrosCCC.AsString;
@@ -139,7 +140,7 @@ begin
       TStrTools.BackChar(DmRef.QParametrosCODADMON.AsString, '0', 5) +
       TStrTools.LeadChar(Copy(Trim(DmRef.QParametrosNIF.AsString), 1, 9), '0', 9) +
       // Nif de 9 posiciones
-      space(4); // Letras de la etiqueta
+      DupeString(' ', 4); // Letras de la etiqueta
    // Si es persona fisica es obligatorio poner el campo de nombre
    // Se pondra una coma para separar el nombre de los apellidos (Formato: Apellidos, Nombre)
    cNombreFiscal := Trim(Uppercase(DmRef.QParametrosNOMBREFISCAL.AsString));
@@ -204,7 +205,7 @@ begin
       // Persona de contacto
       TStrTools.BackChar(Uppercase(Trim(Copy(DmRef.QParametrosCONTACTO.AsString, 1, 100))), ' ', 100) +
       // Telefono de contacto
-      TStrTools.BackChar(space(9), ' ', 9) +
+      TStrTools.BackChar(DupeString(' ', 9), ' ', 9) +
       // Observaciones
       TStrTools.BackChar(' ', ' ', 350);
 
@@ -229,12 +230,12 @@ begin
       // Ingreso. CCC Cuenta
       TStrTools.LeadChar(Copy(QIrpf115CCC.AsString, 14, 10), ' ', 10) +
       // Firma. dia
-      TStrTools.Leadchar(IntToStr(Day(QIrpf115FECHA_IMPRESION.AsDateTime)), '0', 2) +
+      TStrTools.Leadchar(IntToStr(DayOf(QIrpf115FECHA_IMPRESION.AsDateTime)), '0', 2) +
       // Firma. mes
-      TStrTools.BackChar(Uppercase(Trim(CMonth(QIrpf115FECHA_IMPRESION.AsDateTime))),
+      TStrTools.BackChar(Uppercase(Trim(FormatDateTime('mmmm', QIrpf115FECHA_IMPRESION.AsDateTime))),
       ' ', 10) +
       // Firma. año
-      TStrTools.Leadchar(copy(IntToStr(year(QIrpf115FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
+      TStrTools.Leadchar(copy(IntToStr(YearOf(QIrpf115FECHA_IMPRESION.AsDateTime)), 1, 4), '0', 4);
    // Fin de Registro
    // Showmessage(IntToStr(Length(Registro)));
 

@@ -113,7 +113,7 @@ var WCargaApuntes: TWCargaApuntes;
 
 implementation
 
-uses DM, DMConta, General, UFiltroListadosMayorModel, UCargaAsiento, UCargaRapidaNominas, Math,
+uses DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UCargaRapidaNominas, Math,
      UFiltroMayorSubcuenta, UNuevaSubcuenta;
 
 {$R *.DFM}
@@ -124,7 +124,7 @@ begin
    FModel := TCargaApuntesModel.Create(DMRef.BDContab);
    Self.Caption := '';
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    QFichero.CreateDataSet;
    QFichero.Active := True;
@@ -209,7 +209,7 @@ begin
          '¿Desea continuar?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then Exit;
    end;
 
-   if Empty(QFicheroSUBCUENTA.AsString) then begin
+   if IsEmpty(QFicheroSUBCUENTA.AsString) then begin
       Msg := Msg + 'No se puede dejar la subcuenta en blanco.' + #13;
    end;
 
@@ -217,11 +217,11 @@ begin
       Msg := Msg + 'No se puede dejar el importe a cero.' + #13;
    end;
 
-   if Empty(QFicheroCONTRAPARTIDA.AsString) then begin
+   if IsEmpty(QFicheroCONTRAPARTIDA.AsString) then begin
       Msg := Msg + 'No se puede dejar la contrapartida en blanco.' + #13;
    end;
 
-   if Empty(QFicheroID_CONCEPTOS.AsString) then begin
+   if IsEmpty(QFicheroID_CONCEPTOS.AsString) then begin
       Msg := Msg + 'No se puede dejar el concepto en blanco.' + #13;
    end;
 
@@ -239,24 +239,24 @@ begin
    try
       Q.Database := DmRef.BDContab;
       Q.SQL.Add('insert into diario(asiento, apunte, id_conceptos,');
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.SQL.Add('comentario,');
       end;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.SQL.Add('cuenta_analitica,');
       end;
-      if not Empty(QFicheroNUMERO_FACTURA.AsString) then begin
+      if not IsEmpty(QFicheroNUMERO_FACTURA.AsString) then begin
          Q.SQL.Add('numerofactura,');
       end;
       Q.SQL.Add(' subcuenta,contrapartida,debehaber,fecha,importe,moneda)');
       Q.SQL.Add(' values (:asiento,:apunte,:id_conceptos,');
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.SQL.Add(':comentario,');
       end;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.SQL.Add(':CUENTA_ANALITICA,');
       end;
-      if not Empty(QFicheroNUMERO_FACTURA.AsString) then begin
+      if not IsEmpty(QFicheroNUMERO_FACTURA.AsString) then begin
          Q.SQL.Add(':numerofactura,');
       end;
       Q.SQL.Add(' :subcuenta,:contrapartida,:debehaber,:fecha,:importe,:moneda)');
@@ -264,7 +264,7 @@ begin
       // Apunte 1
       Q.parambyname('asiento').AsInteger := nAsiento;
       Q.parambyname('apunte').AsInteger  := 1;
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
       end;
       Q.parambyname('debehaber').AsString     := 'D';
@@ -274,10 +274,10 @@ begin
       Q.parambyname('importe').AsFloat        := QFicheroIMPORTE.AsFloat;
       Q.parambyname('moneda').AsString        := 'E';
       Q.parambyname('id_conceptos').AsString  := QFicheroID_CONCEPTOS.AsString;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
       end;
-      if not Empty(QFicheroNUMERO_FACTURA.AsString) then begin
+      if not IsEmpty(QFicheroNUMERO_FACTURA.AsString) then begin
          Q.ParamByName('NUMEROFACTURA').AsString := Trim(QFicheroNUMERO_FACTURA.AsString);
       end;
       Q.ExecQuery;
@@ -287,7 +287,7 @@ begin
       // Apunte 2
       Q.parambyname('asiento').AsInteger := nAsiento;
       Q.parambyname('apunte').AsInteger  := 2;
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
       end;
       Q.parambyname('debehaber').AsString     := 'H';
@@ -297,11 +297,11 @@ begin
       Q.parambyname('importe').AsFloat        := QFicheroIMPORTE.AsFloat;
       Q.parambyname('moneda').AsString        := 'E';
       Q.parambyname('id_conceptos').AsString  := QFicheroID_CONCEPTOS.AsString;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.parambyname('CUENTA_ANALITICA').AsString :=
             Trim(QFicheroCUENTA_ANALITICA.AsString);
       end;
-      if not Empty(QFicheroNUMERO_FACTURA.AsString) then begin
+      if not IsEmpty(QFicheroNUMERO_FACTURA.AsString) then begin
          Q.ParamByName('NUMEROFACTURA').AsString := Trim(QFicheroNUMERO_FACTURA.AsString);
       end;
       Q.ExecQuery;
@@ -418,11 +418,11 @@ end;
 procedure TWCargaApuntes.ComboBoxCD_SUBCUENTACloseUp(Sender: TObject;
    LookupTable, FillTable: TDataSet; modified: Boolean);
 begin
-   if Modified and (not empty(QFicheroSUBCUENTA.AsString)) then begin
+   if Modified and (not IsEmpty(QFicheroSUBCUENTA.AsString)) then begin
       QSubcuentas.Close;
       QSubcuentas.ParamByName('subcuenta').AsString := QFicheroSUBCUENTA.AsString;
       QSubcuentas.ExecQuery;
-      if not Empty(QSubcuentas.FieldByName('contrapartida').AsString) then begin
+      if not IsEmpty(QSubcuentas.FieldByName('contrapartida').AsString) then begin
          QFicheroCONTRAPARTIDA.AsString := QSubcuentas.FieldByName('contrapartida').AsString;
       end;
    end;
@@ -531,7 +531,7 @@ begin
       // Primero vaciar el fichero
       DMContaRef.QInformesConta.EmptyDataset;
 
-      PonerTipoConta('T');
+      Config.SetAccountingType('T');
       LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);
       try
          lMayorModel.LanzarInfMayor(True,

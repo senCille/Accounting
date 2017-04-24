@@ -44,7 +44,9 @@ type
 var FormLogin :TFormLogin;
 
 implementation
-uses General, Globales, DMControl, IBX.IBQuery;
+
+uses Globales, DMControl, IBX.IBQuery;
+
 {$R *.DFM}
 
 class function TFormLogin.ExecLogin:Boolean;

@@ -50,7 +50,7 @@ var WEditLineaIVA: TWEditLineaIVA;
 
 implementation
 
-uses DM, General, Globales, UCarteraEfectos, UEspere;
+uses DM, Globales, UCarteraEfectos, UEspere;
 {$R *.DFM}
 
 procedure TWEditLineaIVA.BtnAcceptClick(Sender: TObject);

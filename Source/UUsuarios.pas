@@ -93,7 +93,8 @@ const TabDatos    = 0;
 
 implementation
 
-uses Dialogs, General, Globales, DMControl;
+uses Dialogs, Tools, Globales, DMControl, DM;
+
 {$R *.DFM}
 
 procedure TWUsuarios.FormCreate(Sender: TObject);
@@ -124,7 +125,8 @@ begin
    FormManager.AddComp(BtnDesmarcar.Name          , fmEdit  );
    FormManager.AddComp(DataGrid.Name              , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    FCampoOrden := 'NOMBRE';
    PrepararQuery;
 
@@ -311,7 +313,8 @@ end;
 
 procedure TWUsuarios.RefrescarBD;
 begin
-   QueryRefresh(DmControlRef.QUsuarios);
+   DMControlRef.QUsuarios.Close;
+   DMControlRef.QUsuarios.Open;
 end;
 
 procedure TWUsuarios.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

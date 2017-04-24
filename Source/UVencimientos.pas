@@ -83,7 +83,8 @@ var WVencimientos: TWVencimientos;
 
 implementation
 
-uses DM, DMConta, General, Globales, Math;
+uses System.Math, System.DateUtils,
+     DM, DMConta, Tools, Globales;
 {$R *.DFM}
 
 procedure TWVencimientos.FormCreate(Sender: TObject);
@@ -108,7 +109,7 @@ begin
    //FormManager.AddComp(EditSuma4.Name          , fmEdit  );
    //FormManager.AddComp(EditSuma5.Name          , fmEdit  );
 
-   ActivarTransacciones(self);
+   ActivateTransactions(Self, DMRef.BDContab);
 end;
 
 procedure TWVencimientos.GenerarVencimientos;
@@ -166,8 +167,8 @@ begin
       if (FDiaPago1 > 0) then begin
          try
             FechaPago1 := StrToDateTime(IntToStr(FDiaPago1) + '/' +
-               IntToStr(Month(Fecha)) + '/' +
-               IntToStr(Year(Fecha)));
+               IntToStr(MonthOf(Fecha)) + '/' +
+               IntToStr(YearOf(Fecha)));
          except
             FechaPago1 := 0;
          end;
@@ -175,8 +176,8 @@ begin
       if (FDiaPago2 > 0) then begin
          try
             FechaPago2 := StrToDateTime(IntToStr(FDiaPago2) + '/' +
-               IntToStr(Month(Fecha)) + '/' +
-               IntToStr(Year(Fecha)));
+               IntToStr(MonthOf(Fecha)) + '/' +
+               IntToStr(YearOf(Fecha)));
          except
             FechaPago2 := 0;
          end;
@@ -184,8 +185,8 @@ begin
       if (FDiaPago3 > 0) then begin
          try
             FechaPago3 := StrToDateTime(IntToStr(FDiaPago3) + '/' +
-               IntToStr(Month(Fecha)) + '/' +
-               IntToStr(Year(Fecha)));
+               IntToStr(MonthOf(Fecha)) + '/' +
+               IntToStr(YearOf(Fecha)));
          except
             FechaPago3 := 0;
          end;
@@ -422,8 +423,10 @@ begin
 end;
 
 procedure TWVencimientos.QFicheroNewRecord(DataSet: TDataSet);
-var
-   Fecha, FechaPago1, FechaPago2, FechaPago3: TDateTime;
+var Fecha      :TDateTime;
+    FechaPago1 :TDateTime;
+    FechaPago2 :TDateTime;
+    FechaPago3 :TDateTime;
 begin
    FechaPago1 := 0;
    FechaPago2 := 0;
@@ -446,12 +449,11 @@ begin
       Fecha := IncMonth(Fecha, FIntervalo);
    end;
 
-
    if FDiaPago1 > 0 then begin
       try
          FechaPago1 := StrToDateTime(IntToStr(FDiaPago1) + '/' +
-            IntToStr(Month(Fecha)) + '/' +
-            IntToStr(Year(Fecha)));
+            IntToStr(MonthOf(Fecha)) + '/' +
+            IntToStr(YearOf(Fecha)));
       except
          FechaPago1 := 0;
       end;
@@ -460,8 +462,8 @@ begin
    if FDiaPago2 > 0 then begin
       try
          FechaPago2 := StrToDateTime(IntToStr(FDiaPago2) + '/' +
-            IntToStr(Month(Fecha)) + '/' +
-            IntToStr(Year(Fecha)));
+            IntToStr(MonthOf(Fecha)) + '/' +
+            IntToStr(YearOf(Fecha)));
       except
          FechaPago2 := 0;
       end;
@@ -470,8 +472,8 @@ begin
    if FDiaPago3 > 0 then begin
       try
          FechaPago3 := StrToDateTime(IntToStr(FDiaPago3) + '/' +
-            IntToStr(Month(Fecha)) + '/' +
-            IntToStr(Year(Fecha)));
+            IntToStr(MonthOf(Fecha)) + '/' +
+            IntToStr(YearOf(Fecha)));
       except
          FechaPago3 := 0;
       end;

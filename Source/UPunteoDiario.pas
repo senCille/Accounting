@@ -34,7 +34,9 @@ type
 var WPunteoDiario: TWPunteoDiario;
 
 implementation
-uses DM, DMConta, Globales, UEspere, General, ccStr, Math;
+
+uses DM, DMConta, Globales, UEspere, ccStr, Math;
+
 {$R *.DFM}
 
 procedure TWPunteoDiario.FormShow(Sender: TObject);

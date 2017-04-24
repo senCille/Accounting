@@ -207,7 +207,9 @@ var WIva300: TWIva300;
 
 implementation
 
-uses DM, DMConta, General, Globales, UEspere, ccStr, Math;
+uses System.Math, System.DateUtils, System.StrUtils,
+     DM, DMConta, Globales, UEspere, ccStr;
+
 {$R *.DFM}
 
 procedure TWIva300.FormCreate(Sender: TObject);
@@ -463,7 +465,7 @@ begin
          TStrTools.BackChar(DmRef.QParametrosCODADMON.AsString, '0', 5) +
          TStrTools.LeadChar(Copy(Trim(DmRef.QParametrosNIF.AsString), 1, 9), '0', 9) +
          // Nif de 9 posiciones
-         space(4);             // Letras de la etiqueta
+         DupeString(' ', 4);             // Letras de la etiqueta
          // Si es persona fisica es obligatorio poner el campo de nombre
          // Se pondra una coma para separar el nombre de los apellidos (Formato: Apellidos, Nombre)
       cNombreFiscal := Trim(Uppercase(DmRef.QParametrosNOMBREFISCAL.AsString));
@@ -624,13 +626,13 @@ begin
       if RoundTo(QIVA300INGRESO.AsFloat, -2) > 0 then begin
          Registro := Registro +
             // Devolucion. CCC Entidad
-            TStrTools.LeadChar(space(4), ' ', 4) +
+            TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
             // Devolucion. CCC Oficina
-            TStrTools.LeadChar(space(4), ' ', 4) +
+            TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
             // Devolucion. CCC DC
-            TStrTools.LeadChar(space(2), ' ', 2) +
+            TStrTools.LeadChar(DupeString(' ', 2), ' ', 2) +
             // Devolucion. CCC Cuenta
-            TStrTools.LeadChar(space(10), ' ', 10);
+            TStrTools.LeadChar(DupeString(' ', 10), ' ', 10);
       end
       else begin
          Registro := Registro +
@@ -672,13 +674,13 @@ begin
       else begin
          Registro := Registro +
             // Ingreso. CCC Entidad
-            TStrTools.LeadChar(space(4), ' ', 4) +
+            TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
             // Ingreso. CCC Oficina
-            TStrTools.LeadChar(space(4), ' ', 4) +
+            TStrTools.LeadChar(DupeString(' ', 4), ' ', 4) +
             // Ingreso. CCC DC
-            TStrTools.LeadChar(space(2), ' ', 2) +
+            TStrTools.LeadChar(DupeString(' ', 2), ' ', 2) +
             // Ingreso. CCC Cuenta
-            TStrTools.LeadChar(space(10), ' ', 10);
+            TStrTools.LeadChar(DupeString(' ', 10), ' ', 10);
       end;
       //Showmessage('Persona Contacto: '+IntToStr(Length(Registro)));
 
@@ -686,7 +688,7 @@ begin
          // Persona de contacto
          TStrTools.BackChar(Uppercase(Trim(Copy(DmRef.QParametrosCONTACTO.AsString, 1, 100))), ' ', 100) +
          // Telefono de contacto
-         TStrTools.BackChar(space(9), ' ', 9);
+         TStrTools.BackChar(DupeString(' ', 9), ' ', 9);
 
       //Showmessage('Observaciones: '+IntToStr(Length(Registro)));
       Registro := Registro +
@@ -694,14 +696,14 @@ begin
          TStrTools.BackChar(Uppercase(Trim(Copy(QIVA300OBSERVACIONES.AsString, 1, 350))),
          ' ', 350) +
          // Firma. dia
-         TStrTools.Leadchar(IntToStr(Day(QIVA300FECHAIMPRESION.AsDateTime)), '0', 2) +
+         TStrTools.Leadchar(IntToStr(DayOf(QIVA300FECHAIMPRESION.AsDateTime)), '0', 2) +
          // Firma. mes
-         TStrTools.BackChar(Uppercase(Trim(CMonth(QIVA300FECHAIMPRESION.AsDateTime))),
+         TStrTools.BackChar(Uppercase(Trim(FormatDateTime('mmmm', QIVA300FECHAIMPRESION.AsDateTime))),
          ' ', 10);
       // Firma. año
       // Showmessage('Año: '+IntToStr(Length(Registro)));
       Registro := Registro + TStrTools.Leadchar(
-         Copy(IntToStr(year(QIVA300FECHAIMPRESION.AsDateTime)), 1, 4), '0', 4);
+         Copy(IntToStr(YearOf(QIVA300FECHAIMPRESION.AsDateTime)), 1, 4), '0', 4);
       // Fin de Registro
       //Showmessage('Final: '+IntToStr(Length(Registro)));
 

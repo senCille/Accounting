@@ -105,10 +105,11 @@ var MainMenuForm :TMainMenuForm;
 
 implementation
 
-uses System.Win.Registry, WinAPI.ShellApi,
+uses System.Win.Registry, System.StrUtils,
+     WinAPI.ShellApi,
      VCL.Dialogs,
      DM, DMConta, DMControl,
-     General, Globales, UtilesMDIForms,
+     Globales, UtilesMDIForms,
      IBX.IB,
      Login, Splash,
      UAmortizaciones, UAnaliticas, UBalAcumulados, UBalExplotacion, UBorradoDiario,
@@ -147,7 +148,7 @@ end;
 
 procedure TMainMenuForm.FormShow(Sender: TObject);
 begin
-   Self.Caption := Space(15) + Config.ActiveDS_ENTERPRISE + Space(15) + '-' + space(5) +
+   Self.Caption := DupeString(' ', 15) + Config.ActiveDS_ENTERPRISE + DupeString(' ', 15) + '-' + DupeString(' ', 5) +
       'senCille ACCOUNTING SMEs '+Config.VersionText;
 end;
 

@@ -151,7 +151,7 @@ var WCargaCobrosPagos: TWCargaCobrosPagos;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
+uses DM, DMConta, DMControl, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
      UCargaRapidaNominas, UCarteraEfectos, UDiario, UFiltroMayorSubcuenta, UNuevaSubcuenta;
 
 {$R *.DFM}
@@ -186,7 +186,7 @@ begin
    {---------------------}
 
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    // Búsqueda subcuenta
    if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then  begin
@@ -973,7 +973,7 @@ begin
       // Primero vaciar el fichero
       DMContaRef.QInformesConta.EmptyDataset;
 
-      PonerTipoConta('T');
+      Config.SetAccountingType('T');
       LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);
       try
          LMayorModel.LanzarInfMayor(True,
@@ -1017,7 +1017,7 @@ begin
          // Primero vaciar el fichero
          DMContaRef.QInformesConta.EmptyDataset;
 
-         PonerTipoConta('T');
+         Config.SetAccountingType('T');
          LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);
          try
             LMayorModel.LanzarInfMayor(True,

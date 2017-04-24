@@ -158,7 +158,7 @@ object WVencimientos: TWVencimientos
       end
       object Label4: TLabel
         Left = 20
-        Top = 305
+        Top = 290
         Width = 80
         Height = 13
         Anchors = [akLeft, akBottom]
@@ -251,7 +251,7 @@ object WVencimientos: TWVencimientos
       end
       object EditFECHA_EMISION: TDBEdit
         Left = 103
-        Top = 301
+        Top = 286
         Width = 99
         Height = 21
         Anchors = [akLeft, akBottom]
@@ -269,8 +269,8 @@ object WVencimientos: TWVencimientos
       object Grid: TDBGrid
         Left = 20
         Top = 94
-        Width = 363
-        Height = 203
+        Width = 339
+        Height = 188
         TabStop = False
         Anchors = [akLeft, akTop, akRight, akBottom]
         BiDiMode = bdLeftToRight

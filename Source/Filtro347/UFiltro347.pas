@@ -78,7 +78,8 @@ var WFiltro347: TWFiltro347;
 
 implementation
 
-uses DM, DMConta, General, Globales;
+uses DM, DMConta, Globales;
+
 {$R *.DFM}
 
 procedure TWFiltro347.FormCreate(Sender: TObject);
@@ -141,7 +142,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(CDSFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
 
    FModel.LanzarInfModelo347(TipoListado,
                              CDSFiltroASIENTO_DESDE.AsInteger,

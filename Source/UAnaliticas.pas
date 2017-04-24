@@ -105,7 +105,7 @@ var WAnaliticas: TWAnaliticas;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales;
+uses DM, DMConta, DMControl, Tools, Globales;
 {$R *.DFM}
 
 procedure TWAnaliticas.FormCreate(Sender: TObject);
@@ -130,7 +130,7 @@ begin
    FormManager.AddComp(ComboBoxSECCION.Name      , fmEdit  );
    FormManager.AddComp(ComboBoxPROYECTO.Name     , fmEdit  );
 
-   ActivarTransacciones(self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    QDelegacion.Open;
    QDepartamento.Open;
@@ -420,8 +420,11 @@ end;
 
 procedure TWAnaliticas.RefrescarBD;
 begin
-   QueryRefresh(DMRef.QAnaliticas);
-   QueryRefresh(DMRef.QAnaliticasNom);
+   DMRef.QAnaliticas.Close;
+   DMRef.QAnaliticasNom.Close;
+
+   DMRef.QAnaliticas.Open;
+   DMRef.QAnaliticasNom.Open;
 end;
 
 procedure TWAnaliticas.DataGridDblClick(Sender: TObject);

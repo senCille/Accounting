@@ -224,7 +224,7 @@ var WDiario: TWDiario;
 
 implementation
 
-uses DM, DMConta, DMControl, General, UCargaApuntes, UCargaAsiento, Math,
+uses DM, DMConta, DMControl, Tools, UCargaApuntes, UCargaAsiento, Math,
      UCargaCobrosPagos, UCargaRapidaNominas, UCarteraEfectos, UEspere, 
      UFiltroListadosAsientosModel;
 
@@ -240,7 +240,7 @@ begin
    FModel := TDiarioModel.Create(DMRef.BDContab);
    Self.Caption := '';
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    QSubCuentas.Open;
    QConceptos.Open;
@@ -601,7 +601,7 @@ begin
       end;
 
       // Concepto
-      if not empty(QFiltro.FieldByName('CONCEPTO').AsString) then begin
+      if not IsEmpty(QFiltro.FieldByName('CONCEPTO').AsString) then begin
          QFichero.SelectSQL.Add('   AND D.ID_CONCEPTOS=:CONCEPTO');
       end;
 
@@ -716,7 +716,7 @@ begin
       end;
 
       // Concepto
-      if not empty(QFiltro.FieldByName('CONCEPTO').AsString) then begin
+      if not IsEmpty(QFiltro.FieldByName('CONCEPTO').AsString) then begin
          QFichero.Params.ByName('CONCEPTO').AsString := QFiltro.FieldByName('CONCEPTO').AsString;
       end;
 
@@ -1064,8 +1064,8 @@ begin
       Exit;
    end;
 
-   // Necesarios para el informe
-   PonerTipoConta(QFiltro.FieldByName('TIPOCONCEPTO').AsString);
+   // Necessary for the report
+   Config.SetAccountingType(QFiltro.FieldByName('TIPOCONCEPTO').AsString);
    Config.ReportCurrency  := QFiltro.FieldByName('MONEDA').AsString;
    Config.FormatoOficial  := False;
 
@@ -1086,8 +1086,8 @@ begin
 
    Perform(wm_NextDlgCtl, 0, 0);
 
-   // Necesarios para el informe
-   PonerTipoConta(QFiltro.FieldByName('TipoConcepto').AsString);
+   // Necessary for the report
+   Config.SetAccountingType(QFiltro.FieldByName('TipoConcepto').AsString);
    Config.ReportCurrency := QFiltro.FieldByName('Moneda').AsString;
 
    if not QFichero.IsEmpty then begin
@@ -1145,7 +1145,7 @@ begin
             QDuplicar.Sql.Clear;
             QDuplicar.Sql.Add(' INSERT INTO DIARIO (TIPOASIENTO, ID_DIARIO,APUNTE,ASIENTO,BASEIMPONIBLE,');
             QDuplicar.Sql.Add(' COMENTARIO,DEBEHABER,FECHA,');
-            if not empty(QDiario.FieldByName('cuenta_analitica').AsString) then begin
+            if not IsEmpty(QDiario.FieldByName('cuenta_analitica').AsString) then begin
                QDuplicar.Sql.Add(' CUENTA_ANALITICA,');
             end;
             QDuplicar.Sql.Add(' IMPORTE, IVA, NIF, MONEDA, NUMEROFACTURA, RECARGO,');
@@ -1157,7 +1157,7 @@ begin
             end;
             QDuplicar.Sql.Add(' VALUES(:TIPOASIENTO, :ID_DIARIO,:APUNTE,:ASIENTO,:BASEIMPONIBLE,');
             QDuplicar.Sql.Add(' :COMENTARIO,:DEBEHABER,:FECHA,');
-            if not empty(QDiario.FieldByName('cuenta_analitica').AsString) then begin
+            if not IsEmpty(QDiario.FieldByName('cuenta_analitica').AsString) then begin
                QDuplicar.Sql.Add(' :CUENTA_ANALITICA,');
             end;
             QDuplicar.Sql.Add(' :IMPORTE,:IVA,:NIF,:MONEDA,:NUMEROFACTURA,:RECARGO,');
@@ -1175,7 +1175,7 @@ begin
             QDuplicar.Params.byname('BASEIMPONIBLE').AsFloat   := QDiario.FieldByName('BASEIMPONIBLE').AsFloat;
             QDuplicar.Params.byname('ID_CONCEPTOS' ).AsString  := QDiario.FieldByName('ID_CONCEPTOS').AsString;
             QDuplicar.Params.byname('SUBCUENTA'    ).AsString  := QDiario.FieldByName('SUBCUENTA').AsString;
-            if not empty(QDiario.FieldByName('Cuenta_Analitica').AsString) then begin
+            if not IsEmpty(QDiario.FieldByName('Cuenta_Analitica').AsString) then begin
                QDuplicar.Params.byname('CUENTA_ANALITICA').AsString := QDiario.FieldByName('Cuenta_Analitica').AsString;
             end;
             QDuplicar.Params.byname('COMENTARIO'   ).AsString   := QDiario.FieldByName('COMENTARIO'   ).AsString;
@@ -1517,7 +1517,7 @@ begin
       QFichero.DisableControls;
       if UpperCase(cNomcol) = 'PUNTEO' then begin
          QFichero.Edit;
-         if Empty(QFichero.FieldByName('PUNTEO').AsString) then begin
+         if IsEmpty(QFichero.FieldByName('PUNTEO').AsString) then begin
             QFichero.FieldByName('PUNTEO').AsString := 'S';
          end
          else begin

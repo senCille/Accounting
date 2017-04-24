@@ -293,6 +293,8 @@ type
     procedure QInformesContaBeforeInsert(DataSet: TDataSet);
     procedure QInfDiarioCalcFields(DataSet: TDataSet);
   private
+    procedure OpenQuery(AQuery :TIBDataSet; Select :string);
+    procedure RefreshQuery(AQuery :TIBDataSet);
     procedure AbrirDatasets;
     procedure CerrarDataSets;
     procedure CrearFicheroInformesBalances;
@@ -325,9 +327,24 @@ var
    DMContaRef: TDMContaRef;
 
 implementation
-uses General, Globales, DM, Splash, DMControl;
+
+uses Globales, DM, Splash, DMControl;
 
 {$R *.DFM}
+
+procedure TDMContaRef.OpenQuery(AQuery :TIBDataSet; Select :string);
+begin
+   AQuery.Close;
+   AQuery.SelectSQL.Clear;
+   AQuery.SelectSQL.Add(Select);
+   AQuery.Open;
+end;
+
+procedure TDMContaRef.RefreshQuery(AQuery: TIBDataSet);
+begin
+   AQuery.Close;
+   AQuery.Open;
+end;
 
 procedure TDMContaRef.ActualizarNumeroGasto(Gasto: Integer);
 begin
@@ -345,81 +362,81 @@ begin
 
    QSubCuentas.Close;
    QSubCuentas.Open;
-   QueryRefresh(QSubCuentasDesc);
+   RefreshQuery(QSubCuentasDesc);
 
    if TipoCuenta = 'C' then begin
-      QueryRefresh(QSubCtaClientes);
-      QueryRefresh(QSubCtaClientesDesc);
-      QueryRefresh(QSubCtaClientesProv);
-      QueryRefresh(QSubCtaClientesProvDesc);
-      QueryRefresh(QSubCtaCobrosPagos);
-      QueryRefresh(QSubCtaCobrosPagosDesc);
-      QueryRefresh(QSubCtaCarteraEfectos);
-      QueryRefresh(QSubCtaCarteraEfectosDesc);
+      RefreshQuery(QSubCtaClientes);
+      RefreshQuery(QSubCtaClientesDesc);
+      RefreshQuery(QSubCtaClientesProv);
+      RefreshQuery(QSubCtaClientesProvDesc);
+      RefreshQuery(QSubCtaCobrosPagos);
+      RefreshQuery(QSubCtaCobrosPagosDesc);
+      RefreshQuery(QSubCtaCarteraEfectos);
+      RefreshQuery(QSubCtaCarteraEfectosDesc);
    end else
    if TipoCuenta = 'P' then begin
-      QueryRefresh(QSubCTAProveedores);
-      QueryRefresh(QSubCTAProveedoresDesc);
-      QueryRefresh(QSubCTAProveedoresBancos);
-      QueryRefresh(QSubCTAProveedoresBancosDesc);
-      QueryRefresh(QSubCtaClientesProv);
-      QueryRefresh(QSubCtaClientesProvDesc);
-      QueryRefresh(QSubCtaCobrosPagos);
-      QueryRefresh(QSubCtaCobrosPagosDesc);
-      QueryRefresh(QSubCtaCarteraEfectos);
-      QueryRefresh(QSubCtaCarteraEfectosDesc);
+      RefreshQuery(QSubCTAProveedores);
+      RefreshQuery(QSubCTAProveedoresDesc);
+      RefreshQuery(QSubCTAProveedoresBancos);
+      RefreshQuery(QSubCTAProveedoresBancosDesc);
+      RefreshQuery(QSubCtaClientesProv);
+      RefreshQuery(QSubCtaClientesProvDesc);
+      RefreshQuery(QSubCtaCobrosPagos);
+      RefreshQuery(QSubCtaCobrosPagosDesc);
+      RefreshQuery(QSubCtaCarteraEfectos);
+      RefreshQuery(QSubCtaCarteraEfectosDesc);
    end else
    if TipoCuenta = 'R' then begin
-      QueryRefresh(QSubCTAIVARepercutido);
-      QueryRefresh(QSubCTAIVARepercutidoDesc);
-      QueryRefresh(QSubCTAIVARepercutidoIntra);
-      QueryRefresh(QSubCTAIVARepercutidoIntraDesc);
+      RefreshQuery(QSubCTAIVARepercutido);
+      RefreshQuery(QSubCTAIVARepercutidoDesc);
+      RefreshQuery(QSubCTAIVARepercutidoIntra);
+      RefreshQuery(QSubCTAIVARepercutidoIntraDesc);
    end else
    if TipoCuenta = 'S' then begin
-      QueryRefresh(QSubCTAIVADeducible);
-      QueryRefresh(QSubCTAIVADeducibleDesc);
-      QueryRefresh(QSubCTAIVADeducibleIntra);
-      QueryRefresh(QSubCTAIVADeducibleIntraDesc);
+      RefreshQuery(QSubCTAIVADeducible);
+      RefreshQuery(QSubCTAIVADeducibleDesc);
+      RefreshQuery(QSubCTAIVADeducibleIntra);
+      RefreshQuery(QSubCTAIVADeducibleIntraDesc);
    end else
    if TipoCuenta = 'M' then begin
-      QueryRefresh(QSubCTAAmortGastos);
-      QueryRefresh(QSubCTAAmortGastosDesc);
-      QueryRefresh(QSubCTAAmort);
-      QueryRefresh(QSubCTAAmortDesc);
+      RefreshQuery(QSubCTAAmortGastos);
+      RefreshQuery(QSubCTAAmortGastosDesc);
+      RefreshQuery(QSubCTAAmort);
+      RefreshQuery(QSubCTAAmortDesc);
    end else
    if TipoCuenta = 'I' then begin
-      QueryRefresh(QSubCTAAmortGastos);
-      QueryRefresh(QSubCTAAmortGastosDesc);
-      QueryRefresh(QSubCTAAmort);
-      QueryRefresh(QSubCTAAmortDesc);
+      RefreshQuery(QSubCTAAmortGastos);
+      RefreshQuery(QSubCTAAmortGastosDesc);
+      RefreshQuery(QSubCTAAmort);
+      RefreshQuery(QSubCTAAmortDesc);
    end else
    if TipoCuenta = 'B' then begin
-      QueryRefresh(QSubCTABanco);
-      QueryRefresh(QSubCTABancoDesc);
-      QueryRefresh(QSubCtaCobrosPagos);
-      QueryRefresh(QSubCtaCobrosPagosDesc);
-      QueryRefresh(QSubCtaCarteraEfectos);
-      QueryRefresh(QSubCtaCarteraEfectosDesc);
-      QueryRefresh(QSubCTAProveedoresBancos);
-      QueryRefresh(QSubCTAProveedoresBancosDesc);
+      RefreshQuery(QSubCTABanco);
+      RefreshQuery(QSubCTABancoDesc);
+      RefreshQuery(QSubCtaCobrosPagos);
+      RefreshQuery(QSubCtaCobrosPagosDesc);
+      RefreshQuery(QSubCtaCarteraEfectos);
+      RefreshQuery(QSubCtaCarteraEfectosDesc);
+      RefreshQuery(QSubCTAProveedoresBancos);
+      RefreshQuery(QSubCTAProveedoresBancosDesc);
    end else
    if TipoCuenta = 'V' then begin
-      QueryRefresh(QSubCTAVentas);
-      QueryRefresh(QSubCTAVentasDesc);
+      RefreshQuery(QSubCTAVentas);
+      RefreshQuery(QSubCTAVentasDesc);
    end else
    if TipoCuenta = 'A' then begin
-      QueryRefresh(QSubCTAAmortGastos);
-      QueryRefresh(QSubCTAAmortGastosDesc);
-      QueryRefresh(QSubCTAGastos);
-      QueryRefresh(QSubCTAGastosDesc);
-      QueryRefresh(QSubCTACompra);
-      QueryRefresh(QSubCTACompraDesc);
-      QueryRefresh(QSubCtaCobrosPagos);
-      QueryRefresh(QSubCtaCobrosPagosDesc);
+      RefreshQuery(QSubCTAAmortGastos);
+      RefreshQuery(QSubCTAAmortGastosDesc);
+      RefreshQuery(QSubCTAGastos);
+      RefreshQuery(QSubCTAGastosDesc);
+      RefreshQuery(QSubCTACompra);
+      RefreshQuery(QSubCTACompraDesc);
+      RefreshQuery(QSubCtaCobrosPagos);
+      RefreshQuery(QSubCtaCobrosPagosDesc);
    end else
    if TipoCuenta = 'N' then begin
-      QueryRefresh(QSubCTANominas);
-      QueryRefresh(QSubCTANominasDesc);
+      RefreshQuery(QSubCTANominas);
+      RefreshQuery(QSubCTANominasDesc);
    end else
    if TipoCuenta = 'O' then begin
    end;
@@ -621,96 +638,101 @@ end;
 
 procedure TDMContaRef.AbrirDatasets;
 begin
-   QueryOpen(QGrupos, 'SELECT Grupo, Descripcion ' + 'FROM Grupos ORDER BY Grupo');
-   QueryOpen(QGruposDesc, 'SELECT Grupo, Descripcion ' + 'FROM Grupos ORDER BY Descripcion');
-   QueryOpen(QSubCuentas, 'SELECT SubCuenta, Descripcion, Abreviatura ' +
-      'FROM SubCtas WHERE OBSOLETO <> "S" ORDER BY SubCuenta');
-   QueryOpen(QSubCuentasDesc, 'SELECT SubCuenta, Descripcion, Abreviatura ' +
-      'FROM SubCtas WHERE OBSOLETO <> "S" ORDER BY Descripcion');
+   OpenQuery(QGrupos, 'SELECT Grupo, Descripcion ' + 'FROM Grupos ORDER BY Grupo');
 
-   QueryOpen(QSubCtaClientesProv, 'SELECT SUBCUENTA, DESCRIPCION ' +
-      'FROM SUBCTAS_CLIENTES_PROVEEDORES ORDER BY SUBCUENTA');
-   QueryOpen(QSubCtaClientesProvDesc, 'SELECT SUBCUENTA, DESCRIPCION ' +
-      'FROM SUBCTAS_CLIENTES_PROVEEDORES ORDER BY DESCRIPCION');
+   OpenQuery(QGruposDesc, 'SELECT Grupo, Descripcion ' + 'FROM Grupos ORDER BY Descripcion');
 
-   QueryOpen(QSubCTAGastos, 'SELECT subcuenta,descripcion FROM SUBCTAS_gastos ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAGastosDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_gastos ORDER BY descripcion');
+   OpenQuery(QSubCuentas, 'SELECT SubCuenta, Descripcion, Abreviatura ' +
+                          'FROM SubCtas WHERE OBSOLETO <> "S" ORDER BY SubCuenta');
 
-   QueryOpen(QSubCTABanco, 'SELECT subcuenta,descripcion  from subctaS_banco ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTABancoDesc, 'SELECT subcuenta,descripcion  from subctaS_banco ORDER BY descripcion');
+   OpenQuery(QSubCuentasDesc, 'SELECT SubCuenta, Descripcion, Abreviatura ' +
+                              'FROM SubCtas WHERE OBSOLETO <> "S" ORDER BY Descripcion');
 
-   QueryOpen(QSubCTAProveedores,
+   OpenQuery(QSubCtaClientesProv, 'SELECT SUBCUENTA, DESCRIPCION ' +
+                                  'FROM SUBCTAS_CLIENTES_PROVEEDORES ORDER BY SUBCUENTA');
+
+   OpenQuery(QSubCtaClientesProvDesc, 'SELECT SUBCUENTA, DESCRIPCION ' +
+                                      'FROM SUBCTAS_CLIENTES_PROVEEDORES ORDER BY DESCRIPCION');
+
+   OpenQuery(QSubCTAGastos    , 'SELECT subcuenta,descripcion FROM SUBCTAS_gastos ORDER BY SUBCUENTA');
+
+   OpenQuery(QSubCTAGastosDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_gastos ORDER BY descripcion');
+
+   OpenQuery(QSubCTABanco    , 'SELECT subcuenta,descripcion  from subctaS_banco ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTABancoDesc, 'SELECT subcuenta,descripcion  from subctaS_banco ORDER BY descripcion');
+
+   OpenQuery(QSubCTAProveedores,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_PROVEEDOR ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAProveedoresDesc,
+   OpenQuery(QSubCTAProveedoresDesc,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_PROVEEDOR ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTAProveedoresBancos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
+   OpenQuery(QSubCTAProveedoresBancos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' + 'ORDER BY 1');
-   QueryOpen(QSubCTAProveedoresBancosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
+   OpenQuery(QSubCTAProveedoresBancosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' + 'ORDER BY 2');
 
-   QueryOpen(QSubCTAClientes, 'SELECT subcuenta,descripcion  FROM SUBCTAS_CLIENTES ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAClientesDesc,
+   OpenQuery(QSubCTAClientes, 'SELECT subcuenta,descripcion  FROM SUBCTAS_CLIENTES ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTAClientesDesc,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_CLIENTES ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTAAmort, 'SELECT subcuenta,descripcion  FROM SUBCTAS_AMORTIZACION ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAAmortDesc,
+   OpenQuery(QSubCTAAmort, 'SELECT subcuenta,descripcion  FROM SUBCTAS_AMORTIZACION ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTAAmortDesc,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_AMORTIZACION ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTAIVADeducibleIntra, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ' +
+   OpenQuery(QSubCTAIVADeducibleIntra, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS ' +
       'WHERE TIPOIVA = "A" OR TIPOIVA = "C" ' + 'ORDER BY 1');
-   QueryOpen(QSubCTAIVADeducibleIntraDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ' +
+   OpenQuery(QSubCTAIVADeducibleIntraDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS ' +
       'WHERE TIPOIVA = "A" OR TIPOIVA = "C" ' + 'ORDER BY 2');
 
-   QueryOpen(QSubCTAIVARepercutidoIntra, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ' +
+   OpenQuery(QSubCTAIVARepercutidoIntra, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS ' +
       'WHERE TIPOIVA = "A" OR TIPOIVA = "C" ' + 'ORDER BY 1');
-   QueryOpen(QSubCTAIVARepercutidoIntraDesc,
+   OpenQuery(QSubCTAIVARepercutidoIntraDesc,
       'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ' + 'UNION ' +
       'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS ' + 'WHERE TIPOIVA = "A" OR TIPOIVA = "C" ' +
       'ORDER BY 2');
 
-   QueryOpen(QSubCTAIVADeducible, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ORDER BY 1');
-   QueryOpen(QSubCTAIVADeducibleDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ORDER BY 2');
+   OpenQuery(QSubCTAIVADeducible, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ORDER BY 1');
+   OpenQuery(QSubCTAIVADeducibleDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_DEDUCIBLE ORDER BY 2');
 
-   QueryOpen(QSubCTAIVARepercutido, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ORDER BY 1');
-   QueryOpen(QSubCTAIVARepercutidoDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ' +
+   OpenQuery(QSubCTAIVARepercutido, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ORDER BY 1');
+   OpenQuery(QSubCTAIVARepercutidoDesc, 'SELECT subcuenta,descripcion FROM SUBCTAS_IVA_REPERCUTIDO ' +
       'ORDER BY 2');
 
-   QueryOpen(QSubCTACompra, 'SELECT subcuenta,descripcion  FROM SUBCTAS_GASTOS ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTACompraDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_GASTOS ORDER BY DESCRIPCION');
+   OpenQuery(QSubCTACompra, 'SELECT subcuenta,descripcion  FROM SUBCTAS_GASTOS ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTACompraDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_GASTOS ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTAVentas, 'SELECT subcuenta,descripcion FROM SUBCTAS_VENTAS ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAVentasDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_VENTAS ORDER BY DESCRIPCION');
+   OpenQuery(QSubCTAVentas, 'SELECT subcuenta,descripcion FROM SUBCTAS_VENTAS ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTAVentasDesc, 'SELECT subcuenta,descripcion  FROM SUBCTAS_VENTAS ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTAAmortGastos,
+   OpenQuery(QSubCTAAmortGastos,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_AMORTIZACION_GASTOS ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTAAmortGastosDesc,
+   OpenQuery(QSubCTAAmortGastosDesc,
       'SELECT subcuenta,descripcion  FROM SUBCTAS_AMORTIZACION_GASTOS ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCTANominas, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_NOMINAS ORDER BY SUBCUENTA');
-   QueryOpen(QSubCTANominasDesc,
+   OpenQuery(QSubCTANominas, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_NOMINAS ORDER BY SUBCUENTA');
+   OpenQuery(QSubCTANominasDesc,
       'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_NOMINAS ORDER BY DESCRIPCION');
 
-   QueryOpen(QSubCtaCobrosPagos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
+   OpenQuery(QSubCtaCobrosPagos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_GASTOS ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_NOMINAS ' + 'ORDER BY 1');
 
-   QueryOpen(QSubCtaCobrosPagosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
+   OpenQuery(QSubCtaCobrosPagosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_GASTOS ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_NOMINAS ' + 'ORDER BY 2');
 
-   QueryOpen(QConceptos, 'SELECT * FROM CONCEPTOS WHERE OBSOLETO<>"S" ORDER BY ID_CONCEPTOS');
+   OpenQuery(QConceptos, 'SELECT * FROM CONCEPTOS WHERE OBSOLETO<>"S" ORDER BY ID_CONCEPTOS');
 
-   QueryOpen(QConceptosDesc, 'SELECT * FROM CONCEPTOS WHERE OBSOLETO<>"S" order by descripcion');
+   OpenQuery(QConceptosDesc, 'SELECT * FROM CONCEPTOS WHERE OBSOLETO<>"S" order by descripcion');
 
-   QueryOpen(QInfDiario, 'SELECT	' + 'D.ASIENTO, D.APUNTE, D.SUBCUENTA, D.ID_CONCEPTOS, ' +
+   OpenQuery(QInfDiario, 'SELECT	' + 'D.ASIENTO, D.APUNTE, D.SUBCUENTA, D.ID_CONCEPTOS, ' +
       'D.IMPORTE, D.CONTRAPARTIDA, D.NUMEROFACTURA, D.SERIE, D.EJERCICIO,' +
       'D.FECHA, D.DEBEHABER, D.PUNTEO, D.COMENTARIO, ' +
       'S1.DESCRIPCION DESCSUBCUENTA, S1.ABREVIATURA,' + 'S2.DESCRIPCION DESCCONTRAPARTIDA, ' +
@@ -720,11 +742,11 @@ begin
       'LEFT JOIN SUBCTAS S2 ' + 'ON D.CONTRAPARTIDA = S2.SUBCUENTA ' +
       'WHERE ASIENTO = :ASIENTO ' + 'ORDER BY D.ASIENTO, D.APUNTE');
 
-   QueryOpen(QSubCtaCarteraEfectos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
+   OpenQuery(QSubCtaCarteraEfectos, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' + 'ORDER BY 1');
 
-   QueryOpen(QSubCtaCarteraEfectosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
+   OpenQuery(QSubCtaCarteraEfectosDesc, 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_CLIENTES ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_PROVEEDOR ' +
       'UNION ' + 'SELECT SUBCUENTA, DESCRIPCION FROM SUBCTAS_BANCO ' + 'ORDER BY 2');
 end;

@@ -156,7 +156,7 @@ var WCargaRapidaNominas: TWCargaRapidaNominas;
 
 implementation
 
-uses DM, DMConta, General, UFiltroListadosMayorModel, UCargaAsiento, UFiltroMayorSubcuenta, UNuevaSubcuenta,
+uses DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UFiltroMayorSubcuenta, UNuevaSubcuenta,
      Math;
 
 {$R *.DFM}
@@ -166,7 +166,7 @@ begin
    FModel := TCargaRapidaNominasModel.Create(DMRef.BDContab);
    Caption := '';
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
 
    { Crear  Fichero }
    QFichero.CreateDataSet;
@@ -265,7 +265,7 @@ begin
       end;
 
       if (QEmpleadosN.AsString <> 'S') and
-         Empty(QFicheroSCTAOTRAS.AsString) then begin
+         IsEmpty(QFicheroSCTAOTRAS.AsString) then begin
          QEmpleados.EnableControls;
          Result := False;
          MessageDlg('No se puede dejar en blanco la subcuenta de otras remuneraciones.', mtInformation, [mbOK], 0);
@@ -526,25 +526,25 @@ begin
          '¿Desea continuar?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then Exit;
    end;
 
-   if Empty(QFicheroSCTANOMSUELDO.AsString) then begin
+   if IsEmpty(QFicheroSCTANOMSUELDO.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco la subcuenta de sueldos y salarios.' + #13;
    end;
-   if Empty(QFicheroSCTANOMSST.AsString) then begin
+   if IsEmpty(QFicheroSCTANOMSST.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco la subcuenta de seg. social asiento trabajador.' + #13;
    end;
-   if Empty(QFicheroSCTANOMIRPF.AsString) then begin
+   if IsEmpty(QFicheroSCTANOMIRPF.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco la subcuenta de Hacienda IRPF.' + #13;
    end;
-   if Empty(QFicheroSCTANOMCARGO.AsString) then begin
+   if IsEmpty(QFicheroSCTANOMCARGO.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco la subcuenta de gastos seg. Social Empresa.' + #13;
    end;
-   if Empty(QFicheroSCTANOMSSE.AsString) then begin
+   if IsEmpty(QFicheroSCTANOMSSE.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco la subcuenta de Seg. Social en asiento Empresa.' + #13;
    end;
-   if Empty(QFicheroCTONOMT.AsString) then begin
+   if IsEmpty(QFicheroCTONOMT.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco el concepto del asiento del trabajador.' + #13;
    end;
-   if Empty(QFicheroCTONOME.AsString) then begin
+   if IsEmpty(QFicheroCTONOME.AsString) then begin
       Msg := Msg + 'No se puede dejar en blanco el concepto del asiento de la empresa.' + #13;
    end;
 
@@ -619,18 +619,18 @@ begin
    try
       Q.Database := DmRef.BDContab;
       Q.SQL.Add('insert into diario(tipoasiento, asientonomina, asiento,apunte,id_conceptos,');
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.SQL.Add('comentario,');
       end;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.SQL.Add('cuenta_analitica,');
       end;
       Q.SQL.Add(' subcuenta, contrapartida, debehaber, fecha, importe, moneda)');
       Q.SQL.Add(' values (:tipoasiento, :asientonomina, :asiento,:apunte,:id_conceptos,');
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.SQL.Add(':comentario,');
       end;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.SQL.Add(':CUENTA_ANALITICA,');
       end;
       Q.SQL.Add(' :subcuenta, :contrapartida, :debehaber, :fecha, :importe, :moneda)');
@@ -682,7 +682,7 @@ begin
       Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
       Q.parambyname('asiento').AsInteger       := nAsiento;
       Q.parambyname('apunte').AsInteger        := 1;
-      if not Empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
       end;
       Q.parambyname('debehaber').AsString      := 'D';
@@ -692,7 +692,7 @@ begin
       Q.parambyname('importe').AsFloat         := SumaNomina;
       Q.parambyname('moneda').AsString         := 'E';
       Q.parambyname('id_conceptos').AsString   := QFicheroCTONOMT.AsString;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
       end;
       Q.ExecQuery;
@@ -704,7 +704,7 @@ begin
       Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
       Q.parambyname('asiento').AsInteger       := nAsiento;
       Q.parambyname('apunte').AsInteger        := 2;
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
       end;
       Q.parambyname('debehaber').AsString     := 'H';
@@ -714,7 +714,7 @@ begin
       Q.parambyname('importe').AsFloat        := SumaSS;
       Q.parambyname('moneda').AsString        := 'E';
       Q.parambyname('id_conceptos').AsString  := QFicheroCTONOMT.AsString;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
       end;
       Q.ExecQuery;
@@ -726,7 +726,7 @@ begin
       Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
       Q.parambyname('asiento').AsInteger       := nAsiento;
       Q.parambyname('apunte').AsInteger        := 3;
-      if not empty(QFicheroCOMENTARIO.AsString) then begin
+      if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
          Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
       end;
       Q.parambyname('debehaber').AsString     := 'H';
@@ -736,7 +736,7 @@ begin
       Q.parambyname('importe').AsFloat        := SumaIRPF;
       Q.parambyname('moneda').AsString        := 'E';
       Q.parambyname('id_conceptos').AsString  := QFicheroCTONOMT.AsString;
-      if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+      if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
          Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
       end;
       Q.ExecQuery;
@@ -753,7 +753,7 @@ begin
             Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
             Q.parambyname('asiento').AsInteger       := nAsiento;
             Q.parambyname('apunte').AsInteger        := nApunte;
-            if not empty(QFicheroCOMENTARIO.AsString) then begin
+            if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
                Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
             end;
             Q.parambyname('debehaber').AsString := 'H';
@@ -773,7 +773,7 @@ begin
                QEmpleadosSSOCIAL.AsFloat;
             Q.parambyname('moneda').AsString       := 'E';
             Q.parambyname('id_conceptos').AsString := QFicheroCTONOMT.AsString;
-            if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+            if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
                Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
             end;
             Q.ExecQuery;
@@ -790,7 +790,7 @@ begin
          Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
          Q.parambyname('asiento').AsInteger       := nAsiento;
          Q.parambyname('apunte').AsInteger        := 4;
-         if not empty(QFicheroCOMENTARIO.AsString) then begin
+         if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
             Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
          end;
          Q.parambyname('debehaber').AsString     := 'H';
@@ -800,7 +800,7 @@ begin
          Q.parambyname('importe').AsFloat        := TotImporte;
          Q.parambyname('moneda').AsString        := 'E';
          Q.parambyname('id_conceptos').AsString  := QFicheroCTONOMT.AsString;
-         if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+         if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
             Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
          end;
          Q.ExecQuery;
@@ -815,7 +815,7 @@ begin
                Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
                Q.parambyname('asiento').AsInteger       := nAsiento;
                Q.parambyname('apunte').AsInteger        := nApunte;
-               if not empty(QFicheroCOMENTARIO.AsString) then begin
+               if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
                   Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
                end;
                Q.parambyname('debehaber').AsString     := 'H';
@@ -827,7 +827,7 @@ begin
                   QEmpleadosSSOCIAL.AsFloat;
                Q.parambyname('moneda').AsString        := 'E';
                Q.parambyname('id_conceptos').AsString  := QFicheroCTONOMT.AsString;
-               if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+               if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
                   Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
                end;
                Q.ExecQuery;
@@ -845,7 +845,7 @@ begin
          Q.ParamByName('ASIENTONOMINA').AsInteger := nAsientoEmpresa;
          Q.parambyname('asiento').AsInteger       := nAsiento;
          Q.parambyname('apunte').AsInteger        := nApunte;
-         if not empty(QFicheroCOMENTARIO.AsString) then begin
+         if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
             Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
          end;
          Q.parambyname('debehaber').AsString      := 'D';
@@ -855,7 +855,7 @@ begin
          Q.parambyname('importe').AsFloat         := SumaRemuneraciones;
          Q.parambyname('moneda').AsString         := 'E';
          Q.parambyname('id_conceptos').AsString   := QFicheroCTONOMT.AsString;
-         if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+         if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
             Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
          end;
          Q.ExecQuery;
@@ -871,7 +871,7 @@ begin
          Q.ParamByName('ASIENTONOMINA').AsInteger := nAsiento;
          Q.parambyname('asiento').AsInteger       := nAsientoEmpresa;
          Q.parambyname('apunte').AsInteger        := 1;
-         if not empty(QFicheroCOMENTARIO.AsString) then begin
+         if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
             Q.parambyname('comentario').AsString :=
                Trim(QFicheroCOMENTARIO.AsString);
          end;
@@ -882,7 +882,7 @@ begin
          Q.parambyname('importe').AsFloat        := QFicheroIMPEMPRESA.AsFloat;
          Q.parambyname('moneda').AsString        := 'E';
          Q.parambyname('id_conceptos').AsString  := QFicheroCTONOME.AsString;
-         if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+         if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
             Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
          end;
          Q.ExecQuery;
@@ -894,7 +894,7 @@ begin
          Q.ParamByName('ASIENTONOMINA').AsInteger := nAsiento;
          Q.parambyname('asiento').AsInteger       := nAsientoEmpresa;
          Q.parambyname('apunte').AsInteger        := 2;
-         if not empty(QFicheroCOMENTARIO.AsString) then begin
+         if not IsEmpty(QFicheroCOMENTARIO.AsString) then begin
             Q.parambyname('comentario').AsString := Trim(QFicheroCOMENTARIO.AsString);
          end;
          Q.parambyname('debehaber').AsString     := 'H';
@@ -904,7 +904,7 @@ begin
          Q.parambyname('subcuenta').AsString     := QFicheroSCTANOMSSE.AsString;
          Q.parambyname('contrapartida').AsString := QFicheroSCTANOMCARGO.AsString;
          Q.parambyname('id_conceptos').AsString  := QFicheroCTONOME.AsString;
-         if not empty(QFicheroCUENTA_ANALITICA.AsString) then begin
+         if not IsEmpty(QFicheroCUENTA_ANALITICA.AsString) then begin
             Q.parambyname('CUENTA_ANALITICA').AsString := Trim(QFicheroCUENTA_ANALITICA.AsString);
          end;
          Q.ExecQuery;
@@ -1165,7 +1165,7 @@ begin
       // Primero vaciar el fichero
       DMContaRef.QInformesConta.EmptyDataset;
 
-      PonerTipoConta('T');
+      Config.SetAccountingType('T');
       LMayorModel := TFiltroListadosMayorModel.Create(DMRef.BDContab);
       try
          LMayorModel.LanzarInfMayor(True,

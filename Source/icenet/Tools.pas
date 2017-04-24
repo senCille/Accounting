@@ -2,7 +2,11 @@ unit Tools;
 
 interface
 
-uses Windows, Forms, db, Controls, Graphics, Classes, Menus, ComCtrls, CommCtrl;
+uses System.Classes,
+     WinAPI.Windows,
+     Data.DB,
+     IBX.IBDatabase,
+     VCL.Forms, VCL.Controls, VCL.Graphics, VCL.Menus, VCL.ComCtrls;
 
 type TTypeOfField = (tcString, tcInteger, tcBoolean, tcFloat, tcDate);
 
@@ -15,7 +19,7 @@ type TTypeOfField = (tcString, tcInteger, tcBoolean, tcFloat, tcDate);
      end;
 
      TTools = class
-        class procedure BoldTreeNode(TreeNode :TTreeNode; Value :Boolean);
+        //class procedure BoldTreeNode(TreeNode :TTreeNode; Value :Boolean);
         class procedure PlayKeystroke(Handle: HWND; VKChar: word; VKShift: Word);
         class function  CheckSQLSentence   (aStr :string; TypeOfField :TTypeOfField; Containing :Boolean):string;
         class function  CheckFilterSentence(aStr :string; TypeOfField :TTypeOfField; Containing :Boolean):string;
@@ -44,9 +48,15 @@ type TTypeOfField = (tcString, tcInteger, tcBoolean, tcFloat, tcDate);
         class procedure ToggleNumLock;
      end;
 
+procedure ActivateTransactions(AForm :TForm; ADatabase :TIBDatabase);
+function IsEmpty(AString :string):Boolean;
+
 
 implementation
-uses SysUtils, Messages, Math, Globales{, ppCtrls};
+
+uses System.SysUtils, System.Math,
+     WinAPI.Messages,
+     Globales;
 
 { TDelegate }
 
@@ -61,9 +71,8 @@ end;
 
 { TTools }
 
-class procedure TTools.BoldTreeNode(TreeNode :TTreeNode; Value :Boolean);
-var
-   TreeItem :TTVItem;
+(*class procedure TTools.BoldTreeNode(TreeNode :TTreeNode; Value :Boolean);
+var TreeItem :TTVItem;
 begin
    if not Assigned(treeNode) then Exit;
 
@@ -78,7 +87,7 @@ begin
    end;
 
    TreeView_SetItem(TreeNode.Handle, TreeItem) ;
-end;
+end;*)
 
 class procedure TTools.PlayKeystroke(Handle: HWND; VKChar: word; VKShift: Word);
 var KeyState: TKeyboardState;
@@ -253,12 +262,12 @@ end;
 
 class function TTools.FormatInt(IntData :Int64):string;
 begin
-   Result := SysUtils.FormatFloat('###,##0', IntData);
+   Result := System.SysUtils.FormatFloat('###,##0', IntData);
 end;
 
 class function TTools.FormatFloat(Data :Real):string;
 begin
-   Result := SysUtils.FormatFloat('0.00',Data);
+   Result := System.SysUtils.FormatFloat('0.00',Data);
 end;
 
 class procedure TTools.WriteText(ACanvas: TCanvas; ARect: TRect; DX, DY: Integer;
@@ -767,6 +776,30 @@ begin
    //   Keybd_Event(VK_CAPITAL, 0, KEYEVENTF_EXTENDEDKEY or 0, 0) ;
    //   Keybd_Event(VK_CAPITAL, 0, KEYEVENTF_EXTENDEDKEY or KEYEVENTF_KEYUP, 0) ;
    //end;
+end;
+
+procedure ActivateTransactions(AForm :TForm; ADatabase :TIBDatabase);
+var i :Word;
+begin
+   for i := 0 to (AForm.ComponentCount - 1) do begin
+      if (AForm.Components[i] is TIBTransaction) then begin
+         TIBTransaction(AForm.Components[i]).Active := False;
+         TIBTransaction(AForm.Components[i]).Params.Clear;
+         TIBTransaction(AForm.Components[i]).Params.Add('Read_committed');
+         TIBTransaction(AForm.Components[i]).Params.Add('Rec_version');
+         TIBTransaction(AForm.Components[i]).Params.Add('Write');
+         {Next block was be added after change the name of the Database Component}
+         if (TIBTransaction(AForm.Components[i]).DefaultDatabase = nil) then begin
+           TIBTransaction(AForm.Components[i]).DefaultDatabase := ADatabase{DMRef.BDContab};
+         end;
+         TIBTransaction(AForm.Components[i]).Active := True;
+      end;
+   end;
+end;
+
+function IsEmpty(AString :string):Boolean;
+begin
+   Result := Trim(AString) = '';
 end;
 
 end.

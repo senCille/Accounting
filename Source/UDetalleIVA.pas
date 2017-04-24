@@ -39,7 +39,9 @@ type
 var WDetalleIVA: TWDetalleIVA;
 
 implementation
-uses DM, General, Globales, UCargaAsiento, Math;
+
+uses DM, Globales, UCargaAsiento, Math;
+
 {$R *.DFM}
 
 procedure TWDetalleIVA.RecalcularCuotas;

@@ -264,7 +264,9 @@ var WCuentas: TWCuentas;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales, Math;
+uses System.Math, System.StrUtils,
+     DM, DMConta, DMControl, Globales;
+
 {$R *.DFM}
 
 procedure TWCuentas.FormCreate(Sender: TObject);
@@ -768,7 +770,7 @@ begin
    QFichero.Post;
    Transaccion.CommitRetaining;
    DMContaRef.RefrescarSubcuentas(
-      QFicheroCUENTA.AsString + REPLICATE('0', DMRef.QParametrosLONGITUD_SUBCUENTAS.AsInteger - Length(Trim(QFicheroCUENTA.AsString))));
+      QFicheroCUENTA.AsString + DupeString('0', DMRef.QParametrosLONGITUD_SUBCUENTAS.AsInteger - Length(Trim(QFicheroCUENTA.AsString))));
 
    FormManager.Mode := fmBrowse;
    PageControl.ActivePage := TabCuentas;

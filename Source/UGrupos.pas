@@ -70,14 +70,14 @@ type
 var WGrupos: TWGrupos;
 
 implementation
-uses DM, DMConta, DMControl, General, Globales;
+uses DM, DMConta, DMControl, Tools, Globales;
 {$R *.DFM}
 
 procedure TWGrupos.FormCreate(Sender: TObject);
 begin
    FormManager := TccFormHandler.Create(Self);
-   
-   ActivarTransacciones(self);
+
+   ActivateTransactions(Self, DMRef.BDContab);
    CrearFiltro;
    FCampoOrden := 'Grupo';
    PrepararQuery;
@@ -155,8 +155,11 @@ end;
 
 procedure TWGrupos.RefrescarBD;
 begin
-   QueryRefresh(DmContaRef.QGrupos);
-   QueryRefresh(DmContaRef.QGruposDesc);
+   DMContaRef.QGrupos.Close;
+   DMContaRef.QGruposDesc.Close;
+
+   DMContaRef.QGrupos.Open;
+   DMContaRef.QGruposDesc.Open;
 end;
 
 procedure TWGrupos.BtnAppendClick(Sender: TObject);

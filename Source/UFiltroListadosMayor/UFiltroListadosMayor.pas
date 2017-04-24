@@ -116,7 +116,8 @@ var WFiltroListadosMayor: TWFiltroListadosMayor;
 
 implementation
 
-uses DM, DMConta, General, Globales;
+uses DM, DMConta, Globales;
+
 {$R *.DFM}
 
 procedure TWFiltroListadosMayor.FormCreate(Sender: TObject);
@@ -183,7 +184,7 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   PonerTipoConta(CDSFiltroTIPO_CONCEPTO.AsString);
+   Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
    Config.FormatoOficial := CheckBoxFormatoOficial.Checked;
 
    case TipoListado of

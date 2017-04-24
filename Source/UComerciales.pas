@@ -71,7 +71,7 @@ type
 var WComerciales: TWComerciales;
 
 implementation
-uses DM, DMControl, General, Globales;
+uses DM, DMControl, Tools, Globales;
 {$R *.DFM}
 
 procedure TWComerciales.FormCreate(Sender: TObject);
@@ -92,7 +92,7 @@ begin
    FormManager.AddComp(DBNavigator.Name , fmBrowse);
    FormManager.AddComp(DataGrid.Name    , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
    CrearFiltro;
    FCampoOrden := 'COMERCIAL';
    PrepararQuery;
@@ -153,8 +153,11 @@ end;
 
 procedure TWComerciales.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QComercial);
-   QueryRefresh(DmRef.QcomercialNom);
+   DMRef.QComercial.Close;
+   DMRef.QcomercialNom.Close;
+
+   DMRef.QComercial.Open;
+   DMRef.QcomercialNom.Open;
 end;
 
 procedure TWComerciales.BtnAppendClick(Sender: TObject);

@@ -437,7 +437,7 @@ object WCargaAsiento: TWCargaAsiento
               TabOrder = 0
             end
             object gDescuadre: TGroupBox
-              Left = 611
+              Left = 587
               Top = 6
               Width = 127
               Height = 39

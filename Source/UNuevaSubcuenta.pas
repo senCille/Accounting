@@ -187,7 +187,7 @@ var WNuevaSubcuenta: TWNuevaSubcuenta;
 
 implementation
 
-uses DM, DMConta, DMControl, General, Globales;
+uses DM, DMConta, DMControl, Globales;
 
 {$R *.DFM}
 

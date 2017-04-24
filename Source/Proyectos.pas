@@ -70,7 +70,8 @@ var WProyectos: TWProyectos;
 
 implementation
 
-uses General, Globales, DM, DMControl;
+uses Globales, Tools, DM, DMControl;
+
 {$R *.DFM}
 
 procedure TWProyectos.FormCreate(Sender: TObject);
@@ -91,7 +92,8 @@ begin
    FormManager.AddComp(Navigator.Name             , fmBrowse);
    FormManager.AddComp(DataGrid.Name              , fmBrowse);
 
-   ActivarTransacciones(Self);
+   ActivateTransactions(Self, DMRef.BDContab);
+
    CrearFiltro;
    FCampoOrden := 'ID_PROYECTO';
    PrepararQuery;
@@ -163,8 +165,11 @@ end;
 
 procedure TWProyectos.RefrescarBD;
 begin
-   QueryRefresh(DmRef.QProyecto);
-   QueryRefresh(DmRef.QProyectoNom);
+   DMRef.QProyecto.Close;
+   DMRef.QProyectoNom.Close;
+
+   DMRef.QProyecto.Open;
+   DMRef.QProyectoNom.Open;
 end;
 
 procedure TWProyectos.BtnNewClick(Sender: TObject);
