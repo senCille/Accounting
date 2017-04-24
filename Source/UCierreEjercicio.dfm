@@ -6,7 +6,7 @@ object WCierreEjercicio: TWCierreEjercicio
   Caption = 'Cierre de Ejercicio'
   ClientHeight = 462
   ClientWidth = 557
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -24,19 +24,18 @@ object WCierreEjercicio: TWCierreEjercicio
     Top = 33
     Width = 473
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 24
     Top = 13
-    Width = 149
+    Width = 128
     Height = 19
     Caption = 'Cierre de Ejercicio'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -46,12 +45,12 @@ object WCierreEjercicio: TWCierreEjercicio
     Width = 506
     Height = 269
     Caption = ' MARQUE LAS TAREAS AUTOMATIZADAS A REALIZAR DURANTE EL CIERRE '
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
     Font.Height = -13
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 1
@@ -83,7 +82,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
     end
@@ -98,7 +97,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 3
     end
@@ -113,7 +112,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
     end
@@ -128,7 +127,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
     end
@@ -143,7 +142,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 4
     end
@@ -158,7 +157,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 5
     end
@@ -173,7 +172,7 @@ object WCierreEjercicio: TWCierreEjercicio
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
     end
@@ -189,7 +188,7 @@ object WCierreEjercicio: TWCierreEjercicio
     Font.Color = clNavy
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     OnClick = BtnEdtProcesarClick
@@ -202,12 +201,12 @@ object WCierreEjercicio: TWCierreEjercicio
     Caption = 
       ' MARQUE LAS TAREAS YA REALIZADAS POR EL USUARIO ANTES DEL CIERRE' +
       ' '
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = ANSI_CHARSET
     Font.Color = clNavy
     Font.Height = -12
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 0

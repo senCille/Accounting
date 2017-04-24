@@ -6,7 +6,7 @@ object WProyectos: TWProyectos
   Caption = 'Archivo de PROYECTOS'
   ClientHeight = 458
   ClientWidth = 463
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -38,9 +38,7 @@ object WProyectos: TWProyectos
       Width = 358
       Height = 255
       Align = alClient
-      Color = 15596540
       DataSource = SFichero
-      FixedColor = 10841401
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -50,10 +48,10 @@ object WProyectos: TWProyectos
       ParentFont = False
       TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
-      TitleFont.Color = clWhite
+      TitleFont.Color = clWindowText
       TitleFont.Height = -13
       TitleFont.Name = 'System'
-      TitleFont.Style = [fsBold]
+      TitleFont.Style = []
       OnDblClick = DataGridDblClick
       OnTitleClick = DataGridTitleClick
       Columns = <
@@ -77,7 +75,7 @@ object WProyectos: TWProyectos
       Width = 358
       Height = 92
       Align = alBottom
-      Color = 14275008
+      Color = clBtnFace
       ParentColor = False
       TabOrder = 1
       object Label1: TLabel
@@ -88,10 +86,10 @@ object WProyectos: TWProyectos
         AutoSize = False
         Caption = 'Proyecto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label2: TLabel
@@ -102,10 +100,10 @@ object WProyectos: TWProyectos
         AutoSize = False
         Caption = 'Nombre'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditDESCRIPCION: TDBEdit
@@ -148,26 +146,26 @@ object WProyectos: TWProyectos
       Height = 70
       Align = alTop
       Caption = ' Buscar '
-      Color = 14275008
+      Color = clBtnFace
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentColor = False
       ParentFont = False
       TabOrder = 2
       object Label4: TLabel
         Left = 17
         Top = 43
-        Width = 44
+        Width = 37
         Height = 13
         Caption = 'Nombre'
       end
       object Label5: TLabel
         Left = 16
         Top = 21
-        Width = 51
+        Width = 43
         Height = 13
         Caption = 'Proyecto'
       end
@@ -181,7 +179,7 @@ object WProyectos: TWProyectos
         DataField = 'BDESCRIPCION'
         DataSource = sFiltro
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
@@ -200,7 +198,7 @@ object WProyectos: TWProyectos
         DataField = 'BCODIGO'
         DataSource = sFiltro
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
@@ -336,10 +334,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = 'Nuevo'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnNewClick
@@ -352,10 +350,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = '&Borrar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnDeleteClick
@@ -368,10 +366,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = 'Ac&eptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       OnClick = BtnAcceptClick
@@ -384,10 +382,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = '&Cancelar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 3
       OnClick = BtnCancelClick
@@ -409,10 +407,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = '&Imprimir'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
       OnClick = BtnReportClick
@@ -425,10 +423,10 @@ object WProyectos: TWProyectos
       Cursor = crHandPoint
       Caption = '&Modificar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 5
       OnClick = BtnModifyClick
@@ -440,26 +438,24 @@ object WProyectos: TWProyectos
     Width = 463
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 2
     object Shape1: TShape
       Left = 11
       Top = 34
       Width = 753
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 14
       Top = 8
-      Width = 171
+      Width = 149
       Height = 19
       Caption = 'Archivo de Proyectos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -614,7 +610,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'Proyecto')
@@ -629,7 +625,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Nombre')
           ParentFont = False
@@ -643,7 +639,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE PROYECTOS')
@@ -658,7 +654,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -680,7 +676,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -694,7 +690,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -750,7 +746,7 @@ object WProyectos: TWProyectos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

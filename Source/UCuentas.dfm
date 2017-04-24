@@ -3,7 +3,7 @@ object WCuentas: TWCuentas
   Top = 211
   ClientHeight = 520
   ClientWidth = 781
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -27,9 +27,7 @@ object WCuentas: TWCuentas
     Width = 781
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 789
     object Label2: TLabel
       Left = 22
       Top = 11
@@ -38,10 +36,10 @@ object WCuentas: TWCuentas
       AutoSize = False
       Caption = 'Archivo de Cuentas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -64,7 +62,7 @@ object WCuentas: TWCuentas
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -79,7 +77,7 @@ object WCuentas: TWCuentas
       Font.Color = clNavy
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -90,31 +88,22 @@ object WCuentas: TWCuentas
     Width = 781
     Height = 479
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 789
-    ExplicitHeight = 484
     object PageControl: TPageControl
       Left = 1
       Top = 1
       Width = 667
       Height = 477
-      ActivePage = TabGraficos
+      ActivePage = TabCuentas
       Align = alClient
       TabOrder = 0
       OnChange = PageControlChange
-      ExplicitWidth = 675
-      ExplicitHeight = 482
       object TabCuentas: TTabSheet
         Caption = 'Cuentas'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object FiltroBuscar: TGroupBox
           Left = 0
           Top = 0
-          Width = 667
+          Width = 659
           Height = 53
           Align = alTop
           Caption = 'BUSCAR'
@@ -122,34 +111,34 @@ object WCuentas: TWCuentas
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label1: TLabel
             Left = 8
             Top = 24
-            Width = 40
+            Width = 35
             Height = 13
             Caption = 'Cuenta'
           end
           object Label12: TLabel
             Left = 129
             Top = 24
-            Width = 65
+            Width = 54
             Height = 13
             Caption = 'Descripci'#243'n'
           end
           object Label36: TLabel
             Left = 444
             Top = 24
-            Width = 32
+            Width = 26
             Height = 13
             Caption = 'T'#237'tulo'
           end
           object Label37: TLabel
             Left = 551
             Top = 24
-            Width = 34
+            Width = 29
             Height = 13
             Caption = 'Grupo'
           end
@@ -230,12 +219,10 @@ object WCuentas: TWCuentas
         object DataGrid: TDBGrid
           Left = 0
           Top = 53
-          Width = 667
-          Height = 401
+          Width = 659
+          Height = 396
           Align = alClient
-          Color = 14275008
           DataSource = SFichero
-          FixedColor = 10841401
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -245,10 +232,10 @@ object WCuentas: TWCuentas
           ParentFont = False
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWhite
+          TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = [fsBold]
+          TitleFont.Style = []
           Columns = <
             item
               Expanded = False
@@ -287,10 +274,6 @@ object WCuentas: TWCuentas
       object TabDatos: TTabSheet
         Caption = 'Datos'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 31
           Top = 41
@@ -301,34 +284,34 @@ object WCuentas: TWCuentas
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label30: TLabel
             Left = 44
             Top = 63
-            Width = 65
+            Width = 54
             Height = 13
             Caption = 'Descripci'#243'n'
           end
           object Label3: TLabel
             Left = 44
             Top = 32
-            Width = 40
+            Width = 35
             Height = 13
             Caption = 'Cuenta'
           end
           object Label4: TLabel
             Left = 44
             Top = 91
-            Width = 44
+            Width = 38
             Height = 13
             Caption = 'Grupo 1'
           end
           object Label5: TLabel
             Left = 44
             Top = 120
-            Width = 44
+            Width = 38
             Height = 13
             Caption = 'Grupo 2'
           end
@@ -451,7 +434,7 @@ object WCuentas: TWCuentas
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Items.Strings = (
             'Clientes'
             'Proveedores'
@@ -483,36 +466,26 @@ object WCuentas: TWCuentas
       object TabAcumulados: TTabSheet
         Caption = 'Acumulados'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PageControlAcumulados: TPageControl
           Left = 0
           Top = 0
           Width = 659
           Height = 449
-          ActivePage = TabPreviousYear
+          ActivePage = TabCurrentYear
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 667
-          ExplicitHeight = 454
           object TabCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label19: TLabel
-              Left = 144
-              Top = 306
+              Left = 143
+              Top = 303
               Width = 63
               Height = 13
               Caption = 'SUMA DEBE'
             end
             object Label20: TLabel
-              Left = 456
-              Top = 314
+              Left = 455
+              Top = 303
               Width = 71
               Height = 13
               Caption = 'SUMA HABER'
@@ -527,48 +500,48 @@ object WCuentas: TWCuentas
               Font.Color = clNavy
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 0
               object Label6: TLabel
                 Left = 23
                 Top = 59
-                Width = 35
+                Width = 34
                 Height = 13
                 Caption = 'ENERO'
               end
               object Label7: TLabel
                 Left = 23
                 Top = 91
-                Width = 49
+                Width = 46
                 Height = 13
                 Caption = 'FEBRERO'
               end
               object Label8: TLabel
                 Left = 23
                 Top = 123
-                Width = 41
+                Width = 36
                 Height = 13
                 Caption = 'MARZO'
               end
               object Label9: TLabel
                 Left = 23
                 Top = 155
-                Width = 34
+                Width = 29
                 Height = 13
                 Caption = 'ABRIL'
               end
               object Label10: TLabel
                 Left = 23
                 Top = 187
-                Width = 33
+                Width = 29
                 Height = 13
                 Caption = 'MAYO'
               end
               object Label11: TLabel
                 Left = 23
                 Top = 219
-                Width = 34
+                Width = 31
                 Height = 13
                 Caption = 'JUNIO'
               end
@@ -582,7 +555,7 @@ object WCuentas: TWCuentas
                 Font.Color = clNavy
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 0
                 object Edit1: TDBEdit
@@ -710,7 +683,7 @@ object WCuentas: TWCuentas
                 Font.Color = clNavy
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 1
                 object Edit7: TDBEdit
@@ -839,48 +812,48 @@ object WCuentas: TWCuentas
               Font.Color = clNavy
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 1
               object Label13: TLabel
                 Left = 12
                 Top = 59
-                Width = 33
+                Width = 29
                 Height = 13
                 Caption = 'JULIO'
               end
               object Label14: TLabel
                 Left = 12
                 Top = 91
-                Width = 46
+                Width = 42
                 Height = 13
                 Caption = 'AGOSTO'
               end
               object Label15: TLabel
                 Left = 12
                 Top = 123
-                Width = 69
+                Width = 61
                 Height = 13
                 Caption = 'SEPTIEMBRE'
               end
               object Label16: TLabel
                 Left = 12
                 Top = 155
-                Width = 51
+                Width = 47
                 Height = 13
                 Caption = 'OCTUBRE'
               end
               object Label17: TLabel
                 Left = 12
                 Top = 187
-                Width = 64
+                Width = 58
                 Height = 13
                 Caption = 'NOVIEMBRE'
               end
               object Label18: TLabel
                 Left = 12
                 Top = 219
-                Width = 62
+                Width = 55
                 Height = 13
                 Caption = 'DICIEMBRE'
               end
@@ -894,7 +867,7 @@ object WCuentas: TWCuentas
                 Font.Color = clNavy
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 0
                 object Edit13: TDBEdit
@@ -1022,7 +995,7 @@ object WCuentas: TWCuentas
                 Font.Color = clNavy
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 1
                 object Edit19: TDBEdit
@@ -1142,8 +1115,8 @@ object WCuentas: TWCuentas
               end
             end
             object Edit25: TDBEdit
-              Left = 212
-              Top = 298
+              Left = 211
+              Top = 300
               Width = 107
               Height = 19
               Color = 14275008
@@ -1161,8 +1134,8 @@ object WCuentas: TWCuentas
               TabOrder = 2
             end
             object Edit26: TDBEdit
-              Left = 548
-              Top = 306
+              Left = 547
+              Top = 300
               Width = 107
               Height = 19
               Color = 14275008
@@ -1183,34 +1156,30 @@ object WCuentas: TWCuentas
           object TabPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label35: TLabel
               Left = 340
               Top = 314
-              Width = 73
+              Width = 64
               Height = 13
               Caption = 'SUMA HABER'
               Font.Charset = ANSI_CHARSET
               Font.Color = clOlive
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label34: TLabel
               Left = 23
               Top = 314
-              Width = 63
+              Width = 56
               Height = 13
               Caption = 'SUMA DEBE'
               Font.Charset = ANSI_CHARSET
               Font.Color = clOlive
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object GroupBox8: TGroupBox
@@ -1223,48 +1192,48 @@ object WCuentas: TWCuentas
               Font.Color = clOlive
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 0
               object Label21: TLabel
                 Left = 23
                 Top = 59
-                Width = 35
+                Width = 34
                 Height = 13
                 Caption = 'ENERO'
               end
               object Label22: TLabel
                 Left = 23
                 Top = 91
-                Width = 49
+                Width = 46
                 Height = 13
                 Caption = 'FEBRERO'
               end
               object Label23: TLabel
                 Left = 23
                 Top = 123
-                Width = 41
+                Width = 36
                 Height = 13
                 Caption = 'MARZO'
               end
               object Label24: TLabel
                 Left = 23
                 Top = 155
-                Width = 34
+                Width = 29
                 Height = 13
                 Caption = 'ABRIL'
               end
               object Label25: TLabel
                 Left = 23
                 Top = 187
-                Width = 33
+                Width = 29
                 Height = 13
                 Caption = 'MAYO'
               end
               object Label26: TLabel
                 Left = 23
                 Top = 219
-                Width = 34
+                Width = 31
                 Height = 13
                 Caption = 'JUNIO'
               end
@@ -1278,7 +1247,7 @@ object WCuentas: TWCuentas
                 Font.Color = clOlive
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 0
                 object Edit27: TDBEdit
@@ -1406,7 +1375,7 @@ object WCuentas: TWCuentas
                 Font.Color = clOlive
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 1
                 object Edit33: TDBEdit
@@ -1535,48 +1504,48 @@ object WCuentas: TWCuentas
               Font.Color = clOlive
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 1
               object Label27: TLabel
                 Left = 12
                 Top = 59
-                Width = 33
+                Width = 29
                 Height = 13
                 Caption = 'JULIO'
               end
               object Label28: TLabel
                 Left = 12
                 Top = 91
-                Width = 46
+                Width = 42
                 Height = 13
                 Caption = 'AGOSTO'
               end
               object Label29: TLabel
                 Left = 12
                 Top = 123
-                Width = 69
+                Width = 61
                 Height = 13
                 Caption = 'SEPTIEMBRE'
               end
               object Label31: TLabel
                 Left = 12
                 Top = 155
-                Width = 51
+                Width = 47
                 Height = 13
                 Caption = 'OCTUBRE'
               end
               object Label32: TLabel
                 Left = 12
                 Top = 187
-                Width = 64
+                Width = 58
                 Height = 13
                 Caption = 'NOVIEMBRE'
               end
               object Label33: TLabel
                 Left = 12
                 Top = 219
-                Width = 62
+                Width = 55
                 Height = 13
                 Caption = 'DICIEMBRE'
               end
@@ -1590,7 +1559,7 @@ object WCuentas: TWCuentas
                 Font.Color = clOlive
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 0
                 object Edit39: TDBEdit
@@ -1718,7 +1687,7 @@ object WCuentas: TWCuentas
                 Font.Color = clOlive
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
                 TabOrder = 1
                 object Edit45: TDBEdit
@@ -1881,10 +1850,6 @@ object WCuentas: TWCuentas
       object TabGraficos: TTabSheet
         Caption = 'Graficos'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PageControlGraficos: TPageControl
           Left = 0
           Top = 0
@@ -1893,14 +1858,8 @@ object WCuentas: TWCuentas
           ActivePage = TabGraphicCurrentYear
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 667
-          ExplicitHeight = 454
           object TabGraphicCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Memo1: TMemo
               Left = 72
               Top = 96
@@ -1915,18 +1874,10 @@ object WCuentas: TWCuentas
           object TabGraphicPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
           end
           object TabGraphicComparative: TTabSheet
             Caption = 'Comparativa'
             ImageIndex = 2
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
           end
         end
       end
@@ -1937,10 +1888,8 @@ object WCuentas: TWCuentas
       Width = 112
       Height = 477
       Align = alRight
-      Color = 14275008
+      ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 676
-      ExplicitHeight = 482
       object BtnRefresh: TSpeedButton
         Left = 38
         Top = 381
@@ -2028,7 +1977,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -2044,7 +1993,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -2060,7 +2009,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -2076,7 +2025,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -2092,7 +2041,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 4
         OnClick = BtnReportsClick
@@ -2104,7 +2053,7 @@ object WCuentas: TWCuentas
         Height = 50
         Cursor = crHandPoint
         CommonAVI = aviFindFolder
-        StopFrame = 29
+        StopFrame = 27
         Visible = False
       end
       object BtnModify: TButton
@@ -2118,7 +2067,7 @@ object WCuentas: TWCuentas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = RejillaDblClick
@@ -2891,7 +2840,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Cuenta')
           ParentFont = False
@@ -2905,7 +2854,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Descripci'#243'n')
           ParentFont = False
@@ -2919,7 +2868,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE CUENTAS')
@@ -2934,7 +2883,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Grupo 1')
           ParentFont = False
@@ -2948,7 +2897,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Grupo 2')
           ParentFont = False
@@ -2962,7 +2911,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Tipo de Cuenta')
           ParentFont = False
@@ -2976,7 +2925,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -2998,7 +2947,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -3012,7 +2961,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -3068,7 +3017,7 @@ object WCuentas: TWCuentas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

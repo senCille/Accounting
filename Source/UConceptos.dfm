@@ -6,7 +6,7 @@ object WConceptos: TWConceptos
   Caption = 'Archivo de CONCEPTOS'
   ClientHeight = 493
   ClientWidth = 707
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WConceptos: TWConceptos
     Width = 707
     Height = 40
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 9
       Top = 29
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 9
       Top = 8
-      Width = 175
+      Width = 154
       Height = 19
       Caption = 'Archivo de Conceptos'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WConceptos: TWConceptos
     Width = 707
     Height = 453
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WConceptos: TWConceptos
       Width = 600
       Height = 451
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -81,20 +77,20 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 125
           Top = 21
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 53
+          Width = 46
           Height = 13
           Caption = 'Concepto'
         end
@@ -155,7 +151,7 @@ object WConceptos: TWConceptos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label1: TLabel
@@ -169,34 +165,34 @@ object WConceptos: TWConceptos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
           Left = 8
           Top = 86
-          Width = 79
+          Width = 67
           Height = 13
           Caption = 'Contrapartida'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Visible = False
         end
         object Label7: TLabel
           Left = 8
           Top = 61
-          Width = 60
+          Width = 51
           Height = 13
           Caption = 'Subcuenta'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Visible = False
         end
@@ -230,7 +226,7 @@ object WConceptos: TWConceptos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Items.Strings = (
             'I.V.A.'
             '347'
@@ -281,7 +277,7 @@ object WConceptos: TWConceptos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Items.Strings = (
             'Normal'
             'Especial')
@@ -305,7 +301,7 @@ object WConceptos: TWConceptos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 8
           ValueChecked = 'S'
@@ -394,9 +390,7 @@ object WConceptos: TWConceptos
         Width = 598
         Height = 224
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -406,10 +400,10 @@ object WConceptos: TWConceptos
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -460,7 +454,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -476,7 +470,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -492,7 +486,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -508,7 +502,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -534,7 +528,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -550,7 +544,7 @@ object WConceptos: TWConceptos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnModifyClick
@@ -1128,7 +1122,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'T'#237'tulo')
           ParentFont = False
@@ -1142,7 +1136,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Descripci'#243'n')
           ParentFont = False
@@ -1156,7 +1150,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE CONCEPTOS')
@@ -1171,7 +1165,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Tipo')
           ParentFont = False
@@ -1185,7 +1179,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -1207,7 +1201,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -1221,7 +1215,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -1277,7 +1271,7 @@ object WConceptos: TWConceptos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

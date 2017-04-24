@@ -36,14 +36,12 @@ type
     EditBNombre: TDBEdit;
     EditBCodigo: TDBEdit;
     DataGrid: TDBGrid;
-    Shape1: TShape;
-    Label3: TLabel;
     Shape2: TShape;
-    Label6: TLabel;
     DBNavigator: TDBNavigator;
     PDFExport: TfrxPDFExport;
     ReportDBLInk: TfrxDBDataset;
     FastReport: TfrxReport;
+    Label6: TLabel;
     procedure BtnAppendClick(Sender: TObject);
     procedure BtnDeleteClick(Sender: TObject);
     procedure BtnAcceptClick(Sender: TObject);

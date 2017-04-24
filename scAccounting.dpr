@@ -2,30 +2,6 @@ program scAccounting;
 
 uses
   Vcl.Forms,
-  DM in 'Source\DM.pas' {DMRef: TDataModule},
-  DMConta in 'Source\DMConta.pas' {DMContaRef: TDataModule},
-  DMControl in 'Source\DMControl.pas' {DMControlRef: TDataModule},
-  Globales in 'Source\Globales.pas',
-  Login in 'Source\Login.pas' {FormLogin},
-  MainMenu in 'Source\MainMenu.pas' {MainMenuForm},
-  Proyectos in 'Source\Proyectos.pas' {WProyectos},
-  Splash in 'Source\Splash.pas' {FormSplash},
-  UActualizacionBD in 'Source\UActualizacionBD.pas' {WActualizacionBD},
-  UAnaliticas in 'Source\UAnaliticas.pas' {WAnaliticas},
-  UCierreEjercicio in 'Source\UCierreEjercicio.pas' {WCierreEjercicio},
-  UComerciales in 'Source\UComerciales.pas' {WComerciales},
-  UConceptos in 'Source\UConceptos.pas' {WConceptos},
-  UCuentas in 'Source\UCuentas.pas' {WCuentas},
-  UDelegaciones in 'Source\UDelegaciones.pas' {WDelegaciones},
-  UDepartamentos in 'Source\UDepartamentos.pas' {WDepartamentos},
-  UDetalleIVA in 'Source\UDetalleIVA.pas' {WDetalleIVA},
-  UEmpresas in 'Source\UEmpresas.pas' {WEmpresas},
-  UEnlaceContable in 'Source\UEnlaceContable.pas' {WEnlaceContable},
-  UEspere in 'Source\UEspere.pas' {WEspere},
-  UFormasPago in 'Source\UFormasPago.pas' {WFormasPago},
-  UGeneracionAsiento in 'Source\UGeneracionAsiento.pas' {WGeneracionAsiento},
-  UGrupos in 'Source\UGrupos.pas' {WGrupos},
-  UImportacion in 'Source\UImportacion.pas' {WImportacion},
   UAmortizaciones in 'Source\Amortizaciones\UAmortizaciones.pas' {WAmortizaciones},
   UAmortizacionesModel in 'Source\Amortizaciones\UAmortizacionesModel.pas' {DataModuleAmortizaciones: TDataModule},
   UBalAcumulados in 'Source\BalAcumulados\UBalAcumulados.pas',
@@ -88,24 +64,48 @@ uses
   UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas',
   UFiltroListadosMayor in 'Source\UFiltroListadosMayor\UFiltroListadosMayor.pas',
   UFiltroListadosMayorModel in 'Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas',
-  UNuevaSubcuenta in 'Source\UNuevaSubcuenta.pas',
-  USituacionEfecto in 'Source\USituacionEfecto.pas',
-  UVencimientos in 'Source\UVencimientos.pas',
-  UUtilEmpresas in 'Source\UUtilEmpresas.pas',
-  UPaises in 'Source\UPaises.pas',
-  UParametrizacionFacturacion in 'Source\UParametrizacionFacturacion.pas',
-  UPlanAnalico in 'Source\UPlanAnalico.pas',
-  UPlanContable in 'Source\UPlanContable.pas',
-  UPunteoDiario in 'Source\UPunteoDiario.pas',
-  USecciones in 'Source\USecciones.pas',
-  USubCuentas in 'Source\USubCuentas.pas',
-  UTiposDiario in 'Source\UTiposDiario.pas',
-  UTitulos in 'Source\UTitulos.pas',
-  UTraspasoApuntes in 'Source\UTraspasoApuntes.pas',
-  UTraspasoDatos in 'Source\UTraspasoDatos.pas',
-  UUsuarios in 'Source\UUsuarios.pas',
   Tools in 'Source\icenet\Tools.pas',
-  Localization in 'Source\Localization\Localization.pas';
+  Localization in 'Source\Localization\Localization.pas',
+  UPaises in 'Source\UPaises.pas' {WPaises},
+  UParametrizacionFacturacion in 'Source\UParametrizacionFacturacion.pas' {WParametrizacionFacturacion},
+  UNuevaSubcuenta in 'Source\UNuevaSubcuenta.pas' {WNuevaSubcuenta},
+  DM in 'Source\DM.pas' {DMRef: TDataModule},
+  DMConta in 'Source\DMConta.pas' {DMContaRef: TDataModule},
+  DMControl in 'Source\DMControl.pas' {DMControlRef: TDataModule},
+  Globales in 'Source\Globales.pas',
+  Login in 'Source\Login.pas' {FormLogin},
+  MainMenu in 'Source\MainMenu.pas' {MainMenuForm},
+  Proyectos in 'Source\Proyectos.pas' {WProyectos},
+  Splash in 'Source\Splash.pas' {FormSplash},
+  UActualizacionBD in 'Source\UActualizacionBD.pas' {WActualizacionBD},
+  UAnaliticas in 'Source\UAnaliticas.pas' {WAnaliticas},
+  UCierreEjercicio in 'Source\UCierreEjercicio.pas' {WCierreEjercicio},
+  UComerciales in 'Source\UComerciales.pas' {WComerciales},
+  UConceptos in 'Source\UConceptos.pas' {WConceptos},
+  UCuentas in 'Source\UCuentas.pas' {WCuentas},
+  UDelegaciones in 'Source\UDelegaciones.pas' {WDelegaciones},
+  UDepartamentos in 'Source\UDepartamentos.pas' {WDepartamentos},
+  UDetalleIVA in 'Source\UDetalleIVA.pas' {WDetalleIVA},
+  UEmpresas in 'Source\UEmpresas.pas' {WEmpresas},
+  UEnlaceContable in 'Source\UEnlaceContable.pas' {WEnlaceContable},
+  UEspere in 'Source\UEspere.pas' {WEspere},
+  UFormasPago in 'Source\UFormasPago.pas' {WFormasPago},
+  UGeneracionAsiento in 'Source\UGeneracionAsiento.pas' {WGeneracionAsiento},
+  UGrupos in 'Source\UGrupos.pas' {WGrupos},
+  UImportacion in 'Source\UImportacion.pas' {WImportacion},
+  UPlanAnalico in 'Source\UPlanAnalico.pas' {WPlanAnalitico},
+  UPlanContable in 'Source\UPlanContable.pas' {WPlanContable},
+  UPunteoDiario in 'Source\UPunteoDiario.pas' {WPunteoDiario},
+  USecciones in 'Source\USecciones.pas' {WSecciones},
+  USituacionEfecto in 'Source\USituacionEfecto.pas' {WSituacionEfecto},
+  USubCuentas in 'Source\USubCuentas.pas' {WSubCuentas},
+  UTiposDiario in 'Source\UTiposDiario.pas' {WTiposDiario},
+  UTitulos in 'Source\UTitulos.pas' {WTitulos},
+  UTraspasoApuntes in 'Source\UTraspasoApuntes.pas' {WTraspasoApuntes},
+  UTraspasoDatos in 'Source\UTraspasoDatos.pas' {WTraspasoDatos},
+  UUsuarios in 'Source\UUsuarios.pas' {WUsuarios},
+  UUtilEmpresas in 'Source\UUtilEmpresas.pas' {WUtilEmpresas},
+  UVencimientos in 'Source\UVencimientos.pas' {WVencimientos};
 
 {$R *.res}
 
@@ -116,5 +116,18 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
+  Application.CreateForm(TWPlanAnalitico, WPlanAnalitico);
+  Application.CreateForm(TWPlanContable, WPlanContable);
+  Application.CreateForm(TWPunteoDiario, WPunteoDiario);
+  Application.CreateForm(TWSecciones, WSecciones);
+  Application.CreateForm(TWSituacionEfecto, WSituacionEfecto);
+  Application.CreateForm(TWSubCuentas, WSubCuentas);
+  Application.CreateForm(TWTiposDiario, WTiposDiario);
+  Application.CreateForm(TWTitulos, WTitulos);
+  Application.CreateForm(TWTraspasoApuntes, WTraspasoApuntes);
+  Application.CreateForm(TWTraspasoDatos, WTraspasoDatos);
+  Application.CreateForm(TWUsuarios, WUsuarios);
+  Application.CreateForm(TWUtilEmpresas, WUtilEmpresas);
+  Application.CreateForm(TWVencimientos, WVencimientos);
   Application.Run;
 end.

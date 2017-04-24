@@ -6,19 +6,19 @@ uses Buttons, Classes, Controls, DB, Dialogs, ExtCtrls, Forms, Graphics, IBX.IBD
      Messages, StdCtrls, SysUtils, Variants, Windows, IBX.IBCustomDataSet, IBX.IBTable;
 
 type
-   TWImportacion = class(TForm)
-      RgTipo:          TRadioGroup;
+  TWImportacion = class(TForm)
+    RgTipo:          TRadioGroup;
     QSubcuentas: TIBTable;
     QProveedores: TIBTable;
-      BitBtn1:         TBitBtn;
-      BitBtn2:         TBitBtn;
-      QExiste:         TIBSQL;
-      QActualiza:      TIBSQL;
-      QInserta:        TIBSQL;
-      QBuscaProvincia: TIBSQL;
-      IBDatabase1:     TIBDatabase;
-      IBTransaction1:  TIBTransaction;
-      procedure BitBtn1Click(Sender: TObject);
+    BitBtn1:         TBitBtn;
+    BitBtn2:         TBitBtn;
+    QExiste:         TIBSQL;
+    QActualiza:      TIBSQL;
+    QInserta:        TIBSQL;
+    QBuscaProvincia: TIBSQL;
+    IBDatabase1:     TIBDatabase;
+    IBTransaction1:  TIBTransaction;
+    procedure BitBtn1Click(Sender: TObject);
    private
    public
    end;

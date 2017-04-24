@@ -6,7 +6,7 @@ object WDelegaciones: TWDelegaciones
   Caption = 'Archivo de DELEGACIONES'
   ClientHeight = 439
   ClientWidth = 682
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WDelegaciones: TWDelegaciones
     Width = 682
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 16
       Top = 26
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 16
       Top = 6
-      Width = 199
+      Width = 173
       Height = 19
       Caption = 'Archivo de Delegaciones'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WDelegaciones: TWDelegaciones
     Width = 682
     Height = 398
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WDelegaciones: TWDelegaciones
       Width = 575
       Height = 396
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -81,20 +77,20 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 194
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 62
+          Width = 52
           Height = 13
           Caption = 'Delegaci'#243'n'
         end
@@ -155,7 +151,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -169,7 +165,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditNombre: TDBEdit
@@ -213,9 +209,7 @@ object WDelegaciones: TWDelegaciones
         Width = 573
         Height = 248
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -225,10 +219,10 @@ object WDelegaciones: TWDelegaciones
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -264,7 +258,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -280,7 +274,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -296,7 +290,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -312,7 +306,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -337,7 +331,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -353,7 +347,7 @@ object WDelegaciones: TWDelegaciones
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnModifyClick
@@ -554,7 +548,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'Delegaci'#243'n')
@@ -569,7 +563,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Nombre')
           ParentFont = False
@@ -583,7 +577,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE DELEGACIONES')
@@ -598,7 +592,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -620,7 +614,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -634,7 +628,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -690,7 +684,7 @@ object WDelegaciones: TWDelegaciones
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

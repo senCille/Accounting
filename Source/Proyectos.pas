@@ -148,8 +148,7 @@ begin
          QFichero.Params.ByName('ID_PROYECTO').AsString :=
             Copy(TbFiltro.FieldByName('BCODIGO').AsString + '%', 1,
             TbFiltro.FieldByName('BCODIGO').Size);
-      end
-      else
+      end else
       if TbFiltro.FieldByName('BDESCRIPCION').AsString <> '' then begin
          QFichero.Params.ByName('NOMBRE').AsString :=
             Copy(TbFiltro.FieldByName('BDESCRIPCION').AsString + '%', 1,

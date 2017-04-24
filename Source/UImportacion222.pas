@@ -9,8 +9,6 @@ uses
 type
    TWImportacion = class(TForm)
       RgTipo:          TRadioGroup;
-      QSubcuentas:     TTable;
-      QProveedores:    TTable;
       BitBtn1:         TBitBtn;
       BitBtn2:         TBitBtn;
       QExiste:         TIBSQL;

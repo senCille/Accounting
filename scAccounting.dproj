@@ -102,79 +102,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Source\DM.pas">
-            <Form>DMRef</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Source\DMConta.pas">
-            <Form>DMContaRef</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Source\DMControl.pas">
-            <Form>DMControlRef</Form>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Source\Globales.pas"/>
-        <DCCReference Include="Source\Login.pas">
-            <Form>FormLogin</Form>
-        </DCCReference>
-        <DCCReference Include="Source\MainMenu.pas">
-            <Form>MainMenuForm</Form>
-        </DCCReference>
-        <DCCReference Include="Source\Proyectos.pas">
-            <Form>WProyectos</Form>
-        </DCCReference>
-        <DCCReference Include="Source\Splash.pas">
-            <Form>FormSplash</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UActualizacionBD.pas">
-            <Form>WActualizacionBD</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UAnaliticas.pas">
-            <Form>WAnaliticas</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UCierreEjercicio.pas">
-            <Form>WCierreEjercicio</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UComerciales.pas">
-            <Form>WComerciales</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UConceptos.pas">
-            <Form>WConceptos</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UCuentas.pas">
-            <Form>WCuentas</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UDelegaciones.pas">
-            <Form>WDelegaciones</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UDepartamentos.pas">
-            <Form>WDepartamentos</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UDetalleIVA.pas">
-            <Form>WDetalleIVA</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UEmpresas.pas">
-            <Form>WEmpresas</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UEnlaceContable.pas">
-            <Form>WEnlaceContable</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UEspere.pas">
-            <Form>WEspere</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UFormasPago.pas">
-            <Form>WFormasPago</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UGeneracionAsiento.pas">
-            <Form>WGeneracionAsiento</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UGrupos.pas">
-            <Form>WGrupos</Form>
-        </DCCReference>
-        <DCCReference Include="Source\UImportacion.pas">
-            <Form>WImportacion</Form>
-        </DCCReference>
         <DCCReference Include="Source\Amortizaciones\UAmortizaciones.pas">
             <Form>WAmortizaciones</Form>
         </DCCReference>
@@ -242,24 +169,168 @@
         <DCCReference Include="Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas"/>
         <DCCReference Include="Source\UFiltroListadosMayor\UFiltroListadosMayor.pas"/>
         <DCCReference Include="Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas"/>
-        <DCCReference Include="Source\UNuevaSubcuenta.pas"/>
-        <DCCReference Include="Source\USituacionEfecto.pas"/>
-        <DCCReference Include="Source\UVencimientos.pas"/>
-        <DCCReference Include="Source\UUtilEmpresas.pas"/>
-        <DCCReference Include="Source\UPaises.pas"/>
-        <DCCReference Include="Source\UParametrizacionFacturacion.pas"/>
-        <DCCReference Include="Source\UPlanAnalico.pas"/>
-        <DCCReference Include="Source\UPlanContable.pas"/>
-        <DCCReference Include="Source\UPunteoDiario.pas"/>
-        <DCCReference Include="Source\USecciones.pas"/>
-        <DCCReference Include="Source\USubCuentas.pas"/>
-        <DCCReference Include="Source\UTiposDiario.pas"/>
-        <DCCReference Include="Source\UTitulos.pas"/>
-        <DCCReference Include="Source\UTraspasoApuntes.pas"/>
-        <DCCReference Include="Source\UTraspasoDatos.pas"/>
-        <DCCReference Include="Source\UUsuarios.pas"/>
         <DCCReference Include="Source\icenet\Tools.pas"/>
         <DCCReference Include="Source\Localization\Localization.pas"/>
+        <DCCReference Include="Source\UPaises.pas">
+            <Form>WPaises</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UParametrizacionFacturacion.pas">
+            <Form>WParametrizacionFacturacion</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UNuevaSubcuenta.pas">
+            <Form>WNuevaSubcuenta</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\DM.pas">
+            <Form>DMRef</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Source\DMConta.pas">
+            <Form>DMContaRef</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Source\DMControl.pas">
+            <Form>DMControlRef</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Source\Globales.pas"/>
+        <DCCReference Include="Source\Login.pas">
+            <Form>FormLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\MainMenu.pas">
+            <Form>MainMenuForm</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\Proyectos.pas">
+            <Form>WProyectos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\Splash.pas">
+            <Form>FormSplash</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UActualizacionBD.pas">
+            <Form>WActualizacionBD</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UAnaliticas.pas">
+            <Form>WAnaliticas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UCierreEjercicio.pas">
+            <Form>WCierreEjercicio</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UComerciales.pas">
+            <Form>WComerciales</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UConceptos.pas">
+            <Form>WConceptos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UCuentas.pas">
+            <Form>WCuentas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UDelegaciones.pas">
+            <Form>WDelegaciones</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UDepartamentos.pas">
+            <Form>WDepartamentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UDetalleIVA.pas">
+            <Form>WDetalleIVA</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UEmpresas.pas">
+            <Form>WEmpresas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UEnlaceContable.pas">
+            <Form>WEnlaceContable</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UEspere.pas">
+            <Form>WEspere</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UFormasPago.pas">
+            <Form>WFormasPago</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UGeneracionAsiento.pas">
+            <Form>WGeneracionAsiento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UGrupos.pas">
+            <Form>WGrupos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UImportacion.pas">
+            <Form>WImportacion</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UPlanAnalico.pas">
+            <Form>WPlanAnalitico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UPlanContable.pas">
+            <Form>WPlanContable</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UPunteoDiario.pas">
+            <Form>WPunteoDiario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\USecciones.pas">
+            <Form>WSecciones</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\USituacionEfecto.pas">
+            <Form>WSituacionEfecto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\USubCuentas.pas">
+            <Form>WSubCuentas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UTiposDiario.pas">
+            <Form>WTiposDiario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UTitulos.pas">
+            <Form>WTitulos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UTraspasoApuntes.pas">
+            <Form>WTraspasoApuntes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UTraspasoDatos.pas">
+            <Form>WTraspasoDatos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UUsuarios.pas">
+            <Form>WUsuarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UUtilEmpresas.pas">
+            <Form>WUtilEmpresas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\UVencimientos.pas">
+            <Form>WVencimientos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -292,12 +363,27 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -676,27 +762,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>

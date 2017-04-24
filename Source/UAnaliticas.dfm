@@ -6,7 +6,7 @@ object WAnaliticas: TWAnaliticas
   Caption = 'Archivo de Cuentas analiticas'
   ClientHeight = 496
   ClientWidth = 717
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WAnaliticas: TWAnaliticas
     Width = 717
     Height = 46
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 8
       Top = 34
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 8
       Top = 13
-      Width = 242
+      Width = 209
       Height = 19
       Caption = 'Archivo de Cuentas Anal'#237'ticas'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clNavy
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WAnaliticas: TWAnaliticas
     Width = 717
     Height = 450
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WAnaliticas: TWAnaliticas
       Width = 610
       Height = 448
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -81,20 +77,20 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 198
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 40
+          Width = 35
           Height = 13
           Caption = 'Cuenta'
         end
@@ -155,7 +151,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label1: TLabel
@@ -169,59 +165,59 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
           Left = 28
           Top = 55
-          Width = 62
+          Width = 52
           Height = 13
           Caption = 'Delegaci'#243'n'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label7: TLabel
           Left = 312
           Top = 55
-          Width = 83
+          Width = 69
           Height = 13
           Caption = 'Departamento'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label8: TLabel
           Left = 28
           Top = 98
-          Width = 43
+          Width = 36
           Height = 13
           Caption = 'Secci'#243'n'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label9: TLabel
           Left = 312
           Top = 98
-          Width = 51
+          Width = 43
           Height = 13
           Caption = 'Proyecto'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditDESCRIPCION: TDBEdit
@@ -337,9 +333,7 @@ object WAnaliticas: TWAnaliticas
         Width = 608
         Height = 253
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -349,10 +343,10 @@ object WAnaliticas: TWAnaliticas
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         Columns = <
           item
@@ -415,7 +409,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -431,7 +425,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -447,7 +441,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -463,7 +457,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -479,7 +473,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -495,7 +489,7 @@ object WAnaliticas: TWAnaliticas
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 4
         OnClick = BtnModifyClick
@@ -990,7 +984,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Nombre')
           ParentFont = False
@@ -1004,7 +998,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'Cuenta')
@@ -1019,7 +1013,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'INFORME DE CUENTAS ANAL'#205'TICAS')
@@ -1034,7 +1028,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Departamento')
           ParentFont = False
@@ -1048,7 +1042,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Delegaci'#243'n')
           ParentFont = False
@@ -1062,7 +1056,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Proyecto')
           ParentFont = False
@@ -1076,7 +1070,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Secci'#243'n')
           ParentFont = False
@@ -1090,7 +1084,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -1112,7 +1106,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -1126,7 +1120,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -1182,7 +1176,7 @@ object WAnaliticas: TWAnaliticas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

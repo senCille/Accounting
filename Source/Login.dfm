@@ -2019,38 +2019,38 @@ object FormLogin: TFormLogin
   object Label3: TLabel
     Left = 208
     Top = 121
-    Width = 26
+    Width = 24
     Height = 14
     Caption = 'User'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
   object LabelPassword: TLabel
     Left = 208
     Top = 145
-    Width = 59
+    Width = 51
     Height = 14
     Caption = 'Password'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
   object LabelVersion: TLabel
     Left = 41
     Top = 205
-    Width = 46
+    Width = 47
     Height = 14
     Alignment = taCenter
-    Caption = 'Versi'#243'n 5'
+    Caption = 'Version X'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -2071,7 +2071,7 @@ object FormLogin: TFormLogin
     Font.Color = 9667443
     Font.Height = -19
     Font.Name = 'Arial Black'
-    Font.Style = [fsBold, fsItalic]
+    Font.Style = []
     ParentFont = False
     Transparent = True
     WordWrap = True
@@ -2087,7 +2087,7 @@ object FormLogin: TFormLogin
     Font.Color = clNavy
     Font.Height = -13
     Font.Name = 'Arial Narrow'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     WordWrap = True
   end
@@ -2102,7 +2102,7 @@ object FormLogin: TFormLogin
     Font.Color = clNavy
     Font.Height = -13
     Font.Name = 'Arial Narrow'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     WordWrap = True
   end
@@ -2155,7 +2155,7 @@ object FormLogin: TFormLogin
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       OnClick = BtnCancelClick
     end
@@ -2170,7 +2170,7 @@ object FormLogin: TFormLogin
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       OnClick = BtnAcceptClick
     end

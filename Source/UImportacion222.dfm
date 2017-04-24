@@ -1,9 +1,9 @@
 object WImportacion: TWImportacion
   Left = 439
   Top = 221
-  Width = 357
-  Height = 190
   Caption = 'Importacion de datos'
+  ClientHeight = 151
+  ClientWidth = 341
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -39,8 +39,6 @@ object WImportacion: TWImportacion
     Height = 25
     Caption = '&Procesar'
     Default = True
-    TabOrder = 1
-    OnClick = BitBtn1Click
     Glyph.Data = {
       DE010000424DDE01000000000000760000002800000024000000120000000100
       0400000000006801000000000000000000001000000000000000000000000000
@@ -59,6 +57,8 @@ object WImportacion: TWImportacion
       333A333333333333333338330000333333333333333333333333333333333333
       0000}
     NumGlyphs = 2
+    TabOrder = 1
+    OnClick = BitBtn1Click
   end
   object BitBtn2: TBitBtn
     Left = 224
@@ -66,47 +66,30 @@ object WImportacion: TWImportacion
     Width = 84
     Height = 25
     Caption = '&Salir'
-    TabOrder = 2
     Kind = bkClose
-  end
-  object QSubcuentas: TTable
-    DatabaseName = 'c:\progwin\jhercont\jher'
-    TableName = 'lcuent1'
-    TableType = ttParadox
-    Left = 216
-    Top = 16
-  end
-  object QProveedores: TTable
-    DatabaseName = 'c:\progwin\jhercont\jher'
-    TableName = 'lproveed'
-    TableType = ttParadox
-    Left = 248
-    Top = 16
+    NumGlyphs = 2
+    TabOrder = 2
   end
   object QExiste: TIBSQL
-    Database = DMRef.IBDSiamCont
-    ParamCheck = True
+    Database = DMRef.BDContab
     Transaction = DMRef.IBT1
     Left = 24
     Top = 16
   end
   object QActualiza: TIBSQL
-    Database = DMRef.IBDSiamCont
-    ParamCheck = True
+    Database = DMRef.BDContab
     Transaction = DMRef.IBT1
     Left = 59
     Top = 16
   end
   object QInserta: TIBSQL
-    Database = DMRef.IBDSiamCont
-    ParamCheck = True
+    Database = DMRef.BDContab
     Transaction = DMRef.IBT1
     Left = 97
     Top = 16
   end
   object QBuscaProvincia: TIBSQL
-    Database = DMRef.IBDSiamCont
-    ParamCheck = True
+    Database = DMRef.BDContab
     Transaction = DMRef.IBT1
     Left = 140
     Top = 16

@@ -6,7 +6,7 @@ object WDepartamentos: TWDepartamentos
   Caption = 'Archivo de DEPARTAMENTOS'
   ClientHeight = 454
   ClientWidth = 677
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WDepartamentos: TWDepartamentos
     Width = 677
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 13
       Top = 28
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 13
       Top = 7
-      Width = 217
+      Width = 188
       Height = 19
       Caption = 'Archivo de Departamentos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WDepartamentos: TWDepartamentos
     Width = 677
     Height = 413
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel1: TPanel
       Left = 571
@@ -82,7 +79,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -98,7 +95,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -114,7 +111,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -130,7 +127,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -155,7 +152,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -171,7 +168,7 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = RejillaDblClick
@@ -191,7 +188,6 @@ object WDepartamentos: TWDepartamentos
       Width = 570
       Height = 411
       Align = alClient
-      Color = 14275008
       TabOrder = 1
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -204,20 +200,20 @@ object WDepartamentos: TWDepartamentos
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 218
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 83
+          Width = 69
           Height = 13
           Caption = 'Departamento'
         end
@@ -278,7 +274,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -292,7 +288,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditNombre: TDBEdit
@@ -334,9 +330,7 @@ object WDepartamentos: TWDepartamentos
         Width = 568
         Height = 263
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -346,10 +340,10 @@ object WDepartamentos: TWDepartamentos
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -516,7 +510,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'Departamento')
@@ -531,7 +525,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Nombre')
           ParentFont = False
@@ -545,7 +539,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsItalic]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE DEPARTAMENTOS')
@@ -560,7 +554,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -582,7 +576,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -596,7 +590,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -652,7 +646,7 @@ object WDepartamentos: TWDepartamentos
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

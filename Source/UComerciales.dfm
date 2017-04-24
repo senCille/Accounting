@@ -4,9 +4,9 @@ object WComerciales: TWComerciales
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Archivo de COMERCIALES'
-  ClientHeight = 447
-  ClientWidth = 629
-  Color = 14275008
+  ClientHeight = 559
+  ClientWidth = 792
+  Color = clBtnFace
   DragMode = dmAutomatic
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -25,53 +25,30 @@ object WComerciales: TWComerciales
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16
-  object Shape1: TShape
-    Left = 24
-    Top = 34
-    Width = 689
-    Height = 1
-    Pen.Color = 7552051
-  end
-  object Label3: TLabel
-    Left = 24
-    Top = 13
-    Width = 190
-    Height = 19
-    Caption = 'Archivo de Comerciales'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentFont = False
-    Transparent = True
-  end
   object Panel2: TPanel
     Left = 0
     Top = 0
-    Width = 629
+    Width = 792
     Height = 38
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape2: TShape
       Left = 8
       Top = 28
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label6: TLabel
       Left = 8
       Top = 7
-      Width = 190
+      Width = 166
       Height = 19
       Caption = 'Archivo de Comerciales'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -79,23 +56,21 @@ object WComerciales: TWComerciales
   object Panel3: TPanel
     Left = 0
     Top = 38
-    Width = 629
-    Height = 409
+    Width = 792
+    Height = 521
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
       Top = 1
-      Width = 522
-      Height = 407
+      Width = 685
+      Height = 519
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object Datos: TGroupBox
         Left = 1
-        Top = 306
-        Width = 520
+        Top = 418
+        Width = 683
         Height = 100
         Align = alBottom
         TabOrder = 0
@@ -110,7 +85,7 @@ object WComerciales: TWComerciales
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -124,7 +99,7 @@ object WComerciales: TWComerciales
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditNombre: TDBEdit
@@ -165,7 +140,7 @@ object WComerciales: TWComerciales
       object FiltroBuscar: TGroupBox
         Left = 1
         Top = 1
-        Width = 520
+        Width = 683
         Height = 52
         Align = alTop
         Caption = ' Buscar '
@@ -173,20 +148,20 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         object Label4: TLabel
           Left = 185
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 56
+          Width = 46
           Height = 13
           Caption = 'Comercial'
         end
@@ -232,12 +207,10 @@ object WComerciales: TWComerciales
       object DataGrid: TDBGrid
         Left = 1
         Top = 53
-        Width = 520
-        Height = 253
+        Width = 683
+        Height = 365
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -247,10 +220,10 @@ object WComerciales: TWComerciales
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -267,10 +240,10 @@ object WComerciales: TWComerciales
       end
     end
     object Panel1: TPanel
-      Left = 523
+      Left = 686
       Top = 1
       Width = 105
-      Height = 407
+      Height = 519
       Align = alRight
       BevelOuter = bvNone
       ParentColor = True
@@ -286,7 +259,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -302,7 +275,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -318,7 +291,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -334,7 +307,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -359,7 +332,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -375,7 +348,7 @@ object WComerciales: TWComerciales
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = RejillaDblClick
@@ -574,7 +547,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Comercial')
           ParentFont = False
@@ -588,7 +561,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Nombre')
           ParentFont = False
@@ -602,7 +575,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE COMERCIALES')
@@ -617,7 +590,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -639,7 +612,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -653,7 +626,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -709,7 +682,7 @@ object WComerciales: TWComerciales
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False
