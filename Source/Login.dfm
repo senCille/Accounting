@@ -2019,9 +2019,9 @@ object FormLogin: TFormLogin
   object Label3: TLabel
     Left = 208
     Top = 121
-    Width = 45
+    Width = 26
     Height = 14
-    Caption = 'Usuario'
+    Caption = 'User'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -2033,9 +2033,9 @@ object FormLogin: TFormLogin
   object LabelClave: TLabel
     Left = 208
     Top = 145
-    Width = 70
+    Width = 59
     Height = 14
-    Caption = 'Contrase'#241'a'
+    Caption = 'Password'
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -2044,7 +2044,7 @@ object FormLogin: TFormLogin
     ParentFont = False
     Transparent = True
   end
-  object Label2: TLabel
+  object LabelVersion: TLabel
     Left = 41
     Top = 205
     Width = 46
@@ -2066,7 +2066,7 @@ object FormLogin: TFormLogin
     Height = 29
     Alignment = taCenter
     AutoSize = False
-    Caption = 'Contabilidad'
+    Caption = 'Accounting'
     Font.Charset = ANSI_CHARSET
     Font.Color = 9667443
     Font.Height = -19
@@ -2106,7 +2106,7 @@ object FormLogin: TFormLogin
     ParentFont = False
     WordWrap = True
   end
-  object EditUsuario: TEdit
+  object EditUser: TEdit
     Left = 288
     Top = 118
     Width = 146
@@ -2144,7 +2144,7 @@ object FormLogin: TFormLogin
     BevelOuter = bvNone
     Color = 14275008
     TabOrder = 2
-    object BtnCancelar: TSpeedButton
+    object BtnCancel: TSpeedButton
       Left = 9
       Top = 8
       Width = 88
@@ -2157,9 +2157,9 @@ object FormLogin: TFormLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = BtnCancelarClick
+      OnClick = BtnCancelClick
     end
-    object BtnAceptar: TSpeedButton
+    object BtnAccept: TSpeedButton
       Left = 105
       Top = 8
       Width = 88
@@ -2172,7 +2172,7 @@ object FormLogin: TFormLogin
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = BtnAceptarClick
+      OnClick = BtnAcceptClick
     end
   end
   object Timer: TTimer

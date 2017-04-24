@@ -125,11 +125,6 @@ uses System.Win.Registry, WinAPI.ShellApi,
 
 procedure TMainMenuForm.FormCreate(Sender: TObject);
 begin
-   Config.AppFolder := ExtractFilePath(Application.ExeName);
-   if not DirectoryExists(Config.ImagesFolder) then begin
-      raise Exception.Create('No existe el directorio : '+Config.ImagesFolder);
-   end;
-
    if DMControlRef.QControlPEDIR_CLAVE.AsString <> 'N' then begin
       if not TFormLogin.MuestraModal then Application.Terminate;
       try FormSplash := TFormSplash.Create(nil);
@@ -149,7 +144,7 @@ end;
 procedure TMainMenuForm.FormShow(Sender: TObject);
 begin
    Self.Caption := Space(15) + Config.ActiveDS_ENTERPRISE + Space(15) + '-' + space(5) +
-      'senCille ACCOUNTING SMEs Ver 0.0 -alfa-';
+      'senCille ACCOUNTING SMEs '+Config.VersionText;
 end;
 
 procedure TMainMenuForm.ApplicationEventsException(Sender: TObject; E: Exception);

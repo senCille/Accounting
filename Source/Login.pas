@@ -6,31 +6,31 @@ type
    TFormLogin = class(TForm)
     Label3: TLabel;
     LabelClave: TLabel;
-    EditUsuario: TEdit;
+    EditUser: TEdit;
     EditPassword: TEdit;
-    Label2: TLabel;
+    LabelVersion: TLabel;
     Label1: TLabel;
     ImagenAnagrama: TImage;
     LabelMensaje: TLabel;
     Timer: TTimer;
     LabelMensaje2: TLabel;
     Panel1: TPanel;
-    BtnCancelar: TSpeedButton;
-    BtnAceptar: TSpeedButton;
+    BtnCancel: TSpeedButton;
+    BtnAccept: TSpeedButton;
     procedure FormCreate(Sender: TObject);
-    procedure BtnAceptarClick(Sender: TObject);
+    procedure BtnAcceptClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
-    procedure BtnCancelarClick(Sender: TObject);
+    procedure BtnCancelClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
    protected
     procedure Paint; override;
     procedure WMNCHitTest(var Msg: TWMNCHitTest) ; message WM_NCHitTest;
    private
-    Intentos    :Integer;
+    Intentos :Integer;
     procedure MuestraMensaje(prmMensaje :string; prmMensaje2 :string = '');
    public
-    class function MuestraModal:Boolean;                       
+    class function MuestraModal:Boolean;
    end;
 
 var FormLogin :TFormLogin;
@@ -60,7 +60,7 @@ begin
    Timer.Enabled := True;
 end;
 
-procedure TFormLogin.BtnAceptarClick(Sender: TObject);
+procedure TFormLogin.BtnAcceptClick(Sender: TObject);
    function UsuarioCorrecto(prmUsuario, prmPassword :string):Boolean;
    var Q :TIBQuery;
    begin
@@ -91,7 +91,7 @@ procedure TFormLogin.BtnAceptarClick(Sender: TObject);
    end;
 
 begin
-   if UsuarioCorrecto(UpperCase(Trim(EditUsuario.Text)), UpperCase(Trim(EditPassword.Text))) then begin
+   if UsuarioCorrecto(UpperCase(Trim(EditUser.Text)), UpperCase(Trim(EditPassword.Text))) then begin
       ModalResult := mrOK;
    end
    else begin
@@ -107,11 +107,11 @@ end;
 
 procedure TFormLogin.FormKeyPress(Sender: TObject; var Key: Char);
 begin
-   if (Key = Chr(VK_ESCAPE)) then BtnCancelar.Click else
-   if (Key = Chr(VK_RETURN)) and (ActiveControl = EditPassword) then BtnAceptar.Click;
+   if (Key = Chr(VK_ESCAPE)) then BtnCancel.Click else
+   if (Key = Chr(VK_RETURN)) and (ActiveControl = EditPassword) then BtnAccept.Click;
 end;
 
-procedure TFormLogin.BtnCancelarClick(Sender: TObject);
+procedure TFormLogin.BtnCancelClick(Sender: TObject);
 begin
    ModalResult := mrCancel;
 end;
@@ -120,6 +120,7 @@ procedure TFormLogin.FormShow(Sender: TObject);
 begin
    DoubleBuffered := True;
    ImagenAnagrama.Transparent := True;
+   LabelVersion.Caption := Config.VersionText;
 end;
 
 procedure TFormLogin.TimerTimer(Sender: TObject);

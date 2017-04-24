@@ -37,10 +37,6 @@ type TTypeOfField = (tcString, tcInteger, tcBoolean, tcFloat, tcDate);
         class function  StrStPosS(const P, S : ShortString; var Pos : Cardinal) : Boolean;
         class function  Euros(nEuros :Double; cGenero :string):string;
         class function  SpanishNIFLetter(DNI :string):Char;
-        //class procedure SetTypeOfAccounting(TypeOfConcept :string);
-        {-Rounds a real value to the specified number of decimal places}
-        //class function  RoundToDecimal(Value :Extended; Places :Integer; Bankers :Boolean):Extended;
-        //class function  AmountConversion(Amount :Double; CurrentCurrency, FinalCurrency :string):Double;
         class function  Year (prmDate :TDateTime):Integer;
         class function  Month(prmDate :TDateTime):Integer;
         class function  Day  (prmDate :TDateTime):Integer;
@@ -629,67 +625,6 @@ const Claves :array[0..22] of Char = 'TRWAGMYFPDXBNJZSQVHLCKE';
 begin
   Result := Claves[strtoint(DNI) mod 23];
 end;
-
-(*class procedure TTools.SetTypeOfAccounting(TypeOfConcept: string);
-begin
-   if TypeOfConcept = 'N' then begin
-      Globales.gvTipoConta := '';
-   end
-   else
-   if TypeOfConcept = 'E' then begin
-      Globales.gvTipoConta := '-';
-   end
-   else begin
-      Globales.gvTipoConta := '+';
-   end;
-end;*)
-
-(*class function TTools.RoundToDecimal(Value: Extended; Places: Integer; Bankers: Boolean): Extended;
-
-     function Exp10(Exponent : Extended) : Extended;
-       {-Returns 10^Exponent}
-     begin
-       Result := Power(10.0, Exponent);
-     end;
-
-var
-  Val, IV, N, F :Extended;
-  T             :Integer;
-begin
-   IV := 0;
-   N := Exp10(Places);
-   if (Places > 0) then IV := Int(Value);
-   Val := (Value - IV) * N;
-   T := Trunc(Val);
-   F := (Val - T);
-   if Bankers then Val := Round(Val) / N        {Delphi's Round does Bankers}
-   else begin
-      if Abs(Round(10.0 * F)) >= 5 then begin
-        if (F > 0) then Val := (T + 1.0) / N
-                   else Val := (T - 1.0) / N;
-      end
-      else Val := T / N;
-   end;
-   Result := Val + IV;
-end;*)
-
-(*class function TTools.AmountConversion(Amount: Double; CurrentCurrency, FinalCurrency: string): Double;
-begin
-   if UpperCase(CurrentCurrency) = UpperCase(FinalCurrency) then   begin
-      Result := Amount;
-   end
-   else
-   if (UpperCase(CurrentCurrency) = 'P') and (UpperCase(FinalCurrency) = 'E') then   begin
-      Result := TTools.RoundToDecimal((Amount / gcValorEuro), 3, True);
-   end
-   else
-   if (UpperCase(CurrentCurrency) = 'E') and (UpperCase(FinalCurrency) = 'P') then   begin
-      Result := RoundToDecimal((Amount * gcValorEuro), 0, True);
-   end
-   else begin
-      Result := Amount;
-   end;
-end;*)
 
 class function TTools.Day(prmDate: TDateTime): Integer;
 {returns the day of the month}

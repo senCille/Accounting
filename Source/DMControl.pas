@@ -46,7 +46,8 @@ type
 var DMControlRef: TDMControlRef;
 
 implementation
-uses General, IniFiles, DMConta, DM;
+uses System.IOUtils,
+     General, IniFiles, DMConta, DM;
 {$R *.DFM}
 
 function TDMControlRef.GetTestRunning:Boolean;
@@ -68,37 +69,28 @@ end;
 
 procedure TDMControlRef.Loaded;
 var INIFile    :TIniFile;
-    ServerName :string;
-    DataFolder :string;
-    cRegistro  :string;
-    Directorio :string;
-    BDEFolder  :string;
 begin
    inherited;
    BDControl.Connected       := False;
    TransaccionControl.Active := False;
 
-   Directorio           := ExtractFilePath(Application.ExeName);
-   Config.ImagesFolder  := Directorio + FOLDER_IMAGES_NAME  +'\';
-   Config.ReportsFolder := Directorio + FOLDER_REPORTS_NAME +'\';
+   Config.AppFolder     := ExtractFilePath(Application.ExeName);
 
-   INIFile := TIniFile.Create(Directorio + 'SENCILLE.INI');
+   Config.ImagesFolder  := Config.AppFolder + FOLDER_IMAGES_NAME  +'\';
+   if not TDirectory.Exists(Config.ImagesFolder) then begin
+      raise Exception.Create('No existe el directorio : '+Config.ImagesFolder);
+   end;
+
+   Config.ReportsFolder := Config.AppFolder + FOLDER_REPORTS_NAME +'\';
+   if not TDirectory.Exists(Config.ReportsFolder) then begin
+      TDirectory.CreateDirectory(Config.ReportsFolder);
+   end;
+
+   INIFile := TIniFile.Create(Config.AppFolder + 'SENCILLE.INI');
    try
-      ServerName              := UpperCase(INIFile.ReadString('DATABASE', 'SERVERNAME' , ''         ));
-      DataFolder              := UpperCase(INIFile.ReadString('DATABASE', 'DATA_FOLDER', ''         ));
-      cRegistro               := UpperCase(INIFile.ReadString('REGISTRO', 'REGISTRO'   , 'S'        ));
-
-      Config.ActiveServerRoot := ServerName + ':' + DataFolder + '\';
-
-      BDEFolder               := UpperCase(INIFile.ReadString('DATABASE', 'BDE_DATA'   , 'BDE_DATA' ));
-      {Debe Devolver el directorio en el que se encuentra el programa más el directorio para los archivos de BDE}
-      Config.BDEDataFolder := ExtractFileDir(Application.ExeName)+'\'+BDEFolder;
-      {Antes de devolver el valor debe verificar que existe el directorio y si no existe crearlo.}
-      if not DirectoryExists(Config.BDEDataFolder) then begin
-         CreateDir(Config.BDEDataFolder);
-      end;
-
-
+      Config.ServerName       := UpperCase(INIFile.ReadString('DATABASE', 'SERVERNAME' , '' ));
+      Config.ServerDataFolder := UpperCase(INIFile.ReadString('DATABASE', 'DATA_FOLDER', '' ));
+      Config.ActiveServerRoot := Config.ServerName + ':' + Config.ServerDataFolder + '\';
    finally
       INIFile.Free;
    end;
@@ -117,7 +109,7 @@ procedure TDMControlRef.DataModuleCreate(Sender: TObject);
 var i :Integer;
 begin
    if TestRunning then Exit;
-   { activar transacciones }
+   { Activate transactions }
    for i := 0 to (ComponentCount - 1) do begin
       if (Components[i] is TIBTransaction) then begin
          TIBTransaction(Components[i]).Active := False;
@@ -212,7 +204,6 @@ begin
       end;
    finally Q.Free;
    end;
-
 
    QUser := DMControlRef.CreateQuery(['UPDATE USUARIOS                    ',
                                       'SET    ID_EMPRESA = :prmID_EMPRESA ',

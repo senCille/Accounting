@@ -112,6 +112,8 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  {We shall conserve this creation order, because MainMenu makes use of somethings defined in DMControlRef.Loaded method}
+  {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
   Application.Run;

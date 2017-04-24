@@ -1087,7 +1087,6 @@ end;
 procedure TDMContaRef.CrearTablaCorreo;
 begin
    (*HCorreo.Active       := False;
-   HCorreo.DatabaseName := Config.BDEDataFolder; //'c:\'; //ExtractFileDir(Application.ExeName);
    HCorreo.TableName    := 'Correo' + '.dbf';
 
    HCorreo.FieldDefs.Clear;

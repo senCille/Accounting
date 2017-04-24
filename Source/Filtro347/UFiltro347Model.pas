@@ -464,7 +464,7 @@ procedure TFiltro347Model.LanzarInfModelo347(TipoInforme             ,
    //Quitado por no estar utilizándosebegin
    //Quitado por no estar utilizándose   TCorreo := TTable.Create(nil);
    //Quitado por no estar utilizándose   TCorreo.Active       := False;
-   //Quitado por no estar utilizándose   TCorreo.DatabaseName := DMControlRef.BDEDataFolder; //'c:\'; //ExtractFileDir(Application.ExeName);
+   //Quitado por no estar utilizándose   TCorreo.DatabaseName := DMControlRef.DataFolder; //'c:\'; //ExtractFileDir(Application.ExeName);
    //Quitado por no estar utilizándose   TCorreo.TableName    := 'Correo' + '.dbf';
    //Quitado por no estar utilizándose   TCorreo.FieldDefs.Add('Subcuenta', ftstring, 10, False);
    //Quitado por no estar utilizándose   TCorreo.FieldDefs.Add('Nombre', ftstring, 100, False);
