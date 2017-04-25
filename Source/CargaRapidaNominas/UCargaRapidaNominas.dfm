@@ -4,7 +4,7 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
   Caption = 'Carga de Apuntes'
   ClientHeight = 536
   ClientWidth = 792
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,27 +26,24 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     Width = 792
     Height = 35
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 800
     object Shape1: TShape
       Left = 7
       Top = 27
       Width = 741
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 6
-      Width = 205
+      Width = 179
       Height = 19
       Caption = 'Carga r'#225'pida de N'#243'minas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -57,10 +54,7 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     Width = 792
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 500
-    ExplicitWidth = 800
     DesignSize = (
       792
       41)
@@ -72,10 +66,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
       Cursor = crHandPoint
       Caption = 'A'#241'adir S&ubcta'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnEdtSubcuentaClick
@@ -89,10 +83,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
       Anchors = [akRight, akBottom]
       Caption = 'Ac&eptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnEdtGuardarClick
@@ -106,14 +100,8 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     ActivePage = TabSheetAsientos
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 800
-    ExplicitHeight = 465
     object TabSheetAsientos: TTabSheet
       Caption = 'Asientos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox8: TGroupBox
         Left = 0
         Top = 337
@@ -122,64 +110,62 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
         Align = alBottom
         Caption = ' Asiento Empresa '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitTop = 342
-        ExplicitWidth = 792
         object Label43: TLabel
           Left = 10
           Top = 15
-          Width = 230
+          Width = 207
           Height = 14
           Caption = 'Subcuenta de Gasto Seg. Social Empresa  '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label44: TLabel
           Left = 10
           Top = 53
-          Width = 146
+          Width = 133
           Height = 14
           Caption = 'Subcuenta de Seg. Social   '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label50: TLabel
           Left = 372
           Top = 53
-          Width = 119
+          Width = 103
           Height = 14
           Caption = 'Concepto de Asiento '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label7: TLabel
           Left = 372
           Top = 15
-          Width = 47
+          Width = 38
           Height = 13
           Caption = 'Importe'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object ComboBoxDS_CONCEPTO_NOME: TDBLookupComboBox
@@ -315,77 +301,75 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
         Align = alBottom
         Caption = ' AsientoTrabajador '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitTop = 207
-        ExplicitWidth = 792
         object Label37: TLabel
           Left = 10
           Top = 16
-          Width = 182
+          Width = 162
           Height = 14
           Caption = 'Subcuenta de Sueldos y salarios '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label38: TLabel
           Left = 10
           Top = 54
-          Width = 140
+          Width = 127
           Height = 14
           Caption = 'Subcuenta de Seg. Social '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label39: TLabel
           Left = 372
           Top = 54
-          Width = 166
+          Width = 152
           Height = 14
           Caption = 'Subcuenta de Hacienda I.R.P.F. '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label41: TLabel
           Left = 10
           Top = 93
-          Width = 119
+          Width = 103
           Height = 14
           Caption = 'Concepto de Asiento '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label3: TLabel
           Left = 372
           Top = 16
-          Width = 202
+          Width = 176
           Height = 14
           Caption = 'Subcuenta de otras remuneraciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object ComboCD_SUBCUENTA_SALARIOS: TDBLookupComboBox
@@ -575,27 +559,20 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
         Width = 784
         Height = 202
         Align = alClient
-        Color = 14275008
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentColor = False
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
-        ExplicitWidth = 792
-        ExplicitHeight = 207
         object Panel3: TPanel
           Left = 664
           Top = 58
           Width = 118
           Height = 142
           Align = alRight
-          Color = 14275008
           TabOrder = 0
-          ExplicitLeft = 672
-          ExplicitHeight = 147
           object BtnReset: TButton
             Left = 10
             Top = 113
@@ -651,46 +628,44 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           Width = 780
           Height = 43
           Align = alTop
-          Color = 14275008
           TabOrder = 1
-          ExplicitWidth = 788
           object Label2: TLabel
             Left = 120
             Top = 3
-            Width = 66
+            Width = 55
             Height = 13
             Caption = 'Comentario'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label4: TLabel
             Left = 9
             Top = 3
-            Width = 33
+            Width = 29
             Height = 13
             Caption = 'Fecha'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label17: TLabel
             Left = 378
             Top = 3
-            Width = 92
+            Width = 78
             Height = 13
             Caption = 'Cuenta Anal'#237'tica'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object EditFECHA: TDBEdit
@@ -768,19 +743,17 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           Width = 662
           Height = 142
           Align = alClient
-          Color = 15596540
           DataSource = SEmpleados
-          FixedColor = 10841401
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           TabOrder = 2
           TitleFont.Charset = ANSI_CHARSET
-          TitleFont.Color = clWhite
+          TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'Tahoma'
           TitleFont.Style = [fsBold]
@@ -826,29 +799,24 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     object TabSheetLastMoves: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel5: TPanel
         Left = 0
-        Top = 395
-        Width = 792
+        Top = 390
+        Width = 784
         Height = 39
         Align = alBottom
-        Color = 14275008
         TabOrder = 0
         object Label1: TLabel
           Left = 288
           Top = 14
-          Width = 70
+          Width = 63
           Height = 14
           Caption = 'Subcuenta:'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Transparent = True
         end
@@ -860,10 +828,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           DataField = 'DESCSUBCUENTA'
           DataSource = SMovimientos
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object BtnEdtModificar: TButton
@@ -874,10 +842,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           Cursor = crHandPoint
           Caption = '&Modificar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           OnClick = BtnEdtModificarClick
@@ -890,10 +858,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           Cursor = crHandPoint
           Caption = '&Borrar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 1
           OnClick = BtnEdtBorrarMovimClick
@@ -906,10 +874,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
           Cursor = crHandPoint
           Caption = 'Ma&yor'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 2
           OnClick = BtnEdtMayorClick
@@ -918,12 +886,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
       object DBGridMoves: TDBGrid
         Left = 0
         Top = 0
-        Width = 792
-        Height = 395
+        Width = 784
+        Height = 390
         Align = alClient
-        Color = 15596540
         DataSource = SMovimientos
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -933,7 +899,7 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
         ParentFont = False
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = [fsBold]

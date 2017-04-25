@@ -4,7 +4,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
   Caption = 'Carga R'#225'pida de Facturas'
   ClientHeight = 619
   ClientWidth = 811
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,10 +26,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     Width = 811
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 0
-    ExplicitTop = 583
-    ExplicitWidth = 819
     DesignSize = (
       811
       41)
@@ -41,10 +38,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
       Cursor = crHandPoint
       Caption = 'A'#241'adir S&ubcta'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnEdtSubcuentaClick
@@ -58,10 +55,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
       Anchors = [akRight, akBottom]
       Caption = 'Ac&eptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnEdtGuardarClick
@@ -73,27 +70,24 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     Width = 811
     Height = 35
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 819
     object Shape1: TShape
       Left = 6
       Top = 26
       Width = 741
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 6
       Top = 5
-      Width = 48
+      Width = 41
       Height = 19
       Caption = 'Titulo'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -106,14 +100,8 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     ActivePage = TabSheetAsientos
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 819
-    ExplicitHeight = 548
     object TabSheetAsientos: TTabSheet
       Caption = 'Asientos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox2: TGroupBox
         Left = 0
         Top = 449
@@ -121,45 +109,43 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Height = 63
         Align = alBottom
         TabOrder = 0
-        ExplicitTop = 454
-        ExplicitWidth = 811
         object Label11: TLabel
           Left = 10
           Top = 40
-          Width = 35
+          Width = 33
           Height = 14
           Caption = 'Fecha '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label3: TLabel
           Left = 303
           Top = 16
-          Width = 68
+          Width = 64
           Height = 14
           Caption = 'Banco / Caja '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label14: TLabel
           Left = 303
           Top = 40
-          Width = 56
+          Width = 49
           Height = 14
           Caption = 'Concepto '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object CheckBoxRealizarPago: TCheckBox
@@ -170,10 +156,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           Alignment = taLeftJustify
           Caption = #191'Realizar Pago?'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           OnClick = CheckBoxRealizarPagoClick
@@ -274,66 +260,64 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Height = 91
         Align = alBottom
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
-        ExplicitTop = 363
-        ExplicitWidth = 811
         object Label9: TLabel
           Left = 10
           Top = 52
-          Width = 65
+          Width = 54
           Height = 14
           Caption = 'Comentario'
         end
         object Label10: TLabel
           Left = 373
           Top = 52
-          Width = 88
+          Width = 77
           Height = 14
           Caption = 'Cuenta Anal'#237'tica'
         end
         object Label12: TLabel
           Left = 10
           Top = 13
-          Width = 150
+          Width = 135
           Height = 14
           Caption = 'Concepto I.V.A. por Defecto'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object lCtoIVAIntra: TLabel
           Left = 373
           Top = 13
-          Width = 244
+          Width = 214
           Height = 14
           Caption = 'Concepto I.V.A. Intracomunitario por Defecto'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object lIntracomunitaria: TLabel
           Left = 663
           Top = 8
-          Width = 66
+          Width = 56
           Height = 28
           Alignment = taCenter
           Caption = 'Factura'#13#10'Intracomun.'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           WordWrap = True
         end
@@ -480,202 +464,201 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Height = 128
         Align = alTop
         TabOrder = 2
-        ExplicitWidth = 811
         object Label1: TLabel
           Left = 187
           Top = 14
-          Width = 75
+          Width = 70
           Height = 14
           Caption = 'Fecha Factura'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
           Left = 10
           Top = 14
-          Width = 57
+          Width = 55
           Height = 14
           Caption = 'N'#186' Factura '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
           Left = 279
           Top = 14
-          Width = 112
+          Width = 96
           Height = 14
           Caption = 'Importe total factura'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label20: TLabel
           Left = 398
           Top = 14
-          Width = 81
+          Width = 70
           Height = 14
           Caption = 'Imp.Dto.P.Pago'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LbSubcuenta: TLabel
           Left = 10
           Top = 52
-          Width = 106
+          Width = 91
           Height = 14
           Caption = 'Cliente / Proveedor'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LbCtoSubcuenta: TLabel
           Left = 422
           Top = 52
-          Width = 162
+          Width = 140
           Height = 14
           Caption = 'Concepto Cliente / Proveedor'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label15: TLabel
           Left = 655
           Top = 14
-          Width = 89
+          Width = 79
           Height = 14
           Caption = 'N.I.F. si gen'#233'rico'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label65: TLabel
           Left = 10
           Top = 88
-          Width = 82
+          Width = 72
           Height = 14
           Caption = 'Forma de Pago'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label64: TLabel
           Left = 239
           Top = 88
-          Width = 55
+          Width = 51
           Height = 14
           Caption = 'D'#237'a Pago 1'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label66: TLabel
           Left = 299
           Top = 88
-          Width = 55
+          Width = 51
           Height = 14
           Caption = 'D'#237'a Pago 2'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LbProfArre: TLabel
-          Left = 494
+          Left = 496
           Top = 14
-          Width = 40
+          Width = 38
           Height = 14
           Alignment = taRightJustify
           Caption = '% Rete.'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LbCtoContra: TLabel
           Left = 422
           Top = 88
-          Width = 154
+          Width = 135
           Height = 14
           Caption = 'Concepto Ventas / Compras'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label4: TLabel
           Left = 359
           Top = 88
-          Width = 55
+          Width = 51
           Height = 14
           Caption = 'D'#237'a Pago 3'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object lFacturaIntracom: TLabel
           Left = 98
           Top = 13
-          Width = 77
+          Width = 70
           Height = 14
           Caption = 'Factura Intrac.'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Visible = False
         end
         object lbRetVentas: TLabel
           Left = 546
           Top = 14
-          Width = 93
+          Width = 80
           Height = 14
           Caption = 'Imp.Reteni.Venta'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object ComboCD_CONCEPTO: TDBLookupComboBox
@@ -1010,24 +993,19 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Width = 803
         Height = 230
         Align = alClient
-        Color = 14275008
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentColor = False
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
-        ExplicitWidth = 811
-        ExplicitHeight = 235
         object Panel3: TPanel
-          Left = 720
+          Left = 712
           Top = 15
           Width = 89
-          Height = 218
+          Height = 213
           Align = alRight
-          Color = 14275008
           TabOrder = 0
           object BtnResetIVA: TButton
             Left = 8
@@ -1081,22 +1059,20 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         object DBGridIVA: TDBGrid
           Left = 2
           Top = 15
-          Width = 718
-          Height = 218
+          Width = 710
+          Height = 213
           Align = alClient
-          Color = 15596540
           DataSource = SGastos
-          FixedColor = 10841401
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
           ParentFont = False
           TabOrder = 1
           TitleFont.Charset = ANSI_CHARSET
-          TitleFont.Color = clWhite
+          TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'Tahoma'
           TitleFont.Style = [fsBold]
@@ -1153,19 +1129,18 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Width = 827
         Height = 42
         Align = alBottom
-        Color = 14275008
         TabOrder = 0
         object Label5: TLabel
           Left = 292
           Top = 14
-          Width = 70
+          Width = 63
           Height = 14
           Caption = 'Subcuenta:'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Transparent = True
         end
@@ -1177,10 +1152,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           DataField = 'DESCSUBCUENTA'
           DataSource = SMovimientos
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object BtnEdtModificar: TButton
@@ -1191,10 +1166,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           Cursor = crHandPoint
           Caption = '&Modificar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           OnClick = BtnEdtModificarClick
@@ -1207,10 +1182,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           Cursor = crHandPoint
           Caption = '&Borrar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 1
           OnClick = BtnEdtBorrarMovimClick
@@ -1223,10 +1198,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           Cursor = crHandPoint
           Caption = 'Ma&yor'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 2
           OnClick = BtnEdtMayorClick
@@ -1238,9 +1213,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         Width = 827
         Height = 474
         Align = alClient
-        Color = 15596540
         DataSource = SMovimientos
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -1250,7 +1223,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         ParentFont = False
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = [fsBold]

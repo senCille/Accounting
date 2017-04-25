@@ -4,7 +4,7 @@ object WPunteoDiario: TWPunteoDiario
   BorderStyle = bsSingle
   ClientHeight = 385
   ClientWidth = 569
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,14 +20,14 @@ object WPunteoDiario: TWPunteoDiario
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 253
+    Width = 216
     Height = 19
     Caption = 'Punteo autom'#225'tico de asientos'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -36,7 +36,6 @@ object WPunteoDiario: TWPunteoDiario
     Top = 39
     Width = 523
     Height = 1
-    Pen.Color = clNavy
   end
   object GroupBox1: TGroupBox
     Left = 20
@@ -44,23 +43,23 @@ object WPunteoDiario: TWPunteoDiario
     Width = 523
     Height = 286
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     object Label3: TLabel
       Left = 52
       Top = 177
-      Width = 97
+      Width = 83
       Height = 13
       Caption = 'Subcuenta desde'
     end
     object Label2: TLabel
       Left = 53
       Top = 222
-      Width = 32
+      Width = 27
       Height = 13
       Caption = 'hasta'
     end
@@ -98,7 +97,7 @@ object WPunteoDiario: TWPunteoDiario
       DataField = 'SUBCUENTA_DESDE'
       DataSource = DSFiltro
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -116,7 +115,7 @@ object WPunteoDiario: TWPunteoDiario
       DataField = 'SUBCUENTA_DESDE'
       DataSource = DSFiltro
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -134,7 +133,7 @@ object WPunteoDiario: TWPunteoDiario
       DataField = 'SUBCUENTA_HASTA'
       DataSource = DSFiltro
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -152,7 +151,7 @@ object WPunteoDiario: TWPunteoDiario
       DataField = 'SUBCUENTA_HASTA'
       DataSource = DSFiltro
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -171,10 +170,10 @@ object WPunteoDiario: TWPunteoDiario
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick

@@ -4,7 +4,7 @@ object WPlanContable: TWPlanContable
   BorderStyle = bsSingle
   ClientHeight = 250
   ClientWidth = 392
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,14 +20,14 @@ object WPlanContable: TWPlanContable
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 201
+    Width = 174
     Height = 19
     Caption = 'Impresi'#243'n Plan Contable'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -36,7 +36,6 @@ object WPlanContable: TWPlanContable
     Top = 39
     Width = 311
     Height = 1
-    Pen.Color = clNavy
   end
   object GroupBox1: TGroupBox
     Left = 20
@@ -44,10 +43,10 @@ object WPlanContable: TWPlanContable
     Width = 347
     Height = 155
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     object gTipoInforme: TRadioGroup
@@ -71,10 +70,10 @@ object WPlanContable: TWPlanContable
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick

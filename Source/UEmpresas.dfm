@@ -4,7 +4,7 @@ object WEmpresas: TWEmpresas
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 490
   ClientWidth = 739
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -27,27 +27,24 @@ object WEmpresas: TWEmpresas
     Width = 739
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 747
     object Shape1: TShape
       Left = 8
       Top = 26
       Width = 749
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 8
       Top = 5
-      Width = 169
+      Width = 149
       Height = 19
       Caption = 'Archivo de Empresas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -58,15 +55,12 @@ object WEmpresas: TWEmpresas
     Width = 739
     Height = 449
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 747
-    ExplicitHeight = 454
     object Panel1: TPanel
-      Left = 641
+      Left = 633
       Top = 1
       Width = 105
-      Height = 452
+      Height = 447
       Align = alRight
       BevelOuter = bvNone
       ParentColor = True
@@ -79,10 +73,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -95,10 +89,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -111,10 +105,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -127,10 +121,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -152,10 +146,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -168,10 +162,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnModifyClick
@@ -184,10 +178,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Duplicar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 7
         OnClick = BtnDuplicateClick
@@ -200,10 +194,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Copiar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 8
         OnClick = BtnCopyClick
@@ -216,10 +210,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = 'Se&leccionar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 9
         OnClick = BtnSelectClick
@@ -232,10 +226,10 @@ object WEmpresas: TWEmpresas
         Cursor = crHandPoint
         Caption = '&Utilidades'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 10
         OnClick = BtnToolsClick
@@ -252,29 +246,29 @@ object WEmpresas: TWEmpresas
     object Panel4: TPanel
       Left = 1
       Top = 1
-      Width = 640
-      Height = 452
+      Width = 632
+      Height = 447
       Align = alClient
       Color = 14275008
       TabOrder = 1
       object FiltroBuscar: TGroupBox
         Left = 1
         Top = 1
-        Width = 638
+        Width = 630
         Height = 52
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 14
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
@@ -300,8 +294,8 @@ object WEmpresas: TWEmpresas
       end
       object Datos: TGroupBox
         Left = 1
-        Top = 339
-        Width = 638
+        Top = 334
+        Width = 630
         Height = 112
         Align = alBottom
         TabOrder = 1
@@ -313,10 +307,10 @@ object WEmpresas: TWEmpresas
           AutoSize = False
           Caption = 'Nombre'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label5: TLabel
@@ -327,10 +321,10 @@ object WEmpresas: TWEmpresas
           AutoSize = False
           Caption = 'Nombre de la Base de Datos'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditNombre: TDBEdit
@@ -378,10 +372,10 @@ object WEmpresas: TWEmpresas
           DataField = 'CERRADA'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 2
           ValueChecked = 'S'
@@ -391,12 +385,10 @@ object WEmpresas: TWEmpresas
       object DataGrid: TDBGrid
         Left = 1
         Top = 53
-        Width = 638
-        Height = 286
+        Width = 630
+        Height = 281
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -406,10 +398,10 @@ object WEmpresas: TWEmpresas
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -654,7 +646,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Empresa')
           ParentFont = False
@@ -668,7 +660,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Ubicaci'#243'n')
           ParentFont = False
@@ -682,7 +674,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'LISTADO DE EMPRESAS')
@@ -697,7 +689,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
             'Cerrada')
@@ -712,7 +704,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
@@ -734,7 +726,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
@@ -748,7 +740,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'P'#225'gina :')
           ParentFont = False
@@ -804,7 +796,7 @@ object WEmpresas: TWEmpresas
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Memo.UTF8W = (
             'Usuario :')
           ParentFont = False

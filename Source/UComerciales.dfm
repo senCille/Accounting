@@ -82,7 +82,7 @@ object WComerciales: TWComerciales
           AutoSize = False
           Caption = 'Comercial'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -96,7 +96,7 @@ object WComerciales: TWComerciales
           AutoSize = False
           Caption = 'Nombre'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -145,7 +145,7 @@ object WComerciales: TWComerciales
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -256,7 +256,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -272,7 +272,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -288,7 +288,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -304,7 +304,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -329,7 +329,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -345,7 +345,7 @@ object WComerciales: TWComerciales
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []

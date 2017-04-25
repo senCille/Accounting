@@ -5,7 +5,7 @@ object WEfectosComerciales: TWEfectosComerciales
   Caption = 'Generaci'#243'n de Asiento'
   ClientHeight = 487
   ClientWidth = 433
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -28,81 +28,78 @@ object WEfectosComerciales: TWEfectosComerciales
     Height = 412
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 441
-    ExplicitHeight = 417
     object Datos: TGroupBox
       Left = 2
       Top = 18
       Width = 429
       Height = 171
       Align = alTop
-      Color = 14275008
+      Color = clBtnFace
       ParentColor = False
       TabOrder = 0
-      ExplicitWidth = 437
       object Label7: TLabel
         Left = 24
         Top = 126
-        Width = 50
+        Width = 44
         Height = 14
         Caption = 'Situaci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label10: TLabel
         Left = 24
         Top = 41
-        Width = 175
+        Width = 154
         Height = 14
         Caption = 'Subcuenta Efectos Comerciales'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label1: TLabel
         Left = 24
         Top = 84
-        Width = 53
+        Width = 46
         Height = 14
         Caption = 'Concepto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label6: TLabel
         Left = 324
         Top = 126
-        Width = 73
+        Width = 60
         Height = 14
         Caption = 'Total Importe'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label9: TLabel
         Left = 183
         Top = 126
-        Width = 78
+        Width = 69
         Height = 14
         Caption = 'Fecha Asiento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object eSituacion: TDBComboBox
@@ -113,7 +110,7 @@ object WEfectosComerciales: TWEfectosComerciales
         DataField = 'SITUACION'
         DataSource = SFichero
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
@@ -136,7 +133,7 @@ object WEfectosComerciales: TWEfectosComerciales
         DataField = 'SCTAEFECTOSCOMERCIALES'
         DataSource = SFichero
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
@@ -154,7 +151,7 @@ object WEfectosComerciales: TWEfectosComerciales
         DataField = 'SCTAEFECTOSCOMERCIALES'
         DataSource = SFichero
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
@@ -208,10 +205,10 @@ object WEfectosComerciales: TWEfectosComerciales
         TabStop = False
         Caption = 'Modificar subcuenta vencimientos'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
       end
@@ -254,74 +251,70 @@ object WEfectosComerciales: TWEfectosComerciales
       Width = 429
       Height = 221
       Align = alClient
-      Color = 14275008
-      ParentColor = False
       TabOrder = 1
-      ExplicitWidth = 437
-      ExplicitHeight = 226
       object Label81: TLabel
         Left = 24
         Top = 84
-        Width = 250
+        Width = 221
         Height = 14
         Caption = 'Subcuenta Efectos Comerciales Descontados'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label82: TLabel
         Left = 24
         Top = 126
-        Width = 193
+        Width = 172
         Height = 14
         Caption = 'Subcuenta Deudas por Descuentos'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label2: TLabel
         Left = 24
         Top = 41
-        Width = 85
+        Width = 71
         Height = 14
         Caption = 'Importe Riesgo'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label3: TLabel
         Left = 183
         Top = 41
-        Width = 78
+        Width = 69
         Height = 14
         Caption = 'Fecha Asiento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label4: TLabel
         Left = 24
         Top = 169
-        Width = 53
+        Width = 46
         Height = 14
         Caption = 'Concepto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object CheckBoxAsientoRiesgo: TCheckBox
@@ -332,10 +325,10 @@ object WEfectosComerciales: TWEfectosComerciales
         TabStop = False
         Caption = 'Generar asiento de riesgo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
       end
@@ -487,27 +480,24 @@ object WEfectosComerciales: TWEfectosComerciales
     Width = 433
     Height = 34
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 441
     object Shape1: TShape
       Left = 8
       Top = 25
       Width = 395
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 8
       Top = 5
-      Width = 163
+      Width = 140
       Height = 19
       Caption = 'Efectos Comerciales'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -518,10 +508,7 @@ object WEfectosComerciales: TWEfectosComerciales
     Width = 433
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 451
-    ExplicitWidth = 441
     DesignSize = (
       433
       41)
@@ -534,10 +521,10 @@ object WEfectosComerciales: TWEfectosComerciales
       Anchors = [akRight, akBottom]
       Caption = '&Aceptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick

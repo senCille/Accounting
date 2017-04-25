@@ -3,7 +3,7 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
   Top = 202
   ClientHeight = 422
   ClientWidth = 523
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,14 +24,12 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
     Height = 343
     Align = alClient
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 531
-    ExplicitHeight = 348
     object GroupBox4: TGroupBox
       Left = 11
       Top = 255
@@ -42,7 +40,7 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
       object Label4: TLabel
         Left = 246
         Top = 17
-        Width = 94
+        Width = 77
         Height = 13
         Caption = 'Fecha a imprimir'
       end
@@ -54,7 +52,7 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
         DataField = 'FECHA_IMPRIMIR'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -96,66 +94,66 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
       object Label6: TLabel
         Left = 11
         Top = 19
-        Width = 92
+        Width = 78
         Height = 13
         Caption = 'Cuenta Anal'#237'tica'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label7: TLabel
         Left = 11
         Top = 42
-        Width = 62
+        Width = 52
         Height = 13
         Caption = 'Delegaci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
         Left = 258
         Top = 42
-        Width = 83
+        Width = 69
         Height = 13
         Caption = 'Departamento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label9: TLabel
         Left = 11
         Top = 80
-        Width = 43
+        Width = 36
         Height = 13
         Caption = 'Secci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label10: TLabel
         Left = 258
         Top = 80
-        Width = 51
+        Width = 43
         Height = 13
         Caption = 'Proyecto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object ComboBoxCD_ANALITICA: TDBLookupComboBox
@@ -276,28 +274,28 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
       object Label20: TLabel
         Left = 20
         Top = 28
-        Width = 33
+        Width = 29
         Height = 13
         Caption = 'Fecha'
       end
       object Label24: TLabel
         Left = 114
         Top = 11
-        Width = 35
+        Width = 30
         Height = 13
         Caption = 'Desde'
       end
       object Label25: TLabel
         Left = 259
         Top = 10
-        Width = 33
+        Width = 28
         Height = 13
         Caption = 'Hasta'
       end
       object Label3: TLabel
         Left = 20
         Top = 96
-        Width = 53
+        Width = 46
         Height = 13
         Caption = 'Concepto'
       end
@@ -394,10 +392,7 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
     Width = 523
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 386
-    ExplicitWidth = 531
     DesignSize = (
       523
       41)
@@ -410,10 +405,10 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick
@@ -425,20 +420,18 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
     Width = 523
     Height = 38
     Align = alTop
-    Color = 14275008
     TabOrder = 2
-    ExplicitWidth = 531
     object lTitulo: TLabel
       Left = 8
       Top = 4
-      Width = 121
+      Width = 106
       Height = 19
       Caption = 'Libro de Mayor'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -447,7 +440,6 @@ object WFiltroMayorSubcuenta: TWFiltroMayorSubcuenta
       Top = 26
       Width = 523
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object CDSFiltro: TClientDataSet

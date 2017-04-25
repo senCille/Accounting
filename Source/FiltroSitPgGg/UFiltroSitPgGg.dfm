@@ -3,7 +3,7 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
   Top = 185
   ClientHeight = 460
   ClientWidth = 526
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -25,14 +25,12 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
     Height = 382
     Align = alClient
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 534
-    ExplicitHeight = 387
     object GroupBox4: TGroupBox
       Left = 14
       Top = 210
@@ -43,14 +41,14 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
       object Label4: TLabel
         Left = 15
         Top = 23
-        Width = 94
+        Width = 77
         Height = 13
         Caption = 'Fecha a imprimir'
       end
       object Label11: TLabel
         Left = 15
         Top = 77
-        Width = 191
+        Width = 162
         Height = 13
         Caption = 'Selecciona empresa Ejer. Anterior'
       end
@@ -106,21 +104,21 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
       object Label2: TLabel
         Left = 7
         Top = 27
-        Width = 33
+        Width = 29
         Height = 13
         Caption = 'Fecha'
       end
       object Label1: TLabel
         Left = 72
         Top = 10
-        Width = 35
+        Width = 30
         Height = 13
         Caption = 'Desde'
       end
       object Label5: TLabel
         Left = 172
         Top = 10
-        Width = 33
+        Width = 28
         Height = 13
         Caption = 'Hasta'
       end
@@ -186,66 +184,66 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
       object Label6: TLabel
         Left = 10
         Top = 18
-        Width = 92
+        Width = 78
         Height = 13
         Caption = 'Cuenta Anal'#237'tica'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label7: TLabel
         Left = 10
         Top = 42
-        Width = 62
+        Width = 52
         Height = 13
         Caption = 'Delegaci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
         Left = 257
         Top = 42
-        Width = 83
+        Width = 69
         Height = 13
         Caption = 'Departamento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label9: TLabel
         Left = 10
         Top = 81
-        Width = 43
+        Width = 36
         Height = 13
         Caption = 'Secci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label10: TLabel
         Left = 257
         Top = 81
-        Width = 51
+        Width = 43
         Height = 13
         Caption = 'Proyecto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object ComboBoxCD_ANALITICA: TDBLookupComboBox
@@ -380,20 +378,18 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
     Width = 526
     Height = 37
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 534
     object LabelTitulo: TLabel
       Left = 7
       Top = 6
-      Width = 169
+      Width = 144
       Height = 19
       Caption = 'Balance de Situaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -402,7 +398,6 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
       Top = 28
       Width = 523
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object Panel2: TPanel
@@ -411,10 +406,7 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
     Width = 526
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 424
-    ExplicitWidth = 534
     DesignSize = (
       526
       41)
@@ -427,10 +419,10 @@ object WFiltroSitPgGg: TWFiltroSitPgGg
       Anchors = [akRight, akBottom]
       Caption = 'Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick

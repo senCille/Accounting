@@ -6,7 +6,7 @@ object WEditEmpleado: TWEditEmpleado
   Caption = 'Edici'#243'n de Cuenta de Empleado'
   ClientHeight = 218
   ClientWidth = 479
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,72 +26,70 @@ object WEditEmpleado: TWEditEmpleado
     Width = 479
     Height = 143
     Align = alClient
-    Color = 14275008
-    ParentColor = False
     TabOrder = 0
     object Label10: TLabel
       Left = 24
       Top = 16
-      Width = 58
+      Width = 52
       Height = 14
       Caption = 'Subcuenta'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label6: TLabel
       Left = 119
       Top = 56
-      Width = 23
+      Width = 21
       Height = 14
       Caption = 'IRPF'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label3: TLabel
       Left = 23
       Top = 56
-      Width = 41
+      Width = 35
       Height = 14
       Caption = 'Nomina'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 214
       Top = 56
-      Width = 59
+      Width = 54
       Height = 14
       Caption = 'Seg. Social'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 310
       Top = 56
-      Width = 25
+      Width = 22
       Height = 14
       Caption = 'Neto'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object ComboBoxCD_SUBCUENTA: TDBLookupComboBox
@@ -102,7 +100,7 @@ object WEditEmpleado: TWEditEmpleado
       DataField = 'SUBCUENTA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -120,7 +118,7 @@ object WEditEmpleado: TWEditEmpleado
       DataField = 'SUBCUENTA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -207,7 +205,7 @@ object WEditEmpleado: TWEditEmpleado
       DataField = 'N'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'System'
       Font.Style = []
@@ -223,26 +221,24 @@ object WEditEmpleado: TWEditEmpleado
     Width = 479
     Height = 34
     Align = alTop
-    Color = 14275008
     TabOrder = 1
     object Shape1: TShape
       Left = 7
       Top = 26
       Width = 395
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 6
-      Width = 256
+      Width = 224
       Height = 19
       Caption = 'Edici'#243'n de Cuenta de Empleado'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -253,7 +249,6 @@ object WEditEmpleado: TWEditEmpleado
     Width = 479
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
     DesignSize = (
       479
@@ -267,10 +262,10 @@ object WEditEmpleado: TWEditEmpleado
       Anchors = [akRight, akBottom]
       Caption = '&Aceptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnAcceptClick

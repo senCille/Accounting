@@ -47,7 +47,7 @@ object WCierreEjercicio: TWCierreEjercicio
     Caption = ' MARQUE LAS TAREAS AUTOMATIZADAS A REALIZAR DURANTE EL CIERRE '
     Color = clBtnFace
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -64,7 +64,7 @@ object WCierreEjercicio: TWCierreEjercicio
         'es y generar el duplicado de la empresa renombr'#225'ndolo con el eje' +
         'rcicio cerrado.'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -79,7 +79,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Asiento de regularizaci'#243'n'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -94,7 +94,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Acumular saldos del ejercicio anterior'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -109,7 +109,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Acumular saldos de amortizaciones'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -124,7 +124,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Asientos de cierre y apertura'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -139,7 +139,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Borrar asientos del ejercicio actual'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -154,7 +154,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Cambiar fechas del nuevo ejercicio'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -169,7 +169,7 @@ object WCierreEjercicio: TWCierreEjercicio
       TabStop = False
       Caption = 'Renumerar asientos'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -185,7 +185,7 @@ object WCierreEjercicio: TWCierreEjercicio
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -203,7 +203,7 @@ object WCierreEjercicio: TWCierreEjercicio
       ' '
     Color = clBtnFace
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = []

@@ -4,7 +4,7 @@ object WTraspasoApuntes: TWTraspasoApuntes
   BorderStyle = bsSingle
   ClientHeight = 343
   ClientWidth = 569
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -21,14 +21,14 @@ object WTraspasoApuntes: TWTraspasoApuntes
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 171
+    Width = 149
     Height = 19
     Caption = 'Traspaso de Apuntes'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -37,7 +37,6 @@ object WTraspasoApuntes: TWTraspasoApuntes
     Top = 39
     Width = 523
     Height = 1
-    Pen.Color = clNavy
   end
   object GroupBox1: TGroupBox
     Left = 20
@@ -48,26 +47,26 @@ object WTraspasoApuntes: TWTraspasoApuntes
     Font.Color = clBlack
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     object Label5: TLabel
       Left = 55
       Top = 143
-      Width = 98
+      Width = 87
       Height = 14
       Caption = 'Subcuenta Origen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label7: TLabel
       Left = 56
       Top = 48
-      Width = 412
+      Width = 411
       Height = 60
       Caption = 
         'Se modificar'#225' la subcuenta de ORIGEN por la nueva de DESTINO en ' +
@@ -75,37 +74,37 @@ object WTraspasoApuntes: TWTraspasoApuntes
         'tualizar'#225'n en ambos casos los acumulados de las Cuentas y Subcue' +
         'ntas.'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       WordWrap = True
     end
     object Label1: TLabel
       Left = 55
       Top = 189
-      Width = 103
+      Width = 91
       Height = 14
       Caption = 'Subcuenta Destino'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 56
       Top = 19
-      Width = 205
+      Width = 201
       Height = 15
       Caption = 'Cambio de la cuenta en los Apuntes.'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       WordWrap = True
     end
@@ -189,10 +188,10 @@ object WTraspasoApuntes: TWTraspasoApuntes
       TabStop = False
       Caption = 'Borrar la Subcuenta Origen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -12
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
     end
@@ -205,10 +204,10 @@ object WTraspasoApuntes: TWTraspasoApuntes
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick
@@ -221,10 +220,10 @@ object WTraspasoApuntes: TWTraspasoApuntes
     Cursor = crHandPoint
     Caption = 'A'#241'adir S&ubcta'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     OnClick = BtnNewSubAccountClick

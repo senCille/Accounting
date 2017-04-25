@@ -4,7 +4,7 @@ object WGrupos: TWGrupos
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 528
   ClientWidth = 729
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -28,27 +28,24 @@ object WGrupos: TWGrupos
     Width = 729
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 737
     object Shape1: TShape
       Left = 9
       Top = 30
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 9
       Top = 9
-      Width = 148
+      Width = 132
       Height = 19
       Caption = 'Archivo de Grupos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -59,44 +56,40 @@ object WGrupos: TWGrupos
     Width = 729
     Height = 487
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 737
-    ExplicitHeight = 492
     object Panel4: TPanel
       Left = 1
       Top = 1
-      Width = 630
-      Height = 490
+      Width = 622
+      Height = 485
       Align = alClient
       Caption = 'Panel4'
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
         Top = 1
-        Width = 628
+        Width = 620
         Height = 46
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 166
           Top = 21
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
         end
         object Label5: TLabel
           Left = 44
           Top = 21
-          Width = 34
+          Width = 29
           Height = 13
           Caption = 'Grupo'
         end
@@ -139,8 +132,8 @@ object WGrupos: TWGrupos
       end
       object Datos: TGroupBox
         Left = 1
-        Top = 429
-        Width = 628
+        Top = 424
+        Width = 620
         Height = 60
         Align = alBottom
         TabOrder = 1
@@ -152,10 +145,10 @@ object WGrupos: TWGrupos
           AutoSize = False
           Caption = 'Grupo'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -166,10 +159,10 @@ object WGrupos: TWGrupos
           AutoSize = False
           Caption = 'Descripci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditDESCRIPCION: TDBEdit
@@ -210,12 +203,10 @@ object WGrupos: TWGrupos
       object DataGrid: TDBGrid
         Left = 1
         Top = 47
-        Width = 628
-        Height = 382
+        Width = 620
+        Height = 377
         Align = alClient
-        Color = 14275008
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -225,10 +216,10 @@ object WGrupos: TWGrupos
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         Columns = <
           item
             Expanded = False
@@ -243,10 +234,10 @@ object WGrupos: TWGrupos
       end
     end
     object Panel1: TPanel
-      Left = 631
+      Left = 623
       Top = 1
       Width = 105
-      Height = 490
+      Height = 485
       Align = alRight
       BevelOuter = bvNone
       ParentColor = True
@@ -259,10 +250,10 @@ object WGrupos: TWGrupos
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -275,10 +266,10 @@ object WGrupos: TWGrupos
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -291,10 +282,10 @@ object WGrupos: TWGrupos
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -307,10 +298,10 @@ object WGrupos: TWGrupos
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -330,12 +321,12 @@ object WGrupos: TWGrupos
         Width = 83
         Height = 25
         Cursor = crHandPoint
-        Caption = '&Imforme'
+        Caption = '&Informe'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportsClick
@@ -348,10 +339,10 @@ object WGrupos: TWGrupos
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = RejillaDblClick

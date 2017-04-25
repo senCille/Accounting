@@ -44,7 +44,7 @@ object WAnaliticas: TWAnaliticas
       Height = 19
       Caption = 'Archivo de Cuentas Anal'#237'ticas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -74,7 +74,7 @@ object WAnaliticas: TWAnaliticas
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -148,7 +148,7 @@ object WAnaliticas: TWAnaliticas
           AutoSize = False
           Caption = 'Nombre'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -162,7 +162,7 @@ object WAnaliticas: TWAnaliticas
           AutoSize = False
           Caption = 'Cuenta'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -175,7 +175,7 @@ object WAnaliticas: TWAnaliticas
           Height = 13
           Caption = 'Delegaci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -188,7 +188,7 @@ object WAnaliticas: TWAnaliticas
           Height = 13
           Caption = 'Departamento'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -201,7 +201,7 @@ object WAnaliticas: TWAnaliticas
           Height = 13
           Caption = 'Secci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -214,7 +214,7 @@ object WAnaliticas: TWAnaliticas
           Height = 13
           Caption = 'Proyecto'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -406,7 +406,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -422,7 +422,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -438,7 +438,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -454,7 +454,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -470,7 +470,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -486,7 +486,7 @@ object WAnaliticas: TWAnaliticas
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []

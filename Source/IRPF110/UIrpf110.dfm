@@ -4,7 +4,7 @@ object WIrpf110: TWIrpf110
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 500
   ClientWidth = 756
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -25,93 +25,91 @@ object WIrpf110: TWIrpf110
     Height = 423
     Align = alClient
     Caption = ' Datos '
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Arial'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 764
-    ExplicitHeight = 428
     object Label1: TLabel
       Left = 180
       Top = 8
-      Width = 47
+      Width = 39
       Height = 13
       Caption = 'Ejercicio'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 233
       Top = 8
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Periodo'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label7: TLabel
       Left = 333
       Top = 11
-      Width = 92
+      Width = 78
       Height = 14
       Caption = 'Fecha a imprimir'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label28: TLabel
       Left = 473
       Top = 49
-      Width = 66
+      Width = 59
       Height = 14
       Caption = 'Fecha inicial'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label29: TLabel
       Left = 569
       Top = 49
-      Width = 58
+      Width = 53
       Height = 14
       Caption = 'Fecha final'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label84: TLabel
       Left = 182
       Top = 50
-      Width = 233
+      Width = 208
       Height = 14
       Caption = 'C.C.C. para Hacienda, formato con guiones'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object GroupBoxFormapago: TRadioGroup
@@ -122,10 +120,10 @@ object WIrpf110: TWIrpf110
       Caption = ' Forma de pago '
       Columns = 2
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Cuenta'
@@ -142,7 +140,7 @@ object WIrpf110: TWIrpf110
       DataField = 'EJERCICIO'
       DataSource = sIrpf110
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -158,7 +156,7 @@ object WIrpf110: TWIrpf110
       DataField = 'PERIODO'
       DataSource = sIrpf110
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -172,10 +170,10 @@ object WIrpf110: TWIrpf110
       Height = 76
       Caption = ' Rendimientos del trabajo '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 7
       object GroupBox2: TGroupBox
@@ -188,40 +186,40 @@ object WIrpf110: TWIrpf110
         object Label3: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label4: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label5: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_01: TDBEdit
@@ -233,7 +231,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_01'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -249,7 +247,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_02'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -265,7 +263,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_03'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -284,40 +282,40 @@ object WIrpf110: TWIrpf110
         object Label6: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label8: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label9: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_04: TDBEdit
@@ -329,7 +327,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_04'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -345,7 +343,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_05'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -361,7 +359,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_06'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -379,10 +377,10 @@ object WIrpf110: TWIrpf110
       TabStop = False
       Caption = 'Copia Declarante'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 8
     end
@@ -394,7 +392,7 @@ object WIrpf110: TWIrpf110
       DataField = 'FECHA_IMPRESION'
       DataSource = sIrpf110
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -408,10 +406,10 @@ object WIrpf110: TWIrpf110
       Height = 76
       Caption = ' Rendimientos de actividades economicas '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 9
       object GroupBox5: TGroupBox
@@ -424,40 +422,40 @@ object WIrpf110: TWIrpf110
         object Label10: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label11: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label12: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_07: TDBEdit
@@ -469,7 +467,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_07'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -485,7 +483,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_08'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -501,7 +499,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_09'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -520,40 +518,40 @@ object WIrpf110: TWIrpf110
         object Label13: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label14: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label15: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_10: TDBEdit
@@ -565,7 +563,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_10'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -581,7 +579,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_11'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -597,7 +595,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_12'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -614,10 +612,10 @@ object WIrpf110: TWIrpf110
       Height = 76
       Caption = 'Premios por juegos, concursos, rifas o combinaciones aleatorias '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 10
       object GroupBox8: TGroupBox
@@ -630,40 +628,40 @@ object WIrpf110: TWIrpf110
         object Label16: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label17: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label18: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_13: TDBEdit
@@ -675,7 +673,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_13'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -691,7 +689,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_14'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -707,7 +705,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_15'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -726,40 +724,40 @@ object WIrpf110: TWIrpf110
         object Label19: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label20: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label21: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_16: TDBEdit
@@ -771,7 +769,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_16'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -787,7 +785,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_17'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -803,7 +801,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_18'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -820,10 +818,10 @@ object WIrpf110: TWIrpf110
       Height = 76
       Caption = 'Derechos de Imagen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 11
       object GroupBox11: TGroupBox
@@ -836,40 +834,40 @@ object WIrpf110: TWIrpf110
         object Label22: TLabel
           Left = 10
           Top = 14
-          Width = 69
+          Width = 59
           Height = 14
           Caption = 'Perceptores'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label23: TLabel
           Left = 89
           Top = 14
-          Width = 103
+          Width = 88
           Height = 14
           Caption = 'Imp. Percepciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label24: TLabel
           Left = 210
           Top = 14
-          Width = 96
+          Width = 82
           Height = 14
           Caption = 'Imp. Retenciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditLIQUIDACION_19: TDBEdit
@@ -881,7 +879,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_19'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -897,7 +895,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_20'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -913,7 +911,7 @@ object WIrpf110: TWIrpf110
           DataField = 'LIQUIDACION_21'
           DataSource = sIrpf110
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -930,49 +928,49 @@ object WIrpf110: TWIrpf110
       Height = 100
       Caption = 'Total Liquidacion '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 12
       object Label25: TLabel
         Left = 8
         Top = 18
-        Width = 232
+        Width = 204
         Height = 14
         Caption = 'Suma de Retenciones e ingresos a cuenta'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label26: TLabel
         Left = 22
         Top = 45
-        Width = 218
+        Width = 191
         Height = 14
         Caption = 'A deducir (caso decla. complementaria)'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label27: TLabel
         Left = 126
         Top = 72
-        Width = 114
+        Width = 100
         Height = 14
         Caption = 'Resultado a ingresar'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditLIQUIDACION_22: TDBEdit
@@ -984,7 +982,7 @@ object WIrpf110: TWIrpf110
         DataField = 'LIQUIDACION_22'
         DataSource = sIrpf110
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -1000,7 +998,7 @@ object WIrpf110: TWIrpf110
         DataField = 'LIQUIDACION_23'
         DataSource = sIrpf110
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -1078,27 +1076,24 @@ object WIrpf110: TWIrpf110
     Width = 756
     Height = 36
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 764
     object Shape1: TShape
       Left = 6
       Top = 26
       Width = 738
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 6
       Top = 6
-      Width = 255
+      Width = 228
       Height = 19
       Caption = 'Impresi'#243'n Modelo I.R.P.F.   110'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -1109,10 +1104,7 @@ object WIrpf110: TWIrpf110
     Width = 756
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 464
-    ExplicitWidth = 764
     DesignSize = (
       756
       41)
@@ -1125,14 +1117,13 @@ object WIrpf110: TWIrpf110
       Anchors = [akRight, akBottom]
       Caption = '&Calcular Saldos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnedtCalcularClick
-      ExplicitLeft = 470
     end
     object BtnEdtErrores: TButton
       Left = 351
@@ -1143,14 +1134,13 @@ object WIrpf110: TWIrpf110
       Anchors = [akRight, akBottom]
       Caption = '&Ver Errores'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnEdtErroresClick
-      ExplicitLeft = 359
     end
     object BtnEdtProcesar: TButton
       Left = 599
@@ -1161,14 +1151,13 @@ object WIrpf110: TWIrpf110
       Anchors = [akRight, akBottom]
       Caption = '&Imprimir'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       OnClick = BtnEdtProcesarClick
-      ExplicitLeft = 607
     end
   end
   object QIrpf110: TClientDataSet

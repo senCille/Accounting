@@ -3,7 +3,7 @@ object WFiltroBalances: TWFiltroBalances
   Top = 279
   ClientHeight = 490
   ClientWidth = 525
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -25,14 +25,12 @@ object WFiltroBalances: TWFiltroBalances
     Height = 414
     Align = alClient
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 533
-    ExplicitHeight = 419
     object GroupBox4: TGroupBox
       Left = 11
       Top = 297
@@ -43,21 +41,21 @@ object WFiltroBalances: TWFiltroBalances
       object Label4: TLabel
         Left = 10
         Top = 19
-        Width = 94
+        Width = 77
         Height = 13
         Caption = 'Fecha a imprimir'
       end
       object lSubtotales1: TLabel
         Left = 10
         Top = 41
-        Width = 104
+        Width = 87
         Height = 13
         Caption = 'Subtotales al nivel'
       end
       object lSubtotales2: TLabel
         Left = 180
         Top = 41
-        Width = 20
+        Width = 17
         Height = 13
         Caption = 'y al'
       end
@@ -70,7 +68,7 @@ object WFiltroBalances: TWFiltroBalances
         DataField = 'FECHA_IMPRIMIR'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -138,66 +136,66 @@ object WFiltroBalances: TWFiltroBalances
       object Label6: TLabel
         Left = 10
         Top = 15
-        Width = 92
+        Width = 78
         Height = 13
         Caption = 'Cuenta Anal'#237'tica'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label7: TLabel
         Left = 10
         Top = 38
-        Width = 62
+        Width = 52
         Height = 13
         Caption = 'Delegaci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
         Left = 257
         Top = 38
-        Width = 83
+        Width = 69
         Height = 13
         Caption = 'Departamento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label9: TLabel
         Left = 10
         Top = 75
-        Width = 43
+        Width = 36
         Height = 13
         Caption = 'Secci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label10: TLabel
         Left = 257
         Top = 74
-        Width = 51
+        Width = 43
         Height = 13
         Caption = 'Proyecto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object ComboBoxCD_ANALITICA: TDBLookupComboBox
@@ -318,21 +316,21 @@ object WFiltroBalances: TWFiltroBalances
       object Label20: TLabel
         Left = 20
         Top = 25
-        Width = 33
+        Width = 29
         Height = 13
         Caption = 'Fecha'
       end
       object Label24: TLabel
         Left = 123
         Top = 8
-        Width = 35
+        Width = 30
         Height = 13
         Caption = 'Desde'
       end
       object Label25: TLabel
         Left = 259
         Top = 7
-        Width = 33
+        Width = 28
         Height = 13
         Caption = 'Hasta'
       end
@@ -577,20 +575,18 @@ object WFiltroBalances: TWFiltroBalances
     Width = 525
     Height = 35
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 533
     object lTitulo: TLabel
       Left = 6
       Top = 6
-      Width = 219
+      Width = 191
       Height = 19
       Caption = 'Balance de Sumas y Saldos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -599,7 +595,6 @@ object WFiltroBalances: TWFiltroBalances
       Top = 26
       Width = 523
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object Panel2: TPanel
@@ -608,10 +603,7 @@ object WFiltroBalances: TWFiltroBalances
     Width = 525
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 454
-    ExplicitWidth = 533
     DesignSize = (
       525
       41)
@@ -624,10 +616,10 @@ object WFiltroBalances: TWFiltroBalances
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick

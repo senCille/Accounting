@@ -6,7 +6,7 @@ object WEditLineaIVA: TWEditLineaIVA
   Caption = 'Edici'#243'n Linea de IVA'
   ClientHeight = 271
   ClientWidth = 479
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,72 +26,70 @@ object WEditLineaIVA: TWEditLineaIVA
     Width = 479
     Height = 196
     Align = alClient
-    Color = 14275008
-    ParentColor = False
     TabOrder = 0
     object Label10: TLabel
       Left = 24
       Top = 16
-      Width = 106
+      Width = 95
       Height = 14
       Caption = 'Subcuenta Tipo IVA'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 24
       Top = 133
-      Width = 53
+      Width = 46
       Height = 14
       Caption = 'Concepto'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label6: TLabel
       Left = 119
       Top = 56
-      Width = 53
+      Width = 48
       Height = 14
       Caption = 'Cuota IVA'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 23
       Top = 94
-      Width = 136
+      Width = 120
       Height = 14
       Caption = 'Subcuenta Contrapartida'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label3: TLabel
       Left = 23
       Top = 56
-      Width = 85
+      Width = 72
       Height = 14
       Caption = 'Base Imponible'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object ComboBoxCD_SUBCUENTA_IVA: TDBLookupComboBox
@@ -102,7 +100,7 @@ object WEditLineaIVA: TWEditLineaIVA
       DataField = 'SUBCUENTA_IVA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -241,26 +239,24 @@ object WEditLineaIVA: TWEditLineaIVA
     Width = 479
     Height = 34
     Align = alTop
-    Color = 14275008
     TabOrder = 1
     object Shape1: TShape
       Left = 7
       Top = 26
       Width = 395
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 6
-      Width = 167
+      Width = 147
       Height = 19
       Caption = 'Edici'#243'n Linea de IVA'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -271,7 +267,6 @@ object WEditLineaIVA: TWEditLineaIVA
     Width = 479
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
     DesignSize = (
       479
@@ -285,10 +280,10 @@ object WEditLineaIVA: TWEditLineaIVA
       Anchors = [akRight, akBottom]
       Caption = '&Aceptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnAcceptClick

@@ -6,7 +6,7 @@ object WSituacionEfecto: TWSituacionEfecto
   Caption = 'Situaci'#243'n de Efecto'
   ClientHeight = 229
   ClientWidth = 353
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -25,19 +25,18 @@ object WSituacionEfecto: TWSituacionEfecto
     Top = 33
     Width = 256
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 24
     Top = 13
-    Width = 151
+    Width = 128
     Height = 19
     Caption = 'Cartera de Efectos'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -46,7 +45,7 @@ object WSituacionEfecto: TWSituacionEfecto
     Top = 41
     Width = 305
     Height = 136
-    Color = 14275008
+    Color = clBtnFace
     ParentColor = False
     TabOrder = 0
     object lDescripcion: TLabel
@@ -57,10 +56,10 @@ object WSituacionEfecto: TWSituacionEfecto
       AutoSize = False
       Caption = 'Seleccione la situaci'#243'n del efecto seleccionado'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       WordWrap = True
     end
@@ -111,10 +110,10 @@ object WSituacionEfecto: TWSituacionEfecto
     Cursor = crHandPoint
     Caption = '&Aceptar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ModalResult = 1
     ParentFont = False
     TabOrder = 1
@@ -128,10 +127,10 @@ object WSituacionEfecto: TWSituacionEfecto
     Cursor = crHandPoint
     Caption = '&Cancelar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ModalResult = 2
     ParentFont = False
     TabOrder = 2

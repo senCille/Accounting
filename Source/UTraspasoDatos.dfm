@@ -4,7 +4,7 @@ object WTraspasoDatos: TWTraspasoDatos
   BorderStyle = bsSingle
   ClientHeight = 415
   ClientWidth = 706
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,14 +20,14 @@ object WTraspasoDatos: TWTraspasoDatos
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 151
+    Width = 131
     Height = 19
     Caption = 'Traspaso de Datos'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -36,7 +36,6 @@ object WTraspasoDatos: TWTraspasoDatos
     Top = 37
     Width = 656
     Height = 1
-    Pen.Color = clNavy
   end
   object GroupBox1: TGroupBox
     Left = 20
@@ -44,36 +43,36 @@ object WTraspasoDatos: TWTraspasoDatos
     Width = 661
     Height = 250
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     object Label5: TLabel
       Left = 23
       Top = 13
-      Width = 96
+      Width = 81
       Height = 13
       Caption = 'Directorio Origen'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 26
       Top = 57
-      Width = 227
+      Width = 194
       Height = 13
       Caption = 'Mensajes de Error del traspaso de datos'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object GroupBox2: TGroupBox
@@ -218,7 +217,7 @@ object WTraspasoDatos: TWTraspasoDatos
       Width = 273
       Height = 22
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -266,10 +265,10 @@ object WTraspasoDatos: TWTraspasoDatos
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnEdtAceptarClick
@@ -282,10 +281,10 @@ object WTraspasoDatos: TWTraspasoDatos
     Cursor = crHandPoint
     Caption = '&Imprimir'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     OnClick = BtnEdtImprimirClick
@@ -297,37 +296,37 @@ object WTraspasoDatos: TWTraspasoDatos
     Height = 91
     Caption = ' Filtro del Diario '
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 3
     object Label24: TLabel
       Left = 233
       Top = 15
-      Width = 35
+      Width = 30
       Height = 13
       Caption = 'Desde'
     end
     object Label25: TLabel
       Left = 355
       Top = 14
-      Width = 33
+      Width = 28
       Height = 13
       Caption = 'Hasta'
     end
     object Label2: TLabel
       Left = 157
       Top = 61
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Asiento'
     end
     object Label7: TLabel
       Left = 157
       Top = 37
-      Width = 33
+      Width = 29
       Height = 13
       Caption = 'Fecha'
     end
@@ -408,7 +407,7 @@ object WTraspasoDatos: TWTraspasoDatos
     Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Arial'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 4
   end

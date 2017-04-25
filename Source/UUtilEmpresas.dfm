@@ -6,7 +6,7 @@ object WUtilEmpresas: TWUtilEmpresas
   Caption = 'Utilidades sobre Empresas'
   ClientHeight = 358
   ClientWidth = 636
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -23,19 +23,18 @@ object WUtilEmpresas: TWUtilEmpresas
     Top = 33
     Width = 589
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 24
     Top = 13
-    Width = 182
+    Width = 157
     Height = 19
     Caption = 'Utilidades de Empresa'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -44,35 +43,35 @@ object WUtilEmpresas: TWUtilEmpresas
     Top = 37
     Width = 591
     Height = 268
-    Color = 14275008
+    Color = clBtnFace
     ParentColor = False
     TabOrder = 0
     object lbNombreEmpresa: TLabel
       Left = 16
       Top = 12
-      Width = 127
+      Width = 107
       Height = 13
       Alignment = taCenter
       Caption = 'Nombre de la empresa'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 18
       Top = 99
-      Width = 247
+      Width = 210
       Height = 13
       Alignment = taCenter
       Caption = 'Mensajes de las utilidades de base de datos'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Memo1: TMemo
@@ -81,7 +80,7 @@ object WUtilEmpresas: TWUtilEmpresas
       Width = 566
       Height = 145
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBtnText
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -99,10 +98,10 @@ object WUtilEmpresas: TWUtilEmpresas
       Caption = ' Seleccione la operaci'#243'n a realizar '
       Columns = 3
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Exportaci'#243'n'
@@ -115,17 +114,17 @@ object WUtilEmpresas: TWUtilEmpresas
     end
   end
   object BtnAccept: TButton
-    Left = 534
+    Left = 535
     Top = 314
     Width = 83
     Height = 25
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick

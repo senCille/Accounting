@@ -6,7 +6,7 @@ object WTiposDiario: TWTiposDiario
   Caption = 'Archivo de TIPOS DE DIARIO'
   ClientHeight = 418
   ClientWidth = 515
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WTiposDiario: TWTiposDiario
     Width = 515
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 6
       Top = 29
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 6
       Top = 8
-      Width = 214
+      Width = 189
       Height = 19
       Caption = 'Archivo de Tipos de Diario'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WTiposDiario: TWTiposDiario
     Width = 515
     Height = 377
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WTiposDiario: TWTiposDiario
       Width = 408
       Height = 375
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -78,23 +74,23 @@ object WTiposDiario: TWTiposDiario
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 98
           Top = 21
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 24
+          Width = 20
           Height = 13
           Caption = 'Tipo'
         end
@@ -152,10 +148,10 @@ object WTiposDiario: TWTiposDiario
           AutoSize = False
           Caption = 'Tipo'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -166,10 +162,10 @@ object WTiposDiario: TWTiposDiario
           AutoSize = False
           Caption = 'Descripci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditDescripcion: TDBEdit
@@ -211,9 +207,7 @@ object WTiposDiario: TWTiposDiario
         Width = 406
         Height = 226
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -223,10 +217,10 @@ object WTiposDiario: TWTiposDiario
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -370,10 +364,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = 'Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnNewClick
@@ -386,10 +380,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnModifyClick
@@ -402,10 +396,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = '&Borrar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnDeleteClick
@@ -418,10 +412,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnReportClick
@@ -443,10 +437,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnAcceptClick
@@ -459,10 +453,10 @@ object WTiposDiario: TWTiposDiario
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnCancelClick

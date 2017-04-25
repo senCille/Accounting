@@ -4,7 +4,7 @@ object WBorradoDiario: TWBorradoDiario
   BorderStyle = bsSingle
   ClientHeight = 359
   ClientWidth = 628
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,14 +22,14 @@ object WBorradoDiario: TWBorradoDiario
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 234
+    Width = 202
     Height = 19
     Caption = 'Borrado General de Asientos'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -38,7 +38,6 @@ object WBorradoDiario: TWBorradoDiario
     Top = 39
     Width = 580
     Height = 1
-    Pen.Color = clNavy
   end
   object Label6: TLabel
     Left = 23
@@ -49,7 +48,7 @@ object WBorradoDiario: TWBorradoDiario
       'Tenga cuidado con el filtro, se borrar'#225'n todos los asientos entr' +
       'e los que se '
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsItalic]
@@ -62,7 +61,7 @@ object WBorradoDiario: TWBorradoDiario
     Height = 13
     Caption = 'encuentre alg'#250'n apunte que cumpla las condiciones del filtro.'
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsItalic]
@@ -77,7 +76,7 @@ object WBorradoDiario: TWBorradoDiario
       'Si no tiene copia de seguridad, no habr'#225' forma de recuperar los ' +
       'asientos.'
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = [fsItalic]
@@ -89,65 +88,65 @@ object WBorradoDiario: TWBorradoDiario
     Width = 577
     Height = 233
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     object Label36: TLabel
       Left = 56
       Top = 192
-      Width = 53
+      Width = 46
       Height = 13
       Caption = 'Concepto'
     end
     object Label29: TLabel
       Left = 123
       Top = 101
-      Width = 50
+      Width = 41
       Height = 13
       Caption = 'Importe '
     end
     object Label1: TLabel
       Left = 123
       Top = 52
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Asiento'
     end
     object Label3: TLabel
       Left = 20
       Top = 138
-      Width = 97
+      Width = 83
       Height = 13
       Caption = 'Subcuenta desde'
     end
     object Label20: TLabel
       Left = 123
       Top = 77
-      Width = 33
+      Width = 29
       Height = 13
       Caption = 'Fecha'
     end
     object Label24: TLabel
       Left = 200
       Top = 32
-      Width = 35
+      Width = 30
       Height = 13
       Caption = 'Desde'
     end
     object Label25: TLabel
       Left = 341
       Top = 31
-      Width = 33
+      Width = 28
       Height = 13
       Caption = 'Hasta'
     end
     object Label2: TLabel
       Left = 85
       Top = 162
-      Width = 32
+      Width = 27
       Height = 13
       Caption = 'hasta'
     end
@@ -160,7 +159,7 @@ object WBorradoDiario: TWBorradoDiario
       DataField = 'IMPORTE_DESDE'
       DataSource = DSFiltro
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -362,10 +361,10 @@ object WBorradoDiario: TWBorradoDiario
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnEdtAceptarClick

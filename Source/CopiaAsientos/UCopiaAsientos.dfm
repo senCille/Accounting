@@ -5,7 +5,7 @@ object WCopiaAsientos: TWCopiaAsientos
   Caption = 'Copia Asientos'
   ClientHeight = 349
   ClientWidth = 526
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,87 +26,83 @@ object WCopiaAsientos: TWCopiaAsientos
     Width = 526
     Height = 267
     Align = alClient
-    Color = 14275008
-    ParentColor = False
     TabOrder = 0
-    ExplicitWidth = 534
-    ExplicitHeight = 272
     object Label20: TLabel
       Left = 110
       Top = 51
-      Width = 33
+      Width = 29
       Height = 13
       Caption = 'Fecha'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label24: TLabel
       Left = 173
       Top = 32
-      Width = 35
+      Width = 30
       Height = 13
       Caption = 'Desde'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label25: TLabel
       Left = 282
       Top = 31
-      Width = 33
+      Width = 28
       Height = 13
       Caption = 'Hasta'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label3: TLabel
       Left = 53
       Top = 118
-      Width = 97
+      Width = 83
       Height = 13
       Caption = 'Subcuenta desde'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 118
       Top = 140
-      Width = 32
+      Width = 27
       Height = 13
       Caption = 'hasta'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 94
       Top = 78
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Asiento'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object EditFECHA_DESDE: TDBEdit
@@ -117,7 +113,7 @@ object WCopiaAsientos: TWCopiaAsientos
       DataField = 'FECHA_DESDE'
       DataSource = SFiltro
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -251,7 +247,7 @@ object WCopiaAsientos: TWCopiaAsientos
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 8
       object ComboEMPRESA: TDBLookupComboBox
@@ -280,10 +276,7 @@ object WCopiaAsientos: TWCopiaAsientos
     Width = 526
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 313
-    ExplicitWidth = 534
     DesignSize = (
       526
       41)
@@ -294,7 +287,7 @@ object WCopiaAsientos: TWCopiaAsientos
       Height = 16
       Caption = 'Copia de asientos de la empresa activa a otra que seleccione.'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsItalic]
@@ -307,7 +300,7 @@ object WCopiaAsientos: TWCopiaAsientos
       Height = 16
       Caption = 'Tambi'#233'n se puede copiar asientos sobre la empresa actual.'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = [fsItalic]
@@ -322,10 +315,10 @@ object WCopiaAsientos: TWCopiaAsientos
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick
@@ -337,27 +330,24 @@ object WCopiaAsientos: TWCopiaAsientos
     Width = 526
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 2
-    ExplicitWidth = 534
     object Shape1: TShape
       Left = 8
       Top = 27
       Width = 561
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 8
       Top = 7
-      Width = 276
+      Width = 237
       Height = 19
       Caption = 'Copia de asientos entre empresas'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end

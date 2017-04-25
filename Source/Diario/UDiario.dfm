@@ -4,7 +4,7 @@ object WDiario: TWDiario
   Caption = 'Gesti'#243'n de Asientos'
   ClientHeight = 528
   ClientWidth = 782
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -29,9 +29,7 @@ object WDiario: TWDiario
     Width = 782
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 790
     object lTitulo: TLabel
       Left = 20
       Top = 9
@@ -40,10 +38,10 @@ object WDiario: TWDiario
       AutoSize = False
       Caption = 'Gesti'#243'n de Asientos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -52,7 +50,6 @@ object WDiario: TWDiario
       Top = 30
       Width = 697
       Height = 1
-      Pen.Color = clNavy
     end
     object DBText1: TDBText
       Left = 172
@@ -62,10 +59,10 @@ object WDiario: TWDiario
       DataField = 'DESCSUBCUENTA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -76,10 +73,7 @@ object WDiario: TWDiario
     Width = 782
     Height = 456
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 790
-    ExplicitHeight = 461
     object Panel: TPanel
       Left = 668
       Top = 1
@@ -87,10 +81,7 @@ object WDiario: TWDiario
       Height = 454
       Align = alRight
       BevelOuter = bvNone
-      Color = 14275008
       TabOrder = 0
-      ExplicitLeft = 676
-      ExplicitHeight = 459
       object SpFiltro: TSpeedButton
         Left = 30
         Top = 353
@@ -175,10 +166,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Nuevo Asiento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnNavAnadirClick
@@ -191,10 +182,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Listados'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnReportsClick
@@ -207,10 +198,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnModifyClick
@@ -223,10 +214,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Duplicar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ModalResult = 1
         ParentFont = False
         TabOrder = 3
@@ -240,10 +231,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Vencimiento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 4
         OnClick = BtnDueDatesClick
@@ -256,10 +247,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = 'S&eleccionar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnSelectClick
@@ -272,10 +263,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = 'As&iento Baja'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 7
         OnClick = BtnBookEntryBajaClick
@@ -288,10 +279,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = '&Renumerar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnRenumClick
@@ -304,10 +295,10 @@ object WDiario: TWDiario
         Cursor = crHandPoint
         Caption = 'Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 8
         OnClick = BtnDeleteClick
@@ -330,117 +321,111 @@ object WDiario: TWDiario
       ActivePage = TabSheetDiario
       Align = alClient
       TabOrder = 1
-      ExplicitWidth = 675
-      ExplicitHeight = 459
       object TabSheetDiario: TTabSheet
         Caption = 'Diario'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Buscar: TGroupBox
           Left = 0
           Top = 0
-          Width = 667
+          Width = 659
           Height = 60
           Align = alTop
           Caption = '  Buscar  '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label1: TLabel
             Left = 4
             Top = 17
-            Width = 43
+            Width = 37
             Height = 14
             Caption = 'Asiento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label8: TLabel
             Left = 52
             Top = 17
-            Width = 40
+            Width = 37
             Height = 14
             Caption = 'Factura'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label13: TLabel
             Left = 268
             Top = 17
-            Width = 58
+            Width = 52
             Height = 14
             Caption = 'Subcuenta'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label14: TLabel
             Left = 348
             Top = 17
-            Width = 91
+            Width = 83
             Height = 14
             Caption = 'Desc. Subcuenta'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label16: TLabel
             Left = 470
             Top = 17
-            Width = 75
+            Width = 65
             Height = 14
             Caption = 'Contrapartida'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label17: TLabel
             Left = 551
             Top = 17
-            Width = 108
+            Width = 96
             Height = 14
             Caption = 'Desc. Contrapartida'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label18: TLabel
             Left = 167
             Top = 17
-            Width = 44
+            Width = 35
             Height = 14
             Caption = 'Importe'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object EditFiltroBAsiento: TDBEdit
@@ -452,7 +437,7 @@ object WDiario: TWDiario
             DataField = 'BAsiento'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -468,7 +453,7 @@ object WDiario: TWDiario
             DataField = 'BFACTURA'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -485,7 +470,7 @@ object WDiario: TWDiario
             DataField = 'BSubcuenta'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -502,7 +487,7 @@ object WDiario: TWDiario
             DataField = 'BDescSubcuenta'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -519,7 +504,7 @@ object WDiario: TWDiario
             DataField = 'BContrapartida'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -536,7 +521,7 @@ object WDiario: TWDiario
             DataField = 'BDescContrapartida'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -553,7 +538,7 @@ object WDiario: TWDiario
             DataField = 'BImporte'
             DataSource = SFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -565,12 +550,10 @@ object WDiario: TWDiario
         object DataGrid: TDBGrid
           Left = 0
           Top = 60
-          Width = 667
-          Height = 371
+          Width = 659
+          Height = 366
           Align = alClient
-          Color = 15596540
           DataSource = SFichero
-          FixedColor = 10841401
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -580,10 +563,10 @@ object WDiario: TWDiario
           ParentFont = False
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWhite
+          TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'MS Sans Serif'
-          TitleFont.Style = [fsBold]
+          TitleFont.Style = []
           OnDrawColumnCell = DataGridDrawColumnCell
           OnDblClick = DataGridDblClick
           OnMouseDown = DataGridMouseDown
@@ -664,141 +647,134 @@ object WDiario: TWDiario
       object TabSheetFiltro: TTabSheet
         Caption = 'Filtro'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Panel1: TPanel
           Left = 0
           Top = 0
           Width = 659
           Height = 426
           Align = alClient
-          Color = 13550766
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
-          ExplicitWidth = 667
-          ExplicitHeight = 431
           object GroupBox2: TGroupBox
             Left = 31
             Top = 2
             Width = 521
             Height = 383
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 0
             TabStop = True
             object Label2: TLabel
               Left = 20
               Top = 52
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Fecha'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label24: TLabel
               Left = 159
               Top = 9
-              Width = 35
+              Width = 30
               Height = 13
               Caption = 'Desde'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label25: TLabel
               Left = 309
               Top = 8
-              Width = 33
+              Width = 28
               Height = 13
               Caption = 'Hasta'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label4: TLabel
               Left = 20
               Top = 28
-              Width = 43
+              Width = 36
               Height = 13
               Caption = 'Asiento'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label20: TLabel
               Left = 20
               Top = 75
-              Width = 44
+              Width = 35
               Height = 14
               Caption = 'Importe'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label15: TLabel
               Left = 20
               Top = 101
-              Width = 58
+              Width = 52
               Height = 14
               Caption = 'Subcuenta'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label3: TLabel
               Left = 20
               Top = 151
-              Width = 53
+              Width = 46
               Height = 14
               Caption = 'Concepto'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label11: TLabel
               Left = 20
               Top = 126
-              Width = 75
+              Width = 65
               Height = 14
               Caption = 'Contrapartida'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object EditFiltroAsientoDesde: TDBEdit
@@ -809,7 +785,7 @@ object WDiario: TWDiario
               DataField = 'AsientoDesde'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -824,7 +800,7 @@ object WDiario: TWDiario
               DataField = 'FechaDesde'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -839,7 +815,7 @@ object WDiario: TWDiario
               DataField = 'FechaHasta'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -854,7 +830,7 @@ object WDiario: TWDiario
               DataField = 'AsientoHasta'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -869,7 +845,7 @@ object WDiario: TWDiario
               DataField = 'ImporteDesde'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -885,7 +861,7 @@ object WDiario: TWDiario
               DataField = 'ImporteHasta'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -901,7 +877,7 @@ object WDiario: TWDiario
               DataSource = SFiltro
               DropDownRows = 10
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -920,7 +896,7 @@ object WDiario: TWDiario
               DataSource = SFiltro
               DropDownRows = 10
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -938,7 +914,7 @@ object WDiario: TWDiario
               DataField = 'Concepto'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -956,7 +932,7 @@ object WDiario: TWDiario
               DataField = 'Concepto'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -976,66 +952,66 @@ object WDiario: TWDiario
               object Label6: TLabel
                 Left = 11
                 Top = 20
-                Width = 92
+                Width = 78
                 Height = 13
                 Caption = 'Cuenta Anal'#237'tica'
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
               object Label7: TLabel
                 Left = 11
                 Top = 44
-                Width = 62
+                Width = 52
                 Height = 13
                 Caption = 'Delegaci'#243'n'
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
               object Label5: TLabel
                 Left = 258
                 Top = 44
-                Width = 83
+                Width = 69
                 Height = 13
                 Caption = 'Departamento'
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
               object Label9: TLabel
                 Left = 11
                 Top = 83
-                Width = 43
+                Width = 36
                 Height = 13
                 Caption = 'Secci'#243'n'
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
               object Label10: TLabel
                 Left = 258
                 Top = 83
-                Width = 51
+                Width = 43
                 Height = 13
                 Caption = 'Proyecto'
                 Font.Charset = DEFAULT_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
               object ComboBoxCUENTA_ANALITICA: TDBLookupComboBox
@@ -1193,10 +1169,10 @@ object WDiario: TWDiario
               DataField = 'TipoConcepto'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               Items.Strings = (
                 'Todos'
                 'Normal'
@@ -1218,10 +1194,10 @@ object WDiario: TWDiario
               DataField = 'Moneda'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               Items.Strings = (
                 'Euros'
                 'Pesetas')
@@ -1241,10 +1217,10 @@ object WDiario: TWDiario
               DataField = 'Punteo'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               Items.Strings = (
                 'Ambos'
                 'S'#237
@@ -1268,10 +1244,7 @@ object WDiario: TWDiario
     Width = 782
     Height = 31
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 502
-    ExplicitWidth = 790
     object Label12: TLabel
       Left = 6
       Top = 7
@@ -1280,10 +1253,10 @@ object WDiario: TWDiario
       AutoSize = False
       Caption = 'Contrapartida'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -1295,10 +1268,10 @@ object WDiario: TWDiario
       DataField = 'DESCCONTRAPARTIDA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end

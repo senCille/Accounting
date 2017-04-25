@@ -5,7 +5,7 @@ object WUsuarios: TWUsuarios
   Caption = 'Archivo de USUARIOS'
   ClientHeight = 475
   ClientWidth = 834
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clBlack
   Font.Height = -11
@@ -26,7 +26,6 @@ object WUsuarios: TWUsuarios
     Top = 34
     Width = 722
     Height = 1
-    Pen.Color = clNavy
   end
   object Panel1: TPanel
     Left = 736
@@ -37,8 +36,6 @@ object WUsuarios: TWUsuarios
     BevelOuter = bvNone
     ParentColor = True
     TabOrder = 1
-    ExplicitLeft = 744
-    ExplicitHeight = 439
     object BtnAccept: TButton
       Left = 7
       Top = 293
@@ -47,10 +44,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = 'Ac&eptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnAcceptClick
@@ -63,10 +60,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = '&Cancelar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnCancelClick
@@ -79,10 +76,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = 'Nuevo'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       OnClick = BtnNavAniadirClick
@@ -95,10 +92,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = 'Desmarcar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 3
       OnClick = BtnDesmarcarClick
@@ -111,10 +108,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = 'Marcar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 4
       OnClick = BtnMarcarClick
@@ -127,10 +124,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = 'Eliminar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 5
       OnClick = BtnDeleteClick
@@ -143,10 +140,10 @@ object WUsuarios: TWUsuarios
       Cursor = crHandPoint
       Caption = '&Modificar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
       OnClick = BtnModifyClick
@@ -160,14 +157,12 @@ object WUsuarios: TWUsuarios
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitHeight = 439
     object DataGrid: TDBGrid
       Left = 0
       Top = 0
       Width = 248
-      Height = 439
+      Height = 434
       Align = alClient
-      Color = 15596540
       DataSource = SUsuarios
       Options = [dgTitles, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
@@ -199,18 +194,17 @@ object WUsuarios: TWUsuarios
     Height = 41
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 842
     object Label8: TLabel
       Left = 17
       Top = 13
-      Width = 161
+      Width = 142
       Height = 19
       Caption = 'Archivo de Usuarios'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clBlack
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -223,14 +217,8 @@ object WUsuarios: TWUsuarios
     ActivePage = TabPermisos
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 496
-    ExplicitHeight = 439
     object TabDatos: TTabSheet
       Caption = 'Datos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label27: TLabel
         Left = 5
         Top = 93
@@ -257,11 +245,10 @@ object WUsuarios: TWUsuarios
         Top = 111
         Width = 236
         Height = 21
-        Color = clWhite
         DataField = 'ID_EMPRESA'
         DataSource = SUsuarios
         Font.Charset = ANSI_CHARSET
-        Font.Color = 2644787
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = []
@@ -277,12 +264,11 @@ object WUsuarios: TWUsuarios
         Width = 144
         Height = 20
         AutoSize = False
-        Color = clWhite
         Ctl3D = True
         DataField = 'CLAVE'
         DataSource = SUsuarios
         Font.Charset = ANSI_CHARSET
-        Font.Color = 3570756
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = []
@@ -296,12 +282,11 @@ object WUsuarios: TWUsuarios
         Width = 144
         Height = 20
         AutoSize = False
-        Color = clWhite
         Ctl3D = True
         DataField = 'NOMBRE'
         DataSource = SUsuarios
         Font.Charset = ANSI_CHARSET
-        Font.Color = 3570756
+        Font.Color = clBlack
         Font.Height = -11
         Font.Name = 'Verdana'
         Font.Style = []
@@ -313,10 +298,6 @@ object WUsuarios: TWUsuarios
     object TabPermisos: TTabSheet
       Caption = 'Permisos'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
   end
   object SUsuarios: TDataSource

@@ -59,7 +59,7 @@ object WCuentas: TWCuentas
       DataField = 'CUENTA'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -74,7 +74,7 @@ object WCuentas: TWCuentas
       DataField = 'DESCRIPCION'
       DataSource = SFichero
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -13
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -108,7 +108,7 @@ object WCuentas: TWCuentas
           Align = alTop
           Caption = 'BUSCAR'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -274,6 +274,10 @@ object WCuentas: TWCuentas
       object TabDatos: TTabSheet
         Caption = 'Datos'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 31
           Top = 41
@@ -281,7 +285,7 @@ object WCuentas: TWCuentas
           Height = 156
           Caption = ' '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -431,7 +435,7 @@ object WCuentas: TWCuentas
           DataField = 'TIPOCUENTA'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -466,6 +470,10 @@ object WCuentas: TWCuentas
       object TabAcumulados: TTabSheet
         Caption = 'Acumulados'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object PageControlAcumulados: TPageControl
           Left = 0
           Top = 0
@@ -476,6 +484,10 @@ object WCuentas: TWCuentas
           TabOrder = 0
           object TabCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label19: TLabel
               Left = 143
               Top = 303
@@ -497,7 +509,7 @@ object WCuentas: TWCuentas
               Height = 276
               Caption = ' PRIMER SEMESTRE '
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -552,7 +564,7 @@ object WCuentas: TWCuentas
                 Height = 211
                 Caption = ' DEBE '
                 Font.Charset = ANSI_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
                 Font.Style = []
@@ -680,7 +692,7 @@ object WCuentas: TWCuentas
                 Height = 211
                 Caption = ' HABER '
                 Font.Charset = ANSI_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
                 Font.Style = []
@@ -809,7 +821,7 @@ object WCuentas: TWCuentas
               Height = 276
               Caption = ' SEGUNDO SEMESTRE '
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -864,7 +876,7 @@ object WCuentas: TWCuentas
                 Height = 211
                 Caption = ' DEBE '
                 Font.Charset = ANSI_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
                 Font.Style = []
@@ -992,7 +1004,7 @@ object WCuentas: TWCuentas
                 Height = 211
                 Caption = ' HABER '
                 Font.Charset = ANSI_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
                 Font.Style = []
@@ -1156,6 +1168,10 @@ object WCuentas: TWCuentas
           object TabPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
             ImageIndex = 1
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Label35: TLabel
               Left = 340
               Top = 314
@@ -1850,6 +1866,10 @@ object WCuentas: TWCuentas
       object TabGraficos: TTabSheet
         Caption = 'Graficos'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object PageControlGraficos: TPageControl
           Left = 0
           Top = 0
@@ -1860,6 +1880,10 @@ object WCuentas: TWCuentas
           TabOrder = 0
           object TabGraphicCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
             object Memo1: TMemo
               Left = 72
               Top = 96
@@ -1874,10 +1898,18 @@ object WCuentas: TWCuentas
           object TabGraphicPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
             ImageIndex = 1
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
           end
           object TabGraphicComparative: TTabSheet
             Caption = 'Comparativa'
             ImageIndex = 2
+            ExplicitLeft = 0
+            ExplicitTop = 0
+            ExplicitWidth = 0
+            ExplicitHeight = 0
           end
         end
       end
@@ -1974,7 +2006,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -1990,7 +2022,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -2006,7 +2038,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -2022,7 +2054,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -2038,7 +2070,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -2064,7 +2096,7 @@ object WCuentas: TWCuentas
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []

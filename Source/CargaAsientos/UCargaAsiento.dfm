@@ -4,7 +4,7 @@ object WCargaAsiento: TWCargaAsiento
   Caption = 'Carga del Asiento'
   ClientHeight = 524
   ClientWidth = 859
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -27,20 +27,18 @@ object WCargaAsiento: TWCargaAsiento
     Width = 859
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 867
     object LabelTitulo: TLabel
       Left = 24
       Top = 8
-      Width = 145
+      Width = 125
       Height = 19
       Caption = 'Carga del Asiento'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -50,26 +48,19 @@ object WCargaAsiento: TWCargaAsiento
     Top = 41
     Width = 859
     Height = 483
-    ActivePage = TabMayor
+    ActivePage = TabAsiento
     Align = alClient
     TabOrder = 1
     OnChange = PageControlChange
-    ExplicitWidth = 867
-    ExplicitHeight = 488
     object TabAsiento: TTabSheet
       Caption = 'Asiento'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
-        Width = 859
+        Width = 851
         Height = 48
         Align = alTop
         BevelOuter = bvNone
-        Color = 10841401
         TabOrder = 0
         object Label9: TLabel
           Left = 11
@@ -79,10 +70,10 @@ object WCargaAsiento: TWCargaAsiento
           AutoSize = False
           Caption = 'Subcuenta'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText1: TDBText
@@ -93,10 +84,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUBCUENTA'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label10: TLabel
@@ -107,10 +98,10 @@ object WCargaAsiento: TWCargaAsiento
           AutoSize = False
           Caption = 'Contrapartida'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText2: TDBText
@@ -121,10 +112,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'CONTRAPARTIDA'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText3: TDBText
@@ -135,10 +126,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'DESCCONTRAPARTIDA'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label13: TLabel
@@ -149,10 +140,10 @@ object WCargaAsiento: TWCargaAsiento
           AutoSize = False
           Caption = 'Suma Debe'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label14: TLabel
@@ -163,10 +154,10 @@ object WCargaAsiento: TWCargaAsiento
           AutoSize = False
           Caption = 'Suma Haber'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object lSaldoDeudorAcreedor1: TDBText
@@ -178,10 +169,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'TipodeSaldo'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText5: TDBText
@@ -193,10 +184,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUMADB'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText7: TDBText
@@ -208,10 +199,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUMAHB'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText8: TDBText
@@ -223,10 +214,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'CalcSaldo'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText12: TDBText
@@ -237,28 +228,26 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'DESCRIPCION'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clWhite
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
       end
       object Panel5: TPanel
         Left = 0
         Top = 48
-        Width = 859
-        Height = 412
+        Width = 851
+        Height = 407
         Align = alClient
-        Color = 14275008
         TabOrder = 1
         object Panel4: TPanel
-          Left = 756
+          Left = 748
           Top = 1
           Width = 102
-          Height = 410
+          Height = 405
           Align = alRight
-          Color = 14275008
           TabOrder = 0
           object BtnCancel: TButton
             Left = 9
@@ -268,10 +257,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Cancelar'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 0
             OnClick = BtnCancelClick
@@ -284,10 +273,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = 'Ac&eptar'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 1
             OnClick = BtnAcceptClick
@@ -300,10 +289,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Duplicar'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 2
             OnClick = BtnDouplicateClick
@@ -316,10 +305,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Restablecer'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 3
             OnClick = BtnReestablishClick
@@ -332,10 +321,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Borrar'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 4
             OnClick = BtnDeleteClick
@@ -348,10 +337,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Nuevo Apunte'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 5
             OnClick = BtnNewClick
@@ -364,10 +353,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = 'A'#241'adir S&ubcta'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 6
             OnClick = BtnNewSubAccountClick
@@ -380,10 +369,10 @@ object WCargaAsiento: TWCargaAsiento
             Cursor = crHandPoint
             Caption = '&Modificar'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 7
             OnClick = BtnModifyApunteClick
@@ -392,18 +381,16 @@ object WCargaAsiento: TWCargaAsiento
         object Panel6: TPanel
           Left = 1
           Top = 1
-          Width = 755
-          Height = 410
+          Width = 747
+          Height = 405
           Align = alClient
-          Color = 14275008
           TabOrder = 1
           object Panel7: TPanel
             Left = 1
             Top = 1
-            Width = 753
+            Width = 745
             Height = 57
             Align = alTop
-            Color = 14275008
             TabOrder = 0
             DesignSize = (
               745
@@ -411,14 +398,14 @@ object WCargaAsiento: TWCargaAsiento
             object Label5: TLabel
               Left = 10
               Top = 12
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Fecha'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object EditFECHA_ASIENTO: TDBEdit
@@ -429,7 +416,7 @@ object WCargaAsiento: TWCargaAsiento
               DataField = 'FECHA_ASIENTO'
               DataSource = SFiltro
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -437,20 +424,19 @@ object WCargaAsiento: TWCargaAsiento
               TabOrder = 0
             end
             object gDescuadre: TGroupBox
-              Left = 587
+              Left = 571
               Top = 6
               Width = 127
               Height = 39
               Anchors = [akRight, akBottom]
               Caption = ' DESCUADRE '
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
               TabOrder = 1
-              ExplicitLeft = 619
               object LabelDescuadre: TLabel
                 Left = 8
                 Top = 15
@@ -460,10 +446,10 @@ object WCargaAsiento: TWCargaAsiento
                 Alignment = taRightJustify
                 AutoSize = False
                 Font.Charset = ANSI_CHARSET
-                Font.Color = clNavy
+                Font.Color = clWindowText
                 Font.Height = -11
                 Font.Name = 'Tahoma'
-                Font.Style = [fsBold]
+                Font.Style = []
                 ParentFont = False
               end
             end
@@ -474,9 +460,7 @@ object WCargaAsiento: TWCargaAsiento
             Width = 745
             Height = 346
             Align = alClient
-            Color = 15596540
             DataSource = SFichero
-            FixedColor = 10841401
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
@@ -486,7 +470,7 @@ object WCargaAsiento: TWCargaAsiento
             ParentFont = False
             TabOrder = 1
             TitleFont.Charset = DEFAULT_CHARSET
-            TitleFont.Color = clWhite
+            TitleFont.Color = clWindowText
             TitleFont.Height = -11
             TitleFont.Name = 'MS Sans Serif'
             TitleFont.Style = [fsBold]
@@ -548,17 +532,12 @@ object WCargaAsiento: TWCargaAsiento
     object TabMovimientos: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel8: TPanel
         Left = 0
         Top = 0
-        Width = 859
+        Width = 851
         Height = 85
         Align = alTop
-        Color = 14275008
         TabOrder = 0
         object Bevel1: TBevel
           Left = 2
@@ -573,7 +552,7 @@ object WCargaAsiento: TWCargaAsiento
           Height = 13
           Caption = 'SUBCUENTA'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold, fsItalic]
@@ -587,7 +566,7 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUBCUENTA'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold, fsItalic]
@@ -601,7 +580,7 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'DESCRIPCION'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold, fsItalic]
@@ -610,27 +589,27 @@ object WCargaAsiento: TWCargaAsiento
         object Label18: TLabel
           Left = 12
           Top = 13
-          Width = 64
+          Width = 54
           Height = 13
           Caption = 'Suma Debe'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label19: TLabel
           Left = 12
           Top = 33
-          Width = 69
+          Width = 58
           Height = 13
           Caption = 'Suma Haber'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object lSaldoDeudorAcreedor2: TDBText
@@ -641,10 +620,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'TipodeSaldo'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText9: TDBText
@@ -656,10 +635,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUMADB'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText10: TDBText
@@ -671,10 +650,10 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'SUMAHB'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText11: TDBText
@@ -686,22 +665,20 @@ object WCargaAsiento: TWCargaAsiento
           DataField = 'CalcSaldo'
           DataSource = DataModuleCargaAsiento.SSubcuentas
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
       end
       object GridMovimientos: TDBGrid
         Left = 0
         Top = 85
-        Width = 859
-        Height = 375
+        Width = 851
+        Height = 370
         Align = alClient
-        Color = 15596540
         DataSource = SMovimientos
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -711,7 +688,7 @@ object WCargaAsiento: TWCargaAsiento
         ParentFont = False
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = [fsBold]
@@ -768,69 +745,64 @@ object WCargaAsiento: TWCargaAsiento
     object TabMayor: TTabSheet
       Caption = 'Mayor'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 45
         Top = 12
         Width = 533
         Height = 377
-        Color = 13550766
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label11: TLabel
           Left = 30
           Top = 33
-          Width = 33
+          Width = 29
           Height = 13
           Caption = 'Fecha'
         end
         object Label24: TLabel
           Left = 133
           Top = 13
-          Width = 35
+          Width = 30
           Height = 13
           Caption = 'Desde'
         end
         object Label25: TLabel
           Left = 315
           Top = 13
-          Width = 33
+          Width = 28
           Height = 13
           Caption = 'Hasta'
         end
         object Label8: TLabel
           Left = 30
           Top = 61
-          Width = 47
+          Width = 38
           Height = 13
           Caption = 'Importe'
         end
         object Label3: TLabel
           Left = 30
           Top = 116
-          Width = 53
+          Width = 46
           Height = 13
           Caption = 'Concepto'
         end
         object Label27: TLabel
           Left = 30
           Top = 87
-          Width = 58
+          Width = 52
           Height = 14
           Caption = 'Subcuenta'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditFECHA_DESDE: TDBEdit
@@ -921,10 +893,10 @@ object WCargaAsiento: TWCargaAsiento
           Cursor = crHandPoint
           Caption = '&Imprimir'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 10
           OnClick = BtnReportClick
@@ -976,66 +948,66 @@ object WCargaAsiento: TWCargaAsiento
           object Label20: TLabel
             Left = 11
             Top = 17
-            Width = 92
+            Width = 78
             Height = 13
             Caption = 'Cuenta Anal'#237'tica'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label21: TLabel
             Left = 11
             Top = 41
-            Width = 62
+            Width = 52
             Height = 13
             Caption = 'Delegaci'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label22: TLabel
             Left = 258
             Top = 41
-            Width = 83
+            Width = 69
             Height = 13
             Caption = 'Departamento'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label23: TLabel
             Left = 11
             Top = 80
-            Width = 43
+            Width = 36
             Height = 13
             Caption = 'Secci'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label26: TLabel
             Left = 258
             Top = 80
-            Width = 51
+            Width = 43
             Height = 13
             Caption = 'Proyecto'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object ComboBoxAnalitica: TDBLookupComboBox

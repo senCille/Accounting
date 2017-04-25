@@ -3,7 +3,7 @@ object WFiltro347: TWFiltro347
   Top = 241
   ClientHeight = 491
   ClientWidth = 528
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -25,14 +25,12 @@ object WFiltro347: TWFiltro347
     Height = 414
     Align = alClient
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 536
-    ExplicitHeight = 419
     object GroupBox4: TGroupBox
       Left = 11
       Top = 334
@@ -43,7 +41,7 @@ object WFiltro347: TWFiltro347
       object Label4: TLabel
         Left = 20
         Top = 22
-        Width = 94
+        Width = 77
         Height = 13
         Caption = 'Fecha a imprimir'
       end
@@ -55,7 +53,7 @@ object WFiltro347: TWFiltro347
         DataField = 'FECHA_IMPRIMIR'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -133,7 +131,7 @@ object WFiltro347: TWFiltro347
         DataField = 'SUBCUENTA_HASTA'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -151,7 +149,7 @@ object WFiltro347: TWFiltro347
         DataField = 'SUBCUENTA_DESDE'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -293,35 +291,35 @@ object WFiltro347: TWFiltro347
       object Label20: TLabel
         Left = 20
         Top = 56
-        Width = 33
+        Width = 29
         Height = 13
         Caption = 'Fecha'
       end
       object Label24: TLabel
         Left = 135
         Top = 11
-        Width = 35
+        Width = 30
         Height = 13
         Caption = 'Desde'
       end
       object Label25: TLabel
         Left = 258
         Top = 10
-        Width = 33
+        Width = 28
         Height = 13
         Caption = 'Hasta'
       end
       object Label2: TLabel
         Left = 20
         Top = 81
-        Width = 47
+        Width = 38
         Height = 13
         Caption = 'Importe'
       end
       object Label7: TLabel
         Left = 20
         Top = 30
-        Width = 43
+        Width = 36
         Height = 13
         Caption = 'Asiento'
       end
@@ -459,10 +457,7 @@ object WFiltro347: TWFiltro347
     Width = 528
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 455
-    ExplicitWidth = 536
     DesignSize = (
       528
       41)
@@ -475,10 +470,10 @@ object WFiltro347: TWFiltro347
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnAcceptClick
@@ -490,20 +485,18 @@ object WFiltro347: TWFiltro347
     Width = 528
     Height = 36
     Align = alTop
-    Color = 14275008
     TabOrder = 2
-    ExplicitWidth = 536
     object lTitulo: TLabel
       Left = 8
       Top = 6
-      Width = 258
+      Width = 227
       Height = 19
       Caption = 'Operaciones con Terceros (347)'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -512,7 +505,6 @@ object WFiltro347: TWFiltro347
       Top = 28
       Width = 523
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object CDSFiltro: TClientDataSet

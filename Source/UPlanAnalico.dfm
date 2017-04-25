@@ -4,7 +4,7 @@ object WPlanAnalitico: TWPlanAnalitico
   BorderStyle = bsSingle
   ClientHeight = 250
   ClientWidth = 537
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -20,14 +20,14 @@ object WPlanAnalitico: TWPlanAnalitico
   object lTitulo: TLabel
     Left = 20
     Top = 17
-    Width = 200
+    Width = 173
     Height = 19
     Caption = 'Impresi'#243'n Plan Anal'#237'tico'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -36,7 +36,6 @@ object WPlanAnalitico: TWPlanAnalitico
     Top = 39
     Width = 458
     Height = 1
-    Pen.Color = clNavy
   end
   object GroupBox3: TGroupBox
     Left = 20
@@ -45,75 +44,75 @@ object WPlanAnalitico: TWPlanAnalitico
     Height = 155
     Caption = ' Anal'#237'tica '
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     object Label6: TLabel
       Left = 10
       Top = 26
-      Width = 92
+      Width = 78
       Height = 13
       Caption = 'Cuenta Anal'#237'tica'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label7: TLabel
       Left = 10
       Top = 57
-      Width = 62
+      Width = 52
       Height = 13
       Caption = 'Delegaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label8: TLabel
       Left = 257
       Top = 57
-      Width = 83
+      Width = 69
       Height = 13
       Caption = 'Departamento'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label9: TLabel
       Left = 10
       Top = 102
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Secci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label10: TLabel
       Left = 257
       Top = 102
-      Width = 51
+      Width = 43
       Height = 13
       Caption = 'Proyecto'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object ComboBoxCD_ANALITICA: TDBLookupComboBox
@@ -233,10 +232,10 @@ object WPlanAnalitico: TWPlanAnalitico
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     OnClick = BtnAcceptClick

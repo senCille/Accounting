@@ -3,7 +3,7 @@ object WAmortizaciones: TWAmortizaciones
   Top = 315
   ClientHeight = 426
   ClientWidth = 592
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,14 +24,12 @@ object WAmortizaciones: TWAmortizaciones
     Height = 350
     Align = alClient
     Font.Charset = ANSI_CHARSET
-    Font.Color = clBlack
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 600
-    ExplicitHeight = 355
     object RadioGroupOPERACION: TRadioGroup
       Left = 8
       Top = 11
@@ -39,10 +37,10 @@ object WAmortizaciones: TWAmortizaciones
       Height = 81
       Caption = ' Operaci'#243'n '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Listados'
@@ -57,10 +55,10 @@ object WAmortizaciones: TWAmortizaciones
       Height = 81
       Caption = ' Listado de '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Detalle del Inmovilizado'
@@ -75,10 +73,10 @@ object WAmortizaciones: TWAmortizaciones
       Height = 81
       Caption = ' Tipo de Inmovilizado '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Ambos'
@@ -94,57 +92,57 @@ object WAmortizaciones: TWAmortizaciones
       Height = 162
       Caption = '  Datos para la generaci'#243'n de asientos '
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 4
       TabStop = True
       object Label2: TLabel
         Left = 33
         Top = 27
-        Width = 193
+        Width = 166
         Height = 13
         Caption = 'Generar asientos para la fecha de '
       end
       object Label3: TLabel
         Left = 137
         Top = 55
-        Width = 229
+        Width = 196
         Height = 13
         Caption = 'Concepto para la generaci'#243'n de asientos'
       end
       object Label20: TLabel
         Left = 335
         Top = 27
-        Width = 104
+        Width = 87
         Height = 14
         Caption = 'Moneda impresi'#243'n'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label1: TLabel
         Left = 33
         Top = 106
-        Width = 97
+        Width = 83
         Height = 13
         Caption = 'Subcuenta desde'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label4: TLabel
         Left = 98
         Top = 130
-        Width = 32
+        Width = 27
         Height = 13
         Caption = 'hasta'
       end
@@ -157,7 +155,7 @@ object WAmortizaciones: TWAmortizaciones
         DataField = 'FECHA'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -172,7 +170,7 @@ object WAmortizaciones: TWAmortizaciones
         DataField = 'SUBCUENTA_DESDE'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -190,7 +188,7 @@ object WAmortizaciones: TWAmortizaciones
         DataField = 'SUBCUENTA_DESDE'
         DataSource = DSFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -279,63 +277,63 @@ object WAmortizaciones: TWAmortizaciones
       Width = 577
       Height = 84
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 3
       TabStop = True
       object Label16: TLabel
         Left = 71
         Top = 55
-        Width = 151
+        Width = 125
         Height = 13
         Caption = 'Fecha '#218'ltima Amortizaci'#243'n'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label24: TLabel
         Left = 262
         Top = 12
-        Width = 35
+        Width = 30
         Height = 13
         Caption = 'Desde'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label25: TLabel
         Left = 392
         Top = 11
-        Width = 33
+        Width = 28
         Height = 13
         Caption = 'Hasta'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label17: TLabel
         Left = 71
         Top = 30
-        Width = 80
+        Width = 69
         Height = 13
         Caption = 'Fecha Compra'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditFECHA_ULT_DESDE: TDBEdit
@@ -406,20 +404,18 @@ object WAmortizaciones: TWAmortizaciones
     Width = 592
     Height = 35
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 600
     object lTitulo: TLabel
       Left = 7
       Top = 3
-      Width = 218
+      Width = 188
       Height = 19
       Caption = 'Gesti'#243'n de Amortizaciones'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -428,7 +424,6 @@ object WAmortizaciones: TWAmortizaciones
       Top = 25
       Width = 591
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object Panel2: TPanel
@@ -437,10 +432,7 @@ object WAmortizaciones: TWAmortizaciones
     Width = 592
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 390
-    ExplicitWidth = 600
     DesignSize = (
       592
       41)
@@ -453,10 +445,10 @@ object WAmortizaciones: TWAmortizaciones
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick

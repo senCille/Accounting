@@ -5,7 +5,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
   Caption = 'Parametrizaci'#243'n'
   ClientHeight = 495
   ClientWidth = 901
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -24,14 +24,14 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
   object Label2: TLabel
     Left = 22
     Top = 13
-    Width = 245
+    Width = 208
     Height = 19
     Caption = 'Parametrizaci'#243'n - Facturaci'#243'n'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -45,14 +45,14 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
   object Label89: TLabel
     Left = 626
     Top = 108
-    Width = 44
+    Width = 37
     Height = 14
     Caption = 'N'#250'mero'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Arial'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
   end
   object BtnAccept: TButton
@@ -63,10 +63,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     Cursor = crHandPoint
     Caption = 'Ac&eptar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     OnClick = BtnAcceptClick
@@ -79,10 +79,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     Cursor = crHandPoint
     Caption = '&Cancelar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnCancelClick
@@ -95,10 +95,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     Cursor = crHandPoint
     Caption = 'Pon Valores por Defecto'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     WordWrap = True
@@ -112,10 +112,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     Cursor = crHandPoint
     Caption = 'Modificar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 3
     OnClick = BtnModifyClick
@@ -129,10 +129,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     TabOrder = 4
     object TabSheetSales: TTabSheet
       Caption = 'Ventas'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object PageControl2: TPageControl
         Left = 0
         Top = 0
@@ -144,216 +140,212 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         TabPosition = tpBottom
         object TabSheetRegimGeneral: TTabSheet
           Caption = 'R'#233'gimen General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Label7: TLabel
             Left = 452
             Top = 13
-            Width = 116
+            Width = 101
             Height = 14
             Caption = 'Concepto IVA Normal'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label11: TLabel
             Left = 15
             Top = 13
-            Width = 121
+            Width = 107
             Height = 14
             Caption = 'Subcuenta IVA Normal'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label12: TLabel
             Left = 15
             Top = 133
-            Width = 119
+            Width = 107
             Height = 14
             Caption = 'Subcuenta IVA Exento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label6: TLabel
             Left = 452
             Top = 53
-            Width = 128
+            Width = 113
             Height = 14
             Caption = 'Concepto IVA Reducido'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label10: TLabel
             Left = 15
             Top = 53
-            Width = 133
+            Width = 119
             Height = 14
             Caption = 'Subcuenta IVA Reducido'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label14: TLabel
             Left = 452
             Top = 93
-            Width = 159
+            Width = 139
             Height = 14
             Caption = 'Concepto IVA Superreducido'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label15: TLabel
             Left = 15
             Top = 93
-            Width = 166
+            Width = 148
             Height = 14
             Caption = 'Subcuenta IVA SuperReducido'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label16: TLabel
             Left = 452
             Top = 133
-            Width = 114
+            Width = 101
             Height = 14
             Caption = 'Concepto IVA Exento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label4: TLabel
             Left = 15
             Top = 173
-            Width = 233
+            Width = 203
             Height = 14
             Caption = 'Subcuenta IVA Intracomunitario Soportado'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label32: TLabel
             Left = 452
             Top = 173
-            Width = 168
+            Width = 144
             Height = 14
             Caption = 'Concepto IVA Intracomunitario'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label33: TLabel
             Left = 15
             Top = 249
-            Width = 116
+            Width = 104
             Height = 14
             Caption = 'Subcuenta de Ventas'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label42: TLabel
             Left = 452
             Top = 249
-            Width = 111
+            Width = 98
             Height = 14
             Caption = 'Concepto de Ventas'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label47: TLabel
             Left = 15
             Top = 289
-            Width = 179
+            Width = 160
             Height = 14
             Caption = 'Subcuenta de Devoluci'#243'n Ventas'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label51: TLabel
             Left = 452
             Top = 289
-            Width = 174
+            Width = 154
             Height = 14
             Caption = 'Concepto de Devoluci'#243'n Ventas'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label52: TLabel
             Left = 452
             Top = 328
-            Width = 119
+            Width = 102
             Height = 14
             Caption = 'Concepto de Clientes'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label95: TLabel
             Left = 15
             Top = 212
-            Width = 243
+            Width = 211
             Height = 14
             Caption = 'Subcuenta IVA Intracomunitario Repercutido'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText1: TDBText
@@ -365,10 +357,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOIVANORMAL'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText2: TDBText
@@ -380,10 +372,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOIVAREDUCIDO'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText3: TDBText
@@ -395,10 +387,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOIVAEXENTO'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText4: TDBText
@@ -410,10 +402,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOIVASUPER'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText5: TDBText
@@ -425,10 +417,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOIVAINTRA'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText6: TDBText
@@ -440,10 +432,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOVENTAS'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText7: TDBText
@@ -455,10 +447,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTODEVOLUCION'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText8: TDBText
@@ -470,10 +462,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             DataField = 'CTOCLIENTES'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object CBDESCSUBCUENTA8: TDBLookupComboBox
@@ -924,88 +916,88 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             Align = alTop
             Caption = ' Recargo de Equivalencia '
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 0
             object Label56: TLabel
               Left = 452
               Top = 19
-              Width = 116
+              Width = 101
               Height = 14
               Caption = 'Concepto IVA Normal'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label57: TLabel
               Left = 15
               Top = 19
-              Width = 121
+              Width = 107
               Height = 14
               Caption = 'Subcuenta IVA Normal'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label59: TLabel
               Left = 452
               Top = 59
-              Width = 128
+              Width = 113
               Height = 14
               Caption = 'Concepto IVA Reducido'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label61: TLabel
               Left = 15
               Top = 59
-              Width = 133
+              Width = 119
               Height = 14
               Caption = 'Subcuenta IVA Reducido'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label64: TLabel
               Left = 452
               Top = 99
-              Width = 159
+              Width = 139
               Height = 14
               Caption = 'Concepto IVA Superreducido'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label65: TLabel
               Left = 15
               Top = 99
-              Width = 166
+              Width = 148
               Height = 14
               Caption = 'Subcuenta IVA SuperReducido'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBText9: TDBText
@@ -1017,10 +1009,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
               DataField = 'CTORECNORMAL'
               DataSource = DSFichero
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBText10: TDBText
@@ -1032,10 +1024,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
               DataField = 'CTORECREDUCIDO'
               DataSource = DSFichero
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBText11: TDBText
@@ -1047,10 +1039,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
               DataField = 'CTORECSUPER'
               DataSource = DSFichero
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBLookupCombo39: TDBLookupComboBox
@@ -1224,62 +1216,62 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             Align = alClient
             Caption = ' Otras '
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 1
             object Label36: TLabel
               Left = 452
               Top = 60
-              Width = 158
+              Width = 140
               Height = 14
               Caption = 'Concepto Recibos de Ventas'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label53: TLabel
               Left = 452
               Top = 17
-              Width = 180
+              Width = 160
               Height = 14
               Caption = 'Concepto de Gen'#233'rica de Ventas'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label54: TLabel
               Left = 15
               Top = 17
-              Width = 185
+              Width = 166
               Height = 14
               Caption = 'Subcuenta de Gen'#233'rica de Ventas'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label55: TLabel
               Left = 15
               Top = 60
-              Width = 101
+              Width = 91
               Height = 14
               Caption = 'Subcuenta de Caja'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBText12: TDBText
@@ -1291,10 +1283,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
               DataField = 'CTOCOBROF'
               DataSource = DSFichero
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBText13: TDBText
@@ -1306,49 +1298,49 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
               DataField = 'CTORECIBOVENTAS'
               DataSource = DSFichero
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label97: TLabel
               Left = 15
               Top = 100
-              Width = 142
+              Width = 129
               Height = 14
               Caption = 'Subcuenta IVA Exento CEE'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label98: TLabel
               Left = 15
               Top = 140
-              Width = 115
+              Width = 100
               Height = 14
               Caption = 'Subcuenta Intereses'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label99: TLabel
               Left = 15
               Top = 180
-              Width = 139
+              Width = 124
               Height = 14
               Caption = 'Subcuenta Exportaciones'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Arial'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object DBLookupCombo8: TDBLookupComboBox
@@ -1587,218 +1579,218 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOPROVINTRA'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label22: TLabel
         Left = 15
         Top = 16
-        Width = 147
+        Width = 132
         Height = 14
         Caption = 'Subcuenta de I.V.A. Normal'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label23: TLabel
         Left = 15
         Top = 61
-        Width = 159
+        Width = 144
         Height = 14
         Caption = 'Subcuenta de I.V.A. Reducido'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label24: TLabel
         Left = 15
         Top = 108
-        Width = 190
+        Width = 170
         Height = 14
         Caption = 'Subcuenta de I.V.A. Superreducido'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label29: TLabel
         Left = 15
         Top = 156
-        Width = 145
+        Width = 132
         Height = 14
         Caption = 'Subcuenta de I.V.A. Exento'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label27: TLabel
         Left = 446
         Top = 16
-        Width = 125
+        Width = 111
         Height = 14
         Caption = 'Concepto I.V.A. Normal'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label28: TLabel
         Left = 446
         Top = 61
-        Width = 137
+        Width = 123
         Height = 14
         Caption = 'Concepto I.V.A. Reducido'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label30: TLabel
         Left = 446
         Top = 108
-        Width = 168
+        Width = 149
         Height = 14
         Caption = 'Concepto I.V.A. Superreducido'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label34: TLabel
         Left = 446
         Top = 341
-        Width = 193
+        Width = 169
         Height = 14
         Caption = 'Concepto de Gen'#233'rica de Compras'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label35: TLabel
         Left = 15
         Top = 341
-        Width = 198
+        Width = 175
         Height = 14
         Caption = 'Subcuenta de Gen'#233'rica de Compras'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label25: TLabel
         Left = 446
         Top = 155
-        Width = 123
+        Width = 111
         Height = 14
         Caption = 'Concepto I.V.A. Exento'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label26: TLabel
         Left = 446
         Top = 202
-        Width = 124
+        Width = 107
         Height = 14
         Caption = 'Concepto de Compras'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label31: TLabel
         Left = 15
         Top = 202
-        Width = 129
+        Width = 113
         Height = 14
         Caption = 'Subcuenta de Compras'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label45: TLabel
         Left = 446
         Top = 250
-        Width = 145
+        Width = 126
         Height = 14
         Caption = 'Concepto de Proveedores'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label83: TLabel
         Left = 446
         Top = 294
-        Width = 239
+        Width = 205
         Height = 14
         Caption = 'Concepto de Proveedores Intracomunitario'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label93: TLabel
         Left = 15
         Top = 250
-        Width = 233
+        Width = 203
         Height = 14
         Caption = 'Subcuenta IVA Intracomunitario Soportado'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label94: TLabel
         Left = 15
         Top = 294
-        Width = 243
+        Width = 211
         Height = 14
         Caption = 'Subcuenta IVA Intracomunitario Repercutido'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText14: TDBText
@@ -1810,10 +1802,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOIVACNORMAL'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText15: TDBText
@@ -1825,10 +1817,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOIVACREDUCIDO'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText16: TDBText
@@ -1840,10 +1832,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOIVACSUPER'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText17: TDBText
@@ -1855,10 +1847,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOIVACEXENTO'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText18: TDBText
@@ -1870,10 +1862,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOCOMPRAS'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText19: TDBText
@@ -1885,10 +1877,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOPROVEEDORES'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText21: TDBText
@@ -1900,10 +1892,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOPAGOF'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object CBDESCSUBCUENTA15: TDBLookupComboBox
@@ -2349,40 +2341,40 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
       object Label9: TLabel
         Left = 15
         Top = 179
-        Width = 167
+        Width = 149
         Height = 14
         Caption = 'Subcuenta Remesa de Efectos'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label17: TLabel
         Left = 446
         Top = 126
-        Width = 205
+        Width = 181
         Height = 14
         Caption = 'Concepto de Deudas por Descuentos'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label37: TLabel
         Left = 446
         Top = 178
-        Width = 179
+        Width = 158
         Height = 14
         Caption = 'Concepto de Remesa de Efectos'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText23: TDBText
@@ -2394,10 +2386,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTODEUDASDESCUENTOS'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText31: TDBText
@@ -2409,62 +2401,62 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOREMESAEFECTOS'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label1: TLabel
         Left = 15
         Top = 22
-        Width = 175
+        Width = 154
         Height = 14
         Caption = 'Subcuenta Efectos Comerciales'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label81: TLabel
         Left = 15
         Top = 74
-        Width = 250
+        Width = 221
         Height = 14
         Caption = 'Subcuenta Efectos Comerciales Descontados'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label82: TLabel
         Left = 15
         Top = 126
-        Width = 193
+        Width = 172
         Height = 14
         Caption = 'Subcuenta Deudas por Descuentos'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label3: TLabel
         Left = 446
         Top = 22
-        Width = 187
+        Width = 163
         Height = 14
         Caption = 'Concepto de Efectos Comerciales'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText22: TDBText
@@ -2476,10 +2468,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOEFECTOSCOMERCIALES'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBLookupCombo17: TDBLookupComboBox
@@ -2689,10 +2681,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'DESCCLI_CARTERAEFECTOS'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 11
         ValueChecked = 'S'
@@ -2707,10 +2699,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'DESCPROV_CARTERAEFECTOS'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 12
         ValueChecked = 'S'
@@ -2727,40 +2719,40 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
       object Label73: TLabel
         Left = 22
         Top = 237
-        Width = 160
+        Width = 147
         Height = 14
         Caption = 'Subcuenta de Hacienda I.V.A. '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label75: TLabel
         Left = 446
         Top = 237
-        Width = 187
+        Width = 161
         Height = 14
         Caption = 'Concepto Asiento trimestral I.V.A.'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label96: TLabel
         Left = 22
         Top = 275
-        Width = 203
+        Width = 178
         Height = 14
         Caption = 'Subcuenta Gen'#233'rica Intracomunitaria'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText28: TDBText
@@ -2772,36 +2764,36 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOHACIVA'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label101: TLabel
         Left = 22
         Top = 314
-        Width = 94
+        Width = 86
         Height = 14
         Caption = 'Subcuenta Banco'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label102: TLabel
         Left = 446
         Top = 314
-        Width = 140
+        Width = 124
         Height = 14
         Caption = 'Concepto Cobro Facturas'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText33: TDBText
@@ -2813,23 +2805,23 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOCOBRO'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label103: TLabel
         Left = 446
         Top = 351
-        Width = 133
+        Width = 119
         Height = 14
         Caption = 'Concepto Pago Facturas'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object DBText34: TDBText
@@ -2841,10 +2833,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         DataField = 'CTOPAGO'
         DataSource = DSFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object GroupBox9: TGroupBox
@@ -2855,37 +2847,37 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         Align = alTop
         Caption = ' Descuento por Pronto Pago '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label8: TLabel
           Left = 25
           Top = 19
-          Width = 102
+          Width = 92
           Height = 14
           Caption = 'Subcuenta Ventas '
         end
         object Label13: TLabel
           Left = 446
           Top = 19
-          Width = 94
+          Width = 83
           Height = 14
           Caption = 'Concepto Ventas'
         end
         object Label58: TLabel
           Left = 25
           Top = 61
-          Width = 115
+          Width = 101
           Height = 14
           Caption = 'Subcuenta Compras '
         end
         object Label66: TLabel
           Left = 446
           Top = 61
-          Width = 107
+          Width = 92
           Height = 14
           Caption = 'Concepto Compras'
         end
@@ -2898,10 +2890,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           DataField = 'CTODTOPPV'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText25: TDBText
@@ -2913,10 +2905,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           DataField = 'CTODTOPPC'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object CBSUBCUENTA24: TDBLookupComboBox
@@ -3036,51 +3028,51 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         Align = alTop
         Caption = ' Profesionales / Arrendatarios '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         object Label67: TLabel
           Left = 23
           Top = 16
-          Width = 182
+          Width = 160
           Height = 14
           Caption = 'Subcuenta Retenci'#243'n Profesional'
         end
         object Label68: TLabel
           Left = 446
           Top = 16
-          Width = 177
+          Width = 154
           Height = 14
           Caption = 'Concepto Retenci'#243'n Profesional'
         end
         object Label69: TLabel
           Left = 23
           Top = 85
-          Width = 192
+          Width = 169
           Height = 14
           Caption = 'Subcuenta Retenci'#243'n Arrendatario '
         end
         object Label70: TLabel
           Left = 446
           Top = 85
-          Width = 187
+          Width = 163
           Height = 14
           Caption = 'Concepto Retenci'#243'n Arrendatario '
         end
         object Label71: TLabel
           Left = 23
           Top = 60
-          Width = 124
+          Width = 108
           Height = 14
           Caption = 'Retenci'#243'n Profesional '
         end
         object Label72: TLabel
           Left = 446
           Top = 60
-          Width = 128
+          Width = 111
           Height = 14
           Caption = 'Retenci'#243'n Arrendatario'
         end
@@ -3093,10 +3085,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           DataField = 'CTORETARRE'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText27: TDBText
@@ -3108,10 +3100,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           DataField = 'CTORETPROF'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object CBSUBCUENTA26: TDBLookupComboBox

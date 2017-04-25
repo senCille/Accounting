@@ -3,7 +3,7 @@ object WCarteraEfectos: TWCarteraEfectos
   Top = 365
   ClientHeight = 501
   ClientWidth = 879
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -30,10 +30,10 @@ object WCarteraEfectos: TWCarteraEfectos
     DataField = 'DESCSUBCUENTA'
     DataSource = DataModuleCarteraEfectos.DSFichero
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -15
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -43,10 +43,7 @@ object WCarteraEfectos: TWCarteraEfectos
     Width = 879
     Height = 439
     Align = alClient
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 887
-    ExplicitHeight = 444
     object PageControl1: TPageControl
       Left = 1
       Top = 1
@@ -55,66 +52,60 @@ object WCarteraEfectos: TWCarteraEfectos
       ActivePage = TabSheetFiltro
       Align = alClient
       TabOrder = 0
-      ExplicitWidth = 780
-      ExplicitHeight = 442
       object TabSheetCarteraEfectos: TTabSheet
         Caption = 'Cartera Efectos'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object FiltroBuscar: TGroupBox
           Left = 0
           Top = 0
-          Width = 772
+          Width = 764
           Height = 56
           Align = alTop
           Caption = ' Buscar '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label1: TLabel
             Left = 106
             Top = 13
-            Width = 85
+            Width = 73
             Height = 13
             Caption = 'Factura Cliente'
           end
           object Label12: TLabel
             Left = 259
             Top = 13
-            Width = 105
+            Width = 90
             Height = 13
             Caption = 'Factura Proveedor'
           end
           object Label28: TLabel
             Left = 13
             Top = 13
-            Width = 44
+            Width = 37
             Height = 14
             Caption = 'N'#250'mero'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label29: TLabel
             Left = 411
             Top = 13
-            Width = 44
+            Width = 35
             Height = 14
             Caption = 'Importe'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object EditBUSCA_FACT_PROVEEDOR: TDBEdit
@@ -190,12 +181,10 @@ object WCarteraEfectos: TWCarteraEfectos
         object DBGrid: TDBGrid
           Left = 0
           Top = 56
-          Width = 772
-          Height = 358
+          Width = 764
+          Height = 353
           Align = alClient
-          Color = 15596540
           DataSource = DataModuleCarteraEfectos.DSFichero
-          FixedColor = 10841401
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
@@ -205,7 +194,7 @@ object WCarteraEfectos: TWCarteraEfectos
           ParentFont = False
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWhite
+          TitleFont.Color = clWindowText
           TitleFont.Height = -11
           TitleFont.Name = 'MS Sans Serif'
           TitleFont.Style = []
@@ -220,7 +209,6 @@ object WCarteraEfectos: TWCarteraEfectos
             item
               Expanded = False
               FieldName = 'FVENCIMIENTO'
-              Width = 64
               Visible = True
             end
             item
@@ -231,61 +219,51 @@ object WCarteraEfectos: TWCarteraEfectos
             item
               Expanded = False
               FieldName = 'SUBCUENTA'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CONCEPTO'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CalcImporte'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DescSituacion'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'ASIENTORIESGO'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'SUBCTABANCO'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'COMERCIAL'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CalcComision'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'FACTCLIENT'
-              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'FACTPROVEEDOR'
-              Width = 64
               Visible = True
             end>
         end
@@ -293,10 +271,6 @@ object WCarteraEfectos: TWCarteraEfectos
       object TabSheetDatos: TTabSheet
         Caption = 'Datos'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0
@@ -304,8 +278,6 @@ object WCarteraEfectos: TWCarteraEfectos
           Height = 409
           Align = alClient
           TabOrder = 0
-          ExplicitWidth = 772
-          ExplicitHeight = 414
           object Bevel2: TBevel
             Left = 391
             Top = 231
@@ -315,118 +287,118 @@ object WCarteraEfectos: TWCarteraEfectos
           object Label3: TLabel
             Left = 11
             Top = 19
-            Width = 58
+            Width = 52
             Height = 14
             Caption = 'Subcuenta'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label4: TLabel
             Left = 11
             Top = 45
-            Width = 53
+            Width = 46
             Height = 14
             Caption = 'Concepto'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label5: TLabel
             Left = 11
             Top = 70
-            Width = 79
+            Width = 69
             Height = 14
             Caption = 'Fecha Emisi'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label6: TLabel
             Left = 11
             Top = 95
-            Width = 104
+            Width = 91
             Height = 14
             Caption = 'Fecha Vencimiento'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label8: TLabel
             Left = 399
             Top = 241
-            Width = 44
+            Width = 35
             Height = 14
             Caption = 'Importe'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label9: TLabel
             Left = 11
             Top = 120
-            Width = 78
+            Width = 69
             Height = 14
             Caption = 'Fecha Asiento'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label10: TLabel
             Left = 11
             Top = 171
-            Width = 94
+            Width = 86
             Height = 14
             Caption = 'Subcuenta Banco'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label11: TLabel
             Left = 11
             Top = 221
-            Width = 101
+            Width = 90
             Height = 14
             Caption = 'Factura Proveedor'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label13: TLabel
             Left = 11
             Top = 196
-            Width = 82
+            Width = 72
             Height = 14
             Caption = 'Factura Cliente'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Bevel3: TBevel
@@ -438,53 +410,53 @@ object WCarteraEfectos: TWCarteraEfectos
           object Label15: TLabel
             Left = 399
             Top = 145
-            Width = 53
+            Width = 43
             Height = 14
             Caption = 'Comisi'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label14: TLabel
             Left = 11
             Top = 145
-            Width = 56
+            Width = 47
             Height = 14
             Caption = 'Comercial'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object lbEjercicio: TLabel
             Left = 252
             Top = 196
-            Width = 46
+            Width = 40
             Height = 14
             Caption = 'Ejercicio'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object lbSerie: TLabel
             Left = 354
             Top = 196
-            Width = 29
+            Width = 25
             Height = 14
             Caption = 'Serie'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object ComboBoxCD_SUBCUENTA: TDBLookupComboBox
@@ -750,10 +722,10 @@ object WCarteraEfectos: TWCarteraEfectos
             DataField = 'SITUACION'
             DataSource = DataModuleCarteraEfectos.DSFichero
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
+            Font.Style = []
             Items.Strings = (
               'PENDIENTE'
               'REMESADO'
@@ -778,10 +750,6 @@ object WCarteraEfectos: TWCarteraEfectos
       object TabSheetFiltro: TTabSheet
         Caption = 'Filtro'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBoxREMESAS: TGroupBox
           Left = 0
           Top = 0
@@ -789,169 +757,167 @@ object WCarteraEfectos: TWCarteraEfectos
           Height = 409
           Align = alClient
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           TabStop = True
-          ExplicitWidth = 772
-          ExplicitHeight = 414
           object Label16: TLabel
             Left = 80
             Top = 55
-            Width = 106
+            Width = 89
             Height = 13
             Caption = 'Fecha Vencimiento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label24: TLabel
             Left = 225
             Top = 12
-            Width = 35
+            Width = 30
             Height = 13
             Caption = 'Desde'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label25: TLabel
             Left = 353
             Top = 11
-            Width = 33
+            Width = 28
             Height = 13
             Caption = 'Hasta'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label20: TLabel
             Left = 142
             Top = 106
-            Width = 44
+            Width = 35
             Height = 14
             Caption = 'Importe'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label18: TLabel
             Left = 27
             Top = 185
-            Width = 96
+            Width = 85
             Height = 14
             Caption = 'Subcuenta desde'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label19: TLabel
             Left = 29
             Top = 238
-            Width = 94
+            Width = 86
             Height = 14
             Caption = 'Subcuenta Banco'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label17: TLabel
             Left = 107
             Top = 30
-            Width = 79
+            Width = 67
             Height = 13
             Caption = 'Fecha Emisi'#243'n'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label22: TLabel
             Left = 67
             Top = 264
-            Width = 56
+            Width = 47
             Height = 14
             Caption = 'Comercial'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label23: TLabel
             Left = 104
             Top = 131
-            Width = 82
+            Width = 72
             Height = 14
             Caption = 'Factura Cliente'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label26: TLabel
             Left = 85
             Top = 155
-            Width = 101
+            Width = 90
             Height = 14
             Caption = 'Factura Proveedor'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label27: TLabel
             Left = 93
             Top = 209
-            Width = 30
+            Width = 27
             Height = 14
             Caption = 'hasta'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label21: TLabel
             Left = 107
             Top = 79
-            Width = 79
+            Width = 68
             Height = 13
             Caption = 'Fecha Asiento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object FiltroSituacion: TGroupBox
@@ -961,10 +927,10 @@ object WCarteraEfectos: TWCarteraEfectos
             Height = 80
             Caption = ' Situaci'#243'n '
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 18
             object CheckBoxPENDIENTE: TCheckBox
@@ -1353,10 +1319,7 @@ object WCarteraEfectos: TWCarteraEfectos
       Width = 105
       Height = 437
       Align = alRight
-      Color = 14275008
       TabOrder = 1
-      ExplicitLeft = 781
-      ExplicitHeight = 442
       object SpFiltro: TSpeedButton
         Left = 32
         Top = 405
@@ -1441,10 +1404,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'Efectos'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnEfectosClick
@@ -1457,10 +1420,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnAceptarClick
@@ -1473,10 +1436,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Informes'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnInformesClick
@@ -1489,10 +1452,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelarClick
@@ -1505,10 +1468,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'S&eleccionar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 4
         OnClick = BtnSeleccionClick
@@ -1521,10 +1484,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnNewClick
@@ -1537,10 +1500,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnDeleteClick
@@ -1552,7 +1515,7 @@ object WCarteraEfectos: TWCarteraEfectos
         Height = 50
         Cursor = crHandPoint
         CommonAVI = aviFindFolder
-        StopFrame = 29
+        StopFrame = 27
         Visible = False
       end
       object Navegador: TDBNavigator
@@ -1572,10 +1535,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 9
       end
@@ -1587,10 +1550,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'As&iento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 10
         OnClick = BtnAsientoClick
@@ -1603,10 +1566,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'Car&ta'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 11
         OnClick = BtnCartaClick
@@ -1619,10 +1582,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = 'Asiento Baja'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 12
         OnClick = BtnAsientoBajaClick
@@ -1635,10 +1598,10 @@ object WCarteraEfectos: TWCarteraEfectos
         Cursor = crHandPoint
         Caption = '&Duplicar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 13
         OnClick = BtnDuplicarClick
@@ -1651,10 +1614,7 @@ object WCarteraEfectos: TWCarteraEfectos
     Width = 879
     Height = 26
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 480
-    ExplicitWidth = 887
   end
   object Panel5: TPanel
     Left = 0
@@ -1662,9 +1622,7 @@ object WCarteraEfectos: TWCarteraEfectos
     Width = 879
     Height = 36
     Align = alTop
-    Color = 14275008
     TabOrder = 2
-    ExplicitWidth = 887
     object Label2: TLabel
       Left = 7
       Top = 6
@@ -1673,10 +1631,10 @@ object WCarteraEfectos: TWCarteraEfectos
       AutoSize = False
       Caption = 'Archivo de Cartera de Efectos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -15
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -1685,7 +1643,6 @@ object WCarteraEfectos: TWCarteraEfectos
       Top = 28
       Width = 697
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object QAux: TIBSQL

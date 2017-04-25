@@ -6,7 +6,7 @@ object WDetalleIVA: TWDetalleIVA
   Caption = 'Detalle IVA'
   ClientHeight = 308
   ClientWidth = 324
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -25,19 +25,18 @@ object WDetalleIVA: TWDetalleIVA
     Top = 35
     Width = 236
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 24
     Top = 15
-    Width = 94
+    Width = 80
     Height = 19
     Caption = 'Detalle IVA'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -49,10 +48,10 @@ object WDetalleIVA: TWDetalleIVA
     Cursor = crHandPoint
     Caption = '&Cerrar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ModalResult = 1
     ParentFont = False
     TabOrder = 0
@@ -64,23 +63,23 @@ object WDetalleIVA: TWDetalleIVA
     Width = 276
     Height = 217
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     object Label6: TLabel
       Left = 47
       Top = 190
-      Width = 79
+      Width = 65
       Height = 13
       Caption = 'Total Importe'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object EditIMPORTE: TDBEdit
@@ -105,71 +104,70 @@ object WDetalleIVA: TWDetalleIVA
       Top = 16
       Width = 240
       Height = 156
-      Color = 13550766
       TabOrder = 0
       object Label4: TLabel
         Left = 29
         Top = 22
-        Width = 87
+        Width = 72
         Height = 13
         Caption = 'Base Imponible'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label1: TLabel
         Left = 128
         Top = 54
-        Width = 56
+        Width = 49
         Height = 13
         Caption = 'Cuota IVA'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label2: TLabel
         Left = 29
         Top = 54
-        Width = 36
+        Width = 31
         Height = 13
         Caption = '% IVA'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label3: TLabel
         Left = 128
         Top = 107
-        Width = 83
+        Width = 72
         Height = 13
         Caption = 'Cuota Recargo'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label5: TLabel
         Left = 29
         Top = 107
-        Width = 63
+        Width = 54
         Height = 13
         Caption = '% Recargo'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditBASEIMPONIBLE: TDBEdit

@@ -6,7 +6,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
   Caption = 'Generaci'#243'n de Asiento'
   ClientHeight = 272
   ClientWidth = 486
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -24,19 +24,18 @@ object WGeneracionAsiento: TWGeneracionAsiento
     Top = 33
     Width = 395
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 24
     Top = 13
-    Width = 184
+    Width = 159
     Height = 19
     Caption = 'Generaci'#243'n de Asiento'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -45,72 +44,72 @@ object WGeneracionAsiento: TWGeneracionAsiento
     Top = 39
     Width = 437
     Height = 183
-    Color = 14275008
+    Color = clBtnFace
     ParentColor = False
     TabOrder = 0
     object Label7: TLabel
       Left = 137
       Top = 109
-      Width = 50
+      Width = 44
       Height = 14
       Caption = 'Situaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label9: TLabel
       Left = 24
       Top = 109
-      Width = 78
+      Width = 69
       Height = 14
       Caption = 'Fecha Asiento'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label10: TLabel
       Left = 24
       Top = 16
-      Width = 94
+      Width = 86
       Height = 14
       Caption = 'Subcuenta Banco'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label1: TLabel
       Left = 24
       Top = 61
-      Width = 53
+      Width = 46
       Height = 14
       Caption = 'Concepto'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label6: TLabel
       Left = 324
       Top = 109
-      Width = 73
+      Width = 60
       Height = 14
       Caption = 'Total Importe'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object ComboBoxSITUACION: TDBComboBox
@@ -189,10 +188,10 @@ object WGeneracionAsiento: TWGeneracionAsiento
       TabStop = False
       Caption = 'Borrar los vencimientos al generar el asiento'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 7
     end
@@ -251,10 +250,10 @@ object WGeneracionAsiento: TWGeneracionAsiento
     Cursor = crHandPoint
     Caption = '&Aceptar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick

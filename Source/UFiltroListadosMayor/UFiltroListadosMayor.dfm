@@ -3,7 +3,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
   Top = 383
   ClientHeight = 523
   ClientWidth = 527
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -23,20 +23,18 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
     Width = 527
     Height = 38
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 535
     object lTitulo: TLabel
       Left = 7
       Top = 7
-      Width = 121
+      Width = 106
       Height = 19
       Caption = 'Libro de Mayor'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -45,7 +43,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       Top = 29
       Width = 523
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object PageControl: TPageControl
@@ -58,8 +55,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
     Style = tsFlatButtons
     TabOrder = 1
     OnChanging = PageControlChanging
-    ExplicitWidth = 535
-    ExplicitHeight = 490
     object TabSheetQuery: TTabSheet
       Caption = 'Datos para la Consulta'
       ExplicitLeft = 0
@@ -73,10 +68,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Height = 413
         Align = alClient
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         ExplicitWidth = 527
@@ -91,7 +86,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           object Label4: TLabel
             Left = 258
             Top = 11
-            Width = 94
+            Width = 79
             Height = 13
             Caption = 'Fecha Impresi'#243'n'
           end
@@ -103,7 +98,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
             DataField = 'FECHA_IMPRIMIR'
             DataSource = DSFiltro
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -153,66 +148,66 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           object Label6: TLabel
             Left = 11
             Top = 16
-            Width = 92
+            Width = 78
             Height = 13
             Caption = 'Cuenta Anal'#237'tica'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label7: TLabel
             Left = 11
             Top = 36
-            Width = 62
+            Width = 52
             Height = 13
             Caption = 'Delegaci'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label8: TLabel
             Left = 258
             Top = 36
-            Width = 83
+            Width = 69
             Height = 13
             Caption = 'Departamento'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label9: TLabel
             Left = 11
             Top = 74
-            Width = 43
+            Width = 36
             Height = 13
             Caption = 'Secci'#243'n'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label10: TLabel
             Left = 258
             Top = 74
-            Width = 51
+            Width = 43
             Height = 13
             Caption = 'Proyecto'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object ComboBoxCD_ANALITICA: TDBLookupComboBox
@@ -334,14 +329,14 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           object Label1: TLabel
             Left = 12
             Top = 107
-            Width = 90
+            Width = 83
             Height = 13
             Caption = 'Subcuenta N.I.F.'
           end
           object Label5: TLabel
             Left = 223
             Top = 107
-            Width = 131
+            Width = 115
             Height = 13
             Caption = 'Desc. Subcta. contenga'
           end
@@ -555,28 +550,28 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           object Label20: TLabel
             Left = 20
             Top = 24
-            Width = 33
+            Width = 29
             Height = 13
             Caption = 'Fecha'
           end
           object Label24: TLabel
             Left = 117
             Top = 7
-            Width = 35
+            Width = 30
             Height = 13
             Caption = 'Desde'
           end
           object Label25: TLabel
             Left = 203
             Top = 7
-            Width = 33
+            Width = 28
             Height = 13
             Caption = 'Hasta'
           end
           object Label3: TLabel
             Left = 20
             Top = 52
-            Width = 53
+            Width = 46
             Height = 13
             Caption = 'Concepto'
           end
@@ -689,7 +684,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Width = 519
         Height = 41
         Align = alBottom
-        Color = 14275008
         TabOrder = 1
         ExplicitTop = 418
         ExplicitWidth = 527
@@ -705,10 +699,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Anchors = [akRight, akBottom]
           Caption = '&Procesar'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           OnClick = BtnProcessClick
@@ -718,29 +712,24 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
     object TabSheetResults: TTabSheet
       Caption = 'Resultado de la Consulta'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel3: TPanel
         Left = 0
         Top = 38
-        Width = 527
+        Width = 519
         Height = 38
         Align = alTop
-        Color = 14275008
         TabOrder = 0
         object Label2: TLabel
           Left = 7
           Top = 7
-          Width = 172
+          Width = 148
           Height = 19
           Caption = 'Entradas en el Mayor'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -16
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Transparent = True
         end
@@ -749,22 +738,20 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Top = 29
           Width = 523
           Height = 1
-          Pen.Color = clNavy
         end
       end
       object Panel4: TPanel
         Left = 0
-        Top = 421
-        Width = 527
+        Top = 416
+        Width = 519
         Height = 38
         Align = alBottom
-        Color = 14275008
         TabOrder = 1
         DesignSize = (
           519
           38)
         object Cancelar: TButton
-          Left = 361
+          Left = 353
           Top = 9
           Width = 135
           Height = 24
@@ -772,17 +759,16 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Anchors = [akRight, akBottom]
           Caption = '&Cancel'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           OnClick = CancelarClick
-          ExplicitLeft = 377
         end
         object BtnPrint: TButton
-          Left = 212
+          Left = 204
           Top = 9
           Width = 135
           Height = 24
@@ -790,14 +776,13 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Anchors = [akRight, akBottom]
           Caption = '&Imprimir'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 1
           OnClick = BtnPrintClick
-          ExplicitLeft = 228
         end
       end
       object Panel5: TPanel
@@ -806,20 +791,18 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Width = 519
         Height = 38
         Align = alTop
-        Color = 14275008
         TabOrder = 2
-        ExplicitWidth = 527
         object Label12: TLabel
           Left = 7
           Top = 7
-          Width = 66
+          Width = 56
           Height = 19
           Caption = 'Cuentas'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -16
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Transparent = True
         end
@@ -828,7 +811,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Top = 29
           Width = 523
           Height = 1
-          Pen.Color = clNavy
         end
       end
       object DBGridSubcuentasMayor: TDBGrid
@@ -836,9 +818,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Top = 38
         Width = 527
         Height = 227
-        Color = 15596540
         DataSource = DataModuleFiltroListadosMayor.SSubcuentasMayor
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -848,10 +828,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         ParentFont = False
         TabOrder = 3
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         Columns = <
           item
             Expanded = False
@@ -869,9 +849,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Top = 312
         Width = 527
         Height = 71
-        Color = 15596540
         DataSource = DataModuleFiltroListadosMayor.SLinesDiario
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -881,10 +859,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         ParentFont = False
         TabOrder = 4
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
       end
       object Panel6: TPanel
         Left = 0
@@ -892,21 +870,18 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Width = 519
         Height = 38
         Align = alBottom
-        Color = 14275008
         TabOrder = 5
-        ExplicitTop = 383
-        ExplicitWidth = 527
         object Label13: TLabel
           Left = 7
           Top = 7
-          Width = 84
+          Width = 73
           Height = 19
           Caption = 'Sumatorio'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -16
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           Transparent = True
         end
@@ -915,7 +890,6 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           Top = 29
           Width = 523
           Height = 1
-          Pen.Color = clNavy
         end
       end
     end

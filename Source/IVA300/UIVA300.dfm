@@ -4,7 +4,7 @@ object WIva300: TWIva300
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 550
   ClientWidth = 789
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,93 +26,91 @@ object WIva300: TWIva300
     Height = 475
     Align = alClient
     Caption = ' Datos '
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Arial'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 797
-    ExplicitHeight = 480
     object Label1: TLabel
       Left = 180
       Top = 14
-      Width = 47
+      Width = 39
       Height = 13
       Caption = 'Ejercicio'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 233
       Top = 14
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Periodo'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label11: TLabel
       Left = 641
       Top = 421
-      Width = 57
+      Width = 48
       Height = 13
       Caption = 'Resultado'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label12: TLabel
       Left = 49
       Top = 437
-      Width = 156
+      Width = 130
       Height = 13
       Caption = 'Entregas Intracomunitarias'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label84: TLabel
       Left = 14
       Top = 59
-      Width = 233
+      Width = 208
       Height = 14
       Caption = 'C.C.C. para Hacienda, formato con guiones'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label27: TLabel
       Left = 420
       Top = 421
-      Width = 167
+      Width = 142
       Height = 13
       Caption = 'Cuotas a compensar per'#237'odos'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object GroupBoxFormaPago: TRadioGroup
@@ -123,10 +121,10 @@ object WIva300: TWIva300
       Caption = ' Forma de pago '
       Columns = 2
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Cuenta'
@@ -143,7 +141,7 @@ object WIva300: TWIva300
       DataField = 'ejercicio'
       DataSource = SIVA300
       Font.Charset = ANSI_CHARSET
-      Font.Color = clBlack
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -208,10 +206,10 @@ object WIva300: TWIva300
       TabStop = False
       Caption = 'Copia Declarante'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
     end
@@ -223,10 +221,10 @@ object WIva300: TWIva300
       TabStop = False
       Caption = 'Generar Asiento Trimestral'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 7
       OnClick = CheckBoxTrimestralClick
@@ -273,10 +271,6 @@ object WIva300: TWIva300
       TabOrder = 9
       object TabSheetIVADeventado: TTabSheet
         Caption = 'IVA Devengado'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0
@@ -284,114 +278,114 @@ object WIva300: TWIva300
           Height = 300
           Align = alClient
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label3: TLabel
             Left = 103
             Top = 55
-            Width = 97
+            Width = 81
             Height = 13
             Caption = 'R'#233'gimen General'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label4: TLabel
             Left = 80
             Top = 150
-            Width = 120
+            Width = 102
             Height = 13
             Caption = 'Recargo Equivalencia'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label5: TLabel
             Left = 17
             Top = 202
-            Width = 167
+            Width = 142
             Height = 13
             Caption = 'Adq. Intracomunitarias + 216'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label6: TLabel
             Left = 594
             Top = 258
-            Width = 134
+            Width = 116
             Height = 13
             Caption = 'Total Cuota devengada '
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label25: TLabel
             Left = 589
             Top = 27
-            Width = 122
+            Width = 104
             Height = 13
             Caption = 'Exportaciones sin IVA'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label26: TLabel
             Left = 152
             Top = 275
-            Width = 48
+            Width = 41
             Height = 13
             Caption = 'Tipo 216'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label24: TLabel
             Left = 578
             Top = 74
-            Width = 152
+            Width = 130
             Height = 13
             Caption = 'Otras operaciones exentas'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label32: TLabel
             Left = 19
             Top = 232
-            Width = 145
+            Width = 119
             Height = 13
             Caption = 'Servicio Intracomunitario'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object GroupBox2: TGroupBox
@@ -915,23 +909,23 @@ object WIva300: TWIva300
           Height = 300
           Align = alClient
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 0
           object Label10: TLabel
             Left = 624
             Top = 145
-            Width = 85
+            Width = 72
             Height = 13
             Caption = 'Total a Deducir'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object GroupBox8: TGroupBox
@@ -944,79 +938,79 @@ object WIva300: TWIva300
             object Label7: TLabel
               Left = 18
               Top = 16
-              Width = 128
+              Width = 108
               Height = 13
               Caption = 'Operaciones interiores'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label8: TLabel
               Left = 373
               Top = 16
-              Width = 83
+              Width = 68
               Height = 13
               Caption = 'Importaciones'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label9: TLabel
               Left = 181
               Top = 16
-              Width = 131
+              Width = 110
               Height = 13
               Caption = 'Adq. Intracomunitarias'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label28: TLabel
               Left = 337
               Top = 56
-              Width = 137
+              Width = 115
               Height = 13
               Caption = 'Importacion B.Inversi'#243'n'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label29: TLabel
               Left = 178
               Top = 56
-              Width = 130
+              Width = 115
               Height = 13
               Caption = 'Adq. Intra. B. Inversi'#243'n'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label31: TLabel
               Left = 11
               Top = 56
-              Width = 145
+              Width = 119
               Height = 13
               Caption = 'Servicio Intracomunitario'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object EditDEDUCIBLE_22: TDBEdit
@@ -1028,7 +1022,7 @@ object WIva300: TWIva300
               DataField = 'Deducible22'
               DataSource = SIVA300
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -1045,7 +1039,7 @@ object WIva300: TWIva300
               DataField = 'Deducible23'
               DataSource = SIVA300
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -1149,144 +1143,144 @@ object WIva300: TWIva300
             object Label13: TLabel
               Left = 14
               Top = 21
-              Width = 40
+              Width = 33
               Height = 13
               Caption = 'Normal'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label14: TLabel
               Left = 14
               Top = 47
-              Width = 52
+              Width = 44
               Height = 13
               Caption = 'Reducido'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label15: TLabel
               Left = 14
               Top = 72
-              Width = 47
+              Width = 42
               Height = 13
               Caption = 'Super R.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label17: TLabel
               Left = 120
               Top = 21
-              Width = 39
+              Width = 35
               Height = 13
               Caption = 'B. Imp.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label18: TLabel
               Left = 120
               Top = 47
-              Width = 39
+              Width = 35
               Height = 13
               Caption = 'B. Imp.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label19: TLabel
               Left = 120
               Top = 72
-              Width = 39
+              Width = 35
               Height = 13
               Caption = 'B. Imp.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label20: TLabel
               Left = 325
               Top = 21
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Cuota'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label21: TLabel
               Left = 325
               Top = 47
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Cuota'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label22: TLabel
               Left = 325
               Top = 72
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Cuota'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label16: TLabel
               Left = 14
               Top = 98
-              Width = 39
+              Width = 34
               Height = 13
               Caption = 'Exento'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label23: TLabel
               Left = 120
               Top = 98
-              Width = 39
+              Width = 35
               Height = 13
               Caption = 'B. Imp.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object EditBASE_22TN: TDBEdit
@@ -1298,7 +1292,7 @@ object WIva300: TWIva300
               DataField = 'Base22TN'
               DataSource = SIVA300
               Font.Charset = ANSI_CHARSET
-              Font.Color = clBlack
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
               Font.Style = []
@@ -1412,27 +1406,27 @@ object WIva300: TWIva300
             object Label30: TLabel
               Left = 120
               Top = 20
-              Width = 39
+              Width = 35
               Height = 13
               Caption = 'B. Imp.'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object Label33: TLabel
               Left = 325
               Top = 20
-              Width = 33
+              Width = 29
               Height = 13
               Caption = 'Cuota'
               Font.Charset = ANSI_CHARSET
-              Font.Color = clNavy
+              Font.Color = clWindowText
               Font.Height = -11
               Font.Name = 'Tahoma'
-              Font.Style = [fsBold]
+              Font.Style = []
               ParentFont = False
             end
             object EditBASE_22B: TDBEdit
@@ -1478,10 +1472,7 @@ object WIva300: TWIva300
     Width = 789
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
-    ExplicitTop = 514
-    ExplicitWidth = 797
     DesignSize = (
       789
       41)
@@ -1494,10 +1485,10 @@ object WIva300: TWIva300
       Anchors = [akRight, akBottom]
       Caption = '&Ver Errores'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnEdtErroresClick
@@ -1511,10 +1502,10 @@ object WIva300: TWIva300
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnProcessClick
@@ -1528,10 +1519,10 @@ object WIva300: TWIva300
       Anchors = [akRight, akBottom]
       Caption = '&Borrador'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       OnClick = BtnEdtBorradorClick
@@ -1543,27 +1534,24 @@ object WIva300: TWIva300
     Width = 789
     Height = 34
     Align = alTop
-    Color = 14275008
     TabOrder = 2
-    ExplicitWidth = 797
     object Shape1: TShape
       Left = 7
       Top = 25
       Width = 738
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 5
-      Width = 231
+      Width = 207
       Height = 19
       Caption = 'Impresi'#243'n Modelo I.V.A. 300'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end

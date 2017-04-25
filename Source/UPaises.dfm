@@ -6,7 +6,7 @@ object WPaises: TWPaises
   Caption = 'Cat'#225'logo de PAISES'
   ClientHeight = 357
   ClientWidth = 467
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -29,33 +29,33 @@ object WPaises: TWPaises
     Width = 467
     Height = 47
     Align = alTop
-    Color = 14275008
+    Color = clBtnFace
     ParentColor = False
     TabOrder = 0
     object Label1: TLabel
       Left = 14
       Top = 20
-      Width = 23
+      Width = 19
       Height = 13
       Caption = 'Pa'#237's'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 78
       Top = 20
-      Width = 44
+      Width = 37
       Height = 13
       Caption = 'Nombre'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object EditDS_PAIS: TDBEdit
@@ -106,7 +106,6 @@ object WPaises: TWPaises
     Height = 291
     Align = alClient
     BevelOuter = bvNone
-    Color = 14275008
     TabOrder = 2
     object DataGrid: TDBGrid
       Left = 0
@@ -116,10 +115,9 @@ object WPaises: TWPaises
       TabStop = False
       Align = alClient
       BorderStyle = bsNone
-      Color = 15596540
       DataSource = SFichero
       Font.Charset = ANSI_CHARSET
-      Font.Color = 10657371
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -127,10 +125,10 @@ object WPaises: TWPaises
       ParentFont = False
       TabOrder = 0
       TitleFont.Charset = ANSI_CHARSET
-      TitleFont.Color = clWhite
+      TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
-      TitleFont.Style = [fsBold]
+      TitleFont.Style = []
       OnDblClick = DataGridDblClick
       Columns = <
         item
@@ -154,7 +152,6 @@ object WPaises: TWPaises
       Height = 291
       Align = alRight
       BevelOuter = bvNone
-      Color = 14275008
       TabOrder = 1
       object BtnAdd: TSpeedButton
         Left = 10
@@ -164,10 +161,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = '&A'#241'adir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = BtnAddClick
       end
@@ -179,10 +176,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = '&Borrar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = BtnDeleteClick
       end
@@ -194,10 +191,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = BtnSaveClick
       end
@@ -209,10 +206,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = BtnCancelClick
       end
@@ -224,10 +221,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = BtnReportClick
       end
@@ -239,10 +236,10 @@ object WPaises: TWPaises
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         OnClick = DataGridDblClick
       end

@@ -4,7 +4,7 @@ object WBalExplotacion: TWBalExplotacion
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 465
   ClientWidth = 518
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,17 +26,13 @@ object WBalExplotacion: TWBalExplotacion
     Width = 518
     Height = 383
     Align = alClient
-    Color = 14275008
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
-    ParentColor = False
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 526
-    ExplicitHeight = 388
     object GroupBox4: TGroupBox
       Left = 14
       Top = 238
@@ -44,23 +40,23 @@ object WBalExplotacion: TWBalExplotacion
       Height = 94
       Caption = ' Datos adicionales '
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       object Label4: TLabel
         Left = 11
         Top = 20
-        Width = 92
+        Width = 78
         Height = 14
         Caption = 'Fecha a imprimir'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditFECHA_IMPRIMIR: TDBEdit
@@ -71,7 +67,7 @@ object WBalExplotacion: TWBalExplotacion
         DataField = 'FECHA_IMPRIMIR'
         DataSource = SFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -93,49 +89,49 @@ object WBalExplotacion: TWBalExplotacion
       Width = 503
       Height = 85
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       object Label20: TLabel
         Left = 110
         Top = 27
-        Width = 32
+        Width = 30
         Height = 14
         Caption = 'Fecha'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label24: TLabel
         Left = 173
         Top = 9
-        Width = 35
+        Width = 31
         Height = 14
         Caption = 'Desde'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label25: TLabel
         Left = 314
         Top = 8
-        Width = 30
+        Width = 28
         Height = 14
         Caption = 'Hasta'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditFECHA_DESDE: TDBEdit
@@ -146,7 +142,7 @@ object WBalExplotacion: TWBalExplotacion
         DataField = 'FECHA_DESDE'
         DataSource = SFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -178,10 +174,10 @@ object WBalExplotacion: TWBalExplotacion
         DataField = 'TIPO_CONCEPTO'
         DataSource = SFiltro
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         Items.Strings = (
           'Todos'
           'Normal'
@@ -204,66 +200,66 @@ object WBalExplotacion: TWBalExplotacion
       object Label6: TLabel
         Left = 10
         Top = 20
-        Width = 92
+        Width = 78
         Height = 13
         Caption = 'Cuenta Anal'#237'tica'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label7: TLabel
         Left = 10
         Top = 70
-        Width = 62
+        Width = 52
         Height = 13
         Caption = 'Delegaci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
         Left = 257
         Top = 70
-        Width = 83
+        Width = 69
         Height = 13
         Caption = 'Departamento'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label9: TLabel
         Left = 10
         Top = 103
-        Width = 43
+        Width = 36
         Height = 13
         Caption = 'Secci'#243'n'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label10: TLabel
         Left = 257
         Top = 103
-        Width = 51
+        Width = 43
         Height = 13
         Caption = 'Proyecto'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object ComboBoxCD_SUBCUENTA_DESDE: TDBLookupComboBox
@@ -451,27 +447,24 @@ object WBalExplotacion: TWBalExplotacion
     Width = 518
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 526
     object Shape1: TShape
       Left = 5
       Top = 25
       Width = 499
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 5
       Top = 5
-      Width = 189
+      Width = 161
       Height = 19
       Caption = 'Balance de Explotaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -482,10 +475,7 @@ object WBalExplotacion: TWBalExplotacion
     Width = 518
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 429
-    ExplicitWidth = 526
     DesignSize = (
       518
       41)
@@ -498,10 +488,10 @@ object WBalExplotacion: TWBalExplotacion
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnProcessClick

@@ -44,7 +44,7 @@ object WConceptos: TWConceptos
       Height = 19
       Caption = 'Archivo de Conceptos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
       Font.Style = []
@@ -74,7 +74,7 @@ object WConceptos: TWConceptos
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -148,7 +148,7 @@ object WConceptos: TWConceptos
           AutoSize = False
           Caption = 'Descripci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -162,7 +162,7 @@ object WConceptos: TWConceptos
           AutoSize = False
           Caption = 'Concepto'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -175,7 +175,7 @@ object WConceptos: TWConceptos
           Height = 13
           Caption = 'Contrapartida'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -189,7 +189,7 @@ object WConceptos: TWConceptos
           Height = 13
           Caption = 'Subcuenta'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -223,7 +223,7 @@ object WConceptos: TWConceptos
           DataField = 'TIPOCONCEPTO'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -274,7 +274,7 @@ object WConceptos: TWConceptos
           DataField = 'TIPOCONTABILIDAD'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -298,7 +298,7 @@ object WConceptos: TWConceptos
           DataField = 'OBSOLETO'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -451,7 +451,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -467,7 +467,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -483,7 +483,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = '&Aceptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -499,7 +499,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -525,7 +525,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = 'Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -541,7 +541,7 @@ object WConceptos: TWConceptos
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []

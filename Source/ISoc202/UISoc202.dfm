@@ -4,7 +4,7 @@ object WISoc202: TWISoc202
   BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 486
   ClientWidth = 756
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,67 +26,65 @@ object WISoc202: TWISoc202
     Height = 410
     Align = alClient
     Caption = ' Datos '
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Arial'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 764
-    ExplicitHeight = 415
     object Label1: TLabel
       Left = 180
       Top = 16
-      Width = 47
+      Width = 39
       Height = 13
       Caption = 'Ejercicio'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label2: TLabel
       Left = 233
       Top = 16
-      Width = 43
+      Width = 36
       Height = 13
       Caption = 'Periodo'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label18: TLabel
       Left = 464
       Top = 75
-      Width = 92
+      Width = 78
       Height = 14
       Caption = 'Fecha a imprimir'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label84: TLabel
       Left = 464
       Top = 121
-      Width = 233
+      Width = 208
       Height = 14
       Caption = 'C.C.C. para Hacienda, formato con guiones'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object RadioGroupFORMA_PAGO: TRadioGroup
@@ -97,10 +95,10 @@ object WISoc202: TWISoc202
       Caption = ' Forma de pago '
       Columns = 2
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ItemIndex = 0
       Items.Strings = (
         'Cuenta'
@@ -150,33 +148,33 @@ object WISoc202: TWISoc202
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 3
       object Label7: TLabel
         Left = 12
         Top = 26
-        Width = 147
+        Width = 126
         Height = 13
         Caption = 'Base del pago fraccionado'
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label8: TLabel
         Left = 12
         Top = 50
-        Width = 166
+        Width = 139
         Height = 13
         Caption = 'A ingresar (18% del importe)'
         Font.Charset = ANSI_CHARSET
         Font.Color = clNavy
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object EditCASILLA_01: TDBEdit
@@ -224,7 +222,7 @@ object WISoc202: TWISoc202
       Font.Color = clNavy
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 6
     end
@@ -235,62 +233,62 @@ object WISoc202: TWISoc202
       Height = 238
       Caption = ' B)  Calculo pago fraccionado: Modalidad Art. 38.3 ley 43/1995'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 7
       object Label14: TLabel
         Left = 189
         Top = 158
-        Width = 80
+        Width = 67
         Height = 13
         Caption = 'Bonificaciones'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label15: TLabel
         Left = 20
         Top = 182
-        Width = 249
+        Width = 212
         Height = 13
         Caption = 'Retenciones e ingresos a cuenta del periodo'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label16: TLabel
         Left = 46
         Top = 206
-        Width = 223
+        Width = 189
         Height = 13
         Caption = 'Pagos fraccionados periodos anteriores'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label17: TLabel
         Left = 542
         Top = 163
-        Width = 78
+        Width = 67
         Height = 13
         Caption = 'B)  A Ingresar'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object GroupBox2: TGroupBox
@@ -303,40 +301,40 @@ object WISoc202: TWISoc202
         object Label3: TLabel
           Left = 41
           Top = 33
-          Width = 147
+          Width = 126
           Height = 13
           Caption = 'Base del pago fraccionado'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label4: TLabel
           Left = 41
           Top = 57
-          Width = 62
+          Width = 52
           Height = 13
           Caption = 'Porcentaje'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label5: TLabel
           Left = 41
           Top = 81
-          Width = 57
+          Width = 48
           Height = 13
           Caption = 'Resultado'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditCASILLA_03: TDBEdit
@@ -348,7 +346,7 @@ object WISoc202: TWISoc202
           DataField = 'CASILLA_03'
           DataSource = sISoc202
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -400,79 +398,79 @@ object WISoc202: TWISoc202
         object Label6: TLabel
           Left = 12
           Top = 26
-          Width = 127
+          Width = 109
           Height = 13
           Caption = 'Base pago fraccionado'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label9: TLabel
           Left = 11
           Top = 50
-          Width = 33
+          Width = 28
           Height = 13
           Caption = 'Hasta'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label10: TLabel
           Left = 12
           Top = 74
-          Width = 33
+          Width = 28
           Height = 13
           Caption = 'Resto'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label11: TLabel
           Left = 175
           Top = 50
-          Width = 40
+          Width = 34
           Height = 13
           Caption = '(21 %)'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label12: TLabel
           Left = 175
           Top = 74
-          Width = 40
+          Width = 34
           Height = 13
           Caption = '(25 %)'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label13: TLabel
           Left = 157
           Top = 98
-          Width = 57
+          Width = 48
           Height = 13
           Caption = 'Resultado'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditCASILLA_06: TDBEdit
@@ -484,7 +482,7 @@ object WISoc202: TWISoc202
           DataField = 'CASILLA_06'
           DataSource = sISoc202
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -502,7 +500,7 @@ object WISoc202: TWISoc202
           DataField = 'CASILLA_07B'
           DataSource = sISoc202
           Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
@@ -688,27 +686,24 @@ object WISoc202: TWISoc202
     Width = 756
     Height = 35
     Align = alTop
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 764
     object Shape1: TShape
       Left = 5
       Top = 23
       Width = 738
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 5
-      Width = 319
+      Width = 282
       Height = 19
       Caption = 'Impresi'#243'n Modelo Imp. Sociedades 202'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -719,15 +714,12 @@ object WISoc202: TWISoc202
     Width = 756
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 450
-    ExplicitWidth = 764
     DesignSize = (
       756
       41)
     object BtnVerErrores: TButton
-      Left = 494
+      Left = 493
       Top = 8
       Width = 96
       Height = 25
@@ -735,14 +727,13 @@ object WISoc202: TWISoc202
       Anchors = [akRight, akBottom]
       Caption = '&Ver Errores'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnVerErroresClick
-      ExplicitLeft = 502
     end
     object BtnProcess: TButton
       Left = 603
@@ -753,14 +744,13 @@ object WISoc202: TWISoc202
       Anchors = [akRight, akBottom]
       Caption = '&Procesar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnProcessClick
-      ExplicitLeft = 611
     end
   end
   object QIsoc202: TClientDataSet

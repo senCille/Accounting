@@ -4,7 +4,7 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
   BorderStyle = bsSingle
   ClientHeight = 411
   ClientWidth = 785
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,14 +22,14 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
   object Label2: TLabel
     Left = 22
     Top = 17
-    Width = 184
+    Width = 161
     Height = 19
     Caption = 'Archivo de Subcuentas'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -48,10 +48,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
     Cursor = crHandPoint
     Caption = 'Ac&eptar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 0
     OnClick = BtnAcceptClick
@@ -64,10 +64,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
     Cursor = crHandPoint
     Caption = '&Cancelar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnCancelClick
@@ -78,30 +78,30 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
     Width = 659
     Height = 95
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 2
     object Label30: TLabel
       Left = 19
       Top = 43
-      Width = 65
+      Width = 54
       Height = 13
       Caption = 'Descripci'#243'n'
     end
     object Label3: TLabel
       Left = 19
       Top = 17
-      Width = 60
+      Width = 51
       Height = 13
       Caption = 'Subcuenta'
     end
     object Label4: TLabel
       Left = 19
       Top = 69
-      Width = 79
+      Width = 67
       Height = 13
       Caption = 'Contrapartida'
     end
@@ -185,10 +185,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
       DataField = 'OBSOLETO'
       DataSource = DSFichero
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 4
       ValueChecked = 'S'
@@ -210,72 +210,72 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
     Height = 175
     Caption = ' Datos Fiscales '
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 3
     object Label37: TLabel
       Left = 19
       Top = 20
-      Width = 27
+      Width = 29
       Height = 13
       Caption = 'N.I.F.'
     end
     object Label38: TLabel
       Left = 19
       Top = 122
-      Width = 52
+      Width = 43
       Height = 13
       Caption = 'Provincia'
     end
     object Label36: TLabel
       Left = 543
       Top = 46
-      Width = 13
+      Width = 12
       Height = 13
       Caption = 'N'#186
     end
     object Label40: TLabel
       Left = 19
       Top = 46
-      Width = 52
+      Width = 43
       Height = 13
       Caption = 'Direcci'#243'n'
     end
     object Label41: TLabel
       Left = 19
       Top = 94
-      Width = 62
+      Width = 55
       Height = 13
       Caption = 'Cod. Postal'
     end
     object Label42: TLabel
       Left = 222
       Top = 94
-      Width = 54
+      Width = 45
       Height = 13
       Caption = 'Poblaci'#243'n'
     end
     object Label43: TLabel
       Left = 19
       Top = 149
-      Width = 49
+      Width = 42
       Height = 13
       Caption = 'Tel'#233'fono'
     end
     object Label44: TLabel
       Left = 251
       Top = 149
-      Width = 20
+      Width = 18
       Height = 13
       Caption = 'Fax'
     end
     object Label5: TLabel
       Left = 389
       Top = 122
-      Width = 23
+      Width = 19
       Height = 13
       Caption = 'Pa'#237's'
     end
@@ -384,10 +384,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
       DataField = 'PROFESIONAL'
       DataSource = DSFichero
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       ValueChecked = 'S'
@@ -404,10 +404,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
       DataField = 'ARRENDADOR'
       DataSource = DSFichero
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 2
       ValueChecked = 'S'
@@ -487,10 +487,10 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
       DataField = 'INTRACOMUNITARIO'
       DataSource = DSFichero
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 12
       ValueChecked = 'S'
@@ -504,37 +504,37 @@ object WNuevaSubcuenta: TWNuevaSubcuenta
     Height = 75
     Caption = ' Forma de Pago '
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 4
     object Label64: TLabel
       Left = 418
       Top = 20
-      Width = 59
+      Width = 51
       Height = 13
       Caption = 'D'#237'a Pago 1'
     end
     object Label65: TLabel
       Left = 103
       Top = 20
-      Width = 67
+      Width = 57
       Height = 13
       Caption = 'Forma Pago'
     end
     object Label66: TLabel
       Left = 503
       Top = 20
-      Width = 59
+      Width = 51
       Height = 13
       Caption = 'D'#237'a Pago 2'
     end
     object Label1: TLabel
       Left = 585
       Top = 20
-      Width = 59
+      Width = 51
       Height = 13
       Caption = 'D'#237'a Pago 3'
     end

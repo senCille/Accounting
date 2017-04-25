@@ -5,7 +5,7 @@ object WTitulos: TWTitulos
   Caption = 'Archivo de T'#205'TULOS'
   ClientHeight = 478
   ClientWidth = 755
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -29,27 +29,24 @@ object WTitulos: TWTitulos
     Width = 755
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 763
     object Shape1: TShape
       Left = 13
       Top = 29
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 13
       Top = 6
-      Width = 147
+      Width = 129
       Height = 19
       Caption = 'Archivo de T'#237'tulos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,18 +57,14 @@ object WTitulos: TWTitulos
     Width = 755
     Height = 437
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 763
-    ExplicitHeight = 442
     object Panel1: TPanel
-      Left = 657
+      Left = 649
       Top = 1
       Width = 105
-      Height = 440
+      Height = 435
       Align = alRight
       BevelOuter = bvNone
-      Color = 14275008
       TabOrder = 0
       object BtnAppend: TButton
         Left = 10
@@ -81,10 +74,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -97,10 +90,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -113,10 +106,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -129,10 +122,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -155,10 +148,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportsClick
@@ -171,10 +164,10 @@ object WTitulos: TWTitulos
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = RejillaDblClick
@@ -192,36 +185,35 @@ object WTitulos: TWTitulos
     object Panel4: TPanel
       Left = 1
       Top = 1
-      Width = 656
-      Height = 440
+      Width = 648
+      Height = 435
       Align = alClient
-      Color = 14275008
       TabOrder = 1
       object FiltroBuscar: TGroupBox
         Left = 1
         Top = 1
-        Width = 654
+        Width = 646
         Height = 44
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 114
           Top = 21
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
         end
         object Label5: TLabel
           Left = 15
           Top = 21
-          Width = 32
+          Width = 26
           Height = 13
           Caption = 'T'#237'tulo'
         end
@@ -235,7 +227,7 @@ object WTitulos: TWTitulos
           DataField = 'BDescripcion'
           DataSource = sFiltro
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
@@ -264,8 +256,8 @@ object WTitulos: TWTitulos
       end
       object Datos: TGroupBox
         Left = 1
-        Top = 333
-        Width = 654
+        Top = 328
+        Width = 646
         Height = 106
         Align = alBottom
         TabOrder = 1
@@ -277,10 +269,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = 'T'#237'tulo'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -291,10 +283,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = 'Descripci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
@@ -305,10 +297,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label7: TLabel
@@ -319,10 +311,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label8: TLabel
@@ -333,10 +325,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label9: TLabel
@@ -347,10 +339,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label10: TLabel
@@ -361,10 +353,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label11: TLabel
@@ -375,10 +367,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label12: TLabel
@@ -389,10 +381,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label13: TLabel
@@ -403,10 +395,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label14: TLabel
@@ -417,10 +409,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label15: TLabel
@@ -431,10 +423,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label16: TLabel
@@ -445,10 +437,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label17: TLabel
@@ -459,10 +451,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label18: TLabel
@@ -473,10 +465,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = 'F'#243'rmula'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label19: TLabel
@@ -487,10 +479,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label20: TLabel
@@ -501,10 +493,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '+'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label21: TLabel
@@ -515,10 +507,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label22: TLabel
@@ -529,10 +521,10 @@ object WTitulos: TWTitulos
           AutoSize = False
           Caption = '-'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -15
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditNombre: TDBEdit
@@ -829,16 +821,14 @@ object WTitulos: TWTitulos
       object Rejilla: TDBGrid
         Left = 1
         Top = 45
-        Width = 654
-        Height = 288
+        Width = 646
+        Height = 283
         TabStop = False
         Align = alClient
         BorderStyle = bsNone
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = ANSI_CHARSET
-        Font.Color = 10657371
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -846,10 +836,10 @@ object WTitulos: TWTitulos
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = ANSI_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = RejillaDblClick
         Columns = <
           item

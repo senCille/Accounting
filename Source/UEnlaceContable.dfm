@@ -6,7 +6,7 @@ object WEnlaceContable: TWEnlaceContable
   Caption = 'Enlace contable'
   ClientHeight = 345
   ClientWidth = 570
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -24,19 +24,18 @@ object WEnlaceContable: TWEnlaceContable
     Top = 33
     Width = 484
     Height = 1
-    Pen.Color = 7552051
   end
   object lTitulo: TLabel
     Left = 26
     Top = 13
-    Width = 131
+    Width = 112
     Height = 19
     Caption = 'Enlace Contable'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     Transparent = True
   end
@@ -45,27 +44,27 @@ object WEnlaceContable: TWEnlaceContable
     Top = 45
     Width = 525
     Height = 250
-    Color = 14275008
+    Color = clBtnFace
     Font.Charset = ANSI_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentColor = False
     ParentFont = False
     TabOrder = 0
     object Label1: TLabel
       Left = 18
       Top = 11
-      Width = 131
+      Width = 110
       Height = 13
       Alignment = taCenter
       Caption = 'Informaci'#243'n procesada'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Memo: TMemo
@@ -93,10 +92,10 @@ object WEnlaceContable: TWEnlaceContable
       Cursor = crHandPoint
       Caption = '&Imprimir'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnImprimirClick
@@ -123,10 +122,10 @@ object WEnlaceContable: TWEnlaceContable
     Cursor = crHandPoint
     Caption = '&Procesar'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
     TabOrder = 1
     OnClick = BtnAcceptClick

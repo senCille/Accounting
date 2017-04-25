@@ -13,7 +13,7 @@ type
     Panel4         :TPanel;
     Panel5         :TPanel;
     LabelTarea     :TLabel;
-    Animacion      :TAnimate;
+    Animation: TAnimate;
     BtnNavCancelar :TButton;
     procedure BtnNavCancelarClick(Sender :TObject);
   public
@@ -40,16 +40,7 @@ type
     procedure ConfigurarAvi;
     procedure Actualizar;
     procedure Mostrar;
-    //property Alto            :Integer    read FAlto            write FAlto          default 150;
-    //property Ancho           :Integer    read FAncho           write FAncho         default 300;
-    //property Avi_Left        :Integer    read FAvi_Left        write FAvi_Left      default 7;
-    //property Avi_Top         :Integer    read FAvi_Top         write FAvi_Top       default 80;
-    //property ColorFondo      :TColor     read FColorFondo      write FColorFondo    default clWhite;
-    //property ColorMarco      :TColor     read FColorMarco      write FColorMarco    default clWhite;
     property MostrarMarco    :Boolean    read FMostrarMarco    write FMostrarMarco  default True;
-    //property Fuente          :TFont      read FFuente          write FFuente;
-    //property Mensaje_Left    :Integer    read FMensaje_Left    write FMensaje_Left  default 14;
-    //property Mensaje_Top     :Integer    read FMensaje_Top     write FMensaje_Top   default 14;
   published
     property Text            :string     write SetText;
     property CancelVisible   :Boolean    read FCancelVisible   write FCancelVisible;
@@ -61,6 +52,7 @@ type
 function InProgressView(AText :string; AShowCancel :Boolean = False):TEspere;
 
 implementation
+uses Globales;
 
 {$R *.DFM}
 
@@ -108,25 +100,12 @@ end;
 
 procedure TEspere.ConfigurarAvi;
 begin
-   (*case FAvi_Predet of
-      Ninguno :begin
-         FWEspere.Animacion.CommonAVI := aviNone;
-      end;
-      Copiar :begin
-         FWEspere.Animacion.CommonAVI := aviCopyFiles;
-         FWEspere.Animacion.Color     := $00A56D39;
-      end;
-      Buscar :begin
-         FWEspere.Animacion.CommonAVI := aviFindComputer;
-         FWEspere.Animacion.Color     := $00A56D39;
-      end;
-   end;*)
-
    FWEspere.BtnNavCancelar.Visible := CancelVisible;
 
-   FWEspere.Animacion.Active := True;
-   FWEspere.Animacion.Left   := FAvi_Left;
-   FWEspere.Animacion.Top    := FAvi_Top;
+   FWEspere.Animation.FileName := Config.ImagesFolder + 'BarrasAzules.avi';
+   FWEspere.Animation.Active := True;
+   FWEspere.Animation.Left   := FAvi_Left;
+   FWEspere.Animation.Top    := FAvi_Top;
 end;
 
 procedure TEspere.Actualizar;
@@ -161,7 +140,7 @@ begin
     ConfigurarAvi;
     FWEspere.Lanzar;
     Actualizar;
-    FWEspere.Animacion.Active := True;
+    FWEspere.Animation.Active := True;
   end;
 end;
 

@@ -6,7 +6,7 @@ object WSecciones: TWSecciones
   Caption = 'Archivo de SECCIONES'
   ClientHeight = 429
   ClientWidth = 596
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WSecciones: TWSecciones
     Width = 596
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 8
       Top = 27
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 8
       Top = 6
-      Width = 170
+      Width = 149
       Height = 19
       Caption = 'Archivo de Secciones'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WSecciones: TWSecciones
     Width = 596
     Height = 388
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WSecciones: TWSecciones
       Width = 489
       Height = 386
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object Datos: TGroupBox
         Left = 1
@@ -85,10 +81,10 @@ object WSecciones: TWSecciones
           AutoSize = False
           Caption = 'Secci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label2: TLabel
@@ -99,10 +95,10 @@ object WSecciones: TWSecciones
           AutoSize = False
           Caption = 'Nombre'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditDESCRIPCION: TDBEdit
@@ -146,23 +142,23 @@ object WSecciones: TWSecciones
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         object Label4: TLabel
           Left = 172
           Top = 21
-          Width = 44
+          Width = 37
           Height = 13
           Caption = 'Nombre'
         end
         object Label5: TLabel
           Left = 16
           Top = 21
-          Width = 43
+          Width = 36
           Height = 13
           Caption = 'Secci'#243'n'
         end
@@ -176,7 +172,7 @@ object WSecciones: TWSecciones
           DataField = 'BDescripcion'
           DataSource = sFiltro
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
@@ -211,9 +207,7 @@ object WSecciones: TWSecciones
         Width = 487
         Height = 230
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -223,10 +217,10 @@ object WSecciones: TWSecciones
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -370,10 +364,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = 'Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnNewClick
@@ -386,10 +380,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnModifyClick
@@ -402,10 +396,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = '&Borrar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnDeleteClick
@@ -418,10 +412,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnReportClick
@@ -443,10 +437,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnAcceptClick
@@ -459,10 +453,10 @@ object WSecciones: TWSecciones
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnCancelClick

@@ -5,7 +5,7 @@ object WParametrizacion: TWParametrizacion
   Caption = 'Parametrizaci'#243'n'
   ClientHeight = 504
   ClientWidth = 769
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -27,19 +27,18 @@ object WParametrizacion: TWParametrizacion
     Width = 769
     Height = 36
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Label2: TLabel
       Left = 7
       Top = 6
-      Width = 134
+      Width = 112
       Height = 19
       Caption = 'Parametrizaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -48,7 +47,6 @@ object WParametrizacion: TWParametrizacion
       Top = 27
       Width = 720
       Height = 1
-      Pen.Color = clNavy
     end
   end
   object Panel2: TPanel
@@ -57,7 +55,6 @@ object WParametrizacion: TWParametrizacion
     Width = 769
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
     DesignSize = (
       769
@@ -71,10 +68,10 @@ object WParametrizacion: TWParametrizacion
       Anchors = [akRight, akBottom]
       Caption = 'Ac&eptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnEdtAceptarClick
@@ -85,15 +82,11 @@ object WParametrizacion: TWParametrizacion
     Top = 36
     Width = 769
     Height = 427
-    ActivePage = TabSheetCierreEjercicio
+    ActivePage = TabSheetDocumentos
     Align = alClient
     TabOrder = 2
     object TabSheetGeneral: TTabSheet
       Caption = 'General'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GBFiscales: TGroupBox
         Left = 0
         Top = 0
@@ -101,88 +94,88 @@ object WParametrizacion: TWParametrizacion
         Height = 399
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object LabelNif: TLabel
           Left = 451
           Top = 14
-          Width = 24
+          Width = 23
           Height = 14
           Caption = 'N.I.F.'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LabelDireccion: TLabel
           Left = 74
           Top = 52
-          Width = 133
+          Width = 117
           Height = 14
           Caption = 'Nombre de la v'#237'a p'#250'blica'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LabelPostal: TLabel
           Left = 18
           Top = 88
-          Width = 48
+          Width = 42
           Height = 14
           Caption = 'C. Postal'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LabelPoblacion: TLabel
           Left = 111
           Top = 88
-          Width = 53
+          Width = 46
           Height = 14
           Caption = 'Poblaci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object LabelProvincia: TLabel
           Left = 451
           Top = 88
-          Width = 50
+          Width = 44
           Height = 14
           Caption = 'Provincia'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label1: TLabel
           Left = 451
           Top = 127
-          Width = 48
+          Width = 41
           Height = 14
           Caption = 'Tel'#233'fono'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label3: TLabel
@@ -192,38 +185,38 @@ object WParametrizacion: TWParametrizacion
           Height = 14
           Caption = 'Fax'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label9: TLabel
           Left = 18
           Top = 127
-          Width = 115
+          Width = 101
           Height = 14
           Caption = 'Persona de Contacto'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label19: TLabel
           Left = 18
           Top = 14
-          Width = 412
+          Width = 362
           Height = 14
           Caption = 
             'Nombre Fiscal (Si es Persona Fisica,  (Apellidos, Nombre) coma o' +
             'bligatoria)'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label60: TLabel
@@ -234,154 +227,154 @@ object WParametrizacion: TWParametrizacion
           AutoSize = False
           Caption = 'Asiento actual'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           WordWrap = True
         end
         object lLongSubcuentas: TLabel
           Left = 451
           Top = 167
-          Width = 78
+          Width = 70
           Height = 14
           Caption = 'Long. Subctas'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label20: TLabel
           Left = 656
           Top = 14
-          Width = 44
+          Width = 38
           Height = 14
           Caption = 'Moneda'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label74: TLabel
           Left = 18
           Top = 167
-          Width = 123
+          Width = 109
           Height = 14
           Caption = 'Cod. Admon. Hacienda'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label84: TLabel
           Left = 171
           Top = 167
-          Width = 233
+          Width = 208
           Height = 14
           Caption = 'C.C.C. para Hacienda, formato con guiones'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label85: TLabel
           Left = 18
           Top = 52
-          Width = 46
+          Width = 42
           Height = 14
           Caption = 'Sigla V'#237'a'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label86: TLabel
           Left = 451
           Top = 52
-          Width = 44
+          Width = 37
           Height = 14
           Caption = 'N'#250'mero'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label87: TLabel
           Left = 502
           Top = 52
-          Width = 46
+          Width = 42
           Height = 14
           Caption = 'Escalera'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label88: TLabel
           Left = 560
           Top = 52
-          Width = 24
+          Width = 20
           Height = 14
           Caption = 'Piso'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label90: TLabel
           Left = 610
           Top = 52
-          Width = 36
+          Width = 31
           Height = 14
           Caption = 'Puerta'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label4: TLabel
           Left = 572
           Top = 14
-          Width = 76
+          Width = 65
           Height = 14
           Caption = 'Tipo Empresa'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
           Left = 641
           Top = 167
-          Width = 96
+          Width = 84
           Height = 14
           Caption = 'Filtro Subcuentas'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object eNombreFiscal: TDBEdit
@@ -393,7 +386,7 @@ object WParametrizacion: TWParametrizacion
           DataField = 'NOMBREFISCAL'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
@@ -555,7 +548,7 @@ object WParametrizacion: TWParametrizacion
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 22
           ValueChecked = 'S'
@@ -603,62 +596,62 @@ object WParametrizacion: TWParametrizacion
           Height = 59
           Caption = ' Fecha de '
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 21
           object Label48: TLabel
             Left = 13
             Top = 16
-            Width = 78
+            Width = 67
             Height = 14
             Caption = 'Inicio Ejercicio'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label49: TLabel
             Left = 113
             Top = 16
-            Width = 65
+            Width = 57
             Height = 14
             Caption = 'Fin Ejercicio'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label46: TLabel
             Left = 203
             Top = 16
-            Width = 93
+            Width = 80
             Height = 14
             Caption = 'Ult. Amortizaci'#243'n'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label5: TLabel
             Left = 316
             Top = 16
-            Width = 79
+            Width = 69
             Height = 14
             Caption = 'Bloqueo Diario'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object eFechaInicioEjer: TDBEdit
@@ -670,7 +663,7 @@ object WParametrizacion: TWParametrizacion
             DataField = 'FECHA_INICIO_EJERCICIO'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clBlack
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
@@ -847,10 +840,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'PEDIR_CLAVE'
           DataSource = DSControl
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 25
           ValueChecked = 'S'
@@ -865,10 +858,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'GESTIONA_CARTERA_EFECTOS'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 24
           ValueChecked = 'S'
@@ -883,10 +876,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'INCLUIR_ABREV'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 26
           ValueChecked = 'S'
@@ -899,62 +892,62 @@ object WParametrizacion: TWParametrizacion
           Height = 163
           Caption = ' Intervalos Asientos '
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 29
           object Label76: TLabel
             Left = 167
             Top = 20
-            Width = 29
+            Width = 24
             Height = 14
             Caption = 'Inicio'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label80: TLabel
             Left = 239
             Top = 20
-            Width = 16
+            Width = 14
             Height = 14
             Caption = 'Fin'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label91: TLabel
             Left = 15
             Top = 37
-            Width = 101
+            Width = 88
             Height = 14
             Caption = 'B'#250'squeda Asiento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label92: TLabel
             Left = 15
             Top = 66
-            Width = 74
+            Width = 62
             Height = 14
             Caption = 'Filtro Asiento'
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object eAsientosInicio: TDBEdit
@@ -1030,10 +1023,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'FILTRO_ASIENTOS_INICIO'
             DataSource = DSFichero
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 5
             ValueChecked = 'S'
@@ -1048,10 +1041,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'MOSTRAR_FILTRO_MAYOR'
             DataSource = DSFichero
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
             TabOrder = 4
             ValueChecked = 'S'
@@ -1067,10 +1060,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'BUSQUEDA_SUBCTAS'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           Items.Strings = (
             'Por Subcuenta'
             'Por Descripci'#243'n')
@@ -1123,10 +1116,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'ACTCOMENTARIO'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 23
           ValueChecked = 'S'
@@ -1141,10 +1134,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'TRATASERIE'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 27
           ValueChecked = 'S'
@@ -1155,10 +1148,6 @@ object WParametrizacion: TWParametrizacion
     object TabSheetNominas: TTabSheet
       Caption = 'N'#243'minas'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox7: TGroupBox
         Left = 0
         Top = 0
@@ -1170,66 +1159,66 @@ object WParametrizacion: TWParametrizacion
         object Label37: TLabel
           Left = 19
           Top = 26
-          Width = 182
+          Width = 162
           Height = 14
           Caption = 'Subcuenta de Sueldos y salarios '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label38: TLabel
           Left = 19
           Top = 76
-          Width = 140
+          Width = 127
           Height = 14
           Caption = 'Subcuenta de Seg. Social '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label39: TLabel
           Left = 387
           Top = 76
-          Width = 166
+          Width = 152
           Height = 14
           Caption = 'Subcuenta de Hacienda I.R.P.F. '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label40: TLabel
           Left = 19
           Top = 125
-          Width = 176
+          Width = 156
           Height = 14
           Caption = 'Subcuenta de Pago de N'#243'minas '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label41: TLabel
           Left = 387
           Top = 125
-          Width = 119
+          Width = 103
           Height = 14
           Caption = 'Concepto de Asiento '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText22: TDBText
@@ -1241,23 +1230,23 @@ object WParametrizacion: TWParametrizacion
           DataField = 'CTONOMT'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label100: TLabel
           Left = 387
           Top = 26
-          Width = 202
+          Width = 176
           Height = 14
           Caption = 'Subcuenta de otras remuneraciones'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object CBSUBCUENTA18: TDBLookupComboBox
@@ -1268,7 +1257,7 @@ object WParametrizacion: TWParametrizacion
           DataField = 'SCTANOMSUELDO'
           DataSource = DSFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
@@ -1434,7 +1423,7 @@ object WParametrizacion: TWParametrizacion
           Font.Color = clNavy
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 11
           ValueChecked = 'S'
@@ -1488,40 +1477,40 @@ object WParametrizacion: TWParametrizacion
         object Label43: TLabel
           Left = 123
           Top = 21
-          Width = 230
+          Width = 207
           Height = 14
           Caption = 'Subcuenta de Gasto Seg. Social Empresa  '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label44: TLabel
           Left = 123
           Top = 66
-          Width = 146
+          Width = 133
           Height = 14
           Caption = 'Subcuenta de Seg. Social   '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label50: TLabel
           Left = 123
           Top = 113
-          Width = 119
+          Width = 103
           Height = 14
           Caption = 'Concepto de Asiento '
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object DBText23: TDBText
@@ -1533,10 +1522,10 @@ object WParametrizacion: TWParametrizacion
           DataField = 'CTONOME'
           DataSource = DSFichero
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object CBSUBCUENTA22: TDBLookupComboBox
@@ -1634,10 +1623,6 @@ object WParametrizacion: TWParametrizacion
     object TabSheetCierreEjercicio: TTabSheet
       Caption = 'Cierre Ejercicio'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox12: TGroupBox
         Left = 8
         Top = 8
@@ -1645,23 +1630,23 @@ object WParametrizacion: TWParametrizacion
         Height = 208
         Caption = ' DATOS PARA CIERRE DE EJERCICIO '
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label62: TLabel
           Left = 139
           Top = 147
-          Width = 113
+          Width = 99
           Height = 14
           Caption = 'Subcuenta de Cierre'
           Font.Charset = ANSI_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object GroupBox14: TGroupBox
@@ -1674,14 +1659,14 @@ object WParametrizacion: TWParametrizacion
           object Label63: TLabel
             Left = 9
             Top = 19
-            Width = 176
+            Width = 153
             Height = 14
             Caption = 'Concepto regularizaci'#243'n Normal'
           end
           object Label77: TLabel
             Left = 9
             Top = 59
-            Width = 182
+            Width = 160
             Height = 14
             Caption = 'Concepto regularizaci'#243'n Especial'
           end
@@ -1694,10 +1679,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'CTO_REGULARIZACION'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText30: TDBText
@@ -1709,10 +1694,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'CTO_REGULARIZACION_ESP'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBLookupCombo16: TDBLookupComboBox
@@ -1762,14 +1747,14 @@ object WParametrizacion: TWParametrizacion
           object Label78: TLabel
             Left = 11
             Top = 17
-            Width = 145
+            Width = 126
             Height = 14
             Caption = 'Concepto apertura Normal'
           end
           object Label79: TLabel
             Left = 11
             Top = 60
-            Width = 151
+            Width = 133
             Height = 14
             Caption = 'Concepto apertura Especial'
           end
@@ -1782,10 +1767,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'CTO_APERTURA_ESP'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBText32: TDBText
@@ -1797,10 +1782,10 @@ object WParametrizacion: TWParametrizacion
             DataField = 'CTO_APERTURA'
             DataSource = DSFichero
             Font.Charset = ANSI_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object DBLookupCombo62: TDBLookupComboBox
@@ -1881,10 +1866,6 @@ object WParametrizacion: TWParametrizacion
     object TabSheetDocumentos: TTabSheet
       Caption = 'Documentos'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox3: TGroupBox
         Left = 10
         Top = 17
@@ -1892,10 +1873,10 @@ object WParametrizacion: TWParametrizacion
         Height = 176
         Caption = ' ENLACE CON WORD (97 - 2003) '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object GroupBox11: TGroupBox
@@ -1908,40 +1889,40 @@ object WParametrizacion: TWParametrizacion
           object Label17: TLabel
             Left = 12
             Top = 22
-            Width = 128
+            Width = 113
             Height = 14
             Caption = 'Reclamaci'#243'n a clientes '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label18: TLabel
             Left = 12
             Top = 49
-            Width = 121
+            Width = 107
             Height = 14
             Caption = 'Pagos a Proveedores '
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object Label21: TLabel
             Left = 12
             Top = 76
-            Width = 173
+            Width = 156
             Height = 14
             Caption = 'Operaciones con terceros (347)'
             Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
+            Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Arial'
-            Font.Style = [fsBold]
+            Font.Style = []
             ParentFont = False
           end
           object PermSPClientes: TSpeedButton

@@ -6,7 +6,7 @@ object WFormasPago: TWFormasPago
   Caption = 'Archivo de FORMAS DE PAGO'
   ClientHeight = 446
   ClientWidth = 606
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -30,26 +30,24 @@ object WFormasPago: TWFormasPago
     Width = 606
     Height = 41
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 10
       Top = 28
       Width = 689
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 10
       Top = 7
-      Width = 221
+      Width = 195
       Height = 19
       Caption = 'Archivo de Formas de Pago'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -60,7 +58,6 @@ object WFormasPago: TWFormasPago
     Width = 606
     Height = 405
     Align = alClient
-    Color = 14275008
     TabOrder = 1
     object Panel4: TPanel
       Left = 1
@@ -68,7 +65,6 @@ object WFormasPago: TWFormasPago
       Width = 499
       Height = 403
       Align = alClient
-      Color = 14275008
       TabOrder = 0
       object FiltroBuscar: TGroupBox
         Left = 1
@@ -78,23 +74,23 @@ object WFormasPago: TWFormasPago
         Align = alTop
         Caption = ' Buscar '
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         object Label4: TLabel
           Left = 187
           Top = 21
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
         end
         object Label5: TLabel
           Left = 18
           Top = 21
-          Width = 67
+          Width = 57
           Height = 13
           Caption = 'Forma Pago'
         end
@@ -144,62 +140,62 @@ object WFormasPago: TWFormasPago
         Height = 124
         Align = alBottom
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         object Label2: TLabel
           Left = 86
           Top = 12
-          Width = 65
+          Width = 54
           Height = 13
           Caption = 'Descripci'#243'n'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label1: TLabel
           Left = 6
           Top = 12
-          Width = 67
+          Width = 57
           Height = 13
           Caption = 'Forma Pago'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label6: TLabel
           Left = 9
           Top = 50
-          Width = 53
+          Width = 44
           Height = 13
           Caption = 'Intervalo'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object Label7: TLabel
           Left = 86
           Top = 50
-          Width = 76
+          Width = 62
           Height = 13
           Caption = 'Vencimientos'
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
         end
         object EditDescripcion: TDBEdit
@@ -245,10 +241,10 @@ object WFormasPago: TWFormasPago
           DataField = 'CLASE'
           DataSource = SFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           Items.Strings = (
             'D'#237'as'
             'Meses')
@@ -299,10 +295,10 @@ object WFormasPago: TWFormasPago
           DataField = 'OBSOLETO'
           DataSource = SFichero
           Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
+          Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
-          Font.Style = [fsBold]
+          Font.Style = []
           ParentFont = False
           TabOrder = 5
           ValueChecked = 'S'
@@ -315,9 +311,7 @@ object WFormasPago: TWFormasPago
         Width = 497
         Height = 225
         Align = alClient
-        Color = 15596540
         DataSource = SFichero
-        FixedColor = 10841401
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -327,10 +321,10 @@ object WFormasPago: TWFormasPago
         ParentFont = False
         TabOrder = 2
         TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -13
         TitleFont.Name = 'System'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         OnDblClick = DataGridDblClick
         OnTitleClick = DataGridTitleClick
         Columns = <
@@ -378,10 +372,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = '&Nuevo'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnAppendClick
@@ -394,10 +388,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = '&Eliminar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -410,10 +404,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -426,10 +420,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -451,10 +445,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = '&Imprimir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 5
         OnClick = BtnReportClick
@@ -467,10 +461,10 @@ object WFormasPago: TWFormasPago
         Cursor = crHandPoint
         Caption = '&Modificar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 6
         OnClick = BtnModifyClick

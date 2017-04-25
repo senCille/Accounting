@@ -6,7 +6,7 @@ object WEditApunte: TWEditApunte
   Caption = 'Edici'#243'n Apunte Contable'
   ClientHeight = 217
   ClientWidth = 767
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,26 +26,24 @@ object WEditApunte: TWEditApunte
     Width = 767
     Height = 34
     Align = alTop
-    Color = 14275008
     TabOrder = 0
     object Shape1: TShape
       Left = 7
       Top = 26
       Width = 395
       Height = 1
-      Pen.Color = 7552051
     end
     object lTitulo: TLabel
       Left = 7
       Top = 6
-      Width = 200
+      Width = 174
       Height = 19
       Caption = 'Edici'#243'n Apunte Contable'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -56,7 +54,6 @@ object WEditApunte: TWEditApunte
     Width = 767
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 1
     DesignSize = (
       767
@@ -70,10 +67,10 @@ object WEditApunte: TWEditApunte
       Anchors = [akRight, akBottom]
       Caption = '&Aceptar'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 0
       OnClick = BtnAcceptClick
@@ -86,10 +83,10 @@ object WEditApunte: TWEditApunte
       Cursor = crHandPoint
       Caption = 'A'#241'adir S&ubcta'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       OnClick = BtnNewSubAccountClick
@@ -101,124 +98,122 @@ object WEditApunte: TWEditApunte
     Width = 767
     Height = 142
     Align = alClient
-    Color = 14275008
-    ParentColor = False
     TabOrder = 2
     object Label1: TLabel
       Left = 11
       Top = 90
-      Width = 66
+      Width = 55
       Height = 13
       Caption = 'Comentario'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label7: TLabel
       Left = 389
       Top = 11
-      Width = 109
+      Width = 94
       Height = 13
       Caption = 'Datos del Concepto'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object LabelSubcuenta: TLabel
       Left = 11
       Top = 11
-      Width = 126
+      Width = 108
       Height = 13
       Caption = 'Datos de la Subcuenta'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object LabelContrapartida: TLabel
       Left = 11
       Top = 51
-      Width = 145
+      Width = 124
       Height = 13
       Caption = 'Datos de la Contrapartida'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label16: TLabel
       Left = 640
       Top = 51
-      Width = 90
+      Width = 77
       Height = 13
       Caption = 'N'#250'mero Factura'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label17: TLabel
       Left = 389
       Top = 90
-      Width = 158
+      Width = 135
       Height = 13
       Caption = 'Datos de la Cuenta Anal'#237'tica'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label4: TLabel
       Left = 488
       Top = 51
-      Width = 47
+      Width = 38
       Height = 13
       Caption = 'Importe'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label6: TLabel
       Left = 402
       Top = 51
-      Width = 28
+      Width = 24
       Height = 13
       Caption = 'D / H'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object Label12: TLabel
       Left = 447
       Top = 51
-      Width = 24
+      Width = 20
       Height = 13
       Caption = 'Tipo'
       Font.Charset = ANSI_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
     end
     object BtnDetalleIVA: TSpeedButton

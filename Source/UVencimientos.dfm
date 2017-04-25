@@ -5,7 +5,7 @@ object WVencimientos: TWVencimientos
   Caption = 'Vencimientos'
   ClientHeight = 416
   ClientWidth = 500
-  Color = 14275008
+  Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -26,18 +26,14 @@ object WVencimientos: TWVencimientos
     Width = 500
     Height = 337
     Align = alClient
-    Color = 14275008
     TabOrder = 1
-    ExplicitWidth = 508
-    ExplicitHeight = 342
     object Panel1: TPanel
-      Left = 402
+      Left = 394
       Top = 1
       Width = 105
-      Height = 340
+      Height = 335
       Align = alRight
       BevelOuter = bvNone
-      ParentColor = True
       TabOrder = 0
       object BtnDelete: TButton
         Left = 10
@@ -47,10 +43,10 @@ object WVencimientos: TWVencimientos
         Cursor = crHandPoint
         Caption = '&Borrar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 1
         OnClick = BtnDeleteClick
@@ -63,10 +59,10 @@ object WVencimientos: TWVencimientos
         Cursor = crHandPoint
         Caption = '&A'#241'adir'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 0
         OnClick = BtnNewClick
@@ -79,10 +75,10 @@ object WVencimientos: TWVencimientos
         Cursor = crHandPoint
         Caption = 'Ac&eptar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 2
         OnClick = BtnAcceptClick
@@ -95,10 +91,10 @@ object WVencimientos: TWVencimientos
         Cursor = crHandPoint
         Caption = '&Cancelar'
         Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
         TabOrder = 3
         OnClick = BtnCancelClick
@@ -116,14 +112,14 @@ object WVencimientos: TWVencimientos
     object Datos: TGroupBox
       Left = 1
       Top = 1
-      Width = 401
-      Height = 340
+      Width = 393
+      Height = 335
       Align = alClient
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       TabOrder = 1
       DesignSize = (
@@ -132,44 +128,43 @@ object WVencimientos: TWVencimientos
       object Label6: TLabel
         Left = 293
         Top = 54
-        Width = 87
+        Width = 75
         Height = 14
         Caption = 'Importe Factura'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
       end
       object Label2: TLabel
         Left = 19
         Top = 14
-        Width = 60
+        Width = 51
         Height = 13
         Caption = 'Subcuenta'
       end
       object Label1: TLabel
         Left = 19
         Top = 54
-        Width = 84
+        Width = 72
         Height = 13
         Caption = 'Forma de Pago'
       end
       object Label4: TLabel
         Left = 20
-        Top = 290
-        Width = 80
+        Top = 285
+        Width = 67
         Height = 13
         Anchors = [akLeft, akBottom]
         Caption = 'Fecha emisi'#243'n'
         Font.Charset = ANSI_CHARSET
-        Font.Color = clNavy
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
+        Font.Style = []
         ParentFont = False
-        ExplicitTop = 310
       end
       object EditIMPORTE: TDBEdit
         Left = 293
@@ -251,7 +246,7 @@ object WVencimientos: TWVencimientos
       end
       object EditFECHA_EMISION: TDBEdit
         Left = 103
-        Top = 286
+        Top = 281
         Width = 99
         Height = 21
         Anchors = [akLeft, akBottom]
@@ -264,21 +259,19 @@ object WVencimientos: TWVencimientos
         Font.Style = []
         ParentFont = False
         TabOrder = 5
-        ExplicitTop = 306
       end
       object Grid: TDBGrid
         Left = 20
         Top = 94
-        Width = 339
-        Height = 188
+        Width = 331
+        Height = 183
         TabStop = False
         Anchors = [akLeft, akTop, akRight, akBottom]
         BiDiMode = bdLeftToRight
         BorderStyle = bsNone
-        Color = 15596540
         DataSource = SFichero
         Font.Charset = ANSI_CHARSET
-        Font.Color = 10657371
+        Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
         Font.Style = []
@@ -286,10 +279,10 @@ object WVencimientos: TWVencimientos
         ParentFont = False
         TabOrder = 6
         TitleFont.Charset = ANSI_CHARSET
-        TitleFont.Color = clWhite
+        TitleFont.Color = clWindowText
         TitleFont.Height = -11
         TitleFont.Name = 'Tahoma'
-        TitleFont.Style = [fsBold]
+        TitleFont.Style = []
         Columns = <
           item
             Expanded = False
@@ -318,27 +311,24 @@ object WVencimientos: TWVencimientos
     Width = 500
     Height = 38
     Align = alTop
-    Color = 14275008
     TabOrder = 0
-    ExplicitWidth = 508
     object Shape1: TShape
       Left = 7
       Top = 30
       Width = 478
       Height = 1
-      Pen.Color = 7552051
     end
     object Label3: TLabel
       Left = 7
       Top = 6
-      Width = 231
+      Width = 200
       Height = 19
       Caption = 'Generaci'#243'n de Vencimientos'
       Font.Charset = DEFAULT_CHARSET
-      Font.Color = clNavy
+      Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
+      Font.Style = []
       ParentFont = False
       Transparent = True
     end
@@ -349,10 +339,7 @@ object WVencimientos: TWVencimientos
     Width = 500
     Height = 41
     Align = alBottom
-    Color = 14275008
     TabOrder = 2
-    ExplicitTop = 380
-    ExplicitWidth = 508
   end
   object QFichero: TClientDataSet
     Aggregates = <>

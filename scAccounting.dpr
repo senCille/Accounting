@@ -116,18 +116,5 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
-  Application.CreateForm(TWPlanAnalitico, WPlanAnalitico);
-  Application.CreateForm(TWPlanContable, WPlanContable);
-  Application.CreateForm(TWPunteoDiario, WPunteoDiario);
-  Application.CreateForm(TWSecciones, WSecciones);
-  Application.CreateForm(TWSituacionEfecto, WSituacionEfecto);
-  Application.CreateForm(TWSubCuentas, WSubCuentas);
-  Application.CreateForm(TWTiposDiario, WTiposDiario);
-  Application.CreateForm(TWTitulos, WTitulos);
-  Application.CreateForm(TWTraspasoApuntes, WTraspasoApuntes);
-  Application.CreateForm(TWTraspasoDatos, WTraspasoDatos);
-  Application.CreateForm(TWUsuarios, WUsuarios);
-  Application.CreateForm(TWUtilEmpresas, WUtilEmpresas);
-  Application.CreateForm(TWVencimientos, WVencimientos);
   Application.Run;
 end.
