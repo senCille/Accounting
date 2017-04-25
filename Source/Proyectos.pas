@@ -4,44 +4,47 @@ interface
 
 uses Buttons, Classes, Controls, DB, Forms, Graphics, Messages, SysUtils, WinProcs, WinTypes, DBClient,
      ExtCtrls, Grids, IBX.IBCustomDataSet, StdCtrls, Mask, DBCtrls, Dialogs, DBGrids,
-     IBX.IBDatabase, frxClass, FormHandler, frxExportPDF, frxDBSet;
+     IBX.IBDatabase, frxClass, FormHandler, frxExportPDF, frxDBSet,
+     Localization;
 
 type
   TWProyectos = class(TForm)
-    SFichero: TDataSource;
-    QFichero: TIBDataSet;
-    Transaccion: TIBTransaction;
+    SData: TDataSource;
+    QData: TIBDataSet;
+    Transaction: TIBTransaction;
     Panel1: TPanel;
     BtnNew: TButton;
     BtnDelete: TButton;
     BtnAccept: TButton;
     BtnCancel: TButton;
-    TbFiltro: TClientDataSet;
+    HFilter: TClientDataSet;
     sFiltro: TDataSource;
-    PanelSombra: TPanel;
+    Panel99: TPanel;
     Navigator: TDBNavigator;
     BtnRefresh: TSpeedButton;
     BtnReport: TButton;
     BtnModify: TButton;
-    QFicheroNOMBRE:  TIBStringField;
-    QFicheroID_PROYECTO: TIBStringField;
     DataGrid: TDBGrid;
-    Datos: TGroupBox;
-    Label1: TLabel;
-    Label2: TLabel;
-    EditDESCRIPCION: TDBEdit;
-    EditCODIGO: TDBEdit;
+    GroupBoxData: TGroupBox;
+    LabelFieldProject: TLabel;
+    LabelFieldName: TLabel;
+    EditDS_PROJECT: TDBEdit;
+    EditCD_PROJECT: TDBEdit;
     Panel2: TPanel;
     Shape1: TShape;
-    Label3: TLabel;
-    FiltroBuscar: TGroupBox;
-    Label4: TLabel;
-    Label5: TLabel;
-    EditFiltroBDESCRIPCION: TDBEdit;
-    EditFiltroBCODIGO: TDBEdit;
+    LabelFormTitle: TLabel;
+    GroupBoxSearch: TGroupBox;
+    LabelSearchName: TLabel;
+    LabelSearchProject: TLabel;
+    EditSearchDS_PROJECT: TDBEdit;
+    EditSearchCD_PROJECT: TDBEdit;
     FastReport: TfrxReport;
     ReportDBLInk: TfrxDBDataset;
     PDFExport: TfrxPDFExport;
+    HFilterBCODIGO: TStringField;
+    HFilterBDESCRIPCION: TStringField;
+    QDataID_PROYECTO: TWideStringField;
+    QDataNOMBRE: TWideStringField;
     procedure BtnNewClick(Sender: TObject);
     procedure BtnDeleteClick(Sender: TObject);
     procedure BtnAcceptClick(Sender: TObject);
@@ -51,18 +54,19 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure LimpiarFiltro(Sender: TObject);
-    procedure VerTabla(Sender: TObject);
+    procedure CleanFilter(Sender: TObject);
+    procedure ShowData(Sender: TObject);
     procedure BtnReportClick(Sender: TObject);
     procedure DataGridDblClick(Sender: TObject);
     procedure DataGridTitleClick(Column: TColumn);
     procedure BtnModifyClick(Sender: TObject);
   private
-    FormManager :TccFormHandler;
-    FCampoOrden :string;
-    procedure CrearFiltro;
-    procedure PrepararQuery;
-    procedure RefrescarBD;
+    FormManager   :TccFormHandler;
+    FLang         :TLangCommon;
+    FLangProjects :TLangProjects;
+    FOrderField   :string;
+    procedure PrepareQuery;
+    procedure RefreshDB;
   public
   end;
 
@@ -76,93 +80,101 @@ uses Globales, Tools, DM, DMControl;
 
 procedure TWProyectos.FormCreate(Sender: TObject);
 begin
+   FLang := TLangCommon.Create;
+   BtnAccept.Caption      := FLang.BtnAccept;
+   BtnCancel.Caption      := FLang.BtnCancel;
+   BtnNew.Caption         := FLang.BtnNew;
+   BtnModify.Caption      := FLang.BtnModify;
+   BtnDelete.Caption      := FLang.BtnDelete;
+   BtnReport.Caption      := FLang.BtnReport;
+   GroupBoxSearch.Caption := FLang.TextSearch;
+   DataGrid.Columns[0].Title.Caption := FLang.TextCode;
+   DataGrid.Columns[1].Title.Caption := FLang.TextDescription;
+
+   FLangProjects := TLangProjects.Create;
+   LabelFormTitle.Caption     := FLangProjects.FormTitle;
+   LabelSearchProject.Caption := FLangProjects.TextProject;
+   LabelSearchName.Caption    := FLang.TextName;
+   LabelFieldProject.Caption  := FLangProjects.TextProject;
+   LabelFieldName.Caption     := FLang.TextName;
+
    Self.Caption := '';
    FormManager := TccFormHandler.Create(Self);
-   FormManager.AddComp(BtnNew.Name                , fmBrowse);
-   FormManager.AddComp(EditCODIGO.Name            , fmEdit  );
-   FormManager.AddComp(EditDESCRIPCION.Name       , fmEdit  );
-   FormManager.AddComp(EditFiltroBCODIGO.Name     , fmBrowse);
-   FormManager.AddComp(EditFiltroBDESCRIPCION.Name, fmBrowse);
-   FormManager.AddComp(BtnRefresh.Name            , fmBrowse);
-   FormManager.AddComp(BtnAccept.Name             , fmEdit  );
-   FormManager.AddComp(BtnCancel.Name             , fmEdit  );
-   FormManager.AddComp(BtnDelete.Name             , fmBrowse);
-   FormManager.AddComp(BtnModify.Name             , fmBrowse);
-   FormManager.AddComp(BtnReport.Name             , fmBrowse);
-   FormManager.AddComp(Navigator.Name             , fmBrowse);
-   FormManager.AddComp(DataGrid.Name              , fmBrowse);
+   FormManager.AddComp(BtnNew.Name              , fmBrowse);
+   FormManager.AddComp(EditCD_PROJECT.Name      , fmEdit  );
+   FormManager.AddComp(EditDS_PROJECT.Name      , fmEdit  );
+   FormManager.AddComp(EditSearchCD_PROJECT.Name, fmBrowse);
+   FormManager.AddComp(EditSearchDS_PROJECT.Name, fmBrowse);
+   FormManager.AddComp(BtnRefresh.Name          , fmBrowse);
+   FormManager.AddComp(BtnAccept.Name           , fmEdit  );
+   FormManager.AddComp(BtnCancel.Name           , fmEdit  );
+   FormManager.AddComp(BtnDelete.Name           , fmBrowse);
+   FormManager.AddComp(BtnModify.Name           , fmBrowse);
+   FormManager.AddComp(BtnReport.Name           , fmBrowse);
+   FormManager.AddComp(Navigator.Name           , fmBrowse);
+   FormManager.AddComp(DataGrid.Name            , fmBrowse);
 
    ActivateTransactions(Self, DMRef.BDContab);
 
-   CrearFiltro;
-   FCampoOrden := 'ID_PROYECTO';
-   PrepararQuery;
+   {Filter Inicialization}
+   HFilter.Active := False;
+   HFilter.CreateDataSet;
+   HFilter.Active := True;
+   HFilter.Append;
+   HFilterBCODIGO.AsString      := '';
+   HFilterBDESCRIPCION.AsString := '';
+
+   FOrderField := 'ID_PROYECTO';
+   PrepareQuery;
 
    FormManager.Mode := fmEdit;
    FormManager.Mode := fmBrowse;
 end;
 
-procedure TWProyectos.CrearFiltro;
+procedure TWProyectos.PrepareQuery;
 begin
-   TBFiltro.Active := False;
-   TBFiltro.FieldDefs.Clear;
-   TBFiltro.FieldDefs.Add('BCODIGO'     , ftString, 10, False);
-   TBFiltro.FieldDefs.Add('BDESCRIPCION', ftstring, 50, False);
-   TBFiltro.CreateDataSet;
-   TBFiltro.Active := True;
-   TBFiltro.Append;
-   TBFiltro.FieldByName('BCODIGO').AsString      := '';
-   TBFiltro.FieldByName('BDESCRIPCION').AsString := '';
-end;
-
-procedure TWProyectos.PrepararQuery;
-begin
-   QFichero.DisableControls;
+   QData.DisableControls;
    try
-      QFichero.Close;
-      QFichero.ModifySQL.Clear;
-      QFichero.ModifySQL.Add('UPDATE PROYECTO                      ');
-      QFichero.ModifySQL.Add('  SET NOMBRE      = :NOMBRE,         ');
-      QFichero.ModifySQL.Add('      ID_PROYECTO = :ID_PROYECTO     ');
-      QFichero.ModifySQL.Add('WHERE ID_PROYECTO = :old_ID_PROYECTO ');
+      QData.Close;
+      QData.ModifySQL.Clear;
+      QData.ModifySQL.Add('UPDATE PROYECTO                      ');
+      QData.ModifySQL.Add('  SET NOMBRE      = :NOMBRE,         ');
+      QData.ModifySQL.Add('      ID_PROYECTO = :ID_PROYECTO     ');
+      QData.ModifySQL.Add('WHERE ID_PROYECTO = :old_ID_PROYECTO ');
 
-      QFichero.Close;
-      QFichero.SelectSQL.Clear;
-      QFichero.SelectSQL.Add('SELECT ID_PROYECTO,  ');
-      QFichero.SelectSQL.Add('       NOMBRE        ');
-      QFichero.SelectSQL.Add('FROM PROYECTO        ');
+      QData.Close;
+      QData.SelectSQL.Clear;
+      QData.SelectSQL.Add('SELECT ID_PROYECTO,  ');
+      QData.SelectSQL.Add('       NOMBRE        ');
+      QData.SelectSQL.Add('FROM PROYECTO        ');
 
-      if TBFiltro.FieldByName('BCODIGO').AsString <> '' then begin
-         QFichero.SelectSQL.Add('WHERE ID_PROYECTO LIKE :ID_PROYECTO');
+      if HFilterBCODIGO.AsString <> '' then begin
+         QData.SelectSQL.Add('WHERE ID_PROYECTO LIKE :ID_PROYECTO');
       end
       else
-      if TBFiltro.FieldByName('BDESCRIPCION').AsString <> '' then begin
-         QFichero.SelectSQL.Add('WHERE UPPER(NOMBRE) LIKE UPPER(:NOMBRE)');
+      if HFilterBDESCRIPCION.AsString <> '' then begin
+         QData.SelectSQL.Add('WHERE UPPER(NOMBRE) LIKE UPPER(:NOMBRE)');
       end;
 
-      if FCampoOrden <> '' then begin
-         QFichero.SelectSQL.Add('ORDER BY ' + FCampoOrden);
+      if FOrderField <> '' then begin
+         QData.SelectSQL.Add('ORDER BY ' + FOrderField);
       end;
 
-      if TbFiltro.FieldByName('BCODIGO').AsString <> '' then begin
-         QFichero.Params.ByName('ID_PROYECTO').AsString :=
-            Copy(TbFiltro.FieldByName('BCODIGO').AsString + '%', 1,
-            TbFiltro.FieldByName('BCODIGO').Size);
+      if HFilterBCODIGO.AsString <> '' then begin
+         QData.Params.ByName('ID_PROYECTO').AsString := Copy(HFilterBCODIGO.AsString + '%', 1, HFilterBCODIGO.Size);
       end else
-      if TbFiltro.FieldByName('BDESCRIPCION').AsString <> '' then begin
-         QFichero.Params.ByName('NOMBRE').AsString :=
-            Copy(TbFiltro.FieldByName('BDESCRIPCION').AsString + '%', 1,
-            TbFiltro.FieldByName('BDESCRIPCION').Size);
+      if HFilterBDESCRIPCION.AsString <> '' then begin
+         QData.Params.ByName('NOMBRE').AsString := Copy(HFilterBDESCRIPCION.AsString + '%', 1, HFilterBDESCRIPCION.Size);
       end;
 
-      QFichero.Prepare;
-      QFichero.Open;
+      QData.Prepare;
+      QData.Open;
    finally
-      QFichero.EnableControls;
+      QData.EnableControls;
    end;
 end;
 
-procedure TWProyectos.RefrescarBD;
+procedure TWProyectos.RefreshDB;
 begin
    DMRef.QProyecto.Close;
    DMRef.QProyectoNom.Close;
@@ -179,11 +191,11 @@ begin
 
    FormManager.Mode := fmEdit;
    
-   EditCODIGO.SetFocus;
+   EditCD_PROJECT.SetFocus;
    try
-      QFichero.Insert;
+      QData.Insert;
    except
-      DatabaseError('No se ha podido insertar un nuevo proyecto.');
+      DatabaseError(FLang.ImposibleInsert);
    end;
 end;
 
@@ -193,13 +205,12 @@ begin
       Exit;
    end;
 
-   if not QFichero.IsEmpty then begin
-      if MessageDlg('¿Desea borrar este proyecto?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
-         try QFichero.Delete;
-             QFichero.Transaction.CommitRetaining;
-             RefrescarBD;
-         except DatabaseError('No se ha podido borrar el proyecto seleccionado.' + #13 +
-                              'El proyecto seleccionado se encuentra referenciado en alguna analítica.');
+   if not QData.IsEmpty then begin
+      if MessageDlg(FLang.AskForDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+         try QData.Delete;
+             QData.Transaction.CommitRetaining;
+             RefreshDB;
+         except DatabaseError(FLang.ImposibleDelete + #13 + Format(FLang.ReferenceMessageText, [FLangProjects.TextProject, FLangProjects.TextAnalytics]));
          end;
       end;
    end;
@@ -211,7 +222,7 @@ begin
       BtnRefresh.Click;
       PDFExport.Author          := 'senCille Accounting';
       PDFExport.ShowDialog      := False;
-      PDFExport.FileName        := 'Proyectos.pdf';
+      PDFExport.FileName        := FLangProjects.TextProject+'.pdf';
       PDFExport.OpenAfterExport := True;
 
       FastReport.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
@@ -223,56 +234,48 @@ begin
 end;
 
 procedure TWProyectos.BtnAcceptClick(Sender: TObject);
-var
-   ha_insertado: Boolean;
 begin
-   // Comprobamos si el usuario ha insertado un nuevo registro.
-   ha_insertado := QFichero.State = dsInsert;
-
-   // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
+   {Force focus to the next taborder control}
    Perform(wm_NextDlgCtl, 0, 0);
 
-   if QFichero.FieldByName('ID_PROYECTO').AsString = '' then begin
-      EditCODIGO.SetFocus;
-      DatabaseError('No se puede dejar el código del proyecto en blanco.' + #13 +
-         'Por favor, revise los datos de entrada.');
+   if QDataID_PROYECTO.AsString = '' then begin
+      EditCD_PROJECT.SetFocus;
+      DatabaseError(Format(FLang.FieldCantBeLeftBlank, [FLang.TextCode]));
    end;
 
-   if QFichero.FieldByName('NOMBRE').AsString = '' then begin
-      EditDESCRIPCION.SetFocus;
-      DatabaseError('No se puede dejar el nombre del proyecto en blanco.' + #13 +
-         'Por favor, revise los datos de entrada.');
+   if QDataNOMBRE.AsString = '' then begin
+      EditDS_PROJECT.SetFocus;
+      DatabaseError(Format(FLang.FieldCantBeLeftBlank, [FLang.TextDescription]));
    end;
 
-   QFichero.Post;
-   QFichero.Transaction.CommitRetaining;
+   QData.Post;
+   QData.Transaction.CommitRetaining;
 
-   RefrescarBD;
-   
+   RefreshDB;
+
    FormManager.Mode := fmBrowse;
-  
-   DataGrid.SetFocus;
-   if ha_insertado then begin
-      if not (TbFiltro.State in dsEditModes) then begin
-         TbFiltro.Edit;
-      end;
-      TbFiltro.FieldByName('BCODIGO').AsString := QFicheroID_PROYECTO.AsString;
-      PrepararQuery;
-      LimpiarFiltro(Sender);
-   end;
 
+   DataGrid.SetFocus;
+   if QData.State = dsInsert then begin
+      if not (HFilter.State in dsEditModes) then begin
+         HFilter.Edit;
+      end;
+      HFilterBCODIGO.AsString := QDataID_PROYECTO.AsString;
+      PrepareQuery;
+      CleanFilter(Sender);
+   end;
 end;
 
 procedure TWProyectos.BtnCancelClick(Sender: TObject);
 begin
-   // Pasamos al siguiente campo antes de comprobar si se ha modificado el registro.
+   {force focus to the next taborder control}
    Perform(wm_NextDlgCtl, 0, 0);
 
-   if QFichero.Modified then begin
+   if QData.Modified then begin
    end;
-   if MessageDlg('¿Quiere anular las modificaciones realizadas a este proyecto?',  mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
-      try    QFichero.Cancel;
-      except DatabaseError('No se ha podido cancelar la operación.');
+   if MessageDlg(FLang.AskCancelEditing,  mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+      try    QData.Cancel;
+      except DatabaseError(FLang.ImposibleCancel);
       end;
       FormManager.Mode := fmBrowse;
    end;
@@ -281,28 +284,28 @@ end;
 procedure TWProyectos.FormKeyPress(Sender: TObject; var Key: Char);
 begin
    if (Key = Chr(VK_RETURN)) then begin
-      { Comprobacion del filtro por código }
-      if (EditFiltroBCODIGO.Focused) and (EditFiltroBCODIGO.Text <> '') then begin
-         if tbFiltro.State in dsEditModes then begin
+      { Check code can't be left in blank }
+      if (EditSearchCD_PROJECT.Focused) and (EditSearchCD_PROJECT.Text <> '') then begin
+         if HFilter.State in dsEditModes then begin
             Key := #0;
-            tbFiltro.Post;
+            HFilter.Post;
          end;
-         PrepararQuery;
+         PrepareQuery;
       end else
-      // Comprobacion del filtro por descripción
-      if (EditFiltroBDESCRIPCION.Focused) and (EditFiltroBDESCRIPCION.Text <> '') then begin
-         if tbFiltro.State in dsEditModes then begin
+      { Check description can be left blank }
+      if (EditSearchDS_PROJECT.Focused) and (EditSearchDS_PROJECT.Text <> '') then begin
+         if HFilter.State in dsEditModes then begin
             Key := #0;
-            tbFiltro.Post;
+            HFilter.Post;
          end;
-         PrepararQuery;
+         PrepareQuery;
       end;
    end;
 end;
 
 procedure TWProyectos.FormShow(Sender: TObject);
 begin
-   EditFiltroBCODIGO.SetFocus;
+   EditSearchCD_PROJECT.SetFocus;
 end;
 
 procedure TWProyectos.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -310,32 +313,31 @@ begin
    case key of
       VK_ESCAPE: begin
          key := 0;
-         if QFichero.State in dsEditModes then begin
+         if QData.State in dsEditModes then begin
             BtnCancel.Click;
          end;
       end;
       VK_SPACE: begin
-         if (ActiveControl <> EditFiltroBCODIGO     ) and
-            (ActiveControl <> EditFiltroBDESCRIPCION) and not
-            (QFichero.State in dsEditModes) then begin
-            //Anulamos el evento de la tecla
+         if (ActiveControl <> EditSearchCD_PROJECT) and
+            (ActiveControl <> EditSearchDS_PROJECT) and not
+            (QData.State in dsEditModes) then begin
             Key := 0;
             DataGrid.OnDblClick(Self);
          end;
       end;
       VK_F4: begin
-         if not (QFichero.State in dsEditModes) then begin
+         if not (QData.State in dsEditModes) then begin
             BtnNew.Click;
          end;
       end;
       VK_F9: begin
-         if QFichero.State in dsEditModes then begin
+         if QData.State in dsEditModes then begin
             BtnAccept.Click;
          end;
       end;
       VK_F12: begin
-         if not (QFichero.State in dsEditModes) then begin
-            VerTabla(Sender);
+         if not (QData.State in dsEditModes) then begin
+            ShowData(Sender);
          end;
       end;
    end;
@@ -343,29 +345,31 @@ end;
 
 procedure TWProyectos.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-   if QFichero.State = dsBrowse then begin
+   if QData.State = dsBrowse then begin
       FormManager.Free;
+      FLangProjects.Free;
+      FLang.Free;
       Action := caFree;
    end
-   else ShowMessage('No puede cerrar el formulario estando en edición');
+   else ShowMessage(FLang.CloseNotAllowed);
 end;
 
-procedure TWProyectos.LimpiarFiltro(Sender: TObject);
+procedure TWProyectos.CleanFilter(Sender: TObject);
 begin
-   if not (TbFiltro.state in dseditmodes) then begin
-      TbFiltro.edit;
+   if not (HFilter.state in dseditmodes) then begin
+      HFilter.edit;
    end;
-   TbFiltro.FieldByName('BCODIGO').AsString      := '';
-   TbFiltro.FieldByName('BDESCRIPCION').AsString := '';
+   HFilterBCODIGO.AsString      := '';
+   HFilterBDESCRIPCION.AsString := '';
 end;
 
-procedure TWProyectos.VerTabla(Sender: TObject);
+procedure TWProyectos.ShowData(Sender: TObject);
 begin
-   TbFiltro.Edit;
-   TbFiltro.FieldByName('BCODIGO').AsString      := '';
-   TbFiltro.FieldByName('BDESCRIPCION').AsString := '';
-   TbFiltro.Post;
-   PrepararQuery;
+   HFilter.Edit;
+   HFilterBCODIGO.AsString      := '';
+   HFilterBDESCRIPCION.AsString := '';
+   HFilter.Post;
+   PrepareQuery;
 end;
 
 procedure TWProyectos.DataGridDblClick(Sender: TObject);
@@ -376,20 +380,20 @@ end;
 procedure TWProyectos.DataGridTitleClick(Column: TColumn);
 begin
    if (UpperCase(Column.FieldName) = 'ID_PROYECTO') or (UpperCase(Column.FieldName) = 'NOMBRE') then begin
-      FCampoOrden := UpperCase(Column.FieldName);
-      PrepararQuery;
+      FOrderField := UpperCase(Column.FieldName);
+      PrepareQuery;
    end;
    DataGrid.SetFocus;
 end;
 
 procedure TWProyectos.BtnModifyClick(Sender: TObject);
 begin
-   if (DMControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), MODIFICAR)) and (not QFichero.IsEmpty) then begin
-      try QFichero.Edit;
-      except MessageDlg('No se puede editar el registro seleccionado.', mtInformation, [mbOK], 0);
+   if (DMControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), MODIFICAR)) and (not QData.IsEmpty) then begin
+      try QData.Edit;
+      except MessageDlg(FLang.ImposibleModify, mtInformation, [mbOK], 0);
       end;
       FormManager.Mode := fmEdit;
-      EditCODIGO.SetFocus;
+      EditCD_PROJECT.SetFocus;
    end;
 end;
 

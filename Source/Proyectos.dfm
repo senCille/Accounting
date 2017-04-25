@@ -24,7 +24,7 @@ object WProyectos: TWProyectos
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 16
-  object PanelSombra: TPanel
+  object Panel99: TPanel
     Left = 0
     Top = 41
     Width = 358
@@ -38,7 +38,7 @@ object WProyectos: TWProyectos
       Width = 358
       Height = 255
       Align = alClient
-      DataSource = SFichero
+      DataSource = SData
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -69,7 +69,7 @@ object WProyectos: TWProyectos
           Visible = True
         end>
     end
-    object Datos: TGroupBox
+    object GroupBoxData: TGroupBox
       Left = 0
       Top = 325
       Width = 358
@@ -78,7 +78,7 @@ object WProyectos: TWProyectos
       Color = clBtnFace
       ParentColor = False
       TabOrder = 1
-      object Label1: TLabel
+      object LabelFieldProject: TLabel
         Left = 8
         Top = 10
         Width = 88
@@ -92,7 +92,7 @@ object WProyectos: TWProyectos
         Font.Style = []
         ParentFont = False
       end
-      object Label2: TLabel
+      object LabelFieldName: TLabel
         Left = 9
         Top = 47
         Width = 77
@@ -106,14 +106,14 @@ object WProyectos: TWProyectos
         Font.Style = []
         ParentFont = False
       end
-      object EditDESCRIPCION: TDBEdit
+      object EditDS_PROJECT: TDBEdit
         Left = 9
         Top = 61
         Width = 266
         Height = 20
         AutoSize = False
         DataField = 'NOMBRE'
-        DataSource = SFichero
+        DataSource = SData
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -122,14 +122,14 @@ object WProyectos: TWProyectos
         ParentFont = False
         TabOrder = 1
       end
-      object EditCODIGO: TDBEdit
+      object EditCD_PROJECT: TDBEdit
         Left = 8
         Top = 25
         Width = 97
         Height = 20
         AutoSize = False
         DataField = 'ID_PROYECTO'
-        DataSource = SFichero
+        DataSource = SData
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
@@ -139,7 +139,7 @@ object WProyectos: TWProyectos
         TabOrder = 0
       end
     end
-    object FiltroBuscar: TGroupBox
+    object GroupBoxSearch: TGroupBox
       Left = 0
       Top = 0
       Width = 358
@@ -155,21 +155,21 @@ object WProyectos: TWProyectos
       ParentColor = False
       ParentFont = False
       TabOrder = 2
-      object Label4: TLabel
+      object LabelSearchName: TLabel
         Left = 17
         Top = 43
         Width = 37
         Height = 13
         Caption = 'Nombre'
       end
-      object Label5: TLabel
+      object LabelSearchProject: TLabel
         Left = 16
         Top = 21
         Width = 43
         Height = 13
         Caption = 'Proyecto'
       end
-      object EditFiltroBDESCRIPCION: TDBEdit
+      object EditSearchDS_PROJECT: TDBEdit
         Left = 74
         Top = 40
         Width = 268
@@ -186,9 +186,8 @@ object WProyectos: TWProyectos
         MaxLength = 50
         ParentFont = False
         TabOrder = 1
-        OnEnter = LimpiarFiltro
       end
-      object EditFiltroBCODIGO: TDBEdit
+      object EditSearchCD_PROJECT: TDBEdit
         Left = 74
         Top = 18
         Width = 97
@@ -205,7 +204,6 @@ object WProyectos: TWProyectos
         MaxLength = 10
         ParentFont = False
         TabOrder = 0
-        OnEnter = LimpiarFiltro
       end
     end
   end
@@ -324,7 +322,7 @@ object WProyectos: TWProyectos
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-      OnClick = VerTabla
+      OnClick = ShowData
     end
     object BtnNew: TButton
       Left = 10
@@ -395,7 +393,7 @@ object WProyectos: TWProyectos
       Top = 164
       Width = 80
       Height = 28
-      DataSource = SFichero
+      DataSource = SData
       VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
       TabOrder = 4
     end
@@ -445,7 +443,7 @@ object WProyectos: TWProyectos
       Width = 753
       Height = 1
     end
-    object Label3: TLabel
+    object LabelFormTitle: TLabel
       Left = 14
       Top = 8
       Width = 149
@@ -460,14 +458,15 @@ object WProyectos: TWProyectos
       Transparent = True
     end
   end
-  object SFichero: TDataSource
+  object SData: TDataSource
     AutoEdit = False
-    DataSet = QFichero
+    DataSet = QData
     Left = 311
     Top = 191
   end
-  object QFichero: TIBDataSet
-    Transaction = Transaccion
+  object QData: TIBDataSet
+    Database = DMRef.BDContab
+    Transaction = Transaction
     BufferChunks = 32
     CachedUpdates = False
     DeleteSQL.Strings = (
@@ -509,33 +508,35 @@ object WProyectos: TWProyectos
     UniDirectional = False
     Left = 266
     Top = 190
-    object QFicheroID_PROYECTO: TIBStringField
-      DisplayLabel = 'PROYECTO'
-      DisplayWidth = 11
+    object QDataID_PROYECTO: TWideStringField
       FieldName = 'ID_PROYECTO'
-      Origin = 'PROYECTO.ID_PROYECTO'
-      Required = True
       Size = 10
     end
-    object QFicheroNOMBRE: TIBStringField
-      DisplayWidth = 45
+    object QDataNOMBRE: TWideStringField
       FieldName = 'NOMBRE'
-      Origin = 'PROYECTO.NOMBRE'
       Size = 50
     end
   end
-  object Transaccion: TIBTransaction
+  object Transaction: TIBTransaction
     Left = 266
     Top = 141
   end
-  object TbFiltro: TClientDataSet
+  object HFilter: TClientDataSet
     Aggregates = <>
     Params = <>
     Left = 263
     Top = 239
+    object HFilterBCODIGO: TStringField
+      FieldName = 'BCODIGO'
+      Size = 10
+    end
+    object HFilterBDESCRIPCION: TStringField
+      FieldName = 'BDESCRIPCION'
+      Size = 50
+    end
   end
   object sFiltro: TDataSource
-    DataSet = TbFiltro
+    DataSet = HFilter
     Left = 313
     Top = 239
   end
@@ -824,7 +825,7 @@ object WProyectos: TWProyectos
     FieldAliases.Strings = (
       'ID_PROYECTO=ID_PROYECTO'
       'NOMBRE=NOMBRE')
-    DataSource = SFichero
+    DataSource = SData
     BCDToCurrency = False
     Left = 160
     Top = 193
