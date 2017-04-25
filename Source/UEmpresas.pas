@@ -83,7 +83,7 @@ var WEmpresas: TWEmpresas;
 
 implementation
 
-uses DM, DMConta, DMControl, Tools, Globales, UEspere, UUtilEmpresas;
+uses DM, DMConta, DMControl, Tools, Globales, Processing, UUtilEmpresas;
 
 {$R *.DFM}
 

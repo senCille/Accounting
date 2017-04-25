@@ -54,7 +54,7 @@ var WGeneracionAsiento: TWGeneracionAsiento;
 
 implementation
 
-uses DM, Globales, UCarteraEfectos, UEspere;
+uses DM, Globales, UCarteraEfectos, Processing;
 
 {$R *.DFM}
 

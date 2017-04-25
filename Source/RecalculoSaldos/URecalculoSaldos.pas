@@ -26,8 +26,9 @@ type
 var WRecalculoSaldos: TWRecalculoSaldos;
 
 implementation
+
 uses System.DateUtils,
-     DM, Globales, UEspere;
+     DM, Globales, Processing;
 
 {$R *.DFM}
 
@@ -37,7 +38,7 @@ begin
 end;
 
 procedure TWRecalculoSaldos.BtnEdtProcesarClick(Sender: TObject);
-var InProgress :TEspere;
+var InProgress :TProcessingView;
     Q          :TIBSQL;
 begin
    if StrToInt(EditEjercicio.Text) = 0 then begin

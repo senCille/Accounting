@@ -148,7 +148,7 @@ var WIrpf110: TWIrpf110;
 implementation
 
 uses System.Math, System.DateUtils, System.StrUtils,
-     DM, Globales, UEspere, ccStr;
+     DM, Globales, Processing, ccStr;
 
 {$R *.DFM}
 

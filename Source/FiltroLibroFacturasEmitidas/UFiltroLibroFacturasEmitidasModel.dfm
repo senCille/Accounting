@@ -2700,7 +2700,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 68.001303760000000000
           Height = 13.995599590000000000
           DataField = 'ClienteProveedor'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2717,7 +2717,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 1015.000340560000000000
           Height = 15.998750490000000000
           DataField = 'Titulo'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2771,7 +2771,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 61.001614200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3044,7 +3044,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 73.999417870000000000
           Height = 13.995599590000000000
           DataField = 'Importe'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3062,7 +3062,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 37.001598700000000000
           Height = 13.999379120000000000
           DataField = 'NumLinea'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3080,7 +3080,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 68.001303760000000000
           Height = 13.999379120000000000
           DataField = 'Subcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3097,7 +3097,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 228.000147250000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3114,7 +3114,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 46.998455550000000000
           Height = 13.999379120000000000
           DataField = 'Asiento'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3132,7 +3132,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 24.000015500000000000
           Height = 13.999379120000000000
           DataField = 'Recargo'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3150,7 +3150,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 73.001621950000000000
           Height = 13.999379120000000000
           DataField = 'TotalFactura'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3168,7 +3168,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 24.000015500000000000
           Height = 13.999379120000000000
           DataField = 'IVA'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3186,7 +3186,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 80.999107430000000000
           Height = 13.999379120000000000
           DataField = 'NIF'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3203,7 +3203,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 78.001940140000000000
           Height = 13.999379120000000000
           DataField = 'Factura'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3221,7 +3221,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 58.000667380000000000
           Height = 13.999379120000000000
           DataField = 'Fecha'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3239,7 +3239,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 63.998781490000000000
           Height = 13.999379120000000000
           DataField = 'cuotarecargo'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3257,7 +3257,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 73.999417870000000000
           Height = 13.999379120000000000
           DataField = 'TotalBruto'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3275,7 +3275,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 66.001932390000000000
           Height = 13.999379120000000000
           DataField = 'CuotaIVA'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3301,7 +3301,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 203.002335830000000000
           Height = 10.998432300000000000
           DataField = 'DescApunte'
-          DataSet = DataModuleFiltroSitPgGg.DBXENLACE2
+          DataSet = DataModuleAmortizaciones.Enlace2
           DataSetName = 'ENLACE2'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4002,7 +4002,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 203.002335830000000000
           Height = 10.998432300000000000
           DataField = 'DescApunte'
-          DataSet = DataModuleFiltroSitPgGg.DBXENLACE2
+          DataSet = DataModuleAmortizaciones.Enlace2
           DataSetName = 'ENLACE2'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4019,7 +4019,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
           Width = 203.002335830000000000
           Height = 10.998432300000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroSitPgGg.DBXENLACE2
+          DataSet = DataModuleAmortizaciones.Enlace2
           DataSetName = 'ENLACE2'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack

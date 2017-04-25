@@ -28,12 +28,12 @@ var WUtilEmpresas: TWUtilEmpresas;
 
 implementation
 
-uses DM, Globales, UActualizacionBD, UEspere;
+uses DM, Globales, UActualizacionBD, Processing;
 
 {$R *.DFM}
 
 procedure TWUtilEmpresas.BtnAcceptClick(Sender: TObject);
-var InProgress       :TEspere;
+var InProgress       :TProcessingView;
     cUbicacionBackup :string;
     i                :Word;
     Q                :TIBSQL;

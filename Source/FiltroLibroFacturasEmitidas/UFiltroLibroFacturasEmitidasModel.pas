@@ -192,8 +192,9 @@ var
 
 implementation
 
-uses Forms, UEspere, Math, DateUtils,
-     Globales, DMControl, DM, DMConta, UIVA300;
+uses System.Math, System.DateUtils,
+     VCL.Forms,
+     DMControl, DM, DMConta, Globales, Processing, UIVA300;
 
 {$R *.dfm}
 
@@ -289,7 +290,7 @@ var
    QApuntes216         :TIBSQL;
    QApuntes            :TIBSQL;            
    QSubcuentas         :TIBSQL;
-   InProgress          :TEspere;
+   InProgress          :TProcessingView;
    AsientoAnterior     :Integer;
    NumLinea            :Integer;
    DescInforme         :string;

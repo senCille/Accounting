@@ -54,6 +54,10 @@ object WCarteraEfectos: TWCarteraEfectos
       TabOrder = 0
       object TabSheetCarteraEfectos: TTabSheet
         Caption = 'Cartera Efectos'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object FiltroBuscar: TGroupBox
           Left = 0
           Top = 0
@@ -209,6 +213,7 @@ object WCarteraEfectos: TWCarteraEfectos
             item
               Expanded = False
               FieldName = 'FVENCIMIENTO'
+              Width = 64
               Visible = True
             end
             item
@@ -219,51 +224,61 @@ object WCarteraEfectos: TWCarteraEfectos
             item
               Expanded = False
               FieldName = 'SUBCUENTA'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CONCEPTO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CalcImporte'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'DescSituacion'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'ASIENTORIESGO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'SUBCTABANCO'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'COMERCIAL'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'CalcComision'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'FACTCLIENT'
+              Width = 64
               Visible = True
             end
             item
               Expanded = False
               FieldName = 'FACTPROVEEDOR'
+              Width = 64
               Visible = True
             end>
         end
@@ -271,6 +286,10 @@ object WCarteraEfectos: TWCarteraEfectos
       object TabSheetDatos: TTabSheet
         Caption = 'Datos'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0
@@ -750,6 +769,10 @@ object WCarteraEfectos: TWCarteraEfectos
       object TabSheetFiltro: TTabSheet
         Caption = 'Filtro'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBoxREMESAS: TGroupBox
           Left = 0
           Top = 0

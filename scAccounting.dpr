@@ -88,7 +88,7 @@ uses
   UDetalleIVA in 'Source\UDetalleIVA.pas' {WDetalleIVA},
   UEmpresas in 'Source\UEmpresas.pas' {WEmpresas},
   UEnlaceContable in 'Source\UEnlaceContable.pas' {WEnlaceContable},
-  UEspere in 'Source\UEspere.pas' {WEspere},
+  Processing in 'Source\Processing.pas' {ProcessingForm},
   UFormasPago in 'Source\UFormasPago.pas' {WFormasPago},
   UGeneracionAsiento in 'Source\UGeneracionAsiento.pas' {WGeneracionAsiento},
   UGrupos in 'Source\UGrupos.pas' {WGrupos},

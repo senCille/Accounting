@@ -1,7 +1,5 @@
 object DataModuleFiltroBalances: TDataModuleFiltroBalances
   OldCreateOrder = False
-  Left = 935
-  Top = 298
   Height = 540
   Width = 713
   object QSubCuentas: TIBDataSet
@@ -321,6 +319,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 119
     object IBStringField1: TIBStringField
@@ -358,6 +358,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       '               ULTIMA'
       'FROM EMPRESAS'
       'WHERE CERRADA = '#39'N'#39)
+    ParamCheck = True
+    UniDirectional = False
     Left = 98
     Top = 28
     object QEmpresasNOMBRE: TIBStringField
@@ -402,16 +404,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
   object DBEmpresa: TIBDatabase
     LoginPrompt = False
     DefaultTransaction = Transaccion
-    IdleTimer = 0
-    SQLDialect = 3
-    TraceFlags = []
+    ServerType = 'IBServer'
     Left = 424
     Top = 16
   end
   object Transaccion: TIBTransaction
-    Active = False
     DefaultDatabase = DBEmpresa
-    AutoStopAction = saNone
     Left = 488
     Top = 16
   end
@@ -735,6 +733,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 175
     object QAnaliticasID_PROYECTO: TIBStringField
@@ -1090,6 +1090,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 223
     object QDelegacionesID_DELEGACION: TIBStringField
@@ -1425,6 +1427,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 271
     object QDepartamentosID_DEPARTAMENTO: TIBStringField
@@ -1760,6 +1764,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 319
     object QSeccionesID_SECCION: TIBStringField
@@ -2095,6 +2101,8 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       
         '  SUBCUENTA                      =:SUBCUENTA                    ' +
         '   ')
+    ParamCheck = True
+    UniDirectional = False
     Left = 107
     Top = 367
     object QProyectosID_PROYECTO: TIBStringField
@@ -2376,7 +2384,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     Top = 135
   end
   object FastReportSumasSaldos: TfrxReport
-    Version = '4.15'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -2411,6 +2419,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       TopMargin = 6.350000000000000000
       BottomMargin = 12.700000000000000000
       object Header1: TfrxHeader
+        FillType = ftBrush
         Height = 125.000395690000000000
         Top = 18.897650000000000000
         Width = 793.701300000000000000
@@ -2419,7 +2428,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 15.998750490000000000
           Width = 191.236658940000000000
           Height = 37.001598700000000000
-          ShowHint = False
           Curve = 2
           Shape = skRoundRectangle
         end
@@ -2428,7 +2436,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 68.560674200000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'FechaImpresion'
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
@@ -2437,7 +2444,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."FechaImpresion"]')
           ParentFont = False
         end
@@ -2446,7 +2453,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 90.001947890000000000
           Width = 690.002335390000000000
           Height = 30.999705060000000000
-          ShowHint = False
           Curve = 2
           Shape = skRoundRectangle
         end
@@ -2455,13 +2461,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 45.558454620000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
         end
@@ -2470,14 +2475,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 34.998447800000000000
           Width = 51.560348260000010000
           Height = 13.001583200000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'P'#195#161'gina :')
+          Memo.UTF8W = (
+            'P'#225'gina :')
           ParentFont = False
         end
         object SystemVariable2: TfrxMemoView
@@ -2485,13 +2489,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 34.998447800000000000
           Width = 15.560325010000000000
           Height = 13.001583200000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Page#]')
           ParentFont = False
         end
@@ -2500,14 +2503,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 73.001621950000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Subcuenta')
           ParentFont = False
         end
@@ -2516,14 +2518,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 311.002405580000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'Descripci'#195#179'n')
+          Memo.UTF8W = (
+            'Descripci'#243'n')
           ParentFont = False
         end
         object InformeLabel1: TfrxMemoView
@@ -2531,14 +2532,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 39.998765990000000000
           Width = 269.472929940000000000
           Height = 15.998750490000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'BALANCE DE SUMAS Y SALDOS')
           ParentFont = False
         end
@@ -2547,14 +2547,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Suma Debe')
           ParentFont = False
         end
@@ -2563,14 +2562,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Suma Haber')
           ParentFont = False
         end
@@ -2579,7 +2577,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 45.781446890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DisplayFormat.FormatStr = 'hh:mm am/pm'
           DisplayFormat.Kind = fkDateTime
           Font.Charset = ANSI_CHARSET
@@ -2587,7 +2584,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Time]')
           ParentFont = False
         end
@@ -2596,14 +2593,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Saldo')
           ParentFont = False
         end
@@ -2612,7 +2608,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 37.001598700000000000
           Width = 16.781113200000000000
           Height = 10.998432300000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
@@ -2626,13 +2621,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 15.118120000000010000
           Width = 547.000038310000100000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
         end
@@ -2641,14 +2635,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 66.119097820000010000
           Width = 561.139260039999900000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[DESCRIPTION]')
           ParentFont = False
         end
@@ -2657,19 +2650,19 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 55.812319510000010000
           Width = 168.068140040000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[USER_NAME]')
           ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 15.004734100000000000
         Top = 166.299320000000000000
         Width = 793.701300000000000000
@@ -2680,7 +2673,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 34.998447800000000000
           Width = 72.000046500000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'Subcuenta'
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
@@ -2690,7 +2682,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Subcuenta"]')
           ParentFont = False
         end
@@ -2698,7 +2690,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 116.001334760000000000
           Width = 305.000511940000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'DescSubcuenta'
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
@@ -2707,7 +2698,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."DescSubcuenta"]')
           ParentFont = False
         end
@@ -2715,7 +2706,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 428.999332180000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2726,7 +2716,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Debe"]')
           ParentFont = False
         end
@@ -2734,7 +2724,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 528.000341000000100000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2745,7 +2734,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Haber"]')
           ParentFont = False
         end
@@ -2753,7 +2742,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 627.001349820000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2764,12 +2752,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Saldo"]')
           ParentFont = False
         end
       end
       object Footer1: TfrxFooter
+        FillType = ftBrush
         Height = 30.999705060000000000
         Top = 204.094620000000000000
         Width = 793.701300000000000000
@@ -2777,7 +2766,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 32.999076430000000000
           Top = 3.000946819999996000
           Width = 690.002335390000000000
-          ShowHint = False
+          Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Label13: TfrxMemoView
@@ -2785,13 +2774,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 54.001924640000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Subtotal :')
           ParentFont = False
         end
@@ -2800,7 +2788,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2811,7 +2798,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaDebe"]')
           ParentFont = False
         end
@@ -2820,7 +2807,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2831,7 +2817,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaHaber"]')
           ParentFont = False
         end
@@ -2840,7 +2826,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2851,12 +2836,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaSaldo"]')
           ParentFont = False
         end
       end
       object ReportSummary1: TfrxReportSummary
+        FillType = ftBrush
         Height = 49.999402370000000000
         Top = 294.803340000000000000
         Width = 793.701300000000000000
@@ -2864,7 +2850,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 32.999076430000000000
           Top = 6.999689559999980000
           Width = 690.002335390000000000
-          ShowHint = False
+          Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Label3: TfrxMemoView
@@ -2872,13 +2858,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 54.001924640000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Total :')
           ParentFont = False
         end
@@ -2887,7 +2872,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2898,7 +2882,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaDebe"]')
           ParentFont = False
         end
@@ -2907,7 +2891,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2918,7 +2901,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaHaber"]')
           ParentFont = False
         end
@@ -2927,7 +2910,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = DataModuleBalAcumulados.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -2938,7 +2920,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaSaldo"]')
           ParentFont = False
         end
@@ -2955,6 +2937,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     Background = False
     HTMLTags = True
     Quality = 95
+    Transparency = False
     Author = 'FastReport'
     Subject = 'FastReport PDF export'
     ProtectionFlags = [ePrint, eModify, eCopy, eAnnot]
@@ -2964,6 +2947,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     FitWindow = False
     CenterWindow = False
     PrintScaling = False
+    PdfA = False
     Left = 329
     Top = 330
   end
@@ -3044,7 +3028,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     Top = 209
   end
   object FastReportSumasSaldosSaldo: TfrxReport
-    Version = '4.15'
+    Version = '5.3.14'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
@@ -3079,6 +3063,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
       TopMargin = 6.350000000000000000
       BottomMargin = 12.700000000000000000
       object Header1: TfrxHeader
+        FillType = ftBrush
         Height = 125.000395690000000000
         Top = 18.897650000000000000
         Width = 793.701300000000000000
@@ -3087,13 +3072,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 15.998750490000000000
           Width = 547.000038310000100000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENTERPRISE_NAME]')
           ParentFont = False
         end
@@ -3102,7 +3086,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 15.998750490000000000
           Width = 183.677598940000000000
           Height = 37.001598700000000000
-          ShowHint = False
           Curve = 2
           Shape = skRoundRectangle
         end
@@ -3111,7 +3094,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 64.781144200000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'FechaImpresion'
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
@@ -3120,7 +3102,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."FechaImpresion"]')
           ParentFont = False
         end
@@ -3129,7 +3111,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 90.001947890000000000
           Width = 734.997640040000000000
           Height = 30.999705060000000000
-          ShowHint = False
           Curve = 2
           Shape = skRoundRectangle
         end
@@ -3138,13 +3119,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 49.337984620000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Fecha :')
           ParentFont = False
         end
@@ -3153,14 +3133,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 34.998447800000000000
           Width = 55.339878260000010000
           Height = 13.001583200000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'P'#195#161'gina :')
+          Memo.UTF8W = (
+            'P'#225'gina :')
           ParentFont = False
         end
         object SystemVariable2: TfrxMemoView
@@ -3168,13 +3147,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 34.998447800000000000
           Width = 11.780795010000000000
           Height = 13.001583200000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Tahoma'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Page#]')
           ParentFont = False
         end
@@ -3183,14 +3161,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 73.001621950000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Subcuenta')
           ParentFont = False
         end
@@ -3199,14 +3176,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 528.000341000000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
-            'Descripci'#195#179'n')
+          Memo.UTF8W = (
+            'Descripci'#243'n')
           ParentFont = False
         end
         object LineaDescripcion: TfrxMemoView
@@ -3214,14 +3190,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 66.999728310000000000
           Width = 561.139260039999900000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[DESCRIPTION]')
           ParentFont = False
         end
@@ -3230,14 +3205,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 39.998765990000000000
           Width = 273.252459940000000000
           Height = 15.998750490000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'BALANCE DE SUMAS Y SALDOS')
           ParentFont = False
         end
@@ -3246,13 +3220,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 20.001272760000000000
           Width = 45.781446890000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[Time]')
           ParentFont = False
         end
@@ -3261,14 +3234,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 101.000380190000000000
           Width = 109.999441120000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Saldo')
           ParentFont = False
         end
@@ -3277,7 +3249,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 37.001598700000000000
           Width = 16.781113200000000000
           Height = 12.000007750000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -3291,19 +3262,19 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 56.692949999999990000
           Width = 168.068140040000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           HAlign = haCenter
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[USER_NAME]')
           ParentFont = False
         end
       end
       object MasterData1: TfrxMasterData
+        FillType = ftBrush
         Height = 15.004734100000000000
         Top = 166.299320000000000000
         Width = 793.701300000000000000
@@ -3314,7 +3285,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 34.998447800000000000
           Width = 72.000046500000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'Subcuenta'
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
@@ -3324,7 +3294,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Subcuenta"]')
           ParentFont = False
         end
@@ -3332,7 +3302,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 116.001334760000000000
           Width = 528.000341000000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataField = 'DescSubcuenta'
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
@@ -3341,7 +3310,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."DescSubcuenta"]')
           ParentFont = False
         end
@@ -3349,7 +3318,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 651.001365320000000000
           Width = 109.999441120000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -3360,12 +3328,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."Saldo"]')
           ParentFont = False
         end
       end
       object Footer1: TfrxFooter
+        FillType = ftBrush
         Height = 30.999705060000000000
         Top = 204.094620000000000000
         Width = 793.701300000000000000
@@ -3373,7 +3342,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 32.999076430000000000
           Top = 3.000946819999996000
           Width = 735.001419570000000000
-          ShowHint = False
+          Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Label13: TfrxMemoView
@@ -3381,13 +3350,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 54.001924640000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Subtotal :')
           ParentFont = False
         end
@@ -3396,7 +3364,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 109.999441120000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -3407,12 +3374,13 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaSaldo"]')
           ParentFont = False
         end
       end
       object ReportSummary1: TfrxReportSummary
+        FillType = ftBrush
         Height = 49.999402370000000000
         Top = 294.803340000000000000
         Width = 793.701300000000000000
@@ -3420,7 +3388,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 32.999076430000000000
           Top = 6.999689559999980000
           Width = 735.001419570000000000
-          ShowHint = False
+          Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Label3: TfrxMemoView
@@ -3428,13 +3396,12 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 54.001924640000000000
           Height = 13.999379120000000000
-          ShowHint = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = [fsBold]
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             'Total :')
           ParentFont = False
         end
@@ -3443,7 +3410,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 109.999441120000000000
           Height = 13.999379120000000000
-          ShowHint = False
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
@@ -3454,7 +3420,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          Memo.UTF8 = (
+          Memo.UTF8W = (
             '[ENLACE1."TotalSumaSaldo"]')
           ParentFont = False
         end

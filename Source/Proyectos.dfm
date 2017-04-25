@@ -183,7 +183,6 @@ object WProyectos: TWProyectos
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
-        MaxLength = 50
         ParentFont = False
         TabOrder = 1
       end
@@ -201,7 +200,6 @@ object WProyectos: TWProyectos
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
-        MaxLength = 10
         ParentFont = False
         TabOrder = 0
       end

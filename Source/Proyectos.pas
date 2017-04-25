@@ -61,10 +61,9 @@ type
     procedure DataGridTitleClick(Column: TColumn);
     procedure BtnModifyClick(Sender: TObject);
   private
-    FormManager   :TccFormHandler;
-    FLang         :TLangCommon;
-    FLangProjects :TLangProjects;
-    FOrderField   :string;
+    FormManager :TccFormHandler;
+    FLang       :TLangProjects;
+    FOrderField :string;
     procedure PrepareQuery;
     procedure RefreshDB;
   public
@@ -80,23 +79,22 @@ uses Globales, Tools, DM, DMControl;
 
 procedure TWProyectos.FormCreate(Sender: TObject);
 begin
-   FLang := TLangCommon.Create;
-   BtnAccept.Caption      := FLang.BtnAccept;
-   BtnCancel.Caption      := FLang.BtnCancel;
-   BtnNew.Caption         := FLang.BtnNew;
-   BtnModify.Caption      := FLang.BtnModify;
-   BtnDelete.Caption      := FLang.BtnDelete;
-   BtnReport.Caption      := FLang.BtnReport;
-   GroupBoxSearch.Caption := FLang.TextSearch;
-   DataGrid.Columns[0].Title.Caption := FLang.TextCode;
-   DataGrid.Columns[1].Title.Caption := FLang.TextDescription;
+   BtnAccept.Caption      := Config.Lang.BtnAccept;
+   BtnCancel.Caption      := Config.Lang.BtnCancel;
+   BtnNew.Caption         := Config.Lang.BtnNew;
+   BtnModify.Caption      := Config.Lang.BtnModify;
+   BtnDelete.Caption      := Config.Lang.BtnDelete;
+   BtnReport.Caption      := Config.Lang.BtnReport;
+   GroupBoxSearch.Caption := Config.Lang.TextSearch;
+   DataGrid.Columns[0].Title.Caption := Config.Lang.TextCode;
+   DataGrid.Columns[1].Title.Caption := Config.Lang.TextDescription;
 
-   FLangProjects := TLangProjects.Create;
-   LabelFormTitle.Caption     := FLangProjects.FormTitle;
-   LabelSearchProject.Caption := FLangProjects.TextProject;
-   LabelSearchName.Caption    := FLang.TextName;
-   LabelFieldProject.Caption  := FLangProjects.TextProject;
-   LabelFieldName.Caption     := FLang.TextName;
+   FLang := TLangProjects.Create;
+   LabelFormTitle.Caption     := FLang.FormTitle;
+   LabelSearchProject.Caption := FLang.TextProject;
+   LabelSearchName.Caption    := Config.Lang.TextName;
+   LabelFieldProject.Caption  := FLang.TextProject;
+   LabelFieldName.Caption     := Config.Lang.TextName;
 
    Self.Caption := '';
    FormManager := TccFormHandler.Create(Self);
@@ -195,7 +193,7 @@ begin
    try
       QData.Insert;
    except
-      DatabaseError(FLang.ImposibleInsert);
+      DatabaseError(Config.Lang.ImposibleInsert);
    end;
 end;
 
@@ -206,11 +204,11 @@ begin
    end;
 
    if not QData.IsEmpty then begin
-      if MessageDlg(FLang.AskForDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+      if MessageDlg(Config.Lang.AskForDelete, mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
          try QData.Delete;
              QData.Transaction.CommitRetaining;
              RefreshDB;
-         except DatabaseError(FLang.ImposibleDelete + #13 + Format(FLang.ReferenceMessageText, [FLangProjects.TextProject, FLangProjects.TextAnalytics]));
+         except DatabaseError(Config.Lang.ImposibleDelete + #13 + Format(Config.Lang.ReferenceMessageText, [FLang.TextProject, FLang.TextAnalytics]));
          end;
       end;
    end;
@@ -222,7 +220,7 @@ begin
       BtnRefresh.Click;
       PDFExport.Author          := 'senCille Accounting';
       PDFExport.ShowDialog      := False;
-      PDFExport.FileName        := FLangProjects.TextProject+'.pdf';
+      PDFExport.FileName        := FLang.TextProject+'.pdf';
       PDFExport.OpenAfterExport := True;
 
       FastReport.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
@@ -240,12 +238,12 @@ begin
 
    if QDataID_PROYECTO.AsString = '' then begin
       EditCD_PROJECT.SetFocus;
-      DatabaseError(Format(FLang.FieldCantBeLeftBlank, [FLang.TextCode]));
+      DatabaseError(Format(Config.Lang.FieldCantBeLeftBlank, [Config.Lang.TextCode]));
    end;
 
    if QDataNOMBRE.AsString = '' then begin
       EditDS_PROJECT.SetFocus;
-      DatabaseError(Format(FLang.FieldCantBeLeftBlank, [FLang.TextDescription]));
+      DatabaseError(Format(Config.Lang.FieldCantBeLeftBlank, [Config.Lang.TextDescription]));
    end;
 
    QData.Post;
@@ -273,9 +271,9 @@ begin
 
    if QData.Modified then begin
    end;
-   if MessageDlg(FLang.AskCancelEditing,  mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
+   if MessageDlg(Config.Lang.AskCancelEditing,  mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
       try    QData.Cancel;
-      except DatabaseError(FLang.ImposibleCancel);
+      except DatabaseError(Config.Lang.ImposibleCancel);
       end;
       FormManager.Mode := fmBrowse;
    end;
@@ -347,16 +345,15 @@ procedure TWProyectos.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
    if QData.State = dsBrowse then begin
       FormManager.Free;
-      FLangProjects.Free;
       FLang.Free;
       Action := caFree;
    end
-   else ShowMessage(FLang.CloseNotAllowed);
+   else ShowMessage(Config.Lang.CloseNotAllowed);
 end;
 
 procedure TWProyectos.CleanFilter(Sender: TObject);
 begin
-   if not (HFilter.state in dseditmodes) then begin
+   if not (HFilter.State in dsEditModes) then begin
       HFilter.edit;
    end;
    HFilterBCODIGO.AsString      := '';
@@ -390,7 +387,7 @@ procedure TWProyectos.BtnModifyClick(Sender: TObject);
 begin
    if (DMControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), MODIFICAR)) and (not QData.IsEmpty) then begin
       try QData.Edit;
-      except MessageDlg(FLang.ImposibleModify, mtInformation, [mbOK], 0);
+      except MessageDlg(Config.Lang.ImposibleModify, mtInformation, [mbOK], 0);
       end;
       FormManager.Mode := fmEdit;
       EditCD_PROJECT.SetFocus;

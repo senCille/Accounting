@@ -63,7 +63,8 @@ var WAmortizaciones: TWAmortizaciones;
 
 implementation
 
-uses DM, DMConta, Globales, UEspere, ccStr, Math;
+uses System.Math,
+     DM, DMConta, Globales, Processing, ccStr;
 
 {$R *.DFM}
 
@@ -93,42 +94,47 @@ begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);
 
-   if RadioGroupOPERACION.ItemIndex = 1 then begin
-      FModel.GenerarAsientosAmortizacion(CDSFiltroID_CONCEPTOS.AsString   ,
-                                         CDSFiltroFECHA.AsDateTime        ,
-                                         CDSFiltroSUBCUENTA_DESDE.AsString,
-                                         CDSFiltroSUBCUENTA_HASTA.AsString,
-                                         RadioGroupTIPO.ItemIndex         );
-   end else
-   if RadioGroupLISTADO.ItemIndex = 0 then begin
-      FModel.GenerarDetalleInmovilizado(CDSFiltroSUBCUENTA_DESDE.AsString     ,
-                                        CDSFiltroSUBCUENTA_HASTA.AsString     ,
-                                        RadioGroupTIPO.ItemIndex              ,
-                                        CDSFiltroFECHA.IsNull                 ,
-                                        CDSFiltroFECHA.AsDateTime             ,
-                                        CDSFiltroFECHA_COMPRA_DESDE.IsNull    ,
-                                        CDSFiltroFECHA_COMPRA_DESDE.AsDateTime,
-                                        CDSFiltroFECHA_COMPRA_HASTA.IsNull    ,
-                                        CDSFiltroFECHA_COMPRA_HASTA.AsDateTime,
-                                        CDSFiltroFECHA_ULT_DESDE.IsNull       ,
-                                        CDSFiltroFECHA_ULT_DESDE.AsDateTime   ,
-                                        CDSFiltroFECHA_ULT_HASTA.IsNull       ,
-                                        CDSFiltroFECHA_ULT_HASTA.AsDateTime   );
-   end
-   else begin
-      FModel.GenerarInformeAmortizacion(CDSFiltroSUBCUENTA_DESDE.AsString     ,
-                                        CDSFiltroSUBCUENTA_HASTA.AsString     ,
-                                        RadioGroupTIPO.ItemIndex              ,
-                                        CDSFiltroFECHA.IsNull                 ,
-                                        CDSFiltroFECHA.AsDateTime             ,
-                                        CDSFiltroFECHA_COMPRA_DESDE.IsNull    ,
-                                        CDSFiltroFECHA_COMPRA_DESDE.AsDateTime,
-                                        CDSFiltroFECHA_COMPRA_HASTA.IsNull    ,
-                                        CDSFiltroFECHA_COMPRA_HASTA.AsDateTime,
-                                        CDSFiltroFECHA_ULT_DESDE.IsNull       ,
-                                        CDSFiltroFECHA_ULT_DESDE.AsDateTime   ,
-                                        CDSFiltroFECHA_ULT_HASTA.IsNull       ,
-                                        CDSFiltroFECHA_ULT_HASTA.AsDateTime   );
+   Self.Enabled := False;
+   try
+      if RadioGroupOPERACION.ItemIndex = 1 then begin
+         FModel.GenerarAsientosAmortizacion(CDSFiltroID_CONCEPTOS.AsString   ,
+                                            CDSFiltroFECHA.AsDateTime        ,
+                                            CDSFiltroSUBCUENTA_DESDE.AsString,
+                                            CDSFiltroSUBCUENTA_HASTA.AsString,
+                                            RadioGroupTIPO.ItemIndex         );
+      end else
+      if RadioGroupLISTADO.ItemIndex = 0 then begin
+         FModel.GenerarDetalleInmovilizado(CDSFiltroSUBCUENTA_DESDE.AsString     ,
+                                           CDSFiltroSUBCUENTA_HASTA.AsString     ,
+                                           RadioGroupTIPO.ItemIndex              ,
+                                           CDSFiltroFECHA.IsNull                 ,
+                                           CDSFiltroFECHA.AsDateTime             ,
+                                           CDSFiltroFECHA_COMPRA_DESDE.IsNull    ,
+                                           CDSFiltroFECHA_COMPRA_DESDE.AsDateTime,
+                                           CDSFiltroFECHA_COMPRA_HASTA.IsNull    ,
+                                           CDSFiltroFECHA_COMPRA_HASTA.AsDateTime,
+                                           CDSFiltroFECHA_ULT_DESDE.IsNull       ,
+                                           CDSFiltroFECHA_ULT_DESDE.AsDateTime   ,
+                                           CDSFiltroFECHA_ULT_HASTA.IsNull       ,
+                                           CDSFiltroFECHA_ULT_HASTA.AsDateTime   );
+      end
+      else begin
+         FModel.GenerarInformeAmortizacion(CDSFiltroSUBCUENTA_DESDE.AsString     ,
+                                           CDSFiltroSUBCUENTA_HASTA.AsString     ,
+                                           RadioGroupTIPO.ItemIndex              ,
+                                           CDSFiltroFECHA.IsNull                 ,
+                                           CDSFiltroFECHA.AsDateTime             ,
+                                           CDSFiltroFECHA_COMPRA_DESDE.IsNull    ,
+                                           CDSFiltroFECHA_COMPRA_DESDE.AsDateTime,
+                                           CDSFiltroFECHA_COMPRA_HASTA.IsNull    ,
+                                           CDSFiltroFECHA_COMPRA_HASTA.AsDateTime,
+                                           CDSFiltroFECHA_ULT_DESDE.IsNull       ,
+                                           CDSFiltroFECHA_ULT_DESDE.AsDateTime   ,
+                                           CDSFiltroFECHA_ULT_HASTA.IsNull       ,
+                                           CDSFiltroFECHA_ULT_HASTA.AsDateTime   );
+      end;
+   finally
+      Self.Enabled := True;
    end;
 end;
 

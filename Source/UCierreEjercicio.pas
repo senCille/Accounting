@@ -48,8 +48,10 @@ type
 var WCierreEjercicio: TWCierreEjercicio;
 
 implementation
+
 uses System.Math, System.DateUtils,
-     DM, DMConta, Globales, UEspere;
+     DM, DMConta, Globales, Processing;
+
 {$R *.DFM}
 
 procedure TWCierreEjercicio.ActualizarAcumulados_Cuentas_Subctas;
@@ -838,7 +840,7 @@ begin
 end;
 
 procedure TWCierreEjercicio.BtnEdtProcesarClick(Sender: TObject);
-var InProgress :TEspere;
+var InProgress :TProcessingView;
     Msg        :string;
 begin
    // Comprobar opciones de usuario

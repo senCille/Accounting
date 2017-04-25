@@ -210,8 +210,10 @@ var WCargaAsiento: TWCargaAsiento;
 
 implementation
 
-uses DM, DMConta, Tools, UFiltroListadosMayorModel, UEspere, UNuevaSubcuenta,
-     UFiltroLibroFacturasEmitidas, Math;
+uses System.Math,
+     DM, DMConta, Tools, UFiltroListadosMayorModel, Processing, UNuevaSubcuenta,
+     UFiltroLibroFacturasEmitidas;
+
 {$R *.DFM}
 
 const TabAsiento = 0;

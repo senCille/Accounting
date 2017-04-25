@@ -110,8 +110,9 @@ var
 
 implementation
 
-uses Forms, UEspere, DateUtils,
-     Globales, DMControl, DM, DMConta;
+uses System.DateUtils,
+     VCL.Forms,
+     DM, DMConta, Globales, DMControl, Processing;
 
 {$R *.dfm}
 
@@ -185,7 +186,7 @@ procedure TBalAcumuladosModel.GeneraBalanceDeAcumulados(ATituloBalance   :string
                                                         ANIVEL_2         :Integer;
                                                         AConSubcuentas   :Boolean;
                                                         AAcumuladoPor    :Integer);
-var InProgress     :TEspere;
+var InProgress     :TProcessingView;
     aMeses         :array[1..12] of Double;
     aMeses1        :array[1..12] of Double;
     aMeses2        :array[1..12] of Double;

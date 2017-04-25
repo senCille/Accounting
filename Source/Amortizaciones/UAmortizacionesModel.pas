@@ -3,7 +3,7 @@ unit UAmortizacionesModel;
 interface
 
 uses
-  SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
+  System.SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
   DBClient, frxClass, frxDBSet, frxExportPDF, IBX.IBQuery;
 
 type
@@ -171,8 +171,9 @@ var
 
 implementation
 
-uses Forms, Math, DateUtils, Dialogs, Controls,
-     Globales, DMControl, DM, UEspere, ccStr;
+uses System.Math, System.DateUtils,
+     VCL.Forms, VCL.Dialogs, VCL.Controls,
+     DM, DMControl, Globales, Processing, ccStr;
 
 {$R *.dfm}
 
@@ -256,9 +257,9 @@ procedure TAmortizacionesModel.GenerarDetalleInmovilizado(ASUBCUENTA_DESDE      
                                                           AFECHA_ULT_DESDE        :TDateTime;
                                                           AFechaUltHastaIsNull    :Boolean;
                                                           AFECHA_ULT_HASTA        :TDateTime);
-var Subcuenta_desde :string;
+var Subcuenta_Desde :string;
     Subcuenta_Hasta :string;
-    InProgress :TEspere;
+    InProgress :TProcessingView;
 begin
    DM.QTrabajos.EmptyDataSet;
 
@@ -271,7 +272,7 @@ begin
          subcuenta_hasta := subcuenta_desde;
       end;
 
-      if length(subcuenta_desde) < Config.MaxLengthAccounts then begin
+      if Length(subcuenta_desde) < Config.MaxLengthAccounts then begin
          subcuenta_desde := TStrTools.BackChar(subcuenta_desde, '0', Config.MaxLengthAccounts);
       end;
       if length(subcuenta_hasta) < Config.MaxLengthAccounts then begin
@@ -321,7 +322,7 @@ begin
       else begin
          DM.QAmortizaciones.SQL.Add('   AND A.FULTAMOR >= :FECHAULTDESDE AND A.FULTAMOR <= :FECHAULTHASTA');
       end;
-      
+
       DM.QAmortizaciones.SQL.Add('ORDER BY A.CLASE, A.SUBCUENTA                                  ');
 
       DM.QAmortizaciones.ParamByName('SUBCUENTA1').AsString := Subcuenta_desde;
@@ -392,7 +393,7 @@ procedure TAmortizacionesModel.GenerarInformeAmortizacion(ASUBCUENTA_DESDE      
 
 var Subcuenta_desde :string;
     Subcuenta_Hasta :string;
-    InProgress      :TEspere;
+    InProgress      :TProcessingView;
     Importe         :Double;
     Fecha           :TDateTime;
     Ejercicio       :Integer;
@@ -477,6 +478,7 @@ begin
       DM.QAmortizaciones.Open;
 
       while not DM.QAmortizaciones.EOF do begin
+         InProgress.ShowNext(Format('Procesando Amortizaciones %s : %s ', [DM.QAmortizacionesSUBCUENTA.AsString, DM.QAmortizacionesDESCRIPCION.AsString]));
          DM.QTrabajos.Append;
          DM.QTrabajosSUBCUENTA.AsString   := DM.QAmortizacionesSUBCUENTA.AsString;
          DM.QTrabajosDESCRIPCION.AsString := DM.QAmortizacionesDESCRIPCION.AsString;
@@ -849,7 +851,7 @@ procedure TAmortizacionesModel.GenerarAsientosAmortizacion(AID_CONCEPTOS    :str
                                                            ASUBCUENTA_DESDE :string;
                                                            ASUBCUENTA_HASTA :string;
                                                            ATipo            :Integer);
-var InProgress      :TEspere;
+var InProgress      :TProcessingView;
     nApunte         :Integer;
     nImporte        :Double;
     dFecha          :TDateTime;
@@ -917,6 +919,7 @@ begin
          Q.ExecQuery;
 
          while not Q.EOF do begin
+            InProgress.ShowNext(Format('Procesando %s : %s ', [Q.FieldByName('SUBCUENTA').AsString, Q.FieldByName('CENTROCOSTE').AsString]));
             if (((ATipo = 1) and (Q.FieldByName('tipocuenta').AsString = 'I')) or
                 ((ATipo = 2) and (Q.FieldByName('tipocuenta').AsString = 'M'))) then begin
                Q.Next;

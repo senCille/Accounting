@@ -52,7 +52,8 @@ var WEditEmpleado: TWEditEmpleado;
 
 implementation
 
-uses DM, Globales, UCarteraEfectos, UEspere, Math;
+uses System.Math,
+     DM, Globales, UCarteraEfectos, Processing;
 
 {$R *.DFM}
 

@@ -54,6 +54,10 @@ object WCargaAsiento: TWCargaAsiento
     OnChange = PageControlChange
     object TabAsiento: TTabSheet
       Caption = 'Asiento'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel2: TPanel
         Left = 0
         Top = 0
@@ -532,6 +536,10 @@ object WCargaAsiento: TWCargaAsiento
     object TabMovimientos: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel8: TPanel
         Left = 0
         Top = 0
@@ -745,6 +753,10 @@ object WCargaAsiento: TWCargaAsiento
     object TabMayor: TTabSheet
       Caption = 'Mayor'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 45
         Top = 12

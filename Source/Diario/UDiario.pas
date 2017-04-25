@@ -224,8 +224,9 @@ var WDiario: TWDiario;
 
 implementation
 
-uses DM, DMConta, DMControl, Tools, UCargaApuntes, UCargaAsiento, Math,
-     UCargaCobrosPagos, UCargaRapidaNominas, UCarteraEfectos, UEspere, 
+uses System.Math,
+     DM, DMConta, DMControl, Tools, UCargaApuntes, UCargaAsiento,
+     UCargaCobrosPagos, UCargaRapidaNominas, UCarteraEfectos, Processing,
      UFiltroListadosAsientosModel;
 
 {$R *.DFM}
@@ -513,7 +514,7 @@ begin
 end;
 
 procedure TWDiario.PrepararQuery;
-var InProgress :TEspere;
+var InProgress :TProcessingView;
 begin
    QFichero.DisableControls;
    QFichero.Close;

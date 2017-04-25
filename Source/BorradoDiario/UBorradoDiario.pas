@@ -60,7 +60,8 @@ var WBorradoDiario: TWBorradoDiario;
 
 implementation
 
-uses DM, DMConta, Globales, UEspere, ccStr, Math;
+uses System.Math,
+     DM, DMConta, Globales, Processing, ccStr;
 
 {$R *.DFM}
 
@@ -109,7 +110,7 @@ begin
 end;
 
 procedure TWBorradoDiario.BtnEdtAceptarClick(Sender: TObject);
-var InProgress      :TEspere;
+var InProgress      :TProcessingView;
     Subcuenta_Hasta :string;
     Subcuenta_Desde :string;
     Q               :TIBSQL;

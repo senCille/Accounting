@@ -197,7 +197,7 @@ var WCarteraEfectos: TWCarteraEfectos;
 implementation
 
 uses DM, DMConta, DMControl, Globales, UCargaCobrosPagos, UEfectosComerciales,
-     UEspere, UGeneracionAsiento, USituacionEfecto;
+     Processing, UGeneracionAsiento, USituacionEfecto;
 
 {$R *.DFM}
 
@@ -1523,7 +1523,7 @@ var i           :Integer;
     QInsDiario  :TIBSQL;
     QAsientos   :TIBQuery;
     StrAsientos :string;
-    InProgress  :TEspere;
+    InProgress  :TProcessingView;
 begin
    if not FModel.Datamodule.QFichero.IsEmpty then begin
       // Si no se ha seleccionado ningún efecto, confirmar si desea generar

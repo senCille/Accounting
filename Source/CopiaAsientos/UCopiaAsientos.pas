@@ -56,7 +56,8 @@ var WCopiaAsientos: TWCopiaAsientos;
 
 implementation
 
-uses DM, DMConta, DMControl, Globales, UEspere, ccStr;
+uses DM, DMConta, DMControl, Globales, Processing, ccStr;
+
 {$R *.DFM}
 
 procedure TWCopiaAsientos.FormCreate(Sender: TObject);
@@ -89,7 +90,7 @@ begin
 end;
 
 procedure TWCopiaAsientos.BtnProcessClick(Sender: TObject);
-var InProgress :TEspere;
+var InProgress :TProcessingView;
 begin
    // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
    Perform(wm_NextDlgCtl, 0, 0);

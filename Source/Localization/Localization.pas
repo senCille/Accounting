@@ -23,6 +23,7 @@ type
     CloseNotAllowed      :string;
     FieldCantBeLeftBlank :string;
     ReferenceMessageText :string; //'El proyecto seleccionado se encuentra referenciado en alguna analítica.'
+    ProgressCanceledText :string;
     constructor Create;
   end;
 
@@ -70,6 +71,7 @@ begin
         CloseNotAllowed      := 'Close not allowed in editing mode';
         FieldCantBeLeftBlank := '%s field can''t be left blank';
         ReferenceMessageText := 'Current %s exists in at least one %s';
+        ProgressCanceledText := 'Process canceled';
       end;
       ltSpanish:begin
         BtnAccept            := 'Aceptar';
@@ -91,6 +93,7 @@ begin
         CloseNotAllowed      := 'No se puede cerrar en modo de edición';
         FieldCantBeLeftBlank := 'El campo %s no puede dejarse en blanco';
         ReferenceMessageText := 'El %s actual existe en al menos una %s';
+        ProgressCanceledText := 'Proceso cancelado';
       end;
       ltFrench:begin
         BtnAccept            := 'Acceptez';
@@ -112,6 +115,7 @@ begin
         CloseNotAllowed      := 'Fermer interdit en mode édition';
         FieldCantBeLeftBlank := 'Le champ %s ne peut pas être laissé vide';
         ReferenceMessageText := 'Le %s actuel existe dans au moins une %s';
+        ProgressCanceledText := 'Procédure annulée';
       end;
       ltGerman:begin
         BtnAccept            := 'Akzeptieren';
@@ -133,6 +137,7 @@ begin
         CloseNotAllowed      := 'Im Bearbeitungsmodus nicht zugelassen';
         FieldCantBeLeftBlank := '%s-Feld kann nicht leer sein';
         ReferenceMessageText := 'Das %s Projekt existiert in mindestens einer %s';
+        ProgressCanceledText := 'Prozess abgebrochen';
       end;
    end;
 end;

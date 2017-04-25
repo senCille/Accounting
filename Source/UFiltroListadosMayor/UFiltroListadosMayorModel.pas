@@ -208,8 +208,10 @@ var
 
 implementation
 
-uses Forms, comctrls, Controls, Graphics, IBX.IBQuery, DM, DMConta, UEspere, ccStr, Math,
-     Globales, DMControl;
+uses System.Math,
+     VCL.Forms, VCL.ComCtrls, VCL.Controls, VCL.Graphics,
+     IBX.IBQuery,
+     DM, DMConta, Processing, ccStr, Globales, DMControl;
 
 {$R *.dfm}
 
@@ -424,7 +426,7 @@ var
    QSubcuentas    :TIBQuery;
    QConceptos     :TIBQuery;
    QAcumulados    :TIBQuery;
-   InProgress     :TEspere;
+   InProgress     :TProcessingView;
    DescApunte     :string;
    nSubcuenta     :string;
    nDescSubcuenta :string;

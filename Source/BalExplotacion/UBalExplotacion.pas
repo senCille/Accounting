@@ -71,7 +71,10 @@ type
 var WBalExplotacion: TWBalExplotacion;
 
 implementation
-uses DM, DMConta, DMControl, Globales, UEspere, Math;
+
+uses System.Math,
+     DM, DMConta, DMControl, Globales, Processing;
+
 {$R *.DFM}
 
 procedure TWBalExplotacion.FormCreate(Sender: TObject);

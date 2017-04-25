@@ -167,7 +167,7 @@ implementation
 uses System.Math, System.StrUtils,
      IBX.IBQuery,
      VCL.Forms, VCL.Dialogs,
-     Tools, UEspere, ccStr,
+     Tools, Processing, ccStr,
      Globales, DMControl, DM;
 
 {$R *.dfm}
@@ -519,7 +519,7 @@ var
    QApuntes          :TIBQuery;
    QProvincias       :TIBQuery;
    DSFichero         :TClientDataSet;
-   InProgress        :TEspere;
+   InProgress        :TProcessingView;
    Subcuenta         :string;
    nImporte          :Double;
    F                 ,

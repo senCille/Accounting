@@ -35,7 +35,7 @@ var WPunteoDiario: TWPunteoDiario;
 
 implementation
 
-uses DM, DMConta, Globales, UEspere, ccStr, Math;
+uses DM, DMConta, Globales, Processing, ccStr, Math;
 
 {$R *.DFM}
 
@@ -58,7 +58,7 @@ begin
 end;
 
 procedure TWPunteoDiario.BtnAcceptClick(Sender: TObject);
-var InProgress       :TEspere;
+var InProgress       :TProcessingView;
     Subcuenta_hasta  :string;
     Subcuenta_desde  :string;
     QModifica        :TIBSQL;

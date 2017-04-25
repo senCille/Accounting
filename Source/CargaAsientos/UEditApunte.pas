@@ -78,8 +78,9 @@ var WEditApunte: TWEditApunte;
 
 implementation
 
-uses DM, Globales, UCarteraEfectos, UEspere, Math,
-  DMConta, UDetalleIVA, UNuevaSubcuenta;
+uses System.Math,
+     Globales, UCarteraEfectos, Processing,
+     DM, DMConta, UDetalleIVA, UNuevaSubcuenta;
 
 {$R *.DFM}
 

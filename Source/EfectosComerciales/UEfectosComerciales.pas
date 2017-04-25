@@ -85,7 +85,8 @@ var WEfectosComerciales: TWEfectosComerciales;
 
 implementation
 
-uses DM, DMConta, Globales, UCarteraEfectos, UEspere;
+uses DM, DMConta, Globales, UCarteraEfectos, Processing;
+
 {$R *.DFM}
 
 procedure TWEfectosComerciales.FormCreate(Sender: TObject);

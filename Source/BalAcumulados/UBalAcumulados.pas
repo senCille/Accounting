@@ -82,7 +82,7 @@ var WBalAcumulados: TWBalAcumulados;
 implementation
 
 uses System.StrUtils,
-     DM, DMConta, Globales, UEspere, ccStr;
+     DM, DMConta, Globales, Processing, ccStr;
 
 {$R *.DFM}
 

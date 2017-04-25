@@ -32,7 +32,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
     Height = 19
     Caption = 'Generaci'#243'n de Asiento'
     Font.Charset = DEFAULT_CHARSET
-
+    Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
@@ -54,7 +54,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       Height = 14
       Caption = 'Situaci'#243'n'
       Font.Charset = DEFAULT_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -67,7 +67,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       Height = 14
       Caption = 'Fecha Asiento'
       Font.Charset = DEFAULT_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -80,7 +80,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       Height = 14
       Caption = 'Subcuenta Banco'
       Font.Charset = DEFAULT_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -93,7 +93,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       Height = 14
       Caption = 'Concepto'
       Font.Charset = DEFAULT_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -106,7 +106,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       Height = 14
       Caption = 'Total Importe'
       Font.Charset = ANSI_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -188,7 +188,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
       TabStop = False
       Caption = 'Borrar los vencimientos al generar el asiento'
       Font.Charset = DEFAULT_CHARSET
-
+      Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
@@ -250,7 +250,7 @@ object WGeneracionAsiento: TWGeneracionAsiento
     Cursor = crHandPoint
     Caption = '&Aceptar'
     Font.Charset = DEFAULT_CHARSET
-
+    Font.Color = clWindowText
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []

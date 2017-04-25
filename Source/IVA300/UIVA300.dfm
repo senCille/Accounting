@@ -271,6 +271,10 @@ object WIva300: TWIva300
       TabOrder = 9
       object TabSheetIVADeventado: TTabSheet
         Caption = 'IVA Devengado'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0

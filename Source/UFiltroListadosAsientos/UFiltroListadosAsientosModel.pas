@@ -173,8 +173,9 @@ var
 
 implementation
 
-uses Forms, UEspere, Math,
-     Globales, DMControl, DM;
+uses System.Math,
+     VCL.Forms,
+     DMControl, DM, Globales, Processing;
 
 {$R *.dfm}
 
@@ -375,7 +376,7 @@ var QApuntes :TIBQuery;
    QAsientos     :TIBSQL;
    QSubcuentas   :TIBSQL;
    QConceptos    :TIBSQL;
-   InProgress    :TEspere;
+   InProgress    :TProcessingView;
    nAsiento      :Integer;
 
    AsientoOK     :Boolean;

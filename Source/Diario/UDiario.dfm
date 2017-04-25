@@ -323,6 +323,10 @@ object WDiario: TWDiario
       TabOrder = 1
       object TabSheetDiario: TTabSheet
         Caption = 'Diario'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Buscar: TGroupBox
           Left = 0
           Top = 0
@@ -647,6 +651,10 @@ object WDiario: TWDiario
       object TabSheetFiltro: TTabSheet
         Caption = 'Filtro'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel1: TPanel
           Left = 0
           Top = 0

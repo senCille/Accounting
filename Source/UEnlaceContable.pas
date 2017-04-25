@@ -75,7 +75,7 @@ var WEnlaceContable: TWEnlaceContable;
 
 implementation
 
-uses DM, DMConta, Globales, UEspere, Math, UDiarioModel;
+uses DM, DMConta, Globales, Processing, Math, UDiarioModel;
 
 {$R *.DFM}
 
@@ -124,7 +124,7 @@ begin
 end;
 
 procedure TWEnlaceContable.BtnAcceptClick(Sender: TObject);
-var InProgress :TEspere;
+var InProgress :TProcessingView;
 begin
    QFichero.EmptyDataSet;
    Memo.Lines.Clear;

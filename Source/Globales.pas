@@ -2,6 +2,8 @@ unit Globales;
 
 interface
 
+uses Localization;
+
 type
    TModoArranque     = (INSERCION, MODIFICACION, DUPLICAR, CONSULTA, MODIFICACION_INFORME, COBRO_FACTURA, PAGO_FACTURA);
    TOperacionEfectos = (GENERAR_ASIENTO, IMPRIMIR_CARTA);
@@ -50,6 +52,7 @@ const
 type
    TConfig = class
       HMI_Language        :TLanguageType;
+      Lang                :TLangCommon;
       VersionText         :string;
       AppFolder           :string;
       ImagesFolder        :string;  {When delete this Config items, we can delete too the folder in the disk.}
@@ -92,4 +95,5 @@ initialization
    Config := TConfig.Create;
    Config.VersionText  := 'Version 0.0 -alfa-';
    Config.HMI_Language := ltEnglish;  {Changing this variable we habe the program transtlated}
+   Config.Lang := TLangCommon.Create;
 end.

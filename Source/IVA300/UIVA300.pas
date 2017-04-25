@@ -208,7 +208,7 @@ var WIva300: TWIva300;
 implementation
 
 uses System.Math, System.DateUtils, System.StrUtils,
-     DM, DMConta, Globales, UEspere, ccStr;
+     DM, DMConta, Globales, Processing, ccStr;
 
 {$R *.DFM}
 

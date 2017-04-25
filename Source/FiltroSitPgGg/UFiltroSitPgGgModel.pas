@@ -259,8 +259,10 @@ var
 
 implementation
 
-uses Forms, UEspere, Math, IBX.IBQuery, DateUtils,
-     Globales, DMControl, DM;
+uses System.Math, System.DateUtils,
+     IBX.IBQuery,
+     VCL.Forms,
+     DMControl, DM, Processing, Globales;
 
 {$R *.dfm}
 
@@ -741,7 +743,7 @@ procedure TFiltroSitPgGgModel.ProcesaInfBalanceSituacion(prmTipoInforme         
                                                          prmEmpresas                :TStrings;
                                                          prmEmpresaAnterior         :Integer);
 var
-   InProgress           :TEspere;
+   InProgress           :TProcessingView;
    {-----------------------------}
    QCuentas             :TIBQuery;
    QTitulos             :TIBQuery;
@@ -793,7 +795,7 @@ var
    ListaQuery           :TStringList;
 begin
    InProgress := InProgressView('Generando informe ...');
-   try 
+   try
       Config.AbortedProcess := False;
 
       DM.HInfBalTitulos.Open;
@@ -864,6 +866,7 @@ begin
       try
          { Carga de CUENTAS }
          while not QCuentas.EOF do begin
+            InProgress.ShowNext(Format('Procesando Cuenta %s : %s ', [QCuentas.FieldByName('CUENTA').AsString, QCuentas.FieldByName('DESCRIPCION').AsString]));
             Grupo1 := QCuentas.FieldByName('GRUPO1').AsString;
             Grupo2 := QCuentas.FieldByName('GRUPO2').AsString;
             Letra1 := Copy(Grupo1, 1, 1);
@@ -917,6 +920,7 @@ begin
                   QConsolida.SQL.Add('SELECT * FROM CUENTAS WHERE CUENTA = :prmCUENTA');
                   QConsolida.ParamByName('CUENTA').AsString := QCuentas.FieldByName('prmCUENTA').AsString;
                   if not QConsolida.EOF then begin
+
                      nImporteCons := 0;
                      aMeses[1]    := QConsolida.FieldByName('ANTDB01').AsFloat - QConsolida.FieldByName('ANTHB01').AsFloat;
                      aMeses[2]    := QConsolida.FieldByName('ANTDB02').AsFloat - QConsolida.FieldByName('ANTHB02').AsFloat;
@@ -1003,6 +1007,7 @@ begin
 
          { Carga de TITULOS }
          while not QTitulos.EOF do begin
+            InProgress.ShowNext(Format('Procesando Título %s : %s ', [QTitulos.FieldByName('TITULO').AsString, QTitulos.FieldByName('DESCRIPCION').AsString]));
             Titulo := QTitulos.FieldByName('TITULO').AsString;
             Letra  := Copy(Titulo, 1, 1);
 
@@ -1076,6 +1081,7 @@ begin
 
          { Carga GRUPOS }
          while not QGrupos.EOF do begin
+            InProgress.ShowNext(Format('Procesando Grupo %s : %s ', [QGrupos.FieldByName('GRUPO').AsString, QGrupos.FieldByName('DESCRIPCION').AsString]));
             Grupo := QGrupos.FieldByName('GRUPO').AsString;
             Letra := Copy(Grupo, 1, 1);
 
@@ -1131,7 +1137,7 @@ begin
          QDiario.Database    := DMRef.BDContab;
          QDiario.Transaction := DMRef.BDContab.DefaultTransaction;
          //QDiario.Add('SELECT CAST(SUM(D.IMPORTE) AS NUMERIC(15, 2)) SUMA, D.MONEDA, D.CUENTA_ANALITICA,');
-         QDiario.SQL.Add('SELECT D.IMPORTE, D.MONEDA, D.CUENTA_ANALITICA,');
+         QDiario.SQL.Add('SELECT D.APUNTE, D.COMENTARIO,     D.IMPORTE, D.MONEDA, D.CUENTA_ANALITICA,');
          if prmTipoConcepto <> 'T' then begin
             QDiario.SQL.Add('T.TIPOCONTABILIDAD,');
          end;
@@ -1168,10 +1174,12 @@ begin
          DM.HInfBalTitulos.IndexName := '';
 
          while not QDiario.EOF do begin
+            InProgress.ShowNext(Format('Procesando Diario %s : %s ', [QDiario.FieldByName('APUNTE').AsString, QDiario.FieldByName('COMENTARIO').AsString]));
             if (prmTipoConcepto <> 'T') and (QDiario.FieldByName('TipoContabilidad').AsString <> prmTipoConcepto) then begin
                QDiario.Next;
                Continue;
             end;
+
             if not PerteneceAnalitica(QDiario.FieldByName('CUENTA_ANALITICA').AsString,
                                       prmCuentaAnalitica,
                                       '',
@@ -1238,7 +1246,6 @@ begin
             end;
             QDiario.Next;
          end;
-
 
          ListaQuery := TStringList.Create;
                                         ListaQuery.Add('SELECT D.IMPORTE         ,                  ');
@@ -1356,8 +1363,6 @@ begin
                QDiarioConsolida.Next;
             end;
          end;
-
-
 
          { CÁLCULO DE PÉRDIDAS Y GANANCIAS PARA BALANCE DE SITUACIÓN }
          if prmTipoInforme = INF_BALANCE_SITUACION then begin

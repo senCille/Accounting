@@ -162,6 +162,7 @@ begin
    Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
 
    Empresas := TStringList.Create;
+   Self.Enabled := False;
    try
       Empresas.Clear;
       for i := 0 to ListBoxEmpresas.Items.Count - 1 do begin
@@ -185,6 +186,7 @@ begin
                                         CDSFiltroEMPRESA.AsInteger);
    finally
       Empresas.Free;
+      Self.Enabled := True;
    end;
 end;
 

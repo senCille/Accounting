@@ -129,7 +129,7 @@ implementation
 uses System.Math, System.Variants, System.DateUtils, System.StrUtils,
      VCL.Forms,
      IBX.IBQuery,
-     DM, DMControl, Globales, UEspere;
+     DM, DMControl, Globales, Processing;
 
 {$R *.dfm}
 
@@ -151,7 +151,7 @@ procedure TBalExplotacionModel.ProcessBalanceExplotacion(AConnection     :TIBDat
                                                          AProyecto       :string;
                                                          AEmpresas       :TCheckListBox);
 var Empresas          :TStringList;
-    InProgress        :TEspere;
+    InProgress        :TProcessingView;
     nImportes         :Double;
     I                 :Integer;
     aMeses            :array[1..12] of Double;

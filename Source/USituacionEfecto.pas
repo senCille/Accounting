@@ -44,7 +44,7 @@ var WSituacionEfecto: TWSituacionEfecto;
 
 implementation
 
-uses DM, UCarteraEfectos, UEspere;
+uses DM, UCarteraEfectos, Processing;
 {$R *.DFM}
 
 procedure TWSituacionEfecto.BtnAcceptClick(Sender: TObject);

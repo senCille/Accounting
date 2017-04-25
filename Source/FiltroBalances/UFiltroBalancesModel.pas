@@ -169,8 +169,10 @@ var
 
 implementation
 
-uses Forms, Math, UEspere, DateUtils, IBX.IBQuery, ccStr,
-     Globales, DMControl, DM, DMConta;
+uses System.Math, System.DateUtils,
+     IBX.IBQuery,
+     VCL.Forms,
+     DM, DMConta, DMControl, Processing, ccStr, Globales;
 
 {$R *.dfm}
 
@@ -301,7 +303,7 @@ var
    QApuntes      :TIBQuery;
    QCuentas      :TIBQuery;
    QConceptos    :TIBQuery;
-   InProgress    :TEspere;
+   InProgress    :TProcessingView;
    EsPrimero     :Boolean;
    Cuenta        :string;
    Cuenta1       :string;
