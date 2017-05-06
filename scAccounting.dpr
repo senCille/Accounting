@@ -75,7 +75,7 @@ uses
   Globales in 'Source\Globales.pas',
   Login in 'Source\Login.pas' {FormLogin},
   MainMenu in 'Source\MainMenu.pas' {MainMenuForm},
-  Proyectos in 'Source\Proyectos.pas' {WProyectos},
+  ProjectsController in 'Source\Projects\ProjectsController.pas' {ProjectsView},
   Splash in 'Source\Splash.pas' {FormSplash},
   UActualizacionBD in 'Source\UActualizacionBD.pas' {WActualizacionBD},
   UAnaliticas in 'Source\UAnaliticas.pas' {WAnaliticas},
@@ -105,7 +105,8 @@ uses
   UTraspasoDatos in 'Source\UTraspasoDatos.pas' {WTraspasoDatos},
   UUsuarios in 'Source\UUsuarios.pas' {WUsuarios},
   UUtilEmpresas in 'Source\UUtilEmpresas.pas' {WUtilEmpresas},
-  UVencimientos in 'Source\UVencimientos.pas' {WVencimientos};
+  UVencimientos in 'Source\UVencimientos.pas' {WVencimientos},
+  ProjectsModel in 'Source\Projects\ProjectsModel.pas' {DataModule1: TDataModule};
 
 {$R *.res}
 
@@ -116,5 +117,6 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
+  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.

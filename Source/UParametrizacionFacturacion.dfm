@@ -129,6 +129,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     TabOrder = 4
     object TabSheetSales: TTabSheet
       Caption = 'Ventas'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object PageControl2: TPageControl
         Left = 0
         Top = 0
@@ -140,6 +144,10 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         TabPosition = tpBottom
         object TabSheetRegimGeneral: TTabSheet
           Caption = 'R'#233'gimen General'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Label7: TLabel
             Left = 452
             Top = 13

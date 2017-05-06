@@ -195,7 +195,8 @@ var WCargaRapidaFacturas: TWCargaRapidaFacturas;
 
 implementation
 
-uses DM, DMConta, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
+uses System.UITypes, System.Math,
+     DM, DMConta, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento,
      UCargaRapidaNominas, UFiltroMayorSubcuenta, UNuevaSubcuenta, UVencimientos;
 
 {$R *.DFM}

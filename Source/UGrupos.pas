@@ -70,7 +70,10 @@ type
 var WGrupos: TWGrupos;
 
 implementation
-uses DM, DMConta, DMControl, Tools, Globales;
+
+uses System.UITypes,
+     DM, DMConta, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWGrupos.FormCreate(Sender: TObject);

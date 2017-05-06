@@ -49,7 +49,7 @@ var WCierreEjercicio: TWCierreEjercicio;
 
 implementation
 
-uses System.Math, System.DateUtils,
+uses System.Math, System.DateUtils, System.UITypes,
      DM, DMConta, Globales, Processing;
 
 {$R *.DFM}

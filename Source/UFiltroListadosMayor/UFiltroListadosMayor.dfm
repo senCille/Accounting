@@ -1,8 +1,8 @@
 object WFiltroListadosMayor: TWFiltroListadosMayor
   Left = 747
   Top = 383
-  ClientHeight = 523
-  ClientWidth = 527
+  ClientHeight = 729
+  ClientWidth = 857
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 527
+    Width = 857
     Height = 38
     Align = alTop
     TabOrder = 0
@@ -48,8 +48,8 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
   object PageControl: TPageControl
     Left = 0
     Top = 38
-    Width = 527
-    Height = 485
+    Width = 857
+    Height = 691
     ActivePage = TabSheetResults
     Align = alClient
     Style = tsFlatButtons
@@ -57,15 +57,11 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
     OnChanging = PageControlChanging
     object TabSheetQuery: TTabSheet
       Caption = 'Datos para la Consulta'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox3: TGroupBox
         Left = 0
         Top = 0
-        Width = 519
-        Height = 413
+        Width = 849
+        Height = 619
         Align = alClient
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -74,8 +70,8 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 527
-        ExplicitHeight = 418
+        ExplicitWidth = 519
+        ExplicitHeight = 413
         object GroupBox4: TGroupBox
           Left = 11
           Top = 329
@@ -680,18 +676,16 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object Panel2: TPanel
         Left = 0
-        Top = 413
-        Width = 519
+        Top = 619
+        Width = 849
         Height = 41
         Align = alBottom
         TabOrder = 1
-        ExplicitTop = 418
-        ExplicitWidth = 527
         DesignSize = (
-          519
+          849
           41)
         object BtnProcess: TButton
-          Left = 377
+          Left = 707
           Top = 9
           Width = 135
           Height = 24
@@ -706,6 +700,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           ParentFont = False
           TabOrder = 0
           OnClick = BtnProcessClick
+          ExplicitLeft = 377
         end
       end
     end
@@ -715,7 +710,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       object Panel3: TPanel
         Left = 0
         Top = 38
-        Width = 519
+        Width = 849
         Height = 38
         Align = alTop
         TabOrder = 0
@@ -742,16 +737,16 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object Panel4: TPanel
         Left = 0
-        Top = 416
-        Width = 519
+        Top = 622
+        Width = 849
         Height = 38
         Align = alBottom
         TabOrder = 1
         DesignSize = (
-          519
+          849
           38)
         object Cancelar: TButton
-          Left = 353
+          Left = 683
           Top = 9
           Width = 135
           Height = 24
@@ -768,7 +763,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
           OnClick = CancelarClick
         end
         object BtnPrint: TButton
-          Left = 204
+          Left = 534
           Top = 9
           Width = 135
           Height = 24
@@ -788,7 +783,7 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       object Panel5: TPanel
         Left = 0
         Top = 0
-        Width = 519
+        Width = 849
         Height = 38
         Align = alTop
         TabOrder = 2
@@ -815,9 +810,9 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object DBGridSubcuentasMayor: TDBGrid
         Left = 0
-        Top = 38
-        Width = 527
-        Height = 227
+        Top = 82
+        Width = 530
+        Height = 335
         DataSource = DataModuleFiltroListadosMayor.SSubcuentasMayor
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -832,21 +827,10 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'SUBCUENTA'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'DESCRIPCION'
-            Visible = True
-          end>
       end
       object DBGridEntries: TDBGrid
-        Left = 0
-        Top = 312
+        Left = 3
+        Top = 480
         Width = 527
         Height = 71
         DataSource = DataModuleFiltroListadosMayor.SLinesDiario
@@ -866,8 +850,8 @@ object WFiltroListadosMayor: TWFiltroListadosMayor
       end
       object Panel6: TPanel
         Left = 0
-        Top = 378
-        Width = 519
+        Top = 584
+        Width = 849
         Height = 38
         Align = alBottom
         TabOrder = 5

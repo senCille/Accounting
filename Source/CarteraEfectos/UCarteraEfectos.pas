@@ -196,7 +196,8 @@ var WCarteraEfectos: TWCarteraEfectos;
 
 implementation
 
-uses DM, DMConta, DMControl, Globales, UCargaCobrosPagos, UEfectosComerciales,
+uses System.UITypes,
+     DM, DMConta, DMControl, Globales, UCargaCobrosPagos, UEfectosComerciales,
      Processing, UGeneracionAsiento, USituacionEfecto;
 
 {$R *.DFM}

@@ -50,7 +50,6 @@ type
     QFicheroCUENTA_ANALITICA: TIBStringField;
     QFicheroCUOTAIVA: TFloatField;
     QFicheroCUOTARECARGO: TFloatField;
-    QFicheroDESCCONTRAPARTIDA: TStringField;
     QFicheroABREVIATURA: TIBStringField;
     QFicheroTIPOASIENTO: TIntegerField;
     QFicheroASIENTONOMINA: TIntegerField;
@@ -165,6 +164,7 @@ type
     SDepartamento: TDataSource;
     SProyecto: TDataSource;
     SSeccion: TDataSource;
+    QFicheroDESCCONTRAPARTIDA: TWideStringField;
     procedure BtnNavCerrarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -224,7 +224,7 @@ var WDiario: TWDiario;
 
 implementation
 
-uses System.Math,
+uses System.Math, System.UITypes,
      DM, DMConta, DMControl, Tools, UCargaApuntes, UCargaAsiento,
      UCargaCobrosPagos, UCargaRapidaNominas, UCarteraEfectos, Processing,
      UFiltroListadosAsientosModel;
@@ -745,7 +745,6 @@ begin
 
    InProgress := InProgressView('Abriendo diario ...');
    try
-
       QFichero.Prepare;
       QFichero.Open;
       if QFiltro.FieldByName('BASIENTO').AsInteger = 0 then begin

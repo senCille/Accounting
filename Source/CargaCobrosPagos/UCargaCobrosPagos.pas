@@ -151,7 +151,8 @@ var WCargaCobrosPagos: TWCargaCobrosPagos;
 
 implementation
 
-uses DM, DMConta, DMControl, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento, Math,
+uses System.UITypes, System.Math,
+     DM, DMConta, DMControl, Tools, Globales, UFiltroListadosMayorModel, UCargaAsiento,
      UCargaRapidaNominas, UCarteraEfectos, UDiario, UFiltroMayorSubcuenta, UNuevaSubcuenta;
 
 {$R *.DFM}

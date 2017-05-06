@@ -44,7 +44,7 @@ const
    ASIENTO_NOMINA          = 3;
    ASIENTO_SSOCIAL_EMPRESA = 4;
    //------------------------------------------------------------------------------
-   FOLDER_IMAGES_NAME   = 'Images';
+   //FOLDER_IMAGES_NAME   = 'Images';
    FOLDER_REPORTS_NAME  = 'Reports';
    CURRENT_HMI_LANGUAGE = 'Spanish'; //'English', 'French', 'German';
    //------------------------------------------------------------------------------
@@ -55,7 +55,6 @@ type
       Lang                :TLangCommon;
       VersionText         :string;
       AppFolder           :string;
-      ImagesFolder        :string;  {When delete this Config items, we can delete too the folder in the disk.}
       ReportsFolder       :string;
       {---------------------------}
       LoggedUser          :string;

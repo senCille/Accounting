@@ -359,7 +359,6 @@ begin
 
    TipoCuenta := ObtenerTipoSubcuenta(Subcuenta);
 
-
    QSubCuentas.Close;
    QSubCuentas.Open;
    RefreshQuery(QSubCuentasDesc);

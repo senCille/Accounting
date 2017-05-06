@@ -27,7 +27,8 @@ var WImportacion :TWImportacion;
 
 implementation
 
-uses DM;
+uses System.UITypes,
+     DM;
 
 {$R *.dfm}
 

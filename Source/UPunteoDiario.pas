@@ -35,7 +35,8 @@ var WPunteoDiario: TWPunteoDiario;
 
 implementation
 
-uses DM, DMConta, Globales, Processing, ccStr, Math;
+uses System.UITypes,
+     DM, DMConta, Globales, Processing, ccStr, Math;
 
 {$R *.DFM}
 

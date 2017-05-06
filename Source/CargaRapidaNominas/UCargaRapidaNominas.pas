@@ -156,8 +156,8 @@ var WCargaRapidaNominas: TWCargaRapidaNominas;
 
 implementation
 
-uses DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UFiltroMayorSubcuenta, UNuevaSubcuenta,
-     Math;
+uses System.UITypes, System.Math,
+     DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UFiltroMayorSubcuenta, UNuevaSubcuenta;
 
 {$R *.DFM}
 

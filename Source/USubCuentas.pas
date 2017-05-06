@@ -531,8 +531,8 @@ var WSubCuentas: TWSubCuentas;
 
 implementation
 
-uses DM, DMConta, DMControl, Tools, Globales, UCargaAsiento, UCargaRapidaNominas,
-     Math;
+uses System.UITypes, System.Math,
+     DM, DMConta, DMControl, Tools, Globales, UCargaAsiento, UCargaRapidaNominas;
 
 {$R *.DFM}
 

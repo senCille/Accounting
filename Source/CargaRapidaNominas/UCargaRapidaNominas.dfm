@@ -102,6 +102,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     TabOrder = 2
     object TabSheetAsientos: TTabSheet
       Caption = 'Asientos'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox8: TGroupBox
         Left = 0
         Top = 337
@@ -799,6 +803,10 @@ object WCargaRapidaNominas: TWCargaRapidaNominas
     object TabSheetLastMoves: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel5: TPanel
         Left = 0
         Top = 390

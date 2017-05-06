@@ -171,7 +171,7 @@ var
 
 implementation
 
-uses System.Math, System.DateUtils,
+uses System.Math, System.DateUtils, System.UITypes,
      VCL.Forms, VCL.Dialogs, VCL.Controls,
      DM, DMControl, Globales, Processing, ccStr;
 

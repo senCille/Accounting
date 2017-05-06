@@ -60,7 +60,7 @@ var WBorradoDiario: TWBorradoDiario;
 
 implementation
 
-uses System.Math,
+uses System.Math, System.UITypes,
      DM, DMConta, Globales, Processing, ccStr;
 
 {$R *.DFM}

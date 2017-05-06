@@ -219,6 +219,10 @@ object WUsuarios: TWUsuarios
     TabOrder = 3
     object TabDatos: TTabSheet
       Caption = 'Datos'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label27: TLabel
         Left = 5
         Top = 93
@@ -298,6 +302,10 @@ object WUsuarios: TWUsuarios
     object TabPermisos: TTabSheet
       Caption = 'Permisos'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
   object SUsuarios: TDataSource

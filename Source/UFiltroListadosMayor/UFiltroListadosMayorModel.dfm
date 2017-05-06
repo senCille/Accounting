@@ -2471,7 +2471,7 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.639199594900000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42839.822207418980000000
+    ReportOptions.LastChange = 42839.822207419000000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -2500,7 +2500,7 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
         FillType = ftBrush
         Height = 125.000395690000000000
         Top = 18.897650000000000000
-        Width = 793.701300000000000000
+        Width = 793.701299999999900000
         object LineaCabecera1: TfrxMemoView
           Left = 32.999076430000000000
           Top = 15.998750490000000000
@@ -2624,7 +2624,7 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
         end
         object LineaDescripcion: TfrxMemoView
           Left = 32.999076430000000000
-          Top = 66.999728310000000000
+          Top = 66.999728309999990000
           Width = 735.001419570000000000
           Height = 13.001583200000000000
           Font.Charset = ANSI_CHARSET
@@ -2800,8 +2800,8 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 211.653680000000000000
-        Width = 793.701300000000000000
+        Top = 166.299320000000000000
+        Width = 793.701299999999900000
         DataSet = Enlace1
         DataSetName = 'ENLACE1'
         RowCount = 0
@@ -2818,7 +2818,6 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
           Top = 0.559059999999988100
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          DataField = 'Subcuenta'
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
           Memo.UTF8W = (
@@ -2829,91 +2828,10 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
           Top = 0.559059999999988100
           Width = 400.630180000000000000
           Height = 18.897650000000000000
-          DataField = 'DescSubcuenta'
           DataSet = Enlace1
           DataSetName = 'ENLACE1'
           Memo.UTF8W = (
-            '[ENLACE1."DescSubcuenta"]')
-        end
-      end
-      object GroupFooter1: TfrxGroupFooter
-        FillType = ftBrush
-        Height = 22.677180000000000000
-        Top = 257.008040000000000000
-        Width = 793.701300000000000000
-      end
-      object GroupHeader1: TfrxGroupHeader
-        FillType = ftBrush
-        Height = 22.677180000000000000
-        Top = 166.299320000000000000
-        Width = 793.701300000000000000
-        Condition = 'ENLACE1."Subcuenta"'
-        object ENLACE1Fecha: TfrxMemoView
-          Left = 7.559060000000000000
-          Width = 143.622140000000000000
-          Height = 18.897650000000000000
-          DataField = 'Fecha'
-          DataSet = Enlace1
-          DataSetName = 'ENLACE1'
-          Memo.UTF8W = (
-            '[ENLACE1."Fecha"]')
-        end
-        object ENLACE1DescSubcuenta1: TfrxMemoView
-          Left = 158.740260000000000000
-          Width = 260.787570000000000000
-          Height = 18.897650000000000000
-          DataSet = Enlace1
-          DataSetName = 'ENLACE1'
-          Memo.UTF8W = (
-            '[ENLACE1."DescSubcuenta"]')
-        end
-        object ENLACE1DEBE: TfrxMemoView
-          Left = 427.086890000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'DEBE'
-          DataSet = Enlace1
-          DataSetName = 'ENLACE1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[ENLACE1."DEBE"]')
-          ParentFont = False
-        end
-        object ENLACE1HABER: TfrxMemoView
-          Left = 510.236550000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'HABER'
-          DataSet = Enlace1
-          DataSetName = 'ENLACE1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[ENLACE1."HABER"]')
-          ParentFont = False
-        end
-        object ENLACE1SALDO: TfrxMemoView
-          Left = 593.386210000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'SALDO'
-          DataSet = Enlace1
-          DataSetName = 'ENLACE1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[ENLACE1."SALDO"]')
-          ParentFont = False
+            '[ENLACE1."DESCRIPCION"]')
         end
       end
     end
@@ -2948,7 +2866,7 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
     FieldAliases.Strings = (
       'SUBCUENTA=SUBCUENTA'
       'DESCRIPCION=DESCRIPCION')
-    DataSet = QSubcuentasMayor
+    DataSet = MSubcuentasMayor
     BCDToCurrency = False
     Left = 512
     Top = 329
@@ -3833,319 +3751,10 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
     Left = 627
     Top = 218
   end
-  object QSubcuentasMayor: TClientDataSet
-    Aggregates = <>
-    FieldDefs = <
-      item
-        Name = 'FechaInicial'
-        DataType = ftDateTime
-      end
-      item
-        Name = 'Fecha'
-        DataType = ftDateTime
-      end
-      item
-        Name = 'FechaFinal'
-        DataType = ftDateTime
-      end
-      item
-        Name = 'Asiento'
-        DataType = ftInteger
-      end
-      item
-        Name = 'Apunte'
-        DataType = ftInteger
-      end
-      item
-        Name = 'Subcuenta'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'DescSubcuenta'
-        DataType = ftString
-        Size = 80
-      end
-      item
-        Name = 'DescApunte'
-        DataType = ftString
-        Size = 100
-      end
-      item
-        Name = 'Contrapartida'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'Debe'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Haber'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Saldo'
-        DataType = ftFloat
-      end
-      item
-        Name = 'FechaImpresion'
-        DataType = ftDate
-      end
-      item
-        Name = 'DebeHaber'
-        DataType = ftString
-        Size = 1
-      end
-      item
-        Name = 'Importe'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Descripcion'
-        DataType = ftString
-        Size = 50
-      end
-      item
-        Name = 'FechaPrevista'
-        DataType = ftDate
-      end
-      item
-        Name = 'Observaciones'
-        DataType = ftString
-        Size = 255
-      end
-      item
-        Name = 'NombreCliente'
-        DataType = ftString
-        Size = 85
-      end
-      item
-        Name = 'ID_Cliente'
-        DataType = ftInteger
-      end
-      item
-        Name = 'NumLinea'
-        DataType = ftInteger
-      end
-      item
-        Name = 'Factura'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'NIF'
-        DataType = ftString
-        Size = 15
-      end
-      item
-        Name = 'BaseImponible'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CuotaIVA'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalFactura'
-        DataType = ftFloat
-      end
-      item
-        Name = 'IVA'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Titulo'
-        DataType = ftString
-        Size = 100
-      end
-      item
-        Name = 'ClienteProveedor'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'Provincia'
-        DataType = ftString
-        Size = 25
-      end
-      item
-        Name = 'ImporteVentas'
-        DataType = ftFloat
-      end
-      item
-        Name = 'ImporteCompras'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalSumaDebe'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalSumaHaber'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalSumaSaldo'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Gasto'
-        DataType = ftInteger
-      end
-      item
-        Name = 'BaseSinIVA'
-        DataType = ftFloat
-      end
-      item
-        Name = 'BaseConIVA'
-        DataType = ftFloat
-      end
-      item
-        Name = 'DescConcepto'
-        DataType = ftString
-        Size = 30
-      end
-      item
-        Name = 'Ejercicio'
-        DataType = ftInteger
-      end
-      item
-        Name = 'DescPeriodo'
-        DataType = ftString
-        Size = 20
-      end
-      item
-        Name = 'Ingresos'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Gastos'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Retenciones'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Mes'
-        DataType = ftInteger
-      end
-      item
-        Name = 'Trimestre'
-        DataType = ftInteger
-      end
-      item
-        Name = 'TotalBruto'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalBruto16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalBruto0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'BaseSinIVA16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'BaseSinIVA0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'BaseConIVA16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'BaseConIVA0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CuotaIVA16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CuotaIVA0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Retenciones16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Retenciones0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalFactura16'
-        DataType = ftFloat
-      end
-      item
-        Name = 'TotalFactura0'
-        DataType = ftFloat
-      end
-      item
-        Name = 'DescInforme'
-        DataType = ftString
-        Size = 255
-      end
-      item
-        Name = 'Recargo'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CuotaRecargo'
-        DataType = ftFloat
-      end
-      item
-        Name = 'Id_Conceptos'
-        DataType = ftString
-        Size = 3
-      end
-      item
-        Name = 'Cuenta_Analitica'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'PUNTEO'
-        DataType = ftString
-        Size = 1
-      end
-      item
-        Name = 'FSubcuenta'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'FDescSubcuenta'
-        DataType = ftString
-        Size = 80
-      end>
-    IndexDefs = <>
-    Params = <>
-    StoreDefs = True
-    Left = 325
-    Top = 183
-    object QSubcuentasMayorSUBCUENTA: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'SUBCUENTA'
-      Calculated = True
-    end
-    object QSubcuentasMayorDESCRIPCION: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'DESCRIPCION'
-      Size = 80
-      Calculated = True
-    end
-  end
   object SSubcuentasMayor: TDataSource
-    DataSet = QSubcuentasMayor
-    Left = 424
-    Top = 183
+    DataSet = MSubcuentasMayor
+    Left = 423
+    Top = 180
   end
   object SLinesDiario: TDataSource
     DataSet = QLinesDiario
@@ -4527,5 +4136,24 @@ object DataModuleFiltroListadosMayor: TDataModuleFiltroListadosMayor
     BCDToCurrency = False
     Left = 512
     Top = 377
+  end
+  object MSubcuentasMayor: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 320
+    Top = 182
+    object MSubcuentasMayorSUBCUENTA: TWideStringField
+      FieldName = 'SUBCUENTA'
+      Size = 10
+    end
+    object MSubcuentasMayorDESCRIPCION: TWideStringField
+      FieldName = 'DESCRIPCION'
+      Size = 80
+    end
   end
 end

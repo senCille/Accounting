@@ -57,7 +57,9 @@ var WPaises: TWPaises;
 
 implementation
 
-uses Dialogs, Tools, Globales, DM, DMControl;
+uses System.UITypes,
+     VCL.Dialogs,
+     Tools, Globales, DM, DMControl;
 
 {$R *.DFM}
 

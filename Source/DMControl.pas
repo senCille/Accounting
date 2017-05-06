@@ -85,11 +85,6 @@ begin
 
    Config.AppFolder     := ExtractFilePath(Application.ExeName);
 
-   Config.ImagesFolder  := Config.AppFolder + FOLDER_IMAGES_NAME  +'\';
-   if not TDirectory.Exists(Config.ImagesFolder) then begin
-      raise Exception.Create('No existe el directorio : '+Config.ImagesFolder);
-   end;
-
    Config.ReportsFolder := Config.AppFolder + FOLDER_REPORTS_NAME +'\';
    if not TDirectory.Exists(Config.ReportsFolder) then begin
       TDirectory.CreateDirectory(Config.ReportsFolder);

@@ -102,6 +102,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     TabOrder = 2
     object TabSheetAsientos: TTabSheet
       Caption = 'Asientos'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox2: TGroupBox
         Left = 0
         Top = 449

@@ -85,7 +85,8 @@ var WEfectosComerciales: TWEfectosComerciales;
 
 implementation
 
-uses DM, DMConta, Globales, UCarteraEfectos, Processing;
+uses System.UITypes,
+     DM, DMConta, Globales, UCarteraEfectos, Processing;
 
 {$R *.DFM}
 

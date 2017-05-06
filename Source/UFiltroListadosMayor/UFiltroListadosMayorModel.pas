@@ -2,9 +2,13 @@ unit UFiltroListadosMayorModel;
 
 interface
 
-uses
-  SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  frxClass, frxDBSet, frxExportPDF, DBClient;
+uses System.SysUtils, System.Classes,
+     Data.DB, DataSnap.DBClient, DataSnap.Provider,
+     IBX.IBDatabase, IBX.IBSQL,  IBX.IBCustomDataSet,
+     frxClass, frxDBSet, frxExportPDF,
+     CustomModel,
+     VCL.Controls, VCL.Dialogs, VCL.Forms, VCL.Graphics, WinAPI.Messages, WinAPI.Windows,
+     IBX.IBQuery, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TDataModuleFiltroListadosMayor = class(TDataModule)
@@ -144,13 +148,13 @@ type
     QInfDiarioEJERCICIO: TIntegerField;
     QInfDiarioSERIE: TIBStringField;
     SInfDiario: TDataSource;
-    QSubcuentasMayor: TClientDataSet;
     SSubcuentasMayor: TDataSource;
     SLinesDiario: TDataSource;
     QLinesDiario: TClientDataSet;
-    QSubcuentasMayorSUBCUENTA: TStringField;
-    QSubcuentasMayorDESCRIPCION: TStringField;
     Enlace2: TfrxDBDataset;
+    MSubcuentasMayor: TFDMemTable;
+    MSubcuentasMayorSUBCUENTA: TWideStringField;
+    MSubcuentasMayorDESCRIPCION: TWideStringField;
     procedure QInfDiarioCalcFields(DataSet: TDataSet);
   private
   public
@@ -209,8 +213,8 @@ var
 implementation
 
 uses System.Math,
-     VCL.Forms, VCL.ComCtrls, VCL.Controls, VCL.Graphics,
-     IBX.IBQuery,
+     VCL.ComCtrls,
+     SQLConnect,
      DM, DMConta, Processing, ccStr, Globales, DMControl;
 
 {$R *.dfm}
@@ -381,13 +385,14 @@ begin
    DM.QInfDiario.Database := DB;*)
    //DM.QInfDiario.Open;
 
-   //DM.QSubcuentasMayor.Active := False;
-   DM.QSubcuentasMayor.IndexDefs.Clear;
-   DM.QSubcuentasMayor.IndexDefs.Add('SUBCUENTA'  , 'SUBCUENTA', []);
-   DM.QSubcuentasMayor.IndexDefs.Add('DESCRIPCION', 'DESCSUBCUENTA', []);
 
-   DM.QSubcuentasMayor.CreateDataSet;
-   DM.QSubcuentasMayor.Active := True;
+   DM.MSubcuentasMayor.Active := False;
+   DM.MSubcuentasMayor.IndexDefs.Clear;
+   DM.MSubcuentasMayor.IndexDefs.Add('SUBCUENTA'  , 'SUBCUENTA', [ixUnique]);
+   DM.MSubcuentasMayor.IndexDefs.Add('DESCRIPCION', 'DESCRIPCION', []);
+
+   DM.MSubcuentasMayor.CreateDataSet;
+   DM.MSubcuentasMayor.Active := True;
 
    //DM.QSubcuentasMayor.Active := False;
    DM.QLinesDiario.CreateDataSet;
@@ -441,14 +446,18 @@ var
    PrimerAsiento  :Integer;
    SubctaAcum     :string;
    DescSubctaAcum :string;
+
+   dummyA :string;
+   dummyB :string;
 begin
    {$Message Warn 'This report requires to be create newly starting from zero'}
    {This report has in his style of ReportBuilde a very complex structure, to allow it the
    interaction with the user. The user can delete or query the program based on the information
    showed at preview window. The new version shall drop this feature an be more simple.   }
-   DM.QSubcuentasMayor.IndexName := 'SUBCUENTA';
+   //DM.QSubcuentasMayor.IndexName := 'SUBCUENTA';
 
-   InProgress := InProgressView('Generando informe ...', True);
+   InProgress := InProgressView(Config.Lang.GeneratingReport, True);
+   DM.MSubcuentasMayor.DisableControls;
    try
       Config.AbortedProcess := False;
 
@@ -680,14 +689,13 @@ begin
 
          Q.Open;
 
-         try
+         //try
             while not Q.EOF do begin
-               DM.QSubcuentasMayor.Append;
-               //DM.QSubcuentasMayor.Edit;
-               DM.QSubcuentasMayorSUBCUENTA.AsString   := Q.FieldByName('SUBCUENTA'  ).AsString;
-               DM.QSubcuentasMayorDESCRIPCION.AsString := Q.FieldByName('DESCRIPCION').AsString;
-               DM.QSubcuentasMayor.Post;
-               //DM.QSubcuentasMayor.ApplyUpdates(0);
+               InProgress.ShowNext(Format('Procesando Subcuenta %s : %s ', [Q.FieldByName('SUBCUENTA').AsString, Q.FieldByName('DESCRIPCION').AsString]));
+               DM.MSubcuentasMayor.Append;
+               DM.MSubcuentasMayorSUBCUENTA.AsString   := Q.FieldByName('SUBCUENTA'  ).AsString; //dummyA;
+               DM.MSubcuentasMayorDESCRIPCION.AsString := Q.FieldByName('DESCRIPCION').AsString; //dummyB;
+               DM.MSubcuentasMayor.Post;
                Q.Next;
             end;
          (*   nSubcuenta     := '';
@@ -801,23 +809,24 @@ begin
 
                QAsientos.Next;
             end;*)
-         except
+         {except
             on E: Exception do begin
                DatabaseError(E.Message);
             end;
-         end;
+         end;}
       finally
          Q.Free;
          QSubcuentas.Free;
          QConceptos.Free;
       end;
    finally
+      DM.MSubcuentasMayor.EnableControls;
       InProgress.Free;
    end;
 
-   if Orden = 'S' then DM.QSubcuentasMayor.IndexName := 'SUBCUENTA'
-                  else DM.QSubcuentasMayor.IndexName := 'DESCRIPCION';
-   DM.QSubcuentasMayor.First;
+   if Orden = 'S' then DM.MSubcuentasMayor.IndexName := 'SUBCUENTA'
+                  else DM.MSubcuentasMayor.IndexName := 'DESCRIPCION';
+   DM.MSubcuentasMayor.First;
 end;
 
 procedure TFiltroListadosMayorModel.PrintMayor;
@@ -906,8 +915,8 @@ end;
 
 procedure TFiltroListadosMayorModel.EmptyMayor;
 begin
-   DM.QSubcuentasMayor.EmptyDataSet;
-   DM.QSubcuentasMayor.IndexName := '';
+   DM.MSubcuentasMayor.EmptyDataSet;
+   DM.MSubcuentasMayor.IndexName := '';
 end;
 
 end.

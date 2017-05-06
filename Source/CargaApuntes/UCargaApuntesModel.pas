@@ -3,7 +3,8 @@ unit UCargaApuntesModel;
 interface
 
 uses
-  SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet;
+  SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
   TDataModuleCargaApuntes = class(TDataModule)
@@ -33,6 +34,7 @@ type
     QConceptosID_CONCEPTOS: TIBStringField;
     QConceptosDESCRIPCION: TIBStringField;
     SConceptos: TDataSource;
+    FDQuery1: TFDQuery;
   private
   public
   end;

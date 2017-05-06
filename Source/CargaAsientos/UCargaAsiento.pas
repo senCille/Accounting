@@ -210,7 +210,7 @@ var WCargaAsiento: TWCargaAsiento;
 
 implementation
 
-uses System.Math,
+uses System.Math, System.UITypes,
      DM, DMConta, Tools, UFiltroListadosMayorModel, Processing, UNuevaSubcuenta,
      UFiltroLibroFacturasEmitidas;
 

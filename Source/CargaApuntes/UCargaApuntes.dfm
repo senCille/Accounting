@@ -454,6 +454,10 @@ object WCargaApuntes: TWCargaApuntes
     object TabSheetLastMoves: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel3: TPanel
         Left = 0
         Top = 231

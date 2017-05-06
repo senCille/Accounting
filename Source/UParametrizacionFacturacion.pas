@@ -268,7 +268,9 @@ var WParametrizacionFacturacion: TWParametrizacionFacturacion;
 
 implementation
 
-uses Dialogs, Tools, DM, IBX.IBQuery;
+uses System.UITypes, VCL.Dialogs,
+     IBX.IBQuery,
+     Tools, DM;
 
 {$R *.DFM}
 

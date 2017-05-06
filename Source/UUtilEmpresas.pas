@@ -28,7 +28,8 @@ var WUtilEmpresas: TWUtilEmpresas;
 
 implementation
 
-uses DM, Globales, UActualizacionBD, Processing;
+uses System.UITypes,
+     DM, Globales, UActualizacionBD, Processing;
 
 {$R *.DFM}
 

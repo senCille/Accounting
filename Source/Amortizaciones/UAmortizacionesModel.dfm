@@ -2590,6 +2590,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 39.998765990000000000
           Width = 854.347638380000000000
           Height = 15.998750490000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2979,6 +2980,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 233.000465440000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3014,6 +3016,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3033,6 +3036,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3052,6 +3056,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3071,6 +3076,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3090,6 +3096,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3109,6 +3116,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3128,6 +3136,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3147,6 +3156,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3166,6 +3176,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3185,6 +3196,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3204,6 +3216,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3223,6 +3236,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 114.999759310000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3238,6 +3252,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 102.999751560000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3257,6 +3272,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954570000010000
           Width = 102.999751560000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3276,6 +3292,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 1.001575449999990000
           Width = 121.001652950000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3308,6 +3325,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 120.997873420000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3326,6 +3344,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3344,6 +3363,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3362,6 +3382,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3380,6 +3401,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3398,6 +3420,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3416,6 +3439,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 102.999751560000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3434,6 +3458,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 15.000954569999980000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3452,6 +3477,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 102.999751560000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3470,6 +3496,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3488,6 +3515,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3506,6 +3534,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3524,6 +3553,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3542,6 +3572,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -3560,6 +3591,7 @@ object DataModuleAmortizaciones: TDataModuleAmortizaciones
           Top = 30.001909140000010000
           Width = 78.001940140000000000
           Height = 13.001583200000000000
+          DataSet = DataModuleCarteraEfectos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric

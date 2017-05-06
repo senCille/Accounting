@@ -2,8 +2,10 @@ unit URecalculoSaldosModel;
 
 interface
 
-uses
-  SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet, SQLTimSt;
+uses System.SysUtils, System.Classes,
+     Data.DB,  Data.SQLTimSt,
+     IBX.IBDatabase, IBX.IBSQL, IBX.IBCustomDataSet,
+     CustomModel, Processing;
 
 type
   TLapMonth = class
@@ -24,6 +26,7 @@ type
   private
     DM :TDataModuleRecalculoSaldos;
     FMonths :TMonthsOfAExercise;
+    FInProgress :TProcessingView;
     function FillRightStr(StrData:string; Character :Char; Long:Integer):string;
     function MaskAccnt(AAccount :string):string; {GetMaskAccount}
     function GetMonths(ABegins, AEnds :TDateTime):TMonthsOfAExercise;
@@ -89,10 +92,15 @@ begin
    // Cálculo de los saldos de todas las cuentas.
    FMonths := GetMonths(StartOfTheYear(EncodeDate(Year, Month, Day)),
                         EndOfTheYear  (EncodeDate(Year, Month, Day)));
-   InitializeSaldosCuentas;
-   InitializeSaldosSubcuentas;
-   UpdateSaldosCuentas(FMonths);
-   UpdateSaldosSubCuentas(FMonths);
+   FInProgress := InProgressView('Recalculando Saldos ...');
+   try
+      FInProgress.ShowNext('Inicializando Saldos de Cuentas'  );     InitializeSaldosCuentas;
+      FInProgress.ShowNext('Inicializando Saldos de Subuentas');     InitializeSaldosSubcuentas;
+      FInProgress.ShowNext('Actualizando Saldos de Cuentas'   );     UpdateSaldosCuentas(FMonths);
+      FInProgress.ShowNext('Actualizando Saldos de Subcuentas');     UpdateSaldosSubCuentas(FMonths);
+   finally
+      FInProgress.Free;
+   end;
                       
    //Dialogs.ShowMessage(FormatDateTime('dd/mmm/yyyy', FMonths[12].Begins) + '      '+ FormatDateTime('dd/mmm/yyyy', FMonths[12].Ends));
 end;
@@ -312,8 +320,7 @@ begin
    QCuentas.Open;
    try
       while not QCuentas.EOF do begin
-         //ShowProgress('Updating '+QCuentas.FieldByName('CD_CUENTA').AsString+
-         //             '   =>    '+QCuentas.FieldByName('DS_CUENTA').AsString);
+         FInProgress.ShowNext(Format('Actualizando Cuenta %s : %s ', [QCuentas.FieldByName('CD_CUENTA').AsString, QCuentas.FieldByName('DS_CUENTA').AsString]));
          UpdateSaldoCuenta(QCuentas.FieldByName('CUENTA').AsString, YearMonths);
          QCuentas.Next;
       end;
@@ -343,8 +350,7 @@ begin
    QSubcuentas.Open;
    try
       while not QSubcuentas.EOF do begin
-         //ShowProgress('Updating '+QSubcuentas.FieldByName('CD_SUBCUENTA').AsString+
-         //             '   =>    '+QSubcuentas.FieldByName('DS_SUBCUENTA').AsString);
+         FInProgress.ShowNext(Format('Actualizando Subcuenta %s : %s ', [QSubcuentas.FieldByName('CD_SUBCUENTA').AsString, QSubcuentas.FieldByName('DS_SUBCUENTA').AsString]));
          UpdateSaldoSubcuenta(QSubcuentas.FieldByName('SUBCUENTA').AsString, YearMonths);
          QSubcuentas.Next;
       end;

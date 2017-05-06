@@ -40,7 +40,7 @@ var WTraspasoApuntes: TWTraspasoApuntes;
 
 implementation
 
-uses System.StrUtils,
+uses System.StrUtils, System.UITypes,
      DM, DMConta, Globales, UNuevaSubcuenta;
 
 {$R *.DFM}

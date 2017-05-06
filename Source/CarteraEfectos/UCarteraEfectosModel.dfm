@@ -3963,7 +3963,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 291.998928740000000000
           Height = 13.999379120000000000
           DataField = 'CONCEPTO'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3980,7 +3980,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 89.000372440000000000
           Height = 13.001583200000000000
           DataField = 'NumeroFactura'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3996,7 +3996,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Top = 1.001575449999990000
           Width = 66.001932389999990000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -4016,7 +4016,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 267.001117320000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4033,7 +4033,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 104.999122930000000000
           Height = 13.999379120000000000
           DataField = 'SUBCUENTA'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4050,7 +4050,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 89.000372440000000000
           Height = 13.999379120000000000
           DataField = 'DescSituacion'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4067,7 +4067,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 70.998471050000000000
           Height = 13.999379120000000000
           DataField = 'FEMISION'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4112,7 +4112,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Top = 10.998432299999990000
           Width = 66.001932389999990000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -4151,7 +4151,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Width = 70.000675130000000000
           Height = 13.001583200000000000
           DataField = 'FVENCIMIENTO'
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -4196,7 +4196,7 @@ object DataModuleCarteraEfectos: TDataModuleCarteraEfectos
           Top = 6.999689560000008000
           Width = 66.001932389999990000
           Height = 13.999379120000000000
-          DataSet = DataModuleFiltroListadosMayor.Enlace1
+          DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric

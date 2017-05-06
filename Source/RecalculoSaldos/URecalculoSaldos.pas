@@ -27,7 +27,7 @@ var WRecalculoSaldos: TWRecalculoSaldos;
 
 implementation
 
-uses System.DateUtils,
+uses System.DateUtils, System.UITypes,
      DM, Globales, Processing;
 
 {$R *.DFM}
@@ -38,35 +38,29 @@ begin
 end;
 
 procedure TWRecalculoSaldos.BtnEdtProcesarClick(Sender: TObject);
-var InProgress :TProcessingView;
-    Q          :TIBSQL;
+//var Q :TIBSQL;
 begin
    if StrToInt(EditEjercicio.Text) = 0 then begin
       MessageDlg('Especifique el ejercicio que desea recalcular', mtInformation, [mbOK], 0);
    end
    else begin
-      InProgress := InProgressView('Recalculando Saldos ...');
-      try
-         Q := TIBSQL.Create(nil);
-         try
-            try
-               (*Q.Database    := DMRef.BDContab;
-               Q.Transaction := DMRef.BDContab.DefaultTransaction;
-               Q.SQL.Add('execute procedure RecalculoSaldos(:EJERCICIO)');
-               Q.Params.ByName('EJERCICIO').AsInteger := StrToInt(EditEJERCICIO.Text);
-               Q.ExecQuery;
-               Q.Transaction.CommitRetaining;*)
-               FModel.RecalculaSaldos(StrToInt(EditEJERCICIO.Text));
-            except
-               DatabaseError('Por favor, revise los datos de entrada.');
-            end;
-         finally
-            Q.Free;
-         end;
-      finally
-         InProgress.Free;
-      end;
-      
+      //Q := TIBSQL.Create(nil);
+      //try
+         //try
+            (*Q.Database    := DMRef.BDContab;
+            Q.Transaction := DMRef.BDContab.DefaultTransaction;
+            Q.SQL.Add('execute procedure RecalculoSaldos(:EJERCICIO)');
+            Q.Params.ByName('EJERCICIO').AsInteger := StrToInt(EditEJERCICIO.Text);
+            Q.ExecQuery;
+            Q.Transaction.CommitRetaining;*)
+            FModel.RecalculaSaldos(StrToInt(EditEJERCICIO.Text));
+         //except
+         //   DatabaseError('Por favor, revise los datos de entrada.');
+         //end;
+      //finally
+      //   Q.Free;
+      //end;
+
       MessageDlg('Proceso finalizado correctamente', mtInformation, [mbOK], 0);
       Close;
    end;

@@ -794,7 +794,7 @@ var
    nDia                 :Word;
    ListaQuery           :TStringList;
 begin
-   InProgress := InProgressView('Generando informe ...');
+   InProgress := InProgressView(Config.Lang.GeneratingReport);
    try
       Config.AbortedProcess := False;
 

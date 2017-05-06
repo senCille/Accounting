@@ -1,14 +1,16 @@
-unit Proyectos;
+unit ProjectsController;
 
 interface
 
 uses Buttons, Classes, Controls, DB, Forms, Graphics, Messages, SysUtils, WinProcs, WinTypes, DBClient,
      ExtCtrls, Grids, IBX.IBCustomDataSet, StdCtrls, Mask, DBCtrls, Dialogs, DBGrids,
-     IBX.IBDatabase, frxClass, FormHandler, frxExportPDF, frxDBSet,
+     IBX.IBDatabase, frxClass, frxExportPDF, frxDBSet,
+     senCille.CustomVCLView,
+     //senCille.CustomController,
      Localization;
 
 type
-  TWProyectos = class(TForm)
+  TProjectsView = class(TFormCustomVCLView)
     SData: TDataSource;
     QData: TIBDataSet;
     Transaction: TIBTransaction;
@@ -21,7 +23,7 @@ type
     sFiltro: TDataSource;
     Panel99: TPanel;
     Navigator: TDBNavigator;
-    BtnRefresh: TSpeedButton;
+    BtnRefresh: TButton;
     BtnReport: TButton;
     BtnModify: TButton;
     DataGrid: TDBGrid;
@@ -61,7 +63,6 @@ type
     procedure DataGridTitleClick(Column: TColumn);
     procedure BtnModifyClick(Sender: TObject);
   private
-    FormManager :TccFormHandler;
     FLang       :TLangProjects;
     FOrderField :string;
     procedure PrepareQuery;
@@ -69,16 +70,88 @@ type
   public
   end;
 
-var WProyectos: TWProyectos;
+{+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}
+(*  TProjectsController = class(TCustomController)
+  private
+    FModel        :TProjectsModel;
+    FView         :TProjectsView;
+    {FState        :TEditState;
+    FEditItem     :TProjectOrm;
+    FShowItem     :TProjectOrm;
+    FListItems    :TObjectList<TActivityOrm>;
+    FToolTips     :TToolTipsController;
+    FReportDesign :TReportingController;
+    FReportList   :TReportingController;
+    procedure InitializeView;
+    procedure SyncTreeView;}
+    {--- View Layout ---}
+    //procedure ApplyViewLayout(AViewLayout :TCustomViewLayout);
+    //procedure SaveViewLayout(AViewLayout :TCustomViewLayout);
+  {$IFDEF UNIT_TESTING} public {$ELSE} protected {$IFEND}
+    //procedure OnShowForm     (Sender :TObject);
+    //procedure OnClick_New    (Sender :TObject);
+    //procedure OnClick_Modify (Sender :TObject);
+    //procedure OnClick_Delete (Sender :TObject);
+    //procedure OnClick_Report (Sender :TObject);
+    //procedure OnClick_Accept (Sender :TObject);
+    //procedure OnClick_Cancel (Sender :TObject);
+    //procedure OnClick_First  (Sender :TObject);
+    //procedure OnClick_Prior  (Sender :TObject);
+    //procedure OnClick_Next   (Sender :TObject);
+    //procedure OnClick_Last   (Sender :TObject);
+    //procedure OnClick_Help   (Sender :TObject);
+    //procedure OnFormClose    (Sender: TObject; var Action: TCloseAction);
+    //procedure OnClick_BtnOK  (Sender :TObject);
+
+    //procedure OnClick_Refresh(Sender :TObject);
+    //procedure OnClick_Clone  (Sender :TObject);
+
+    //procedure OnClick_BtnGoSearch (Sender :TObject);
+    //procedure OnClick_BtnGoEdition(Sender :TObject);
+
+    //procedure DoApplyStyleTreeNodes(Sender: TObject);
+    //function  InsertTreeViewItem(aItem: TActivityOrm; aItemIndex :Integer):TTreeViewItem;
+    //procedure RefreshTreeView;
+
+    {For order by}
+    //procedure OnClick_OrderByCodigo(Sender :TObject);
+    //procedure OnClick_OrderByDescripcion(Sender :TObject);
+
+    //procedure ResultOfReportList(Sender: TObject; ReturnValue :TModalResult);
+    //procedure ResultOfReportDesign(Sender: TObject; ReturnValue :TModalResult);
+
+    {-------------------------------}
+    //procedure OnDblClick_TreeView(Sender: TObject);
+    //procedure OnKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
+    //procedure OnTreeViewKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
+    //procedure EditSearchTextOnKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char; Shift: TShiftState);
+    //procedure OnClick_TreeViewItem(Sender: TObject);
+
+    //procedure OnFormActivate(Sender: TObject);
+    //procedure OnClick_ReportsDesign(Sender :TObject);
+    //procedure Search(Sender: TObject);
+  public
+    //constructor Create(aSetup :TSetup); override;
+    //destructor  Destroy;                override;
+    //procedure   Run;                    override;
+    //procedure   BringToFront;           override;
+    //procedure   CloseView;              override;
+    //function    Locate(const KeyFields: string; const KeyValues: Variant; Options: TLocateOptions):Boolean; override;
+  end;      *)
+
+var ProjectsView: TProjectsView;
 
 implementation
 
-uses Globales, Tools, DM, DMControl;
+uses  System.UITypes,
+      Globales, Tools, DM, DMControl;
 
 {$R *.DFM}
 
-procedure TWProyectos.FormCreate(Sender: TObject);
+procedure TProjectsView.FormCreate(Sender: TObject);
 begin
+   inherited;
+
    BtnAccept.Caption      := Config.Lang.BtnAccept;
    BtnCancel.Caption      := Config.Lang.BtnCancel;
    BtnNew.Caption         := Config.Lang.BtnNew;
@@ -97,20 +170,20 @@ begin
    LabelFieldName.Caption     := Config.Lang.TextName;
 
    Self.Caption := '';
-   FormManager := TccFormHandler.Create(Self);
-   FormManager.AddComp(BtnNew.Name              , fmBrowse);
-   FormManager.AddComp(EditCD_PROJECT.Name      , fmEdit  );
-   FormManager.AddComp(EditDS_PROJECT.Name      , fmEdit  );
-   FormManager.AddComp(EditSearchCD_PROJECT.Name, fmBrowse);
-   FormManager.AddComp(EditSearchDS_PROJECT.Name, fmBrowse);
-   FormManager.AddComp(BtnRefresh.Name          , fmBrowse);
-   FormManager.AddComp(BtnAccept.Name           , fmEdit  );
-   FormManager.AddComp(BtnCancel.Name           , fmEdit  );
-   FormManager.AddComp(BtnDelete.Name           , fmBrowse);
-   FormManager.AddComp(BtnModify.Name           , fmBrowse);
-   FormManager.AddComp(BtnReport.Name           , fmBrowse);
-   FormManager.AddComp(Navigator.Name           , fmBrowse);
-   FormManager.AddComp(DataGrid.Name            , fmBrowse);
+
+   Self.ModeList.AddControl(Self.BtnNew              , fmView);
+   Self.ModeList.AddControl(Self.EditCD_PROJECT      , fmEdit);
+   Self.ModeList.AddControl(Self.EditDS_PROJECT      , fmEdit);
+   Self.ModeList.AddControl(Self.EditSearchCD_PROJECT, fmView);
+   Self.ModeList.AddControl(Self.EditSearchDS_PROJECT, fmView);
+   Self.ModeList.AddControl(Self.BtnRefresh          , fmView);
+   Self.ModeList.AddControl(Self.BtnAccept           , fmEdit);
+   Self.ModeList.AddControl(Self.BtnCancel           , fmEdit);
+   Self.ModeList.AddControl(Self.BtnDelete           , fmView);
+   Self.ModeList.AddControl(Self.BtnModify           , fmView);
+   Self.ModeList.AddControl(Self.BtnReport           , fmView);
+   Self.ModeList.AddControl(Self.Navigator           , fmView);
+   Self.ModeList.AddControl(Self.DataGrid            , fmView);
 
    ActivateTransactions(Self, DMRef.BDContab);
 
@@ -125,11 +198,11 @@ begin
    FOrderField := 'ID_PROYECTO';
    PrepareQuery;
 
-   FormManager.Mode := fmEdit;
-   FormManager.Mode := fmBrowse;
+   Self.Mode := fmEdit;
+   Self.Mode := fmView;
 end;
 
-procedure TWProyectos.PrepareQuery;
+procedure TProjectsView.PrepareQuery;
 begin
    QData.DisableControls;
    try
@@ -172,7 +245,7 @@ begin
    end;
 end;
 
-procedure TWProyectos.RefreshDB;
+procedure TProjectsView.RefreshDB;
 begin
    DMRef.QProyecto.Close;
    DMRef.QProyectoNom.Close;
@@ -181,13 +254,13 @@ begin
    DMRef.QProyectoNom.Open;
 end;
 
-procedure TWProyectos.BtnNewClick(Sender: TObject);
+procedure TProjectsView.BtnNewClick(Sender: TObject);
 begin
    if not DmControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), ANIADIR) then begin
       Exit;
    end;
 
-   FormManager.Mode := fmEdit;
+   Self.Mode := fmEdit;
    
    EditCD_PROJECT.SetFocus;
    try
@@ -197,7 +270,7 @@ begin
    end;
 end;
 
-procedure TWProyectos.BtnDeleteClick(Sender: TObject);
+procedure TProjectsView.BtnDeleteClick(Sender: TObject);
 begin
    if not DmControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), BORRAR) then begin
       Exit;
@@ -214,7 +287,7 @@ begin
    end;
 end;
 
-procedure TWProyectos.BtnReportClick(Sender: TObject);
+procedure TProjectsView.BtnReportClick(Sender: TObject);
 begin
    if DmControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), IMPRESION) then begin
       BtnRefresh.Click;
@@ -231,7 +304,7 @@ begin
    end;
 end;
 
-procedure TWProyectos.BtnAcceptClick(Sender: TObject);
+procedure TProjectsView.BtnAcceptClick(Sender: TObject);
 begin
    {Force focus to the next taborder control}
    Perform(wm_NextDlgCtl, 0, 0);
@@ -251,7 +324,7 @@ begin
 
    RefreshDB;
 
-   FormManager.Mode := fmBrowse;
+   Self.Mode := fmView;
 
    DataGrid.SetFocus;
    if QData.State = dsInsert then begin
@@ -264,7 +337,7 @@ begin
    end;
 end;
 
-procedure TWProyectos.BtnCancelClick(Sender: TObject);
+procedure TProjectsView.BtnCancelClick(Sender: TObject);
 begin
    {force focus to the next taborder control}
    Perform(wm_NextDlgCtl, 0, 0);
@@ -275,11 +348,11 @@ begin
       try    QData.Cancel;
       except DatabaseError(Config.Lang.ImposibleCancel);
       end;
-      FormManager.Mode := fmBrowse;
+      Self.Mode := fmView;
    end;
 end;
 
-procedure TWProyectos.FormKeyPress(Sender: TObject; var Key: Char);
+procedure TProjectsView.FormKeyPress(Sender: TObject; var Key: Char);
 begin
    if (Key = Chr(VK_RETURN)) then begin
       { Check code can't be left in blank }
@@ -301,12 +374,12 @@ begin
    end;
 end;
 
-procedure TWProyectos.FormShow(Sender: TObject);
+procedure TProjectsView.FormShow(Sender: TObject);
 begin
    EditSearchCD_PROJECT.SetFocus;
 end;
 
-procedure TWProyectos.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TProjectsView.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
    case key of
       VK_ESCAPE: begin
@@ -341,17 +414,16 @@ begin
    end;
 end;
 
-procedure TWProyectos.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TProjectsView.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
    if QData.State = dsBrowse then begin
-      FormManager.Free;
       FLang.Free;
       Action := caFree;
    end
    else ShowMessage(Config.Lang.CloseNotAllowed);
 end;
 
-procedure TWProyectos.CleanFilter(Sender: TObject);
+procedure TProjectsView.CleanFilter(Sender: TObject);
 begin
    if not (HFilter.State in dsEditModes) then begin
       HFilter.edit;
@@ -360,7 +432,7 @@ begin
    HFilterBDESCRIPCION.AsString := '';
 end;
 
-procedure TWProyectos.ShowData(Sender: TObject);
+procedure TProjectsView.ShowData(Sender: TObject);
 begin
    HFilter.Edit;
    HFilterBCODIGO.AsString      := '';
@@ -369,12 +441,12 @@ begin
    PrepareQuery;
 end;
 
-procedure TWProyectos.DataGridDblClick(Sender: TObject);
+procedure TProjectsView.DataGridDblClick(Sender: TObject);
 begin
    BtnModify.Click;
 end;
 
-procedure TWProyectos.DataGridTitleClick(Column: TColumn);
+procedure TProjectsView.DataGridTitleClick(Column: TColumn);
 begin
    if (UpperCase(Column.FieldName) = 'ID_PROYECTO') or (UpperCase(Column.FieldName) = 'NOMBRE') then begin
       FOrderField := UpperCase(Column.FieldName);
@@ -383,13 +455,13 @@ begin
    DataGrid.SetFocus;
 end;
 
-procedure TWProyectos.BtnModifyClick(Sender: TObject);
+procedure TProjectsView.BtnModifyClick(Sender: TObject);
 begin
    if (DMControlRef.PermisoUsuario(Config.IdUser, UpperCase(Self.Name), MODIFICAR)) and (not QData.IsEmpty) then begin
       try QData.Edit;
       except MessageDlg(Config.Lang.ImposibleModify, mtInformation, [mbOK], 0);
       end;
-      FormManager.Mode := fmEdit;
+      Self.Mode := fmEdit;
       EditCD_PROJECT.SetFocus;
    end;
 end;

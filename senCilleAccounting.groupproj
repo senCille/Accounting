@@ -3,6 +3,9 @@
         <ProjectGuid>{474BB816-ACDA-4F02-99A1-6EA851AA9AD5}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="scStub.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="scAccounting.dproj">
             <Dependencies/>
         </Projects>
@@ -14,6 +17,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="scStub">
+        <MSBuild Projects="scStub.dproj"/>
+    </Target>
+    <Target Name="scStub:Clean">
+        <MSBuild Projects="scStub.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="scStub:Make">
+        <MSBuild Projects="scStub.dproj" Targets="Make"/>
+    </Target>
     <Target Name="scAccounting">
         <MSBuild Projects="scAccounting.dproj"/>
     </Target>
@@ -24,13 +36,13 @@
         <MSBuild Projects="scAccounting.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="scAccounting"/>
+        <CallTarget Targets="scStub;scAccounting"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="scAccounting:Clean"/>
+        <CallTarget Targets="scStub:Clean;scAccounting:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="scAccounting:Make"/>
+        <CallTarget Targets="scStub:Make;scAccounting:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

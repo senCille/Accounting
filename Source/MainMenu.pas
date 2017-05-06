@@ -105,7 +105,7 @@ var MainMenuForm :TMainMenuForm;
 
 implementation
 
-uses System.Win.Registry, System.StrUtils,
+uses System.Win.Registry, System.StrUtils, System.UITypes,
      WinAPI.ShellApi,
      VCL.Dialogs,
      DM, DMConta, DMControl,
@@ -118,9 +118,9 @@ uses System.Win.Registry, System.StrUtils,
      UDiario, UEmpresas, UEnlaceContable, UFiltro347, UFiltroBalances, UFiltroLibroFacturasEmitidas,
      UFiltroListadosAsientos, UFiltroListadosMayor, UFiltroSitPgGg, UFormasPago, UGrupos, UImportacion,
      UIrpf110, UIrpf115, UISoc202, UPaises, UParametrizacion, UParametrizacionFacturacion,
-     UPlanAnalico, UPlanContable, Proyectos, UPunteoDiario, URecalculoSaldos,
-     USecciones, USubCuentas, UTiposDiario, UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios,
-     UActualizacionBD;
+     UPlanAnalico, UPlanContable, UPunteoDiario, URecalculoSaldos, USecciones, USubCuentas, UTiposDiario,
+     UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios, UActualizacionBD,
+     ProjectsController;
 
 {$R *.DFM}
 
@@ -664,7 +664,7 @@ end;
 procedure TMainMenuForm.MenuItemProyectosClick(Sender: TObject);
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPROYECTOS') then Exit;
-   InsertMDIForm(Self, TWProyectos);
+   InsertMDIForm(Self, TProjectsView);
 end;
 
 procedure TMainMenuForm.MenuItemFormasPagoClick(Sender: TObject);

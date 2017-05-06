@@ -113,7 +113,8 @@ var WCargaApuntes: TWCargaApuntes;
 
 implementation
 
-uses DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UCargaRapidaNominas, Math,
+uses System.UITypes, System.Math,
+     DM, DMConta, Tools, UFiltroListadosMayorModel, UCargaAsiento, UCargaRapidaNominas,
      UFiltroMayorSubcuenta, UNuevaSubcuenta;
 
 {$R *.DFM}

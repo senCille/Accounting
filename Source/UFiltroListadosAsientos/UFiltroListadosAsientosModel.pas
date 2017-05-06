@@ -500,7 +500,7 @@ var QApuntes :TIBQuery;
             DM.QInformesConta.FieldByName('FechaFinal'    ).AsDateTime := FechaFinal;
             DM.QInformesConta.FieldByName('FechaImpresion').AsDateTime := FechaImpresion;
 
-            DM.QInformesConta.post;
+            DM.QInformesConta.Post;
 
             QApuntes.Next;
          end;
@@ -508,7 +508,7 @@ var QApuntes :TIBQuery;
    end;
 
 begin
-   InProgress := InProgressView('Generando informe ...', True);
+   InProgress := InProgressView(Config.Lang.GeneratingReport, True);
    try
       Config.AbortedProcess := False;
       Config.FormatoOficial := FormatoOficial;
@@ -554,19 +554,11 @@ begin
 
       QAsientos.SQL.Add('   D.ASIENTO >= :ASIENTOINICIAL AND D.ASIENTO <= :ASIENTOFINAL AND');
 
-      if FechaInicial = 0 then begin
-         QAsientos.SQL.Add('   (D.FECHA IS NULL OR (D.FECHA >= :FECHAINICIAL AND FECHA <= :FECHAFINAL))');
-      end
-      else begin
-         QAsientos.SQL.Add('   D.FECHA >= :FECHAINICIAL AND FECHA <= :FECHAFINAL');
-      end;
+      if FechaInicial = 0 then QAsientos.SQL.Add('   (D.FECHA IS NULL OR (D.FECHA >= :FECHAINICIAL AND FECHA <= :FECHAFINAL))')
+                          else QAsientos.SQL.Add('   D.FECHA >= :FECHAINICIAL AND FECHA <= :FECHAFINAL');
 
-      if OrdenadoPorAsiento then begin
-         QAsientos.SQL.Add('ORDER BY D.ASIENTO, D.APUNTE');
-      end
-      else begin
-         QAsientos.SQL.Add('ORDER BY D.FECHA, D.ASIENTO');
-      end;
+      if OrdenadoPorAsiento then QAsientos.SQL.Add('ORDER BY D.ASIENTO, D.APUNTE')
+                            else QAsientos.SQL.Add('ORDER BY D.FECHA, D.ASIENTO');
 
       QAsientos.Prepare;
 
@@ -576,51 +568,44 @@ begin
       QAsientos.Params.ByName('FECHAFINAL').AsDateTime    := FechaFinal;
 
       QAsientos.ExecQuery;
-
       try
-         nAsiento := -MaxInt;
-         while not QAsientos.EOF do begin
-            ProcesarAsiento(QAsientos.FieldByName('ASIENTO').AsInteger, AsientoOK);
+         try
+            nAsiento := -MaxInt;
+            while (not QAsientos.EOF) and (not Config.AbortedProcess) do begin
+               InProgress.ShowNext(Format('Procesando Asiento %s ', [QAsientos.FieldByName('ASIENTO').AsString]));
+               ProcesarAsiento(QAsientos.FieldByName('ASIENTO').AsInteger, AsientoOK);
 
-            // Forzar la inserción de una banda de separación entre asientos
-            // Si es formato oficial
-            if AsientoOK and (nAsiento <> QAsientos.FieldByName('ASIENTO').AsInteger) then begin
-               if (nAsiento <> -MaxInt) and FormatoOficial then begin
-                  DM.QInformesConta.Append;
-                  DM.QInformesConta.Edit;
+               // Forzar la inserción de una banda de separación entre asientos
+               // Si es formato oficial
+               if AsientoOK and (nAsiento <> QAsientos.FieldByName('ASIENTO').AsInteger) then begin
+                  if (nAsiento <> -MaxInt) and FormatoOficial then begin
+                     DM.QInformesConta.Append;
+                     DM.QInformesConta.Edit;
 
-                  {Almacenar el intervalo de fechas y la fecha de impresión para incluirlas en la descripción del listado.}
-                  DM.QInformesConta.FieldByName('FechaInicial'  ).AsDateTime := FechaInicial;
-                  DM.QInformesConta.FieldByName('FechaFinal'    ).AsDateTime := FechaFinal;
-                  DM.QInformesConta.FieldByName('FechaImpresion').AsDateTime := FechaImpresion;
+                     {Almacenar el intervalo de fechas y la fecha de impresión para incluirlas en la descripción del listado.}
+                     DM.QInformesConta.FieldByName('FechaInicial'  ).AsDateTime := FechaInicial;
+                     DM.QInformesConta.FieldByName('FechaFinal'    ).AsDateTime := FechaFinal;
+                     DM.QInformesConta.FieldByName('FechaImpresion').AsDateTime := FechaImpresion;
 
-                  DM.QInformesConta.Post;
+                     DM.QInformesConta.Post;
+                  end;
+                  nAsiento := QAsientos.FieldByName('ASIENTO').AsInteger;
                end;
-               nAsiento := QAsientos.FieldByName('ASIENTO').AsInteger;
+
+               QAsientos.Next;
             end;
 
-            QAsientos.Next;
+            QAsientos.Free;
+         except
+            on E: Exception do begin
+               DatabaseError(E.message);
+            end;
          end;
-
-         QAsientos.Free;
-      except
-         on E: Exception do begin
-            QSubcuentas.Close;
-            QSubcuentas.Free;
-            QConceptos.Close;
-            QConceptos.Free;
-            QApuntes.Close;
-            QApuntes.Free;
-            DatabaseError(E.message);
-         end;
+      finally
+         QSubcuentas.Free;
+         QConceptos.Free;
+         QApuntes.Free;
       end;
-
-      QSubcuentas.Close;
-      QSubcuentas.Free;
-      QConceptos.Close;
-      QConceptos.Free;
-      QApuntes.Close;
-      QApuntes.Free;
    finally
       InProgress.Free;
    end;
@@ -646,7 +631,6 @@ begin
       DM.FastReportAsientosExpandido.Export(DM.PDFExport);
    end;
 
-   //DMContaRef.InicializarFicherosInformes;
    DM.QInformesConta.EmptyDataSet;
 end;
 

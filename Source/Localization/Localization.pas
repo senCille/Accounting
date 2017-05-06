@@ -24,6 +24,7 @@ type
     FieldCantBeLeftBlank :string;
     ReferenceMessageText :string; //'El proyecto seleccionado se encuentra referenciado en alguna analítica.'
     ProgressCanceledText :string;
+    GeneratingReport     :string; {For report processing window title}
     constructor Create;
   end;
 
@@ -72,6 +73,7 @@ begin
         FieldCantBeLeftBlank := '%s field can''t be left blank';
         ReferenceMessageText := 'Current %s exists in at least one %s';
         ProgressCanceledText := 'Process canceled';
+        GeneratingReport     := 'Generating Report...';
       end;
       ltSpanish:begin
         BtnAccept            := 'Aceptar';
@@ -94,6 +96,7 @@ begin
         FieldCantBeLeftBlank := 'El campo %s no puede dejarse en blanco';
         ReferenceMessageText := 'El %s actual existe en al menos una %s';
         ProgressCanceledText := 'Proceso cancelado';
+        GeneratingReport     := 'Generando Informe...';
       end;
       ltFrench:begin
         BtnAccept            := 'Acceptez';
@@ -116,6 +119,7 @@ begin
         FieldCantBeLeftBlank := 'Le champ %s ne peut pas être laissé vide';
         ReferenceMessageText := 'Le %s actuel existe dans au moins une %s';
         ProgressCanceledText := 'Procédure annulée';
+        GeneratingReport     := 'Génération du rapport...';
       end;
       ltGerman:begin
         BtnAccept            := 'Akzeptieren';
@@ -138,6 +142,7 @@ begin
         FieldCantBeLeftBlank := '%s-Feld kann nicht leer sein';
         ReferenceMessageText := 'Das %s Projekt existiert in mindestens einer %s';
         ProgressCanceledText := 'Prozess abgebrochen';
+        GeneratingReport     := 'Bericht erstellen...';
       end;
    end;
 end;

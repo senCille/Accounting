@@ -56,7 +56,9 @@ type
   end;
 
 implementation
-uses SysUtils, db, Forms, Dialogs, IBX.IBQuery;
+uses System.UITypes, System.SysUtils,
+     Data.DB, IBX.IBQuery,
+     VCL.Forms, VCL.Dialogs;
 
 procedure RaiseException(Error: string);
 begin

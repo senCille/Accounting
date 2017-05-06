@@ -264,7 +264,7 @@ var WCuentas: TWCuentas;
 
 implementation
 
-uses System.Math, System.StrUtils,
+uses System.Math, System.StrUtils, System.UITypes,
      DM, DMConta, DMControl, Globales;
 
 {$R *.DFM}

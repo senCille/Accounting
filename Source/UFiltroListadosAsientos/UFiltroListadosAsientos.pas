@@ -109,32 +109,35 @@ end;
 
 procedure TWFiltroListadosAsientos.BtnProcessClick(Sender: TObject);
 begin
-   // Primero vaciar el fichero
    DMContaRef.QInformesConta.EmptyDataset;
 
-   // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
+   {Force next control selection}
    Perform(wm_NextDlgCtl, 0, 0);
    Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
-
-   case TipoListado of
-      INF_ASIENTOS: begin
-         FModel.LanzarInfAsientos(CDSFiltroASIENTO_DESDE.AsInteger  ,
-                                  CDSFiltroASIENTO_HASTA.AsInteger  ,
-                                  CDSFiltroFECHA_DESDE.AsDateTime   ,
-                                  CDSFiltroFECHA_HASTA.AsDateTime   ,
-                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
-                                  CDSFiltroTIPO_CONCEPTO.AsString   ,
-                                  CDSFiltroCUENTA.AsString          ,
-                                  CDSFiltroID_DELEGACION.AsString   ,
-                                  CDSFiltroID_DEPARTAMENTO.AsString ,
-                                  CDSFiltroID_SECCION.AsString      ,
-                                  CDSFiltroID_PROYECTO.AsString     ,
-                                  CDSFiltroOrden.AsString   = 'A'   ,
-                                  CDSFiltroInforme.AsString = 'N'   ,
-                                  CheckBoxSoloAsientosDesc.Checked  ,
-                                  CheckBoxSoloAsientosMezcla.Checked,
-                                  CheckBoxFormatoOficial.Checked    );
+   Self.Enabled := False;
+   try
+      case TipoListado of
+         INF_ASIENTOS: begin
+            FModel.LanzarInfAsientos(CDSFiltroASIENTO_DESDE.AsInteger  ,
+                                     CDSFiltroASIENTO_HASTA.AsInteger  ,
+                                     CDSFiltroFECHA_DESDE.AsDateTime   ,
+                                     CDSFiltroFECHA_HASTA.AsDateTime   ,
+                                     CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                     CDSFiltroTIPO_CONCEPTO.AsString   ,
+                                     CDSFiltroCUENTA.AsString          ,
+                                     CDSFiltroID_DELEGACION.AsString   ,
+                                     CDSFiltroID_DEPARTAMENTO.AsString ,
+                                     CDSFiltroID_SECCION.AsString      ,
+                                     CDSFiltroID_PROYECTO.AsString     ,
+                                     CDSFiltroOrden.AsString   = 'A'   ,
+                                     CDSFiltroInforme.AsString = 'N'   ,
+                                     CheckBoxSoloAsientosDesc.Checked  ,
+                                     CheckBoxSoloAsientosMezcla.Checked,
+                                     CheckBoxFormatoOficial.Checked    );
+         end;
       end;
+   finally
+      Self.Enabled := True;
    end;
 end;
 

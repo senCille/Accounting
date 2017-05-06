@@ -1515,9 +1515,8 @@ object WDiario: TWDiario
       FieldName = 'DESCSUBCUENTA'
       Size = 80
     end
-    object QFicheroDESCCONTRAPARTIDA: TStringField
-      DisplayLabel = 'DESCRIPCI'#211'N DE CONTRAPARTIDA'
-      DisplayWidth = 46
+    object QFicheroDESCCONTRAPARTIDA: TWideStringField
+      DisplayLabel = 'DESCRIPCI'#211'N DE LA CONTRAPARTIDA'
       FieldName = 'DESCCONTRAPARTIDA'
       Size = 80
     end

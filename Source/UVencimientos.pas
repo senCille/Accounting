@@ -83,8 +83,9 @@ var WVencimientos: TWVencimientos;
 
 implementation
 
-uses System.Math, System.DateUtils,
+uses System.Math, System.DateUtils, System.UITypes,
      DM, DMConta, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWVencimientos.FormCreate(Sender: TObject);

@@ -69,7 +69,10 @@ type
 var WComerciales: TWComerciales;
 
 implementation
-uses DM, DMControl, Tools, Globales;
+
+uses System.UITypes,
+     DM, DMControl, Tools, Globales;
+
 {$R *.DFM}
 
 procedure TWComerciales.FormCreate(Sender: TObject);

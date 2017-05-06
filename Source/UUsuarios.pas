@@ -2,7 +2,9 @@ unit UUsuarios;
 
 interface
 
-uses Buttons, Forms, Windows, Messages, DBClient, IBX.IBDatabase, DB, SysUtils, IBX.IBCustomDataSet,
+uses System.UITypes,
+     WinAPI.Windows, WinAPI.Messages,
+     VCL.Buttons, VCL.Forms,   DBClient, IBX.IBDatabase, DB, SysUtils, IBX.IBCustomDataSet,
      Grids, StdCtrls, Controls, ExtCtrls, Graphics, Classes, DBCtrls, Mask, DBGrids, ComCtrls,
      FormHandler;
 

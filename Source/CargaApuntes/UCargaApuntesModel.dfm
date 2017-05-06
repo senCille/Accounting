@@ -1113,4 +1113,8 @@ object DataModuleCargaApuntes: TDataModuleCargaApuntes
     Left = 391
     Top = 127
   end
+  object FDQuery1: TFDQuery
+    Left = 256
+    Top = 296
+  end
 end

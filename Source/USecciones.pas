@@ -71,7 +71,8 @@ var WSecciones: TWSecciones;
 
 implementation
 
-uses DM, DMControl, Tools, Globales;
+uses System.UITypes,
+     DM, DMControl, Tools, Globales;
 
 {$R *.DFM}
 

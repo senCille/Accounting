@@ -87,6 +87,10 @@ object WParametrizacion: TWParametrizacion
     TabOrder = 2
     object TabSheetGeneral: TTabSheet
       Caption = 'General'
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GBFiscales: TGroupBox
         Left = 0
         Top = 0
@@ -1148,6 +1152,10 @@ object WParametrizacion: TWParametrizacion
     object TabSheetNominas: TTabSheet
       Caption = 'N'#243'minas'
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox7: TGroupBox
         Left = 0
         Top = 0
@@ -1623,6 +1631,10 @@ object WParametrizacion: TWParametrizacion
     object TabSheetCierreEjercicio: TTabSheet
       Caption = 'Cierre Ejercicio'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox12: TGroupBox
         Left = 8
         Top = 8
@@ -1866,6 +1878,10 @@ object WParametrizacion: TWParametrizacion
     object TabSheetDocumentos: TTabSheet
       Caption = 'Documentos'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupBox3: TGroupBox
         Left = 10
         Top = 17

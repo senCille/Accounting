@@ -5,7 +5,7 @@ interface
 uses Classes, comctrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCtrls,
      Forms, Graphics, Mask, Messages, StdCtrls, SysUtils, Windows,
      Grids, DBGrids,
-     UFiltroListadosMayorModel, Provider;
+     UFiltroListadosMayorModel, DataSnap.Provider, MidasLib;
 
 type
   TWFiltroListadosMayor = class(TForm)
@@ -178,42 +178,47 @@ end;
 
 procedure TWFiltroListadosMayor.BtnProcessClick(Sender: TObject);
 begin
-   // Primero vaciar el fichero
+   {Empty Results}
    DMContaRef.QInformesConta.EmptyDataset;
 
-   // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
+   {Force selection of next control}
    Perform(wm_NextDlgCtl, 0, 0);
 
    Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
    Config.FormatoOficial := CheckBoxFormatoOficial.Checked;
 
-   case TipoListado of
-      INF_MAYOR: begin
-         FModel.LanzarInfMayor(CheckBoxSubcuenta.Checked,
-                               CheckBoxDescripcion.Checked,
-                               CDSFiltroSUBCUENTA_DESDE.AsString,
-                               CDSFiltroSUBCUENTA_HASTA.AsString,
-                               CDSFiltroDESCRIPCION_DESDE.AsString,
-                               CDSFiltroDESCRIPCION_HASTA.AsString,
-                               CDSFiltroFECHA_DESDE.AsDateTime,
-                               CDSFiltroFECHA_HASTA.AsDateTime,
-                               CDSFiltroFecha_Imprimir.AsDateTime,
-                               CDSFiltroTIPO_CONCEPTO.AsString,
-                               CDSFiltroID_CONCEPTOS.AsString,
-                               CDSFiltroCUENTA.AsString,
-                               CDSFiltroID_DELEGACION.AsString,
-                               CDSFiltroID_DEPARTAMENTO.AsString,
-                               CDSFiltroID_SECCION.AsString,
-                               CDSFiltroID_PROYECTO.AsString,
-                               CDSFiltroBUSINESS_ID.AsString,
-                               CDSFiltroCONTENIENDO.AsString,
-                               CheckBoxSaltoPaginaPorSubcta.Checked,
-                               CheckBoxSaldosAcumulados.Checked,
-                               CheckBoxFormatoOficial.Checked,
-                               CheckBoxSinPuntear.Checked,
-                               CDSFiltroORDEN.AsString);
-         TabSheetResults.Show;
+   //Self.Enabled := False;
+   try
+      case TipoListado of
+         INF_MAYOR: begin
+            FModel.LanzarInfMayor(CheckBoxSubcuenta.Checked,
+                                  CheckBoxDescripcion.Checked,
+                                  CDSFiltroSUBCUENTA_DESDE.AsString,
+                                  CDSFiltroSUBCUENTA_HASTA.AsString,
+                                  CDSFiltroDESCRIPCION_DESDE.AsString,
+                                  CDSFiltroDESCRIPCION_HASTA.AsString,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroFecha_Imprimir.AsDateTime,
+                                  CDSFiltroTIPO_CONCEPTO.AsString,
+                                  CDSFiltroID_CONCEPTOS.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroBUSINESS_ID.AsString,
+                                  CDSFiltroCONTENIENDO.AsString,
+                                  CheckBoxSaltoPaginaPorSubcta.Checked,
+                                  CheckBoxSaldosAcumulados.Checked,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CheckBoxSinPuntear.Checked,
+                                  CDSFiltroORDEN.AsString);
+            TabSheetResults.Show;
+         end;
       end;
+   finally
+      //Self.Enabled := True;
    end;
 end;
 
