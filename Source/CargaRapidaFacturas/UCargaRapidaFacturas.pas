@@ -202,7 +202,7 @@ uses System.UITypes, System.Math,
 {$R *.DFM}
 
 procedure TWCargaRapidaFacturas.FormCreate(Sender: TObject);
-var Pos1 :Integer;
+//var Pos1 :Integer;
 begin
    FModel := TCargaRapidaFacturasModel.Create(DMRef.BDContab);
    Caption := '';

@@ -430,25 +430,25 @@ var
    Q              :TIBQuery;
    QSubcuentas    :TIBQuery;
    QConceptos     :TIBQuery;
-   QAcumulados    :TIBQuery;
+   //QAcumulados    :TIBQuery;
    InProgress     :TProcessingView;
-   DescApunte     :string;
-   nSubcuenta     :string;
-   nDescSubcuenta :string;
-   nSaldo         :Double;
-   nAcuDebe       :Double;
-   nAcuHaber      :Double;
-   Abreviatura    :string;
-   DescConcepto   :string;
-   NumeroFactura  :string;
-   FechaAcumIni   :TDateTime;
-   FechaAcumFin   :TDateTime;
-   PrimerAsiento  :Integer;
-   SubctaAcum     :string;
-   DescSubctaAcum :string;
+   //DescApunte     :string;
+   //nSubcuenta     :string;
+   //nDescSubcuenta :string;
+   //nSaldo         :Double;
+   //nAcuDebe       :Double;
+   //nAcuHaber      :Double;
+   //Abreviatura    :string;
+   //DescConcepto   :string;
+   //NumeroFactura  :string;
+   //FechaAcumIni   :TDateTime;
+   //FechaAcumFin   :TDateTime;
+   //PrimerAsiento  :Integer;
+   //SubctaAcum     :string;
+   //DescSubctaAcum :string;
 
-   dummyA :string;
-   dummyB :string;
+   //dummyA :string;
+   //dummyB :string;
 begin
    {$Message Warn 'This report requires to be create newly starting from zero'}
    {This report has in his style of ReportBuilde a very complex structure, to allow it the

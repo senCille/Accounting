@@ -246,8 +246,8 @@ begin
 end;
 
 procedure TWUsuarios.MostrarPermisos;
-var I, J:         Integer;
-    TienePermiso: Boolean;
+//var I, J:         Integer;
+//    TienePermiso: Boolean;
 begin
    QPermisos.Open;
    QModulos.Open;

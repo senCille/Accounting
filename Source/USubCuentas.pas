@@ -1816,14 +1816,14 @@ begin
 end;
 
 procedure TWSubCuentas.BtnGeneraClick(Sender: TObject);
-var i                    :Integer;
+var //i                    :Integer;
     nAsiento             :Integer;
     nApunte              :Integer;
     nTotImporte          :Double;
-    nImporte             :Double;
+    //nImporte             :Double;
     AbreviaturaSubcuenta :string;
-    cDB                  :string;
-    cComentario          :string;
+    //cDB                  :string;
+    //cComentario          :string;
     cFactura             :string;
     cCuentaAnalitica     :string;
     QAbrevSubctas        :TIBQuery;

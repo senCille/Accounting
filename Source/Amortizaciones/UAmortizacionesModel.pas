@@ -814,7 +814,7 @@ begin
 end;
 
 procedure TAmortizacionesModel.ReportAmortizaciones;
-var Marca :TBookMark;
+//var Marca :TBookMark;
 begin
    //Marca := DM.QTrabajos.GetBookMark;
    //DM.Enlace1.DataSet := DM.QTrabajos;

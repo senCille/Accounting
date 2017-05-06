@@ -188,12 +188,14 @@ begin
 end;
 
 procedure TWEnlaceContable.EnlaceReciboVentas;
-var
-   nAsiento, nApunte: Integer;
-   dFechaRecibos: TDatetime;
-   cContrapartida, cComentario: String;
-   lSerie, lCondicion: Boolean;
-   Marca: TBookMark;
+var nAsiento       :Integer;
+    nApunte        :Integer;
+    //dFechaRecibos  :TDatetime;
+    //cContrapartida :string;
+    //cComentario    :string;
+    lSerie         :Boolean;
+    //lCondicion     :Boolean;
+    //Marca          :TBookMark;
 begin
 
    lSerie := (Dmref.QParametrosTRATASERIE.AsString = 'S');
@@ -430,8 +432,8 @@ begin
 end;
 
 procedure TWEnlaceContable.EnlaceCheques;
-var nAsiento, nAsientoBorra: Integer;
-    lCondicion: Boolean;
+//var nAsiento, nAsientoBorra: Integer;
+//    lCondicion: Boolean;
 begin
    (*while not TEnlace.EOF do begin
       if TEnlace.FieldByName('pasado').AsString <> 'S' then begin
@@ -569,8 +571,8 @@ begin
 end;
 
 procedure TWEnlaceContable.EnlaceFacturas;
-var lCondCoste     :Boolean;
-    lCondComercial :Boolean;
+var //lCondCoste     :Boolean;
+    //lCondComercial :Boolean;
     lSerie         :Boolean;  {Indica si se tratan las series de documentos o no}
     lIgest         :Boolean;  {Si es una aplicación concreta de gestión}
     nTipo4         :Double;
@@ -579,15 +581,15 @@ var lCondCoste     :Boolean;
     nTipoRec4      :Double;
     nTipoRec1      :Double;
     nTipoRec05     :Double;
-    cPasado        :string;
-    cComentario    :string;
-    cNif           :string;
-    cContrapartida :string;
-    cConcepto      :string;
-    cFactura       :string;
-    TipoAsiento    :Integer;
-    nAsiento       :Integer;
-    nApunte        :Integer;
+    //cPasado        :string;
+    //cComentario    :string;
+    //cNif           :string;
+    //cContrapartida :string;
+    //cConcepto      :string;
+    //cFactura       :string;
+    //TipoAsiento    :Integer;
+    //nAsiento       :Integer;
+    //nApunte        :Integer;
 begin
 
    lSerie := (DMRef.QParametrosTRATASERIE.AsString = 'S');

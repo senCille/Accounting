@@ -74,7 +74,7 @@ type
   TBalExplotacionModel = class(TCustomModel)
   private
     DM   :TDataModuleBalExplotacion;
-    FSubInformesImpresos :set of 1..255;
+    //FSubInformesImpresos :set of 1..255;
     FNombreInforme       :string;
 
     procedure ConectarBDEmpresa(ACD_EMPRESA :string; AConnection :TIBDataBase);

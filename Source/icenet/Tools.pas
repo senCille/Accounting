@@ -54,7 +54,7 @@ function IsEmpty(AString :string):Boolean;
 
 implementation
 
-uses System.SysUtils, System.Math,
+uses System.SysUtils, System.Math, System.UITypes,
      WinAPI.Messages,
      Globales;
 

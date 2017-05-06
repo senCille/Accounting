@@ -190,7 +190,7 @@ var
    end;
 
    procedure ModificarVencimientos;
-   var i :Integer;
+   //var i :Integer;
    begin
       {$Message Warn 'This is pendant. This Screen don't works without this part'}
       (*for i := 0 to WCarteraEfectos.Rejilla.SelectedList.Count - 1 do begin

@@ -733,13 +733,14 @@ begin
 end;
 
 procedure TWCarteraEfectos.GenerarAsientoFiltroRemesa;
-var
-   Asiento, Apunte, I: Integer;
-   Importe:       Double;
-   AbreviaturaSubcuenta, Subcuenta1, Factura1, Concepto1: String;
-   FechaVto1:     TDateTime;
-   NumRegistros:  Integer;
-   QAbrevSubctas: TIBQuery;
+var Asiento :Integer;
+    Apunte  :Integer;
+    //i     :Integer;
+    Importe:       Double;
+    AbreviaturaSubcuenta, Subcuenta1, Factura1, Concepto1: String;
+    FechaVto1:     TDateTime;
+    NumRegistros:  Integer;
+    QAbrevSubctas: TIBQuery;
 begin
    if not FModel.Datamodule.QFichero.IsEmpty then begin
       QAux.Close;
@@ -1486,14 +1487,14 @@ begin
 end;
 
 procedure TWCarteraEfectos.BtnEfectosClick(Sender: TObject);
-var
-   Importe, Total: Double;
-   I: Integer;
+//var Importe :Double;
+//    Total   :Double;
+//    i       :Integer;
 begin
    WEfectosComerciales := TWEfectosComerciales.Create(nil);
    try
       if not FModel.Datamodule.QFichero.IsEmpty then begin
-         Total := 0;
+         //Total := 0;
          {$Message Warn 'This is pendant. This Screen don't works without this part'}
          (*for i := 0 to Rejilla.SelectedList.Count - 1 do begin
             FModel.Datamodule.QFichero.GotoBookmark(Rejilla.SelectedList.items[I]);
@@ -1519,7 +1520,7 @@ begin
 end;
 
 procedure TWCarteraEfectos.BtnAsientoBajaClick(Sender: TObject);
-var i           :Integer;
+var //i           :Integer;
     Asiento     :Integer;
     QInsDiario  :TIBSQL;
     QAsientos   :TIBQuery;
