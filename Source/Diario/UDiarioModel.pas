@@ -77,6 +77,8 @@ var
 
 implementation
 
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
 uses Forms,
      Globales, DMControl, DM;
 

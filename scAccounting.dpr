@@ -106,7 +106,9 @@ uses
   UUsuarios in 'Source\UUsuarios.pas' {WUsuarios},
   UUtilEmpresas in 'Source\UUtilEmpresas.pas' {WUtilEmpresas},
   UVencimientos in 'Source\UVencimientos.pas' {WVencimientos},
-  ProjectsModel in 'Source\Projects\ProjectsModel.pas' {DataModule1: TDataModule};
+  ProjectsModel in 'Source\Projects\ProjectsModel.pas' {DataModule1: TDataModule},
+  senCille.CustomVCLView in 'Source\senCille.CustomVCLView.pas' {FormCustomVCLView},
+  senCille.VCLValidations in 'Source\senCille.VCLValidations.pas';
 
 {$R *.res}
 

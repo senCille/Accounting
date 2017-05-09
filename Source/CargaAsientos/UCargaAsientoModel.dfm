@@ -131,7 +131,7 @@ object DataModuleCargaAsiento: TDataModuleCargaAsiento
       
         'FROM SUBCTAS S LEFT JOIN SUBCTAS C ON S.CONTRAPARTIDA = C.SUBCUE' +
         'NTA'
-      'WHERE CHAR_LENGTH(SUBCUENTA) = :prmLENGTH'
+      'WHERE CHAR_LENGTH(S.SUBCUENTA) = :prmLENGTH'
       ''
       ''
       ''
