@@ -3234,6 +3234,6 @@ object DataModuleDiario: TDataModuleDiario
       'ASIENTONOMINA=ASIENTONOMINA')
     BCDToCurrency = False
     Left = 432
-    Top = 241
+    Top = 249
   end
 end

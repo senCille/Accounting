@@ -2437,7 +2437,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 68.560674200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2674,7 +2674,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 72.000046500000000000
           Height = 13.999379120000000000
           DataField = 'Subcuenta'
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2691,7 +2691,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 305.000511940000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2706,7 +2706,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 428.999332180000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2724,7 +2724,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 528.000341000000100000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2742,7 +2742,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 627.001349820000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2788,7 +2788,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2807,7 +2807,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2826,7 +2826,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2872,7 +2872,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2891,7 +2891,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2910,7 +2910,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleBalAcumulados.Enlace1
+          DataSet = DataModuleDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
