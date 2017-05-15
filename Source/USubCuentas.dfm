@@ -264,16 +264,12 @@ object WSubCuentas: TWSubCuentas
       Top = 1
       Width = 661
       Height = 477
-      ActivePage = TabAcumulados
+      ActivePage = TabSubAccounts
       Align = alClient
       TabOrder = 1
       OnChange = PageControlChange
       object TabSubAccounts: TTabSheet
         Caption = 'Subcuentas'
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object FiltroBuscar: TGroupBox
           Left = 0
           Top = 0
@@ -522,10 +518,6 @@ object WSubCuentas: TWSubCuentas
       object TabData: TTabSheet
         Caption = 'Datos'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox1: TGroupBox
           Left = 0
           Top = 0
@@ -1206,10 +1198,6 @@ object WSubCuentas: TWSubCuentas
       object TabAcumulados: TTabSheet
         Caption = 'Acumulados'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PageControlAcumulados: TPageControl
           Left = 0
           Top = 0
@@ -1220,10 +1208,6 @@ object WSubCuentas: TWSubCuentas
           TabOrder = 0
           object TabCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label19: TLabel
               Left = 23
               Top = 314
@@ -1904,10 +1888,6 @@ object WSubCuentas: TWSubCuentas
           object TabPreviousYear: TTabSheet
             Caption = 'EjercicioAnterior'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object Label34: TLabel
               Left = 23
               Top = 314
@@ -2602,10 +2582,6 @@ object WSubCuentas: TWSubCuentas
       object TabGraphics: TTabSheet
         Caption = 'Gr'#225'ficos'
         ImageIndex = 4
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object PageControlGraphics: TPageControl
           Left = 0
           Top = 0
@@ -2616,36 +2592,20 @@ object WSubCuentas: TWSubCuentas
           TabOrder = 0
           object TabGraphicCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
           end
           object TabGraphicPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
             ImageIndex = 1
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
           end
           object TabGraphicComparativ: TTabSheet
             Caption = 'Compartivo'
             ImageIndex = 2
-            ExplicitLeft = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
           end
         end
       end
       object TabLetters: TTabSheet
         Caption = 'Cartas'
         ImageIndex = 5
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object LBPago: TLabel
           Left = 13
           Top = 309
@@ -3120,10 +3080,6 @@ object WSubCuentas: TWSubCuentas
       object TabAmortizations: TTabSheet
         Caption = 'Amortizaciones'
         ImageIndex = 6
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object GroupBox15: TGroupBox
           Left = 0
           Top = 0
@@ -5431,7 +5387,7 @@ object WSubCuentas: TWSubCuentas
   end
   object SFiltroCartas: TDataSource
     DataSet = CDSFiltroCartas
-    Left = 450
+    Left = 458
     Top = 321
   end
   object QProvincias: TIBDataSet

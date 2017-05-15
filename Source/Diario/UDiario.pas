@@ -6,7 +6,7 @@ uses Buttons, Classes, ComCtrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCt
      Globales, Graphics, Grids, IBX.IBCustomDataSet, IBX.IBDatabase, IBX.IBQuery, IBX.IBSQL, jpeg, Mask,
      Menus, Messages, StdCtrls, SysUtils, Windows, DBGrids,
      FormHandler,
-     UDiarioModel;
+     UDiarioModel, frxClass, frxExportPDF, frxDBSet;
 
 type
   TWDiario = class(TForm)
@@ -165,6 +165,9 @@ type
     SProyecto: TDataSource;
     SSeccion: TDataSource;
     QFicheroDESCCONTRAPARTIDA: TWideStringField;
+    FastReportAsientos: TfrxReport;
+    Enlace1: TfrxDBDataset;
+    PDFExport: TfrxPDFExport;
     procedure BtnNavCerrarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);

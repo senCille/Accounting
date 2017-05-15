@@ -4,7 +4,7 @@ interface
 
 uses Classes, comctrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCtrls, Forms, Graphics, Mask, Messages,
      StdCtrls, SysUtils, Windows,
-     UFiltro347Model;
+     UFiltro347Model, frxClass, frxDBSet, frxExportPDF;
 
 type
   TWFiltro347 = class(TForm)
@@ -62,6 +62,10 @@ type
     CDSFiltroTIPO_216: TStringField;
     CDSFiltroORDEN: TStringField;
     CDSFiltroFECHA_IMPRIMIR: TDateField;
+    FastReportOperaTer347: TfrxReport;
+    PDFExport: TfrxPDFExport;
+    Enlace1: TfrxDBDataset;
+    FastReportOperaTer349: TfrxReport;
     procedure FormShow(Sender: TObject);
     procedure BtnAcceptClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -70,6 +74,7 @@ type
     procedure FormDestroy(Sender: TObject);
   private
     FModel :TFiltro347Model;
+    procedure CallBackReportPrint347;
   public
     TipoListado: Integer;
   end;
@@ -144,7 +149,8 @@ begin
 
    Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
 
-   FModel.LanzarInfModelo347(TipoListado,
+   FModel.LanzarInfModelo347(CallBackReportPrint347,
+                             TipoListado,
                              CDSFiltroASIENTO_DESDE.AsInteger,
                              CDSFiltroASIENTO_HASTA.AsInteger,
                              CDSFiltroFECHA_DESDE.AsDateTime,
@@ -172,6 +178,34 @@ begin
       VK_F9: begin
          BtnAccept.Click;
       end;
+   end;
+end;
+
+procedure TWFiltro347.CallBackReportPrint347;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   if TipoListado = INF_MOD_347 then begin
+      PDFExport.FileName := 'OperaTer347.pdf';
+      FastReportOperaTer347.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+      FastReportOperaTer347.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+      FastReportOperaTer347.Variables['DESCRIPTION'    ] := ''''+'Desde la fecha ' + FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_DESDE.AsDateTime) +
+                                                                    ' hasta '         + FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_HASTA.AsDateTime) +'''';
+      FastReportOperaTer347.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_IMPRIMIR.AsDateTime)+'''';
+      FastReportOperaTer347.PrepareReport(True);
+      FastReportOperaTer347.Export(PDFExport);
+   end
+   else begin
+      PDFExport.FileName := 'OperaTer349.pdf';
+      FastReportOperaTer349.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+      FastReportOperaTer349.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+      FastReportOperaTer349.Variables['DESCRIPTION'    ] := ''''+'Desde la fecha ' + FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_DESDE.AsDateTime) +
+                                                                 ' hasta '         + FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_HASTA.AsDateTime) +'''';
+      FastReportOperaTer349.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', CDSFiltroFECHA_IMPRIMIR.AsDateTime)+'''';
+      FastReportOperaTer349.PrepareReport(True);
+      FastReportOperaTer349.Export(PDFExport);
    end;
 end;
 

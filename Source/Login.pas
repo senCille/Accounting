@@ -71,7 +71,7 @@ procedure TFormLogin.ShowMessage(AMessage :string; AMessage2 :string = '');
 begin
    LabelMessage.Caption  := AMessage;
    LabelMessage2.Caption := AMessage2;
-   MessageBeep(MB_ICONHAND);
+   //MessageBeep(MB_ICONHAND);
    Timer.Enabled := True;
 end;
 

@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  frxClass, frxDBSet, frxExportPDF;
+  frxClass, frxDBSet, frxExportPDF, Datasnap.DBClient;
 
 type
   TDataModuleDiario = class(TDataModule)
@@ -20,8 +20,6 @@ type
     QEmpresasID_EMPRESA: TIntegerField;
     QEmpresasULTIMA: TIBStringField;
     SEmpresas: TDataSource;
-    DBEmpresa: TIBDatabase;
-    Transaccion: TIBTransaction;
     QAnaliticas: TIBDataSet;
     SAnaliticas: TDataSource;
     QDelegaciones: TIBDataSet;
@@ -50,9 +48,6 @@ type
     SConceptos: TDataSource;
     QConceptosID_CONCEPTOS: TIBStringField;
     QConceptosDESCRIPCION: TIBStringField;
-    FastReportAsientos: TfrxReport;
-    PDFExport: TfrxPDFExport;
-    Enlace1: TfrxDBDataset;
   private
   public
   end;
@@ -141,7 +136,7 @@ end;
 
 procedure TDiarioModel.ReportAsientos(ADataSet: TDataSet);
 begin
-   DM.Enlace1.DataSet := ADataSet;
+   (*DM.Enlace1.DataSet := ADataSet;
    DM.PDFExport.Author          := 'senCille Accounting';
    DM.PDFExport.ShowDialog      := False;
    DM.PDFExport.OpenAfterExport := True;
@@ -154,7 +149,7 @@ begin
    //DM.FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', AFechaImpresion)+'''';
 
    DM.FastReportAsientos.PrepareReport(True);
-   DM.FastReportAsientos.Export(DM.PDFExport);
+   DM.FastReportAsientos.Export(DM.PDFExport);*)
 end;
 
 end.

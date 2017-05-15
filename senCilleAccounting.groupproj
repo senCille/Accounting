@@ -9,7 +9,7 @@
         <Projects Include="scAccounting.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\Manufacturing\Pedidos.dproj">
+        <Projects Include="..\Manufacturing\Manufacturing.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -38,23 +38,23 @@
     <Target Name="scAccounting:Make">
         <MSBuild Projects="scAccounting.dproj" Targets="Make"/>
     </Target>
-    <Target Name="Pedidos">
-        <MSBuild Projects="..\Manufacturing\Pedidos.dproj"/>
+    <Target Name="Manufacturing">
+        <MSBuild Projects="..\Manufacturing\Manufacturing.dproj"/>
     </Target>
-    <Target Name="Pedidos:Clean">
-        <MSBuild Projects="..\Manufacturing\Pedidos.dproj" Targets="Clean"/>
+    <Target Name="Manufacturing:Clean">
+        <MSBuild Projects="..\Manufacturing\Manufacturing.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="Pedidos:Make">
-        <MSBuild Projects="..\Manufacturing\Pedidos.dproj" Targets="Make"/>
+    <Target Name="Manufacturing:Make">
+        <MSBuild Projects="..\Manufacturing\Manufacturing.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="scStub;scAccounting;Pedidos"/>
+        <CallTarget Targets="scStub;scAccounting;Manufacturing"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="scStub:Clean;scAccounting:Clean;Pedidos:Clean"/>
+        <CallTarget Targets="scStub:Clean;scAccounting:Clean;Manufacturing:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="scStub:Make;scAccounting:Make;Pedidos:Make"/>
+        <CallTarget Targets="scStub:Make;scAccounting:Make;Manufacturing:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

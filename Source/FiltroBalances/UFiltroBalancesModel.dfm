@@ -2126,7 +2126,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
   object QSubcuentasSS: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 314
+    Left = 345
     Top = 75
     object QSubcuentasSSSUBCUENTA: TStringField
       FieldName = 'SUBCUENTA'
@@ -2153,7 +2153,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     Params = <>
     StoreDefs = True
     BeforeInsert = QInformesContaBeforeInsert
-    Left = 317
+    Left = 341
     Top = 135
     object QInformesContaFechaInicial: TDateTimeField
       FieldName = 'FechaInicial'
@@ -2380,7 +2380,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
   end
   object SInformesConta: TDataSource
     DataSet = QInformesConta
-    Left = 401
+    Left = 425
     Top = 135
   end
   object FastReportSumasSaldos: TfrxReport
@@ -2437,8 +2437,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 68.560674200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -2674,8 +2672,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 72.000046500000000000
           Height = 13.999379120000000000
           DataField = 'Subcuenta'
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -2691,8 +2687,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Width = 305.000511940000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -11
@@ -2706,8 +2700,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 428.999332180000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2724,8 +2716,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 528.000341000000100000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2742,8 +2732,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Left = 627.001349820000000000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2788,8 +2776,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2807,8 +2793,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2826,8 +2810,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 6.999689560000008000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2872,8 +2854,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2891,8 +2871,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -2910,8 +2888,6 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
           Top = 10.998432299999990000
           Width = 90.001947890000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleDiario.Enlace1
-          DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
@@ -3025,7 +3001,7 @@ object DataModuleFiltroBalances: TDataModuleFiltroBalances
     DataSet = QInformesConta
     BCDToCurrency = False
     Left = 440
-    Top = 209
+    Top = 217
   end
   object FastReportSumasSaldosSaldo: TfrxReport
     Version = '5.3.14'

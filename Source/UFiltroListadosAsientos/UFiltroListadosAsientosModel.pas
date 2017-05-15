@@ -173,6 +173,8 @@ var
 
 implementation
 
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
 uses System.Math,
      VCL.Forms,
      DMControl, DM, Globales, Processing;

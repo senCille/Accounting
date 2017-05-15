@@ -4,7 +4,8 @@ interface
 
 uses
   SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  DBClient, frxClass, frxDBSet, frxExportPDF;
+  DBClient, frxClass, frxDBSet, frxExportPDF,
+  senCille.CommonTypes;
 
 type
   TDataModuleFiltro347 = class(TDataModule)
@@ -115,10 +116,6 @@ type
     QInformesContaFSubcuenta: TStringField;
     QInformesContaFDescSubcuenta: TStringField;
     SInformesConta: TDataSource;
-    FastReportOperaTer347: TfrxReport;
-    PDFExport: TfrxPDFExport;
-    Enlace1: TfrxDBDataset;
-    FastReportOperaTer349: TfrxReport;
     procedure QInformesContaBeforeInsert(DataSet: TDataSet);
   private
   public
@@ -137,7 +134,8 @@ type
     procedure DoInitialize; override;
     function  DataModule :TDataModule;
     procedure Refresh;
-    procedure LanzarInfModelo347(TipoInforme             ,
+    procedure LanzarInfModelo347(ACallBack               :TSimplyCallBack;
+                                 TipoInforme             ,
                                  AsientoInicial          ,
                                  AsientoFinal            :Integer;
                                  FechaInicial            ,
@@ -439,7 +437,8 @@ begin { Carga de datos en aDecena }
    Result := cTexto;
 end;
 
-procedure TFiltro347Model.LanzarInfModelo347(TipoInforme             ,
+procedure TFiltro347Model.LanzarInfModelo347(ACallBack               :TSimplyCallBack;
+                                             TipoInforme             ,
                                              AsientoInicial          ,
                                              AsientoFinal            :Integer;
                                              FechaInicial            ,
@@ -1165,7 +1164,9 @@ begin
 
    DM.QInformesConta.First;
 
-   DM.PDFExport.Author          := 'senCille Accounting';
+   if Assigned(ACallBack) then ACallBack;
+
+   (*DM.PDFExport.Author          := 'senCille Accounting';
    DM.PDFExport.ShowDialog      := False;
    DM.PDFExport.OpenAfterExport := True;
 
@@ -1188,7 +1189,7 @@ begin
       DM.FastReportOperaTer349.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', FechaImpresion)+'''';
       DM.FastReportOperaTer349.PrepareReport(True);
       DM.FastReportOperaTer349.Export(DM.PDFExport);
-   end;
+   end;*)
 
    DM.QInformesConta.EmptyDataSet;
    DM.QInformesConta.IndexName := '';

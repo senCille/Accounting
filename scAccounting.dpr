@@ -119,6 +119,5 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
-  Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;
 end.
