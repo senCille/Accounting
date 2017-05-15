@@ -281,7 +281,7 @@ object WEditApunte: TWEditApunte
       Height = 21
       AutoSize = False
       DataField = 'IMPORTE'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -296,7 +296,7 @@ object WEditApunte: TWEditApunte
       Width = 272
       Height = 21
       DataField = 'CONTRAPARTIDA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -314,7 +314,7 @@ object WEditApunte: TWEditApunte
       Width = 272
       Height = 21
       DataField = 'SUBCUENTA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -333,7 +333,7 @@ object WEditApunte: TWEditApunte
       Height = 21
       AutoSize = False
       DataField = 'COMENTARIO'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -348,7 +348,7 @@ object WEditApunte: TWEditApunte
       Width = 289
       Height = 21
       DataField = 'ID_CONCEPTOS'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -366,7 +366,7 @@ object WEditApunte: TWEditApunte
       Width = 100
       Height = 21
       DataField = 'SUBCUENTA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -385,7 +385,7 @@ object WEditApunte: TWEditApunte
       Width = 100
       Height = 21
       DataField = 'CONTRAPARTIDA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -403,7 +403,7 @@ object WEditApunte: TWEditApunte
       Width = 55
       Height = 21
       DataField = 'ID_CONCEPTOS'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -422,7 +422,7 @@ object WEditApunte: TWEditApunte
       Height = 21
       AutoSize = False
       DataField = 'NUMEROFACTURA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -437,7 +437,7 @@ object WEditApunte: TWEditApunte
       Width = 245
       Height = 21
       DataField = 'CUENTA_ANALITICA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -455,7 +455,7 @@ object WEditApunte: TWEditApunte
       Width = 100
       Height = 21
       DataField = 'CUENTA_ANALITICA'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -475,7 +475,7 @@ object WEditApunte: TWEditApunte
       AutoSize = False
       CharCase = ecUpperCase
       DataField = 'DEBEHABER'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -492,7 +492,7 @@ object WEditApunte: TWEditApunte
       TabStop = False
       AutoSize = False
       DataField = 'TIPOASIENTO'
-      DataSource = SFichero
+      DataSource = SApunte
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
       Font.Height = -11
@@ -502,74 +502,80 @@ object WEditApunte: TWEditApunte
       TabOrder = 7
     end
   end
-  object SFichero: TDataSource
-    DataSet = QFichero
+  object SApunte: TDataSource
+    DataSet = QApunte
     Left = 419
     Top = 7
   end
-  object QFichero: TClientDataSet
+  object QApunte: TClientDataSet
     Aggregates = <>
     Params = <>
     Left = 352
     Top = 6
-    object QFicheroAPUNTE: TSmallintField
+    object QApunteASIENTO: TIntegerField
+      DisplayWidth = 8
+      FieldName = 'ASIENTO'
+      Origin = 'DIARIO.ASIENTO'
+      DisplayFormat = '###,###,###'
+    end
+    object QApunteAPUNTE: TSmallintField
       FieldName = 'APUNTE'
     end
-    object QFicheroFECHA: TDateTimeField
+    object QApunteFECHA: TDateTimeField
       FieldName = 'FECHA'
     end
-    object QFicheroSUBCUENTA: TStringField
+    object QApunteSUBCUENTA: TStringField
       DisplayWidth = 10
       FieldName = 'SUBCUENTA'
       Size = 10
     end
-    object QFicheroCONTRAPARTIDA: TStringField
+    object QApunteCONTRAPARTIDA: TStringField
       FieldName = 'CONTRAPARTIDA'
       Size = 10
     end
-    object QFicheroID_CONCEPTOS: TStringField
+    object QApunteID_CONCEPTOS: TStringField
       FieldName = 'ID_CONCEPTOS'
       Size = 3
     end
-    object QFicheroDEBEHABER: TStringField
+    object QApunteDEBEHABER: TStringField
       FieldName = 'DEBEHABER'
       Size = 1
     end
-    object QFicheroIMPORTE: TFloatField
+    object QApunteIMPORTE: TFloatField
       FieldName = 'IMPORTE'
     end
-    object QFicheroNUMEROFACTURA: TStringField
+    object QApunteNUMEROFACTURA: TStringField
       FieldName = 'NUMEROFACTURA'
       Size = 10
     end
-    object QFicheroCUENTA_ANALITICA: TStringField
+    object QApunteCUENTA_ANALITICA: TStringField
       FieldName = 'CUENTA_ANALITICA'
       Size = 10
     end
-    object QFicheroCOMENTARIO: TStringField
+    object QApunteCOMENTARIO: TStringField
       FieldName = 'COMENTARIO'
       Size = 40
     end
-    object QFicheroTIPOASIENTO: TIntegerField
+    object QApunteTIPOASIENTO: TIntegerField
       FieldName = 'TIPOASIENTO'
     end
-    object QFicheroIVA: TFloatField
+    object QApunteIVA: TFloatField
       FieldName = 'IVA'
     end
-    object QFicheroCUOTAIVA: TFloatField
+    object QApunteCUOTAIVA: TFloatField
       FieldName = 'CUOTAIVA'
     end
-    object QFicheroCUOTARECARGO: TFloatField
+    object QApunteCUOTARECARGO: TFloatField
       FieldName = 'CUOTARECARGO'
     end
-    object QFicheroRECARGO: TFloatField
+    object QApunteRECARGO: TFloatField
       FieldName = 'RECARGO'
     end
-    object QFicheroMONEDA: TStringField
+    object QApunteMONEDA: TStringField
       FieldName = 'MONEDA'
       Size = 1
     end
-    object QFicheroBASEIMPONIBLE: TFloatField
+    object QApunteBASEIMPONIBLE: TFloatField
       FieldName = 'BASEIMPONIBLE'
     end
   end

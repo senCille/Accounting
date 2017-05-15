@@ -426,8 +426,6 @@ begin
       FImporteAnterior      :=  0;
       FCtaAnaliticaAnterior := '';
 
-      QDiario.Insert;
-
       BtnDouplicate.Visible := False;
    end else
    { Creación de asiento de cobro / pago }
@@ -926,59 +924,61 @@ begin
    try
       FEditApunte.Model  := FModel;
       FEditApunte.OnShow := OnShowWEditApunte;
-      FEditApunte.QFichero.Append;
-      FEditApunte.QFicheroAPUNTE.AsInteger := FApunte;
-      FEditApunte.QFicheroTIPOASIENTO.AsInteger := FTipoAsiento;
-      FEditApunte.QFicheroFECHA.AsDateTime      := QFiltroFECHA_ASIENTO.AsDateTime;
-      FEditApunte.QFicheroMONEDA.AsString       := FMoneda;
+      FEditApunte.QApunte.Append;
+      FEditApunte.QApunteASIENTO.AsInteger     := FAsiento;
+      FEditApunte.QApunteAPUNTE.AsInteger      := FApunte;
+      FEditApunte.QApunteTIPOASIENTO.AsInteger := FTipoAsiento;
+      FEditApunte.QApunteFECHA.AsDateTime      := QFiltroFECHA_ASIENTO.AsDateTime;
+      FEditApunte.QApunteMONEDA.AsString       := FMoneda;
 
       { Sólo en el segundo apunte }
       if FApunte = 2 then begin
-         FEditApunte.QFicheroSUBCUENTA.AsString     := FContrapartidaAnterior;
-         FEditApunte.QFicheroCONTRAPARTIDA.AsString := FSubcuentaAnterior;
+         FEditApunte.QApunteSUBCUENTA.AsString     := FContrapartidaAnterior;
+         FEditApunte.QApunteCONTRAPARTIDA.AsString := FSubcuentaAnterior;
       end;
 
       { Si el descuadre es negativo o nulo, generar apunte DEBE}
       if Descuadre < 0 then begin
-         FEditApunte.QFicheroDEBEHABER.AsString := 'D';
-         FEditApunte.QFicheroIMPORTE.AsFloat    := - Descuadre;
+         FEditApunte.QApunteDEBEHABER.AsString := 'D';
+         FEditApunte.QApunteIMPORTE.AsFloat    := - Descuadre;
       end else { Si el descuadre es positivo, generar apunte HABER }
       if Descuadre > 0 then begin
-         FEditApunte.QFicheroDEBEHABER.AsString := 'H';
-         FEditApunte.QFicheroIMPORTE.AsFloat    := Descuadre;
+         FEditApunte.QApunteDEBEHABER.AsString := 'H';
+         FEditApunte.QApunteIMPORTE.AsFloat    := Descuadre;
       end
       else begin
-         FEditApunte.QFicheroDEBEHABER.AsString := 'D';
+         FEditApunte.QApunteDEBEHABER.AsString := 'D';
          FConceptoAnterior := '';
          FFacturaAnterior  := '';
       end;
 
-      FEditApunte.QFicheroID_CONCEPTOS.AsString     := FConceptoAnterior;
-      FEditApunte.QFicheroCOMENTARIO.AsString       := FComentarioAnterior;
-      FEditApunte.QFicheroNUMEROFACTURA.AsString    := FFacturaAnterior;
-      FEditApunte.QFicheroCUENTA_ANALITICA.AsString := FCtaAnaliticaAnterior;
+      FEditApunte.QApunteID_CONCEPTOS.AsString     := FConceptoAnterior;
+      FEditApunte.QApunteCOMENTARIO.AsString       := FComentarioAnterior;
+      FEditApunte.QApunteNUMEROFACTURA.AsString    := FFacturaAnterior;
+      FEditApunte.QApunteCUENTA_ANALITICA.AsString := FCtaAnaliticaAnterior;
 
       FEditApunte.TipoAsiento       := FTipoAsiento;
       FEditApunte.SubCuentaAlEntrar := '';
       if FEditApunte.ShowModal = mrOK then begin
          QDiario.Append;
-         QDiarioAPUNTE.AsInteger          := FEditApunte.QFicheroAPUNTE.AsInteger;
-         QDiarioFECHA.AsDateTime          := FEditApunte.QFicheroFECHA.AsDateTime;
-         QDiarioSUBCUENTA.AsString        := FEditApunte.QFicheroSUBCUENTA.AsString;
-         QDiarioCONTRAPARTIDA.AsString    := FEditApunte.QFicheroCONTRAPARTIDA.AsString;
-         QDiarioID_CONCEPTOS.AsString     := FEditApunte.QFicheroID_CONCEPTOS.AsString;
-         QDiarioDEBEHABER.AsString        := FEditApunte.QFicheroDEBEHABER.AsString;
-         QDiarioTIPOASIENTO.AsInteger     := FEditApunte.QFicheroTIPOASIENTO.AsInteger;
-         QDiarioIMPORTE.AsFloat           := FEditApunte.QFicheroIMPORTE.AsFloat;
-         QDiarioNUMEROFACTURA.AsString    := FEditApunte.QFicheroNUMEROFACTURA.AsString;
-         QDiarioCOMENTARIO.AsString       := FEditApunte.QFicheroCOMENTARIO.AsString;
-         QDiarioCUENTA_ANALITICA.AsString := FEditApunte.QFicheroCUENTA_ANALITICA.AsString;
-         QDiarioIVA.AsFloat               := FEditApunte.QFicheroIVA.AsFloat;
-         QDiarioCUOTAIVA.AsFloat          := FEditApunte.QFicheroCUOTAIVA.AsFloat;
-         QDiarioRECARGO.AsFloat           := FEditApunte.QFicheroRECARGO.AsFloat;
-         QDiarioCUOTARECARGO.AsFloat      := FEditApunte.QFicheroCUOTARECARGO.AsFloat;
-         QDiarioMONEDA.AsString           := FEditApunte.QFicheroMONEDA.AsString;
-         QDiarioBASEIMPONIBLE.AsFloat     := FEditApunte.QFicheroBASEIMPONIBLE.AsFloat;
+         QDiarioASIENTO.AsInteger         := FEditApunte.QApunteASIENTO.AsInteger;
+         QDiarioAPUNTE.AsInteger          := FEditApunte.QApunteAPUNTE.AsInteger;
+         QDiarioFECHA.AsDateTime          := FEditApunte.QApunteFECHA.AsDateTime;
+         QDiarioSUBCUENTA.AsString        := FEditApunte.QApunteSUBCUENTA.AsString;
+         QDiarioCONTRAPARTIDA.AsString    := FEditApunte.QApunteCONTRAPARTIDA.AsString;
+         QDiarioID_CONCEPTOS.AsString     := FEditApunte.QApunteID_CONCEPTOS.AsString;
+         QDiarioDEBEHABER.AsString        := FEditApunte.QApunteDEBEHABER.AsString;
+         QDiarioTIPOASIENTO.AsInteger     := FEditApunte.QApunteTIPOASIENTO.AsInteger;
+         QDiarioIMPORTE.AsFloat           := FEditApunte.QApunteIMPORTE.AsFloat;
+         QDiarioNUMEROFACTURA.AsString    := FEditApunte.QApunteNUMEROFACTURA.AsString;
+         QDiarioCOMENTARIO.AsString       := FEditApunte.QApunteCOMENTARIO.AsString;
+         QDiarioCUENTA_ANALITICA.AsString := FEditApunte.QApunteCUENTA_ANALITICA.AsString;
+         QDiarioIVA.AsFloat               := FEditApunte.QApunteIVA.AsFloat;
+         QDiarioCUOTAIVA.AsFloat          := FEditApunte.QApunteCUOTAIVA.AsFloat;
+         QDiarioRECARGO.AsFloat           := FEditApunte.QApunteRECARGO.AsFloat;
+         QDiarioCUOTARECARGO.AsFloat      := FEditApunte.QApunteCUOTARECARGO.AsFloat;
+         QDiarioMONEDA.AsString           := FEditApunte.QApunteMONEDA.AsString;
+         QDiarioBASEIMPONIBLE.AsFloat     := FEditApunte.QApunteBASEIMPONIBLE.AsFloat;
          QDiario.Post;
          QDiario.ApplyUpdates;
 
@@ -1036,45 +1036,45 @@ begin
 
       FEditApunte.Model  := FModel;
       FEditApunte.OnShow := OnShowWEditApunte;
-      FEditApunte.QFichero.Append;
-      if not QDiarioAPUNTE.IsNull           then FEditApunte.QFicheroAPUNTE.AsInteger          := QDiarioAPUNTE.AsInteger         ;
-      if not QDiarioFECHA.IsNull            then FEditApunte.QFicheroFECHA.AsDateTime          := QDiarioFECHA.AsDateTime         ;
-      if not QDiarioSUBCUENTA.IsNull        then FEditApunte.QFicheroSUBCUENTA.AsString        := QDiarioSUBCUENTA.AsString       ;
-      if not QDiarioCONTRAPARTIDA.IsNull    then FEditApunte.QFicheroCONTRAPARTIDA.AsString    := QDiarioCONTRAPARTIDA.AsString   ;
-      if not QDiarioID_CONCEPTOS.IsNull     then FEditApunte.QFicheroID_CONCEPTOS.AsString     := QDiarioID_CONCEPTOS.AsString    ;
-      if not QDiarioDEBEHABER.IsNull        then FEditApunte.QFicheroDEBEHABER.AsString        := QDiarioDEBEHABER.AsString       ;
-      if not QDiarioTIPOASIENTO.IsNull      then FEditApunte.QFicheroTIPOASIENTO.AsInteger     := QDiarioTIPOASIENTO.AsInteger    ;
-      if not QDiarioIMPORTE.IsNull          then FEditApunte.QFicheroIMPORTE.AsString          := QDiarioIMPORTE.AsString         ;
-      if not QDiarioNUMEROFACTURA.IsNull    then FEditApunte.QFicheroNUMEROFACTURA.AsString    := QDiarioNUMEROFACTURA.AsString   ;
-      if not QDiarioCOMENTARIO.IsNull       then FEditApunte.QFicheroCOMENTARIO.AsString       := QDiarioCOMENTARIO.AsString      ;
-      if not QDiarioCUENTA_ANALITICA.IsNull then FEditApunte.QFicheroCUENTA_ANALITICA.AsString := QDiarioCUENTA_ANALITICA.AsString;
-      if not QDiarioIVA.IsNull              then FEditApunte.QFicheroIVA.AsFloat               := QDiarioIVA.AsFloat              ;
-      if not QDiarioCUOTAIVA.IsNull         then FEditApunte.QFicheroCUOTAIVA.AsFloat          := QDiarioCUOTAIVA.AsFloat         ;
-      if not QDiarioRECARGO.IsNull          then FEditApunte.QFicheroRECARGO.AsFloat           := QDiarioRECARGO.AsFloat          ;
-      if not QDiarioCUOTARECARGO.IsNull     then FEditApunte.QFicheroRECARGO.AsFloat           := QDiarioCUOTARECARGO.AsFloat     ;
-      if not QDiarioMONEDA.IsNull           then FEditApunte.QFicheroMONEDA.AsString           := QDiarioMONEDA.AsString          ;
-      if not QDiarioBASEIMPONIBLE.IsNull    then FEditApunte.QFicheroBASEIMPONIBLE.AsFloat     := QDiarioBASEIMPONIBLE.AsFloat    ;
+      FEditApunte.QApunte.Append;
+      if not QDiarioAPUNTE.IsNull           then FEditApunte.QApunteAPUNTE.AsInteger          := QDiarioAPUNTE.AsInteger         ;
+      if not QDiarioFECHA.IsNull            then FEditApunte.QApunteFECHA.AsDateTime          := QDiarioFECHA.AsDateTime         ;
+      if not QDiarioSUBCUENTA.IsNull        then FEditApunte.QApunteSUBCUENTA.AsString        := QDiarioSUBCUENTA.AsString       ;
+      if not QDiarioCONTRAPARTIDA.IsNull    then FEditApunte.QApunteCONTRAPARTIDA.AsString    := QDiarioCONTRAPARTIDA.AsString   ;
+      if not QDiarioID_CONCEPTOS.IsNull     then FEditApunte.QApunteID_CONCEPTOS.AsString     := QDiarioID_CONCEPTOS.AsString    ;
+      if not QDiarioDEBEHABER.IsNull        then FEditApunte.QApunteDEBEHABER.AsString        := QDiarioDEBEHABER.AsString       ;
+      if not QDiarioTIPOASIENTO.IsNull      then FEditApunte.QApunteTIPOASIENTO.AsInteger     := QDiarioTIPOASIENTO.AsInteger    ;
+      if not QDiarioIMPORTE.IsNull          then FEditApunte.QApunteIMPORTE.AsString          := QDiarioIMPORTE.AsString         ;
+      if not QDiarioNUMEROFACTURA.IsNull    then FEditApunte.QApunteNUMEROFACTURA.AsString    := QDiarioNUMEROFACTURA.AsString   ;
+      if not QDiarioCOMENTARIO.IsNull       then FEditApunte.QApunteCOMENTARIO.AsString       := QDiarioCOMENTARIO.AsString      ;
+      if not QDiarioCUENTA_ANALITICA.IsNull then FEditApunte.QApunteCUENTA_ANALITICA.AsString := QDiarioCUENTA_ANALITICA.AsString;
+      if not QDiarioIVA.IsNull              then FEditApunte.QApunteIVA.AsFloat               := QDiarioIVA.AsFloat              ;
+      if not QDiarioCUOTAIVA.IsNull         then FEditApunte.QApunteCUOTAIVA.AsFloat          := QDiarioCUOTAIVA.AsFloat         ;
+      if not QDiarioRECARGO.IsNull          then FEditApunte.QApunteRECARGO.AsFloat           := QDiarioRECARGO.AsFloat          ;
+      if not QDiarioCUOTARECARGO.IsNull     then FEditApunte.QApunteRECARGO.AsFloat           := QDiarioCUOTARECARGO.AsFloat     ;
+      if not QDiarioMONEDA.IsNull           then FEditApunte.QApunteMONEDA.AsString           := QDiarioMONEDA.AsString          ;
+      if not QDiarioBASEIMPONIBLE.IsNull    then FEditApunte.QApunteBASEIMPONIBLE.AsFloat     := QDiarioBASEIMPONIBLE.AsFloat    ;
       FEditApunte.TipoAsiento       := FTipoAsiento;
       FEditApunte.SubCuentaAlEntrar := FSubCuentaAlEntrar;
       if FEditApunte.ShowModal = mrOK then begin
          QDiario.Edit;
-         QDiarioAPUNTE.AsInteger          := FEditApunte.QFicheroAPUNTE.AsInteger;
-         QDiarioFECHA.AsDateTime          := FEditApunte.QFicheroFECHA.AsDateTime;
-         QDiarioSUBCUENTA.AsString        := FEditApunte.QFicheroSUBCUENTA.AsString;
-         QDiarioCONTRAPARTIDA.AsString    := FEditApunte.QFicheroCONTRAPARTIDA.AsString;
-         QDiarioID_CONCEPTOS.AsString     := FEditApunte.QFicheroID_CONCEPTOS.AsString;
-         QDiarioDEBEHABER.AsString        := FEditApunte.QFicheroDEBEHABER.AsString;
-         QDiarioTIPOASIENTO.AsInteger     := FEditApunte.QFicheroTIPOASIENTO.AsInteger;
-         QDiarioIMPORTE.AsFloat           := FEditApunte.QFicheroIMPORTE.AsFloat;
-         QDiarioNUMEROFACTURA.AsString    := FEditApunte.QFicheroNUMEROFACTURA.AsString;
-         QDiarioCOMENTARIO.AsString       := FEditApunte.QFicheroCOMENTARIO.AsString;
-         QDiarioCUENTA_ANALITICA.AsString := FEditApunte.QFicheroCUENTA_ANALITICA.AsString;
-         QDiarioIVA.AsFloat               := FEditApunte.QFicheroIVA.AsFloat;
-         QDiarioCUOTAIVA.AsFloat          := FEditApunte.QFicheroCUOTAIVA.AsFloat;
-         QDiarioRECARGO.AsFloat           := FEditApunte.QFicheroRECARGO.AsFloat;
-         QDiarioCUOTARECARGO.AsFloat      := FEditApunte.QFicheroCUOTARECARGO.AsFloat;
-         QDiarioMONEDA.AsString           := FEditApunte.QFicheroMONEDA.AsString;
-         QDiarioBASEIMPONIBLE.AsFloat     := FEditApunte.QFicheroBASEIMPONIBLE.AsFloat;
+         QDiarioAPUNTE.AsInteger          := FEditApunte.QApunteAPUNTE.AsInteger;
+         QDiarioFECHA.AsDateTime          := FEditApunte.QApunteFECHA.AsDateTime;
+         QDiarioSUBCUENTA.AsString        := FEditApunte.QApunteSUBCUENTA.AsString;
+         QDiarioCONTRAPARTIDA.AsString    := FEditApunte.QApunteCONTRAPARTIDA.AsString;
+         QDiarioID_CONCEPTOS.AsString     := FEditApunte.QApunteID_CONCEPTOS.AsString;
+         QDiarioDEBEHABER.AsString        := FEditApunte.QApunteDEBEHABER.AsString;
+         QDiarioTIPOASIENTO.AsInteger     := FEditApunte.QApunteTIPOASIENTO.AsInteger;
+         QDiarioIMPORTE.AsFloat           := FEditApunte.QApunteIMPORTE.AsFloat;
+         QDiarioNUMEROFACTURA.AsString    := FEditApunte.QApunteNUMEROFACTURA.AsString;
+         QDiarioCOMENTARIO.AsString       := FEditApunte.QApunteCOMENTARIO.AsString;
+         QDiarioCUENTA_ANALITICA.AsString := FEditApunte.QApunteCUENTA_ANALITICA.AsString;
+         QDiarioIVA.AsFloat               := FEditApunte.QApunteIVA.AsFloat;
+         QDiarioCUOTAIVA.AsFloat          := FEditApunte.QApunteCUOTAIVA.AsFloat;
+         QDiarioRECARGO.AsFloat           := FEditApunte.QApunteRECARGO.AsFloat;
+         QDiarioCUOTARECARGO.AsFloat      := FEditApunte.QApunteCUOTARECARGO.AsFloat;
+         QDiarioMONEDA.AsString           := FEditApunte.QApunteMONEDA.AsString;
+         QDiarioBASEIMPONIBLE.AsFloat     := FEditApunte.QApunteBASEIMPONIBLE.AsFloat;
          QDiario.Post;
          QDiario.ApplyUpdates;
 

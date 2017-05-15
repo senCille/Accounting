@@ -9,14 +9,14 @@ uses Buttons, Classes, comctrls, Controls, DB, DBClient, DBCtrls, Dialogs, ExtCt
 
 type
   TWEditApunte = class(TForm)
-    SFichero: TDataSource;
+    SApunte: TDataSource;
     Panel1: TPanel;
     Panel2: TPanel;
     Shape1: TShape;
     lTitulo: TLabel;
     BtnAccept: TButton;
-    QFichero: TClientDataSet;
-    QFicheroSUBCUENTA: TStringField;
+    QApunte: TClientDataSet;
+    QApunteSUBCUENTA: TStringField;
     Datos: TGroupBox;
     Label1: TLabel;
     Label7: TLabel;
@@ -41,23 +41,24 @@ type
     ComboBoxAnaliticaA: TDBLookupComboBox;
     EditDebeHaber: TDBEdit;
     EditCD_TIPO: TDBEdit;
-    QFicheroCONTRAPARTIDA: TStringField;
-    QFicheroDEBEHABER: TStringField;
-    QFicheroIMPORTE: TFloatField;
-    QFicheroCUENTA_ANALITICA: TStringField;
-    QFicheroNUMEROFACTURA: TStringField;
-    QFicheroCOMENTARIO: TStringField;
-    QFicheroID_CONCEPTOS: TStringField;
-    QFicheroTIPOASIENTO: TIntegerField;
-    QFicheroIVA: TFloatField;
-    QFicheroRECARGO: TFloatField;
-    QFicheroAPUNTE: TSmallintField;
-    QFicheroFECHA: TDateTimeField;
-    QFicheroMONEDA: TStringField;
-    QFicheroCUOTAIVA: TFloatField;
-    QFicheroCUOTARECARGO: TFloatField;
-    QFicheroBASEIMPONIBLE: TFloatField;
+    QApunteCONTRAPARTIDA: TStringField;
+    QApunteDEBEHABER: TStringField;
+    QApunteIMPORTE: TFloatField;
+    QApunteCUENTA_ANALITICA: TStringField;
+    QApunteNUMEROFACTURA: TStringField;
+    QApunteCOMENTARIO: TStringField;
+    QApunteID_CONCEPTOS: TStringField;
+    QApunteTIPOASIENTO: TIntegerField;
+    QApunteIVA: TFloatField;
+    QApunteRECARGO: TFloatField;
+    QApunteAPUNTE: TSmallintField;
+    QApunteFECHA: TDateTimeField;
+    QApunteMONEDA: TStringField;
+    QApunteCUOTAIVA: TFloatField;
+    QApunteCUOTARECARGO: TFloatField;
+    QApunteBASEIMPONIBLE: TFloatField;
     BtnNewSubAccount: TButton;
+    QApunteASIENTO: TIntegerField;
     procedure BtnAcceptClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
@@ -87,33 +88,33 @@ uses System.Math,
 procedure TWEditApunte.BtnAcceptClick(Sender: TObject);
 begin
    Perform(wm_NextDlgCtl, 0, 0);
-   if QFicheroSUBCUENTA.IsNull then begin
+   if QApunteSUBCUENTA.IsNull then begin
       ShowMessage('La Subcuenta no puede quedar vacia');
       ComboBoxCD_SUBCUENTA.SetFocus;
       Exit;
    end else
-   if QFicheroCONTRAPARTIDA.IsNull then begin
+   if QApunteCONTRAPARTIDA.IsNull then begin
       ShowMessage('El contrapartida no puede quedar vacia');
       ComboBoxContrapartidaSUBCUENTA.SetFocus;
       Exit;
    end else
-   if QFicheroDEBEHABER.IsNull then begin
+   if QApunteDEBEHABER.IsNull then begin
       ShowMessage('Debe/Haber no puede quedar vacio.');
       EditDebeHaber.SetFocus;
       Exit;
    end else
-   if QFicheroIMPORTE.IsNull then begin
+   if QApunteIMPORTE.IsNull then begin
       ShowMessage('El importe no puede quedar vacio');
       EditImporte.SetFocus;
       Exit;
    end else
-   if QFicheroID_CONCEPTOS.IsNull then begin
+   if QApunteID_CONCEPTOS.IsNull then begin
       ShowMessage('El Concepto no puede quedar vacio');
       ComboBoxCD_CONCEPTO.SetFocus;
       Exit;
    end
    else begin
-      QFichero.Post;
+      QApunte.Post;
       ModalResult := mrOK;
    end;
 end;
@@ -129,17 +130,17 @@ end;
 
 procedure TWEditApunte.FormCreate(Sender: TObject);
 begin
-   QFichero.CreateDataset;
-   QFichero.Open;
-   QFicheroIMPORTE.DisplayFormat       := '###,###,##0.#0';
-   QFicheroBASEIMPONIBLE.DisplayFormat := '###,###,##0.#0';
-   QFicheroCUOTAIVA.DisplayFormat      := '###,###,##0.#0';
-   QFicheroCUOTAIVA.DisplayFormat      := '###,###,##0.#0';
+   QApunte.CreateDataset;
+   QApunte.Open;
+   QApunteIMPORTE.DisplayFormat       := '###,###,##0.#0';
+   QApunteBASEIMPONIBLE.DisplayFormat := '###,###,##0.#0';
+   QApunteCUOTAIVA.DisplayFormat      := '###,###,##0.#0';
+   QApunteCUOTAIVA.DisplayFormat      := '###,###,##0.#0';
 
-   QFicheroIMPORTE.EditFormat          := '#########.#0';
-   QFicheroBASEIMPONIBLE.EditFormat    := '#########.#0';
-   QFicheroCUOTAIVA.EditFormat         := '#########.#0';
-   QFicheroCUOTARECARGO.EditFormat     := '#########.#0';
+   QApunteIMPORTE.EditFormat          := '#########.#0';
+   QApunteBASEIMPONIBLE.EditFormat    := '#########.#0';
+   QApunteCUOTAIVA.EditFormat         := '#########.#0';
+   QApunteCUOTARECARGO.EditFormat     := '#########.#0';
 end;
 
 procedure TWEditApunte.FormDestroy(Sender: TObject);
@@ -149,18 +150,18 @@ end;
 
 procedure TWEditApunte.BtnDetalleIVAClick(Sender: TObject);
 begin
-   if (QFicheroSUBCUENTA.AsString <> '') and
-      ((DMContaRef.ObtenerTipoSubcuenta(QFicheroSUBCUENTA.AsString) = 'R') or
-       (DMContaRef.ObtenerTipoSubcuenta(QFicheroSUBCUENTA.AsString) = 'S')) then begin
+   if (QApunteSUBCUENTA.AsString <> '') and
+      ((DMContaRef.ObtenerTipoSubcuenta(QApunteSUBCUENTA.AsString) = 'R') or
+       (DMContaRef.ObtenerTipoSubcuenta(QApunteSUBCUENTA.AsString) = 'S')) then begin
        {Abrir ventana con el detalle del IVA}
-       if not (QFichero.State in dsEditModes) then QFichero.Edit;
+       if not (QApunte.State in dsEditModes) then QApunte.Edit;
 
-       QFicheroIVA.AsFloat     := FModel.GetCurrentIVA;
-       QFicheroRECARGO.AsFloat := FModel.GetCurrentRECARGO; 
+       QApunteIVA.AsFloat     := FModel.GetCurrentIVA;
+       QApunteRECARGO.AsFloat := FModel.GetCurrentRECARGO;
 
        WDetalleIVA := TWDetalleIVA.Create(nil);
        try
-          WDetalleIVA.SFichero.DataSet := QFichero;
+          WDetalleIVA.SFichero.DataSet := QApunte;
 
           if WDetalleIVA.ShowModal = mrOk then begin
              EditImporte.SetFocus;
@@ -178,10 +179,10 @@ begin
       WNuevaSubcuenta.ShowModal;
       if WNuevaSubcuenta.FNuevaSubcuenta <> '' then begin
          FModel.RefreshAccounts;
-         if not (QFichero.State in dsEditModes) then QFichero.Edit;
-         QFicheroSUBCUENTA.AsString := WNuevaSubcuenta.FNuevaSubcuenta;
+         if not (QApunte.State in dsEditModes) then QApunte.Edit;
+         QApunteSUBCUENTA.AsString := WNuevaSubcuenta.FNuevaSubcuenta;
          if WNuevaSubcuenta.FContrapartidaSubcta <> '' then begin
-            QFicheroCONTRAPARTIDA.AsString := WNuevaSubcuenta.FContrapartidaSubcta;
+            QApunteCONTRAPARTIDA.AsString := WNuevaSubcuenta.FContrapartidaSubcta;
          end;
       end;
    finally
@@ -193,30 +194,30 @@ procedure TWEditApunte.ComboBoxCD_SUBCUENTACloseUp(Sender: TObject);
 var TipoSubcuenta :string;
 begin
    if (TipoAsiento = ASIENTO_FACTURA_COMPRA) or (TipoAsiento = ASIENTO_FACTURA_VENTA) then begin
-      TipoSubcuenta := DMContaRef.ObtenerTipoSubcuenta(QFicheroSUBCUENTA.AsString);
-      if (SubcuentaAlEntrar <> '') and (DmRef.QParametrosACTCOMENTARIO.AsString <> 'S') and (SubcuentaAlEntrar <> QFicheroSUBCUENTA.AsString) and
+      TipoSubcuenta := DMContaRef.ObtenerTipoSubcuenta(QApunteSUBCUENTA.AsString);
+      if (SubcuentaAlEntrar <> '') and (DmRef.QParametrosACTCOMENTARIO.AsString <> 'S') and (SubcuentaAlEntrar <> QApunteSUBCUENTA.AsString) and
          ((TipoSubcuenta      = 'P') or (TipoSubcuenta = 'C')) and
          (TipoSubcuenta = DMContaRef.ObtenerTipoSubcuenta(SubcuentaAlEntrar)) then begin
-         QFicheroCOMENTARIO.AsString := TDataSet(TDBLookupComboBox(Sender).DataSource).FieldByName('COMENTARIO').AsString;
+         QApunteCOMENTARIO.AsString := TDataSet(TDBLookupComboBox(Sender).DataSource).FieldByName('COMENTARIO').AsString;
       end else
       { Si es subcuenta de IVA, abrir ventana de importes }
       if (TipoSubcuenta = 'R') or (TipoSubcuenta = 'S') then begin
          BtnDetalleIVA.Click;
       end
       else begin
-         if not (QFichero.State in dsEditModes) then QFichero.Edit;
-         QFicheroBASEIMPONIBLE.AsFloat := 0;
-         QFicheroIVA.AsFloat           := 0;
-         QFicheroRECARGO.AsFloat       := 0;
-         QFicheroCUOTAIVA.AsFloat      := 0;
-         QFicheroCUOTARECARGO.AsFloat  := 0;
-         QFichero.Post;
+         if not (QApunte.State in dsEditModes) then QApunte.Edit;
+         QApunteBASEIMPONIBLE.AsFloat := 0;
+         QApunteIVA.AsFloat           := 0;
+         QApunteRECARGO.AsFloat       := 0;
+         QApunteCUOTAIVA.AsFloat      := 0;
+         QApunteCUOTARECARGO.AsFloat  := 0;
+         QApunte.Post;
       end;
    end;
 
-   if not (QFichero.State in dsEditModes) then QFichero.Edit;
+   if not (QApunte.State in dsEditModes) then QApunte.Edit;
 
-   FModel.SetContrapartida(QFicheroCONTRAPARTIDA);
+   FModel.SetContrapartida(QApunteCONTRAPARTIDA);
 end;
 
 end.
