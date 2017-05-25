@@ -102,10 +102,6 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     TabOrder = 2
     object TabSheetAsientos: TTabSheet
       Caption = 'Asientos'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object GroupBox2: TGroupBox
         Left = 0
         Top = 449
@@ -705,7 +701,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
           Width = 92
           Height = 20
           AutoSize = False
-          DataField = 'Importe'
+          DataField = 'IMPORTE'
           DataSource = SFichero
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
@@ -1123,14 +1119,10 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
     object TabSheetLastMoves: TTabSheet
       Caption = #218'ltimos Movimientos'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel4: TPanel
         Left = 0
-        Top = 474
-        Width = 827
+        Top = 470
+        Width = 803
         Height = 42
         Align = alBottom
         TabOrder = 0
@@ -1214,8 +1206,8 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
       object DBGridMoves: TDBGrid
         Left = 0
         Top = 0
-        Width = 827
-        Height = 474
+        Width = 803
+        Height = 470
         Align = alClient
         DataSource = SMovimientos
         Font.Charset = DEFAULT_CHARSET
@@ -1295,12 +1287,12 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
   end
   object SFichero: TDataSource
     DataSet = QFichero
-    Left = 386
+    Left = 458
     Top = 8
   end
   object Transaccion: TIBTransaction
-    Left = 495
-    Top = 7
+    Left = 543
+    Top = 23
   end
   object QMovimientos: TIBDataSet
     Transaction = Transaccion
@@ -1443,8 +1435,8 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
         '   ')
     ParamCheck = True
     UniDirectional = False
-    Left = 531
-    Top = 7
+    Left = 619
+    Top = 23
     object QMovimientosASIENTO: TIntegerField
       DisplayWidth = 9
       FieldName = 'ASIENTO'
@@ -1575,14 +1567,8 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
   object SMovimientos: TDataSource
     AutoEdit = False
     DataSet = QMovimientos
-    Left = 559
-    Top = 7
-  end
-  object QSubcuentas: TIBSQL
-    Database = DMRef.BDContab
-    Transaction = DMRef.IBT1
-    Left = 314
-    Top = 16
+    Left = 695
+    Top = 23
   end
   object SGastos: TDataSource
     DataSet = QGastos
@@ -1649,7 +1635,7 @@ object WCargaRapidaFacturas: TWCargaRapidaFacturas
   object QFichero: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 416
+    Left = 400
     Top = 8
     object QFicheroNUMEROFACTURA: TStringField
       FieldName = 'NUMEROFACTURA'

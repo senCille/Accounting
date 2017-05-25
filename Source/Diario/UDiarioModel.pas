@@ -134,6 +134,7 @@ begin
 
 end;
 
+{This report is called, only, from UEnlaceContable}
 procedure TDiarioModel.ReportAsientos(ADataSet: TDataSet);
 begin
    (*DM.Enlace1.DataSet := ADataSet;

@@ -26,7 +26,6 @@ type
     QMovimientosDESCSUBCUENTA: TIBStringField;
     QMovimientosIMPORTE: TFloatField;
     QMovimientosDescComentario: TStringField;
-    QSubcuentas: TIBSQL;
     SGastos: TDataSource;
     QGastos: TClientDataSet;
     QGastosSBCTA_IVA: TStringField;
@@ -170,8 +169,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure DBGridMovesDblClick(Sender: TObject);
     procedure DBGridMovesMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-    procedure DBGridMovesDrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGridMovesDrawColumnCell(Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure ComboBoxCD_SUBCUENTACloseUp(Sender: TObject);
     procedure BtnModifyIVAClick(Sender: TObject);
   private
@@ -180,6 +178,7 @@ type
     FColorActual     :TColor;
     FAsientoAnterior :Integer;
     FLineaIVA        :TWEditLineaIVA;
+    procedure InitializeView;
     procedure OnShowWLineaIVA(Sender: TObject);
     procedure IterateAllIVAs;
     procedure RecalcularBaseImponible;
@@ -207,7 +206,7 @@ begin
    FModel := TCargaRapidaFacturasModel.Create(DMRef.BDContab);
    Caption := '';
 
-   // Crear ficheros de Factura y Gastos
+   { Create dataset for Invoices of Sales and Purchases }
    QFichero.CreateDataset;
    QFichero.Open;
    QFichero.Append;
@@ -256,30 +255,16 @@ begin
    QGastos.Edit;
    {-----------------------------------}
 
-
    ActivateTransactions(Self, DMRef.BDContab);
 
-   // Búsqueda subcuenta
-   {$Message Warn 'Hay que eliminar esta funcionalidad. Quitando la opcion en Parámetros y luego en los forms afectados'}
-   (* DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then  begin
-      Pos1 := ComboBoxCD_SUBCUENTA.Left;
-      dblSubcuentaN.Left := Pos1;
-      dblSubcuenta.Left := dblSubcuenta.Left + dblSubcuentaN.Width;
-      dblSubcuenta.TabStop := False;
+   InitializeView;
+end;
 
-      Pos1           := dblBanco.Left;
-      dblBancoN.Left := Pos1;
-      dblBanco.Left  := dblBanco.Left + dblBancoN.Width;
-      dblBanco.TabStop := False;
-   end;*)
-
-   QSubcuentas.Close;
-   QSubcuentas.SQL.Clear;
-   QSubcuentas.SQL.Add(' select contrapartida, arrendador, profesional, formapago,');
-   QSubcuentas.SQL.Add('        diapago1, diapago2, diapago3, intracomunitario');
-   QSubcuentas.SQL.Add(' from subctas');
-   QSubcuentas.SQL.Add(' where subcuenta=:subcuenta');
-   QSubcuentas.Prepare;
+procedure TWCargaRapidaFacturas.InitializeView;
+begin
+   ComboBoxCD_SUBCUENTA.OnCloseUp := ComboBoxCD_SUBCUENTACloseUp;
+   ComboBoxDS_SUBCUENTA.OnCloseUp := ComboBoxCD_SUBCUENTACloseUp;
+   EditIMPORTE.OnExit             := EditIMPORTEExit;
 end;
 
 procedure TWCargaRapidaFacturas.FormDestroy(Sender: TObject);
@@ -288,8 +273,10 @@ begin
 end;
 
 procedure TWCargaRapidaFacturas.RecalcularBaseImponible;
-var TipoIVA, Recargo, BaseImponible: Double;
-    QSelSubcuenta: TIBQuery;
+var TipoIVA       :Double;
+    Recargo       :Double;
+    BaseImponible :Double;
+    QSelSubcuenta :TIBQuery;
 begin
    if QGastos.State in dsEditModes then begin
       QGastos.Post;
@@ -368,17 +355,15 @@ begin
    QMovimientos.Transaction.Active := True;
    QMovimientos.Transaction.CommitRetaining;
    QMovimientos.SelectSQL.Clear;
-   QMovimientos.SelectSQL.Add('SELECT');
-   QMovimientos.SelectSQL.Add('   D.ASIENTO,D.APUNTE,D.FECHA,D.SUBCUENTA,D.ID_CONCEPTOS, D.DEBEHABER,');
-   QMovimientos.SelectSQL.Add('   D.CONTRAPARTIDA,D.COMENTARIO,D.NUMEROFACTURA,D.CUENTA_ANALITICA,');
-   QMovimientos.SelectSQL.Add('   C.DESCRIPCION DESCCONCEPTO, S.DESCRIPCION DESCSUBCUENTA,D.IMPORTE, S.ABREVIATURA,');
-   QMovimientos.SelectSQL.Add('   D.TIPOASIENTO, D.ASIENTONOMINA, D.SERIE, D.EJERCICIO');
-   QMovimientos.SelectSQL.Add('FROM DIARIO D, CONCEPTOS C, SUBCTAS S');
-   QMovimientos.SelectSQL.Add('WHERE');
-   QMovimientos.SelectSQL.Add('   D.ASIENTO >= :ASIENTO1 AND D.ASIENTO <= :ASIENTO2 AND');
-   QMovimientos.SelectSQL.Add('   D.ID_CONCEPTOS = C.ID_CONCEPTOS AND');
-   QMovimientos.SelectSQL.Add('   D.SUBCUENTA = S.SUBCUENTA');
-   QMovimientos.SelectSQL.Add('ORDER BY D.ASIENTO, D.APUNTE');
+   QMovimientos.SelectSQL.Add('SELECT D.ASIENTO,D.APUNTE,D.FECHA,D.SUBCUENTA,D.ID_CONCEPTOS, D.DEBEHABER,                ');
+   QMovimientos.SelectSQL.Add('       D.CONTRAPARTIDA,D.COMENTARIO,D.NUMEROFACTURA,D.CUENTA_ANALITICA,                   ');
+   QMovimientos.SelectSQL.Add('       C.DESCRIPCION DESCCONCEPTO, S.DESCRIPCION DESCSUBCUENTA, D.IMPORTE, S.ABREVIATURA, ');
+   QMovimientos.SelectSQL.Add('       D.TIPOASIENTO, D.ASIENTONOMINA, D.SERIE, D.EJERCICIO                               ');
+   QMovimientos.SelectSQL.Add('FROM DIARIO D, CONCEPTOS C, SUBCTAS S                                                     ');
+   QMovimientos.SelectSQL.Add('WHERE D.ASIENTO >= :ASIENTO1 AND D.ASIENTO <= :ASIENTO2 AND                               ');
+   QMovimientos.SelectSQL.Add('      D.ID_CONCEPTOS = C.ID_CONCEPTOS AND                                                 ');
+   QMovimientos.SelectSQL.Add('      D.SUBCUENTA    = S.SUBCUENTA                                                        ');
+   QMovimientos.SelectSQL.Add('ORDER BY D.ASIENTO, D.APUNTE                                                              ');
    QMovimientos.Params.ByName('ASIENTO1').AsInteger := Asiento - 30;
    QMovimientos.Params.ByName('ASIENTO2').AsInteger := Asiento;
    QMovimientos.Prepare;
@@ -388,28 +373,27 @@ begin
 end;
 
 procedure TWCargaRapidaFacturas.BtnEdtGuardarClick(Sender: TObject);
-var
-   nAsiento        :Integer;
-   nApunte         :Integer;
-   nAsientoFactura :Integer;
-   lCondAnalitica  :Boolean;
-   nImpBase        :Double;
-   nImpCli         :Double;
-   nSumaIva        :Double;
-   cComentario     :string;
-   cSubctaRetVenta :string;
-   QDiario         :TIBSQL;
-   DatosCorrectos  :Boolean;
-   ConceptoIVA     :string;
-   DebeHaberIVA    :string;
-   ComentarioIVA   :string;
-   BaseImponibleIVA:Double;
-   ImporteIVA      :Double;
+var nAsiento         :Integer;
+    nApunte          :Integer;
+    nAsientoFactura  :Integer;
+    lCondAnalitica   :Boolean;
+    nImpBase         :Double;
+    nImpCli          :Double;
+    nSumaIva         :Double;
+    cComentario      :string;
+    cSubctaRetVenta  :string;
+    QDiario          :TIBSQL;
+    DatosCorrectos   :Boolean;
+    ConceptoIVA      :string;
+    DebeHaberIVA     :string;
+    ComentarioIVA    :string;
+    BaseImponibleIVA :Double;
+    ImporteIVA       :Double;
+    QSubcuentas      :TIBSQL;
 
    procedure ComprobarDatosSubcuentasIVAValidos(var OK: Boolean);
-   var
-      Msg:        String;
-      TotImporte: Double;
+   var Msg        :string;
+       TotImporte :Double;
    begin
       OK := True;
 
@@ -473,8 +457,7 @@ var
                   Msg := Msg + 'No se puede dejar la cuota de IVA en blanco.' + #13;
                end;
                QGastos.Post;
-            end
-            else
+            end else
             if (QGastosCUOTA_IVA.AsFloat <> 0) and
                (QGastosBASE_IMPONIBLE_IVA.AsFloat = 0) then begin
                QGastos.Edit;
@@ -499,7 +482,6 @@ var
 
             QGastos.Next;
          end;
-
          QGastos.EnableControls;
       end;
 
@@ -510,17 +492,15 @@ var
             TotImporte := 0;
             while not QGastos.EOF do begin
                QSubcuentas.Close;
-               QSubcuentas.parambyname('subcuenta').AsString := QGastosSBCTA_IVA.AsString;
+               QSubcuentas.ParamByName('SUBCUENTA').AsString := QGastosSBCTA_IVA.AsString;
                QSubcuentas.ExecQuery;
 
                TotImporte := TotImporte + QGastosCUOTA_IVA.AsFloat;
                TotImporte := TotImporte + QGastosBASE_IMPONIBLE_IVA.AsFloat +
                   QSubcuentas.FieldByName('recargo').AsFloat;
-               if (RoundTo(QFicheroTANTORETENCION.AsFloat, -3) <> 0) then
-               begin
-                  TotImporte := TotImporte - RoundTo(
-                     QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 *
-                     QFicheroTANTORETENCION.AsFloat, -3);
+               if (RoundTo(QFicheroTANTORETENCION.AsFloat, -3) <> 0) then begin
+                  TotImporte := TotImporte - RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 *
+                                                     QFicheroTANTORETENCION.AsFloat, -3);
                end;
                QGastos.Next;
             end;
@@ -536,9 +516,8 @@ var
                TotImporte := TotImporte + QGastosBASE_IMPONIBLE_IVA.AsFloat +
                   QSubcuentas.FieldByName('recargo').AsFloat;
                if QFicheroTANTORETENCION.AsFloat <> 0 then begin
-                  TotImporte := TotImporte + RoundTo(
-                     QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 *
-                     QFicheroTANTORETENCION.AsFloat, -3);
+                  TotImporte := TotImporte + RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 *
+                                                     QFicheroTANTORETENCION.AsFloat, -3);
                end;
                QGastos.Next;
             end;
@@ -567,12 +546,10 @@ var
             QGastosBASE_IMPONIBLE_IVA.AsFloat, -3);
          if QFicheroTANTORETENCION.AsFloat <> 0 then begin
             if TipoCarga = CARGA_FACTURAS_COMPRA then begin
-               TotImporte := TotImporte - RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat *
-                  0.01 * QFicheroTANTORETENCION.AsFloat, -3);
+               TotImporte := TotImporte - RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 * QFicheroTANTORETENCION.AsFloat, -3);
             end
             else begin
-               TotImporte := TotImporte + RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat *
-                  0.01 * QFicheroTANTORETENCION.AsFloat, -3);
+               TotImporte := TotImporte + RoundTo(QGastosBASE_IMPONIBLE_IVA.AsFloat * 0.01 * QFicheroTANTORETENCION.AsFloat, -3);
             end;
          end;
          if QFicheroIMPORTERETVENTA.AsFloat <> 0 then begin
@@ -580,13 +557,11 @@ var
          end;
          if RoundTo(TotImporte, -2) <> RoundTo(
             QFicheroIMPORTE.AsFloat, -2) then begin
-            if MessageDlg('La factura está descuadrada.' + #13 + '¿Desea continuar?',
-                          mtConfirmation, [mbYes, mbNo], 0) = mrNo then begin
+            if MessageDlg('La factura está descuadrada.' + #13 + '¿Desea continuar?', mtConfirmation, [mbYes, mbNo], 0) = mrNo then begin
                OK := False;
             end;
          end;
       end;
-
       QGastos.First;
    end;
 
@@ -616,42 +591,38 @@ begin
       Q := TIBSQL.Create(nil);
       try
          Q.Database := DMRef.BDContab;
-         Q.SQL.Clear;
-         Q.SQL.Add('select asiento from diario');
-         Q.SQL.Add(' where subcuenta=:subcuenta and numerofactura=:numerofactura');
-         Q.SQL.Add(' and debehaber=:debehaber and fecha>=:fechaIni and fecha<=:FechaFin');
+         Q.SQL.Add('SELECT ASIENTO                        ');
+         Q.SQL.Add('FROM DIARIO                           ');
+         Q.SQL.Add('WHERE SUBCUENTA     =  :SUBCUENTA     ');
+         Q.SQL.Add('AND   NUMEROFACTURA =  :NUMEROFACTURA ');
+         Q.SQL.Add('AND   DEBEHABER     =  :DEBEHABER     ');
+         Q.SQL.Add('AND   FECHA         >= :FECHAINI      ');
+         Q.SQL.Add('AND   FECHA         <= :FECHAFIN      ');
          Q.Prepare;
-         Q.ParamByName('fechaIni'     ).AsDateTime := DmRef.QParametrosFECHA_INICIO_EJERCICIO.AsDateTime;
-         Q.Parambyname('fechaFin'     ).AsDateTime := DmRef.QParametrosFECHA_FIN_EJERCICIO.AsDateTime;
-         Q.Parambyname('debehaber'    ).AsString   := cTipoDH;
-         Q.Parambyname('subcuenta'    ).AsString   := QFicheroSUBCUENTA.AsString;
-         Q.Parambyname('numerofactura').AsString   := QFicheroNUMEROFACTURA.AsString;
-         Q.Execquery;
-         nAsiento := Q.FieldByName('asiento').AsInteger;
+         Q.ParamByName('FECHAINI'     ).AsDateTime := DmRef.QParametrosFECHA_INICIO_EJERCICIO.AsDateTime;
+         Q.Parambyname('FECHAFIN'     ).AsDateTime := DmRef.QParametrosFECHA_FIN_EJERCICIO.AsDateTime;
+         Q.Parambyname('DEBEHABER'    ).AsString   := cTipoDH;
+         Q.Parambyname('SUBCUENTA'    ).AsString   := QFicheroSUBCUENTA.AsString;
+         Q.Parambyname('NUMEROFACTURA').AsString   := QFicheroNUMEROFACTURA.AsString;
+         Q.ExecQuery;
+         nAsiento := Q.FieldByName('ASIENTO').AsInteger;
          if nAsiento > 0 then begin
-            DatabaseError('Factura ' + Trim(QFicheroNUMEROFACTURA.AsString) +
-               ' duplicada en asiento nº ' + Trim(IntToStr(nAsiento)) + '.');
+            DatabaseError('Factura ' + Trim(QFicheroNUMEROFACTURA.AsString) + ' duplicada en asiento nº ' + Trim(IntToStr(nAsiento)) + '.');
          end;
       finally
          Q.Free;
       end;
    end;
 
-   // Verificar importe.
+   { Check that import is not zero }
    if RoundTo(QFicheroIMPORTE.AsFloat, -3) = 0 then begin
       EditIMPORTE.SetFocus;
       DatabaseError('El importe no puede ser cero.');
    end;
 
-   // Verificar subcuenta no este vacia
+   { Check that account is not empty }
    if IsEmpty(QFicheroSUBCUENTA.AsString) then begin
       ComboBoxCD_SUBCUENTA.SetFocus;
-      (*if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then begin
-         dblSubcuentaN.SetFocus;
-      end
-      else begin
-         dblSubcuenta.SetFocus;
-      end;*)
       DatabaseError('La subcuenta Cliente/Proveedor seleccionada no puede estar vacía.');
    end;
 
@@ -659,34 +630,34 @@ begin
       ComboCD_CONCEPTO.SetFocus;
       DatabaseError('El concepto de Cliente/Proveedor no puede estar vacío.');
    end;
+
    if QFicheroCTOCONTRA.AsString = '' then begin
       ComboCD_CONCEPTO_COMPRA_VENTA.SetFocus;
       DatabaseError('El concepto de Ventas/Compras no puede estar vacío.');
    end;
 
+   QSubcuentas := TIBSQL.Create(nil);
    QSubcuentas.Database := DMRef.BDContab;
-   QSubcuentas.Close;
-   QSubcuentas.SQL.Clear;
-   QSubcuentas.SQL.Add('select descripcion,iva,recargo,profesional,arrendador,contrapartida,');
-   QSubcuentas.SQL.Add('       formapago, diapago1, diapago2, diapago3, tipoiva,            ');
-   QSubcuentas.SQL.Add('       intracomunitario,subctaret from subctas                      ');
-   QSubcuentas.SQL.Add(' where subcuenta=:subcuenta                                         ');
+   QSubcuentas.SQL.Add('SELECT DESCRIPCION, IVA, RECARGO, PROFESIONAL, ARRENDADOR, CONTRAPARTIDA, ');
+   QSubcuentas.SQL.Add('       FORMAPAGO, DIAPAGO1, DIAPAGO2, DIAPAGO3, TIPOIVA,                  ');
+   QSubcuentas.SQL.Add('       INTRACOMUNITARIO, SUBCTARET                                        ');
+   QSubcuentas.SQL.Add('FROM   SUBCTAS                                                            ');
+   QSubcuentas.SQL.Add('WHERE  SUBCUENTA = :SUBCUENTA                                             ');
    QSubcuentas.Prepare;
 
-   // Comprobar tipos de IVA
+   { Chect Tax types }
    ComprobarDatosSubcuentasIVAValidos(DatosCorrectos);
 
    // Verificar q tiene subcuenta retencion ventas
    if QFicheroIMPORTERETVENTA.AsFloat <> 0 then begin
       QSubcuentas.Close;
-      QSubcuentas.ParamByName('subcuenta').AsString := QFicheroSUBCUENTA.AsString;
+      QSubcuentas.ParamByName('SUBCUENTA').AsString := QFicheroSUBCUENTA.AsString;
       QSubcuentas.ExecQuery;
-      cSubCtaRetVenta := QSubcuentas.FieldByName('SubctaRet').AsString;
-      if IsEmpty(QSubcuentas.FieldByName('SubctaRet').AsString) then begin
+      cSubCtaRetVenta := QSubcuentas.FieldByName('SUBCTARET').AsString;
+      if IsEmpty(QSubcuentas.FieldByName('SUBCTARET').AsString) then begin
          DatabaseError('No tiene subcuenta de retención en el cliente seleccionado en esta factura.');
       end;
    end;
-
 
    if not DatosCorrectos then begin
       Exit;
@@ -698,12 +669,6 @@ begin
    if CheckBoxRealizarPago.Checked then  begin
       if IsEmpty(QFicheroBANCO.AsString) then begin
          ComboBoxCD_SUBCUENTA_BANCO.SetFocus;
-         (*if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then begin
-            dblBancoN.SetFocus;
-         end
-         else begin
-            dblBanco.SetFocus;
-         end;*)
          DatabaseError('La subcuenta de Banco / Caja seleccionada no puede estar vacía.');
       end;
       // Verificar fecha de cobro/pago
@@ -717,6 +682,7 @@ begin
       end;
    end;
 
+
    // Generacion del asiento
    nAsiento        := DMContaRef.ObtenerNumeroAsiento;
    nAsientoFactura := nAsiento;
@@ -728,19 +694,24 @@ begin
    QDiario.SQL.Clear;
    QDiario.SQL.Add('INSERT INTO DIARIO ');
    QDiario.SQL.Add('   (TIPOASIENTO, APUNTE, ASIENTO, COMENTARIO, NIF,');
+
    if (QGastos.RecordCount = 1) or CheckBoxIntracomunitaria.Checked then begin
       QDiario.SQL.Add('CONTRAPARTIDA,');
    end;
+
    QDiario.SQL.Add('    DEBEHABER, FECHA, ID_CONCEPTOS,');
    if lCondAnalitica then begin
       QDiario.SQL.Add('CUENTA_ANALITICA,');
    end;
+
    QDiario.SQL.Add('    IMPORTE, MONEDA, NUMEROFACTURA, PUNTEO, SUBCUENTA)');
    QDiario.SQL.Add('VALUES');
    QDiario.SQL.Add('   (:TIPOASIENTO, :APUNTE, :ASIENTO,:COMENTARIO, :NIF,');
+
    if (QGastos.RecordCount = 1) or CheckBoxIntracomunitaria.Checked then begin
       QDiario.SQL.Add(':CONTRAPARTIDA,');
    end;
+
    QDiario.SQL.Add('    :DEBEHABER, :FECHA, :ID_CONCEPTOS,');
    if lCondAnalitica then begin
       QDiario.SQL.Add(':ANALITICA,');
@@ -755,6 +726,7 @@ begin
    else begin
       nApunte := 1;
    end;
+
    if TipoCarga = CARGA_FACTURAS_COMPRA then begin
       QDiario.ParamByName('TIPOASIENTO').AsInteger := ASIENTO_FACTURA_COMPRA;
    end
@@ -804,28 +776,28 @@ begin
       QDiario.parambyname('Contrapartida').AsString := QGastosCONTRAPARTIDA.AsString;
    end;
 
-   QDiario.parambyname('Importe').AsFloat := RoundTo(QFicheroIMPORTE.AsFloat, -3);
+   QDiario.ParamByName('Importe').AsFloat := RoundTo(QFicheroIMPORTE.AsFloat, -3);
 
-   nImpCli := QDiario.parambyname('importe').AsFloat;
+   nImpCli := QDiario.ParamByName('importe').AsFloat;
 
-   QDiario.parambyname('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
+   QDiario.ParamByName('numerofactura').AsString := QFicheroNUMEROFACTURA.AsString;
 
    if CheckBoxRealizarPago.Checked then begin
-      QDiario.parambyname('punteo').AsString := 'S';
+      QDiario.ParamByName('punteo').AsString := 'S';
    end
    else begin
-      QDiario.parambyname('punteo').AsString := 'N';
+      QDiario.ParamByName('punteo').AsString := 'N';
    end;
 
    cComentario := Copy(QSubcuentas.FieldByName('descripcion').AsString, 1, 40);
    if IsEmpty(QFicheroCOMENTARIO.AsString) then begin
-      QDiario.parambyname('comentario').AsString := cComentario;
+      QDiario.ParamByName('comentario').AsString := cComentario;
    end
    else begin
-      QDiario.parambyname('comentario').AsString := QFicheroCOMENTARIO.AsString;
+      QDiario.ParamByName('comentario').AsString := QFicheroCOMENTARIO.AsString;
    end;
 
-   QDiario.parambyname('NIF').AsString := QFicheroNIF.AsString;
+   QDiario.ParamByName('NIF').AsString := QFicheroNIF.AsString;
 
    QDiario.ExecQuery;
    QDiario.Transaction.CommitRetaining;
@@ -925,11 +897,9 @@ begin
 
          nImpBase := nImpCli;
 
-         QDiario.parambyname('importe').AsFloat :=
-            RoundTo(nImpBase * ((0.01 * QDiario.parambyname('iva').AsFloat) +
-            (0.01 * QDiario.parambyname('recargo').AsFloat)), -3);
+         QDiario.ParamByName('IMPORTE').AsFloat := RoundTo(nImpBase * ((0.01 * QDiario.ParamByName('IVA').AsFloat) + (0.01 * QDiario.ParamByName('RECARGO').AsFloat)), -3);
 
-         QDiario.parambyname('baseimponible').AsFloat := RoundTo(nImpBase, -3);
+         QDiario.ParamByName('BASEIMPONIBLE').AsFloat := RoundTo(nImpBase, -3);
 
          if RoundTo(QDiario.parambyname('recargo').AsFloat, -3) = 0 then begin
             QDiario.parambyname('cuotaiva').AsFloat     := QDiario.parambyname('importe').AsFloat;
@@ -1657,9 +1627,7 @@ begin
 
    // Toques finales
    QDiario.Free;
-
-
-   QSubcuentas.Close;
+   QSubcuentas.Free;
 
    CheckBoxIntracomunitaria.Checked := False;
    if not (QFichero.State in dsEditModes) then begin
@@ -1831,14 +1799,6 @@ begin
       end;
 
       ComboBoxCD_SUBCUENTA.SetFocus;
-
-      (*if DMRef.QParametrosBUSQUEDA_SUBCTAS.AsString = 'D' then begin
-         dblSubcuentaN.SetFocus;
-      end
-      else begin
-         dblSubcuenta.SetFocus;
-      end;*)
-
       ComboBoxCD_SUBCUENTA.CloseUp(True);
    finally
       FreeAndNil(WNuevaSubcuenta);
@@ -2294,57 +2254,68 @@ begin
 end;
 
 procedure TWCargaRapidaFacturas.ComboBoxCD_SUBCUENTACloseUp(Sender: TObject);
-var lFormaPago :string;
+var lFormaPago  :string;
+    QSubCuentas :TIBSQL;
 begin
 
    if not (QFichero.State in dsEditModes) then begin
       QGastos.Edit;
    end;
-   
-   QSubcuentas.Close;
-   QSubcuentas.ParamByName('subcuenta').AsString := QFicheroSUBCUENTA.AsString;
-   QSubcuentas.ExecQuery;
-   cContra      := QSubcuentas.FieldByName('contrapartida').AsString;
-   lProfesional := QSubcuentas.FieldByName('profesional').AsString = 'S';
-   lArrendador  := QSubcuentas.FieldByName('arrendador').AsString = 'S';
 
-   if TipoCarga = CARGA_FACTURAS_VENTA then  begin
-      if Length(Trim(cContra)) > 0 then begin
-         FContrapartida := cContra;
+   QSubcuentas := TIBSQL.Create(nil);
+   QSubcuentas.Database := DMRef.BDContab;
+   try
+      QSubcuentas.SQL.Add(' select contrapartida, arrendador, profesional, formapago,');
+      QSubcuentas.SQL.Add('        diapago1, diapago2, diapago3, intracomunitario');
+      QSubcuentas.SQL.Add(' from subctas');
+      QSubcuentas.SQL.Add(' where subcuenta=:subcuenta');
+      QSubcuentas.Prepare;
+      QSubcuentas.ParamByName('subcuenta').AsString := QFicheroSUBCUENTA.AsString;
+      QSubcuentas.ExecQuery;
+      cContra      := QSubcuentas.FieldByName('contrapartida').AsString;
+      lProfesional := QSubcuentas.FieldByName('profesional').AsString = 'S';
+      lArrendador  := QSubcuentas.FieldByName('arrendador').AsString = 'S';
+
+      if TipoCarga = CARGA_FACTURAS_VENTA then  begin
+         if Length(Trim(cContra)) > 0 then begin
+            FContrapartida := cContra;
+         end
+         else begin
+            FContrapartida := DmRef.QParametrosSCTAVENTAS.AsString;
+         end;
+      end else
+      if TipoCarga = CARGA_FACTURAS_COMPRA then  begin
+         if Length(Trim(cContra)) > 0 then begin
+            FContrapartida := cContra;
+         end
+         else begin
+            FContrapartida := DmRef.QParametrosSCTACOMPRAS.AsString;
+         end;
+      end;
+
+      lIntracom := QSubcuentas.FieldByName('INTRACOMUNITARIO').AsString = 'S';
+      CheckBoxIntracomunitaria.Checked := lIntracom;
+
+      //  lbProfArre.caption:='% Retención de Profesional / Arrendatario ';
+      lbProfArre.Caption := '% Retención';
+      if QSubcuentas.FieldByName('FORMAPAGO').IsNull then begin
+         lFormaPago := '';
       end
       else begin
-         FContrapartida := DmRef.QParametrosSCTAVENTAS.AsString;
+         lFormaPago := QSubcuentas.FieldByName('FORMAPAGO').AsVariant;
       end;
-   end else
-   if TipoCarga = CARGA_FACTURAS_COMPRA then  begin
-      if Length(Trim(cContra)) > 0 then begin
-         FContrapartida := cContra;
-      end
-      else begin
-         FContrapartida := DmRef.QParametrosSCTACOMPRAS.AsString;
-      end;
+
+
+      QFicheroTANTORETENCION.AsFloat := 0;
+      QFicheroFORMAPAGO.AsString     := lFormaPago;
+
+      QFicheroDIAPAGO1.AsInteger   := QSubcuentas.FieldByName('DIAPAGO1').AsInteger;
+      QFicheroDIAPAGO2.AsInteger   := QSubcuentas.FieldByName('DIAPAGO2').AsInteger;
+      QFicheroDIAPAGO3.AsInteger   := QSubcuentas.FieldByName('DIAPAGO3').AsInteger;
+      QFicheroCTOIVAINTRA.AsString := DMRef.QParametrosCTOIVAINTRA.AsString;
+   finally
+      QSubcuentas.Free;
    end;
-
-   lIntracom := QSubcuentas.FieldByName('INTRACOMUNITARIO').AsString = 'S';
-   CheckBoxIntracomunitaria.Checked := lIntracom;
-
-   //  lbProfArre.caption:='% Retención de Profesional / Arrendatario ';
-   lbProfArre.Caption := '% Retención';
-   if QSubcuentas.FieldByName('FORMAPAGO').IsNull then begin
-      lFormaPago := '';
-   end
-   else begin
-      lFormaPago := QSubcuentas.FieldByName('FORMAPAGO').AsVariant;
-   end;
-
-
-   QFicheroTANTORETENCION.AsFloat := 0;
-   QFicheroFORMAPAGO.AsString     := lFormaPago;
-
-   QFicheroDIAPAGO1.AsInteger   := QSubcuentas.FieldByName('DIAPAGO1').AsInteger;
-   QFicheroDIAPAGO2.AsInteger   := QSubcuentas.FieldByName('DIAPAGO2').AsInteger;
-   QFicheroDIAPAGO3.AsInteger   := QSubcuentas.FieldByName('DIAPAGO3').AsInteger;
-   QFicheroCTOIVAINTRA.AsString := DMRef.QParametrosCTOIVAINTRA.AsString;
 
 
    if TipoCarga = CARGA_FACTURAS_VENTA then  begin

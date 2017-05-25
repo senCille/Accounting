@@ -100,11 +100,15 @@ object DataModuleCargaRapidaFacturas: TDataModuleCargaRapidaFacturas
         '  SUBCUENTA                      =?SUBCUENTA                    ' +
         '   ')
     SelectSQL.Strings = (
-      'SELECT SUBCUENTA,'
-      '               DESCRIPCION,'
-      '               ABREVIATURA'
-      'FROM SUBCTAS'
-      'WHERE CHAR_LENGTH(SUBCUENTA) = :prmLENGTH')
+      'SELECT S.SUBCUENTA, '
+      '             S.ABREVIATURA,'
+      '             S.DESCRIPCION'
+      'FROM SUBCTAS S, '
+      '          CUENTAS C'
+      
+        'WHERE (S.OBSOLETO <> "S" AND SUBSTR(S.SUBCUENTA, 1, 3) = C.CUENT' +
+        'A AND C.TIPOCUENTA = '#39'P'#39')'
+      'AND CHAR_LENGTH(SUBCUENTA) = :prmLENGTH')
     ModifySQL.Strings = (
       'UPDATE SUBCTAS'
       'SET'
