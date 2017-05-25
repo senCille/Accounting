@@ -1147,10 +1147,14 @@ object DataModuleCargaRapidaFacturas: TDataModuleCargaRapidaFacturas
         '  SUBCUENTA                      =?SUBCUENTA                    ' +
         '   ')
     SelectSQL.Strings = (
-      'SELECT SUBCUENTA,'
-      '               DESCRIPCION'
-      'FROM SUBCTAS_IVA_DEDUCIBLE '
-      'ORDER BY 1')
+      'SELECT S.SubCuenta, '
+      '             S.Descripcion '
+      'FROM SUBCTAS S,'
+      '           Cuentas C'
+      'WHERE s.obsoleto <> "S" '
+      
+        'AND      Substr(s.SUBCUENTA, 1, 3) = c.cuenta AND c.tipocuenta =' +
+        ' '#39'S'#39)
     ModifySQL.Strings = (
       'UPDATE SUBCTAS'
       'SET'
@@ -1478,10 +1482,13 @@ object DataModuleCargaRapidaFacturas: TDataModuleCargaRapidaFacturas
         '  SUBCUENTA                      =?SUBCUENTA                    ' +
         '   ')
     SelectSQL.Strings = (
-      'SELECT SUBCUENTA,'
-      '               DESCRIPCION'
-      'FROM     SUBCTAS_IVA_REPERCUTIDO '
-      'ORDER BY 1')
+      'SELECT S.SubCuenta, '
+      '             S.Descripcion '
+      'FROM SUBCTAS S,'
+      '           Cuentas C'
+      'WHERE s.obsoleto <> "S" '
+      'AND      Substr(s.SUBCUENTA,1,3) = c.cuenta AND c.tipocuenta='#39'R'#39
+      '')
     ModifySQL.Strings = (
       'UPDATE SUBCTAS'
       'SET'
@@ -1821,10 +1828,21 @@ object DataModuleCargaRapidaFacturas: TDataModuleCargaRapidaFacturas
         '  SUBCUENTA                      =?SUBCUENTA                    ' +
         '   ')
     SelectSQL.Strings = (
-      'SELECT SUBCUENTA, '
-      '               DESCRIPCION  '
-      'FROM SUBCTAS_AMORTIZACION_GASTOS '
-      'ORDER BY SUBCUENTA')
+      'SELECT S.SubCuenta, '
+      '             S.Descripcion '
+      'FROM SUBCTAS S,'
+      '           Cuentas C'
+      'WHERE S.obsoleto<>"S" '
+      'AND     Substr(s.SUBCUENTA,1,3) = c.cuenta '
+      
+        'AND    ((c.tipocuenta='#39'M'#39') or (c.tipocuenta='#39'I'#39') or (c.tipocuent' +
+        'a='#39'A'#39'))'
+      ''
+      ''
+      ''
+      ''
+      ''
+      '')
     ModifySQL.Strings = (
       'UPDATE SUBCTAS'
       'SET'
@@ -2158,9 +2176,14 @@ object DataModuleCargaRapidaFacturas: TDataModuleCargaRapidaFacturas
         '  SUBCUENTA                      =?SUBCUENTA                    ' +
         '   ')
     SelectSQL.Strings = (
-      'SELECT SUBCUENTA, DESCRIPCION'
-      'FROM    SUBCTAS_VENTAS '
-      'ORDER BY SUBCUENTA')
+      'SELECT S.SubCuenta, '
+      '             S.Descripcion '
+      'FROM SUBCTAS S,'
+      '           Cuentas C'
+      'WHERE s.obsoleto <> "S" '
+      
+        'AND      Substr(s.SUBCUENTA,1,3) = c.cuenta and c.tipocuenta = '#39 +
+        'V'#39)
     ModifySQL.Strings = (
       'UPDATE SUBCTAS'
       'SET'

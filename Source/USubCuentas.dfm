@@ -264,7 +264,7 @@ object WSubCuentas: TWSubCuentas
       Top = 1
       Width = 661
       Height = 477
-      ActivePage = TabSubAccounts
+      ActivePage = TabData
       Align = alClient
       TabOrder = 1
       OnChange = PageControlChange
@@ -4780,7 +4780,7 @@ object WSubCuentas: TWSubCuentas
     ParamCheck = True
     UniDirectional = False
     Left = 571
-    Top = 385
+    Top = 393
     object QIVARTIPO: TIBStringField
       FieldName = 'TIPO'
       Size = 1
@@ -4796,8 +4796,8 @@ object WSubCuentas: TWSubCuentas
     CachedUpdates = False
     ParamCheck = True
     UniDirectional = False
-    Left = 531
-    Top = 409
+    Left = 571
+    Top = 441
   end
   object QAmortiza: TIBDataSet
     Transaction = Transaccion
@@ -5163,7 +5163,7 @@ object WSubCuentas: TWSubCuentas
     UniDirectional = False
     DataSource = SFichero
     Left = 229
-    Top = 396
+    Top = 404
     object QDiarioASIENTO: TIntegerField
       DisplayWidth = 9
       FieldName = 'ASIENTO'
@@ -5995,7 +5995,7 @@ object WSubCuentas: TWSubCuentas
     UniDirectional = False
     DataSource = SFichero
     Left = 231
-    Top = 351
+    Top = 359
     object QMovimientosASIENTO: TIntegerField
       DisplayWidth = 9
       FieldName = 'ASIENTO'
