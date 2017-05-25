@@ -4,7 +4,8 @@ interface
 
 uses
   SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  IBX.IBQuery, DBClient, frxClass, frxDBSet, frxExportPDF;
+  IBX.IBQuery, DBClient, frxClass, frxDBSet, frxExportPDF,
+  senCille.CommonTypes;
 
 type
   TDataModuleFiltroListadosAsientos = class(TDataModule)
@@ -116,10 +117,6 @@ type
     QInformesContaFSubcuenta: TStringField;
     QInformesContaFDescSubcuenta: TStringField;
     SInformesConta: TDataSource;
-    FastReportAsientos: TfrxReport;
-    PDFExport: TfrxPDFExport;
-    FRXEnlace1: TfrxDBDataset;
-    FastReportAsientosExpandido: TfrxReport;
   private
   public
   end;
@@ -150,7 +147,8 @@ type
     procedure DoInitialize; override;
     function  DataModule :TDataModule;
     procedure Refresh;
-    procedure LanzarInfAsientos(AsientoInicial           ,
+    procedure LanzarInfAsientos(ACallBack                :TSimplyCallBack;
+                                AsientoInicial           ,
                                 AsientoFinal             :Integer;
                                 FechaInicial             ,
                                 FechaFinal               ,
@@ -356,7 +354,8 @@ begin
    Result := Copy(Trim(Cadena), 1, 100);
 end;
 
-procedure TFiltroListadosAsientosModel.LanzarInfAsientos(AsientoInicial           ,
+procedure TFiltroListadosAsientosModel.LanzarInfAsientos(ACallBack                :TSimplyCallBack;
+                                                         AsientoInicial           ,
                                                          AsientoFinal             :Integer;
                                                          FechaInicial             ,
                                                          FechaFinal               ,
@@ -372,7 +371,6 @@ procedure TFiltroListadosAsientosModel.LanzarInfAsientos(AsientoInicial         
                                                          SoloAsientosDescuadrados :Boolean = False;
                                                          SoloAsientosMezcla       :Boolean = False;
                                                          FormatoOficial           :Boolean = False);
-
 var QApuntes :TIBQuery;
 
    QAsientos     :TIBSQL;
@@ -612,26 +610,7 @@ begin
       InProgress.Free;
    end;
 
-   DM.PDFExport.Author          := 'senCille Accounting';
-   DM.PDFExport.ShowDialog      := False;
-   DM.PDFExport.OpenAfterExport := True;
-
-   if InformeNormal then begin
-      DM.PDFExport.FileName := 'Asientos.pdf';
-      DM.FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      DM.FastReportAsientos.PrepareReport(True);
-      DM.FastReportAsientos.Export(DM.PDFExport);
-   end
-   else begin
-      DM.PDFExport.FileName := 'AsientosDetallado.pdf';
-      DM.FastReportAsientosExpandido.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportAsientosExpandido.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      DM.FastReportAsientosExpandido.PrepareReport(True);
-      DM.FastReportAsientosExpandido.Export(DM.PDFExport);
-   end;
+   if Assigned(ACallBack) then ACallBack;
 
    DM.QInformesConta.EmptyDataSet;
 end;

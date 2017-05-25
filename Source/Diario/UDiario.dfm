@@ -3,7 +3,7 @@ object WDiario: TWDiario
   Top = 240
   Caption = 'Gesti'#243'n de Asientos'
   ClientHeight = 528
-  ClientWidth = 782
+  ClientWidth = 892
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -26,7 +26,7 @@ object WDiario: TWDiario
   object TPanel
     Left = 0
     Top = 0
-    Width = 782
+    Width = 892
     Height = 41
     Align = alTop
     TabOrder = 0
@@ -70,12 +70,12 @@ object WDiario: TWDiario
   object Panel2: TPanel
     Left = 0
     Top = 41
-    Width = 782
+    Width = 892
     Height = 456
     Align = alClient
     TabOrder = 1
     object Panel: TPanel
-      Left = 668
+      Left = 778
       Top = 1
       Width = 113
       Height = 454
@@ -316,9 +316,9 @@ object WDiario: TWDiario
     object PageControl: TPageControl
       Left = 1
       Top = 1
-      Width = 667
+      Width = 777
       Height = 454
-      ActivePage = TabSheetFiltro
+      ActivePage = TabSheetDiario
       Align = alClient
       TabOrder = 1
       object TabSheetDiario: TTabSheet
@@ -326,7 +326,7 @@ object WDiario: TWDiario
         object Buscar: TGroupBox
           Left = 0
           Top = 0
-          Width = 659
+          Width = 769
           Height = 60
           Align = alTop
           Caption = '  Buscar  '
@@ -550,7 +550,7 @@ object WDiario: TWDiario
         object DataGrid: TDBGrid
           Left = 0
           Top = 60
-          Width = 659
+          Width = 769
           Height = 366
           Align = alClient
           DataSource = SFichero
@@ -650,7 +650,7 @@ object WDiario: TWDiario
         object Panel1: TPanel
           Left = 0
           Top = 0
-          Width = 659
+          Width = 769
           Height = 426
           Align = alClient
           Font.Charset = ANSI_CHARSET
@@ -1241,7 +1241,7 @@ object WDiario: TWDiario
   object Panel3: TPanel
     Left = 0
     Top = 497
-    Width = 782
+    Width = 892
     Height = 31
     Align = alBottom
     TabOrder = 2
@@ -2469,7 +2469,7 @@ object WDiario: TWDiario
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.636844884300000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42828.522457222200000000
+    ReportOptions.LastChange = 42845.495352071800000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -2479,7 +2479,7 @@ object WDiario: TWDiario
     Top = 234
     Datasets = <
       item
-        DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+        DataSet = Enlace1
         DataSetName = 'ENLACE1'
       end>
     Variables = <>
@@ -2527,7 +2527,7 @@ object WDiario: TWDiario
           Width = 64.781144200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2695,7 +2695,7 @@ object WDiario: TWDiario
           Top = 66.999728310000000000
           Width = 734.997640040000000000
           Height = 13.001583200000000000
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = 'dd mmm yyyy'
           DisplayFormat.Kind = fkDateTime
@@ -2820,7 +2820,7 @@ object WDiario: TWDiario
         Height = 18.999697310000000000
         Top = 166.299320000000000000
         Width = 793.701300000000000000
-        DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+        DataSet = Enlace1
         DataSetName = 'ENLACE1'
         RowCount = 0
         object cAsiento: TfrxMemoView
@@ -2829,7 +2829,7 @@ object WDiario: TWDiario
           Width = 42.999712810000000000
           Height = 10.998432300000000000
           DataField = 'Asiento'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2847,7 +2847,7 @@ object WDiario: TWDiario
           Width = 18.999697310000000000
           Height = 10.998432300000000000
           DataField = 'Apunte'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2865,7 +2865,7 @@ object WDiario: TWDiario
           Width = 56.001296010000000000
           Height = 10.998432300000000000
           DataField = 'Subcuenta'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2882,7 +2882,7 @@ object WDiario: TWDiario
           Width = 154.000729380000000000
           Height = 10.998432300000000000
           DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2899,7 +2899,7 @@ object WDiario: TWDiario
           Width = 18.001901390000000000
           Height = 10.998432300000000000
           DataField = 'id_conceptos'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2917,7 +2917,7 @@ object WDiario: TWDiario
           Width = 236.999208180000000000
           Height = 10.998432300000000000
           DataField = 'DescApunte'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2934,7 +2934,7 @@ object WDiario: TWDiario
           Width = 12.000007750000000000
           Height = 10.998432300000000000
           DataField = 'DebeHaber'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2952,7 +2952,7 @@ object WDiario: TWDiario
           Width = 66.999728310000000000
           Height = 10.998432300000000000
           DataField = 'Importe'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2970,7 +2970,7 @@ object WDiario: TWDiario
           Width = 63.000985570000000000
           Height = 10.998432300000000000
           DataField = 'Contrapartida'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2988,7 +2988,7 @@ object WDiario: TWDiario
           Width = 57.339249630000000000
           Height = 10.998432300000000000
           DataField = 'Fecha'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3026,7 +3026,7 @@ object WDiario: TWDiario
           Width = 104.001327010000000000
           Height = 10.998432300000000000
           DataField = 'Debe'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3043,7 +3043,7 @@ object WDiario: TWDiario
           Width = 104.001327010000000000
           Height = 10.998432300000000000
           DataField = 'Haber'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3103,7 +3103,7 @@ object WDiario: TWDiario
           Width = 104.001327010000000000
           Height = 10.998432300000000000
           DataField = 'Debe'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3120,7 +3120,7 @@ object WDiario: TWDiario
           Width = 104.001327010000000000
           Height = 10.998432300000000000
           DataField = 'Haber'
-          DataSet = DataModuleFiltroListadosAsientos.FRXEnlace1
+          DataSet = DataModuleFiltroBalances.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -3167,9 +3167,10 @@ object WDiario: TWDiario
   object Enlace1: TfrxDBDataset
     UserName = 'ENLACE1'
     CloseDataSource = False
+    DataSet = DataModuleFiltroListadosAsientos.QInformesConta
     BCDToCurrency = False
     Left = 432
-    Top = 241
+    Top = 233
   end
   object PDFExport: TfrxPDFExport
     UseFileCache = True

@@ -11,26 +11,26 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{DEF3917A-59B0-4165-9D1D-7F432EEB5CEA}
-AppName={#MyAppName}
-AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
-AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
-AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\{#MyAppName}
-DisableProgramGroupPage=yes
-OutputDir=C:\views\Accounting\InnoSetup Installers
-OutputBaseFilename=scAccounting Setup
-SetupIconFile=C:\views\Accounting\Images\Cubes Big.ico
-Compression=lzma
-SolidCompression=yes
+AppId           = {{DEF3917A-59B0-4165-9D1D-7F432EEB5CEA}
+AppName         = {#MyAppName}
+AppVersion      = {#MyAppVersion}
+;AppVerName     = {#MyAppName} {#MyAppVersion}
+AppPublisher    = {#MyAppPublisher}
+AppPublisherURL = {#MyAppURL}
+AppSupportURL   = {#MyAppURL}
+AppUpdatesURL   = {#MyAppURL}
+DefaultDirName  = {pf}\{#MyAppName}
+DisableProgramGroupPage = yes
+OutputDir               = C:\views\Accounting\InnoSetup Installers
+OutputBaseFilename      = scAccounting Setup
+SetupIconFile           = C:\views\Accounting\Images\Cubes Big.ico
+Compression             = lzma
+SolidCompression        = yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "french"; MessagesFile: "compiler:Languages\French.isl"
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"
+Name: "french";  MessagesFile: "compiler:Languages\French.isl"
+Name: "german";  MessagesFile: "compiler:Languages\German.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Tasks]
@@ -38,13 +38,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\views\Accounting\Deploy\scAccounting.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\views\Accounting\Deploy\fbclient.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\views\Accounting\Deploy\GDS32.DLL"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\views\Accounting\Deploy\fbclient.dll";     DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\views\Accounting\Deploy\GDS32.DLL";        DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
 Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{commondesktop}\{#MyAppName}";  Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent

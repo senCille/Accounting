@@ -1,8 +1,8 @@
 object WFiltroBalances: TWFiltroBalances
   Left = 865
   Top = 279
-  ClientHeight = 490
-  ClientWidth = 525
+  ClientHeight = 500
+  ClientWidth = 561
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object WFiltroBalances: TWFiltroBalances
   object GroupBox1: TGroupBox
     Left = 0
     Top = 35
-    Width = 525
-    Height = 414
+    Width = 561
+    Height = 424
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -31,6 +31,8 @@ object WFiltroBalances: TWFiltroBalances
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 525
+    ExplicitHeight = 414
     object GroupBox4: TGroupBox
       Left = 11
       Top = 297
@@ -572,10 +574,11 @@ object WFiltroBalances: TWFiltroBalances
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 525
+    Width = 561
     Height = 35
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 525
     object lTitulo: TLabel
       Left = 6
       Top = 6
@@ -599,17 +602,19 @@ object WFiltroBalances: TWFiltroBalances
   end
   object Panel2: TPanel
     Left = 0
-    Top = 449
-    Width = 525
+    Top = 459
+    Width = 561
     Height = 41
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 449
+    ExplicitWidth = 525
     DesignSize = (
-      525
+      561
       41)
     object BtnProcess: TButton
-      Left = 366
-      Top = 9
+      Left = 386
+      Top = 6
       Width = 161
       Height = 24
       Cursor = crHandPoint

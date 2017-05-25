@@ -4,7 +4,7 @@ interface
 
 uses Classes, comctrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCtrls,
      Forms, Graphics, Mask, Messages, StdCtrls, SysUtils, Windows,
-     UFiltroListadosAsientosModel;
+     UFiltroListadosAsientosModel, frxClass, frxDBSet, frxExportPDF;
      
 type
   TWFiltroListadosAsientos = class(TForm)
@@ -59,6 +59,10 @@ type
     CDSFiltroID_DEPARTAMENTO: TStringField;
     CDSFiltroID_SECCION: TStringField;
     CDSFiltroID_PROYECTO: TStringField;
+    PDFExport: TfrxPDFExport;
+    FRXEnlace1: TfrxDBDataset;
+    FastReportAsientos: TfrxReport;
+    FastReportAsientosExpandido: TfrxReport;
     procedure BtnProcessClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
@@ -66,6 +70,7 @@ type
     procedure FormShow(Sender: TObject);
   private
     FModel :TFiltroListadosAsientosModel;
+    procedure CallBackReportEntries;
   public
     TipoListado: Integer;
   end;
@@ -118,7 +123,8 @@ begin
    try
       case TipoListado of
          INF_ASIENTOS: begin
-            FModel.LanzarInfAsientos(CDSFiltroASIENTO_DESDE.AsInteger  ,
+            FModel.LanzarInfAsientos(CallBackReportEntries,
+                                     CDSFiltroASIENTO_DESDE.AsInteger  ,
                                      CDSFiltroASIENTO_HASTA.AsInteger  ,
                                      CDSFiltroFECHA_DESDE.AsDateTime   ,
                                      CDSFiltroFECHA_HASTA.AsDateTime   ,
@@ -138,6 +144,30 @@ begin
       end;
    finally
       Self.Enabled := True;
+   end;
+end;
+
+procedure TWFiltroListadosAsientos.CallBackReportEntries;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   if CDSFiltroInforme.AsString = 'N'{ormal} then begin
+      PDFExport.FileName := 'Asientos.pdf';
+      FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+      FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+      FastReportAsientos.PrepareReport(True);
+      FastReportAsientos.Export(PDFExport);
+   end
+   else begin
+      PDFExport.FileName := 'AsientosDetallado.pdf';
+      FastReportAsientosExpandido.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+      FastReportAsientosExpandido.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+      FastReportAsientosExpandido.PrepareReport(True);
+      FastReportAsientosExpandido.Export(PDFExport);
    end;
 end;
 

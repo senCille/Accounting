@@ -1563,8 +1563,8 @@ begin
    //QAmortizaFBaja.asdatetime:=-693594;
    QAmortizaVcompra.AsFloat     := QFicheroSumadb.AsFloat;
 
-   QAmortizaVamor.AsFloat    := QAmortizaVcompra.AsFloat - QAmortizaVresidual.AsFloat;
-   QAmortizaVejpamor.AsFloat := QAmortizaVamor.AsFloat - QAmortizaVejpinicio.AsFloat;
+   QAmortizaVamor.AsFloat    := QAmortizaVcompra.AsFloat  - QAmortizaVresidual.AsFloat;
+   QAmortizaVejpamor.AsFloat := QAmortizaVamor.AsFloat    - QAmortizaVejpinicio.AsFloat;
    QAmortizaVejaamor.AsFloat := QAmortizaVejpamor.AsFloat - QAmortizaVejainicio.AsFloat;
 end;
 

@@ -207,6 +207,7 @@ type
     FSubcuentaAnterior     :string;
     FConceptoAnterior      :string;
     FContrapartidaAnterior :string;
+    procedure CallBackReportEntries;
     procedure NuevoAsiento;
     procedure BorrarAsiento(ASIENTO: Integer);
     procedure CrearFiltro;
@@ -1010,7 +1011,7 @@ end;
 
 procedure TWDiario.LimpiarFiltro(Sender: TObject);
 begin
-   if not (QFiltro.state in dseditmodes) then begin
+   if not (QFiltro.state in dsEditModes) then begin
       QFiltro.Edit;
    end;
    QFiltro.FieldByName('BImporte').AsInteger          := 0;
@@ -1027,17 +1028,17 @@ begin
    if not (QFiltro.state in dseditmodes) then begin
       QFiltro.Edit;
    end;
-   QFiltro.FieldByName('BImporte').AsInteger          := 0;
-   QFiltro.FieldByName('BAsiento').AsInteger          := 0;
-   QFiltro.FieldByName('BSUBCUENTA').AsString         := '';
-   QFiltro.FieldByName('BDESCSUBCUENTA').AsString     := '';
-   QFiltro.FieldByName('BCONTRAPARTIDA').AsString     := '';
-   QFiltro.FieldByName('BDESCCONTRAPARTIDA').AsString := '';
+   QFiltro.FieldByName('BIMPORTE'          ).AsInteger :=  0;
+   QFiltro.FieldByName('BASIENTO'          ).AsInteger :=  0;
+   QFiltro.FieldByName('BSUBCUENTA'        ).AsString  := '';
+   QFiltro.FieldByName('BDESCSUBCUENTA'    ).AsString  := '';
+   QFiltro.FieldByName('BCONTRAPARTIDA'    ).AsString  := '';
+   QFiltro.FieldByName('BDESCCONTRAPARTIDA').AsString  := '';
 end;
 
 procedure TWDiario.QFicheroCalcFields(DataSet: TDataSet);
 begin
-   // Descripción del apunte
+   // Get Description for the Entry}
    QFicheroDESCAPUNTE.AsString :=
       DMContaRef.GetDescripcionApunte(QFicheroDESCCONCEPTO.AsString,
                                       QFicheroNUMEROFACTURA.AsString,
@@ -1056,8 +1057,8 @@ begin
    else begin
       QFicheroHaber.AsFloat := QFicheroIMPORTE.AsFloat;
    end;
-   QFichero.FieldByName('FechaInicial').AsDateTime   := QFiltro.FieldByName('FechaDesde').AsDateTime;
-   QFichero.FieldByName('FechaFinal').AsDateTime     := QFiltro.FieldByName('FechaHasta').AsDateTime;
+   QFichero.FieldByName('FechaInicial'  ).AsDateTime := QFiltro.FieldByName('FechaDesde').AsDateTime;
+   QFichero.FieldByName('FechaFinal'    ).AsDateTime := QFiltro.FieldByName('FechaHasta').AsDateTime;
    QFichero.FieldByName('FechaImpresion').AsDateTime := Date;
 end;
 
@@ -1072,7 +1073,23 @@ begin
    Config.ReportCurrency  := QFiltro.FieldByName('MONEDA').AsString;
    Config.FormatoOficial  := False;
 
-   FModel.ReportAsientos(QFichero);
+   //FModel.ReportAsientos(QFichero);
+
+   Enlace1.DataSet           := QFichero;
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'AsientosDesdeElDiario.pdf';
+   FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+   //DM.FastReportAsientos.Variables['DESCRIPTION'    ] := ''''+'Desde la fecha ' + FormatDateTime('dd/mm/yyyy', AFECHA_DESDE) +
+   //                                                           ' hasta '         + FormatDateTime('dd/mm/yyyy', AFECHA_HASTA) +'''';
+   //DM.FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', AFechaImpresion)+'''';
+
+   if FastReportAsientos.PrepareReport then begin
+      FastReportAsientos.Export(PDFExport);
+   end;
 
    PageControl.ActivePage := TabSheetDiario;
 end;
@@ -1084,22 +1101,25 @@ begin
       Exit;
    end;
 
-   // Primero vaciar el fichero
+   { First, empty current invormation }
    DMContaRef.QInformesConta.EmptyDataset;
 
    Perform(wm_NextDlgCtl, 0, 0);
 
    // Necessary for the report
    Config.SetAccountingType(QFiltro.FieldByName('TipoConcepto').AsString);
-   Config.ReportCurrency := QFiltro.FieldByName('Moneda').AsString;
+   Config.ReportCurrency := QFiltro.FieldByName('Moneda'      ).AsString;
 
    if not QFichero.IsEmpty then begin
       Model := TFiltroListadosAsientosModel.Create(DMRef.BDContab);
       try
-         Model.LanzarInfAsientos(QFichero.FieldByName('Asiento').AsInteger,
+
+         Model.LanzarInfAsientos(CallBackReportEntries,
                                  QFichero.FieldByName('Asiento').AsInteger,
-                                 QFichero.FieldByName('Fecha').AsDateTime,
-                                 QFichero.FieldByName('Fecha').AsDateTime, Date,
+                                 QFichero.FieldByName('Asiento').AsInteger,
+                                 QFichero.FieldByName('Fecha'  ).AsDateTime,
+                                 QFichero.FieldByName('Fecha'  ).AsDateTime,
+                                 Date,
                                  QFiltro.FieldByName('TipoConcepto').AsString,
                                  '',
                                  '',
@@ -1116,6 +1136,21 @@ begin
    end; // Formato Oficial
 
    PageControl.ActivePage := TabSheetDiario;
+end;
+
+procedure TWDiario.CallBackReportEntries;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'Asientos (Desde Diario).pdf';
+   FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   if FastReportAsientos.PrepareReport then begin
+      FastReportAsientos.Export(PDFExport);
+   end;
 end;
 
 procedure TWDiario.BtnDuplicateClick(Sender: TObject);
