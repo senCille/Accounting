@@ -8,64 +8,22 @@ uses
 
 type
   TDataModuleSubcuentas = class(TDataModule)
-    QSubCuentas: TIBDataSet;
-    SSubcuentas: TDataSource;
-    QConceptos: TIBDataSet;
-    IBStringField42: TIBStringField;
-    IBStringField41: TIBStringField;
-    IBStringField43: TIBStringField;
-    SConceptos: TDataSource;
-    QAnaliticas: TIBDataSet;
-    QAnaliticasCUENTA: TIBStringField;
-    QAnaliticasNOMBRE: TIBStringField;
-    QAnaliticasID_PROYECTO: TIBStringField;
-    QAnaliticasID_SECCION: TIBStringField;
-    QAnaliticasID_DEPARTAMENTO: TIBStringField;
-    QAnaliticasID_DELEGACION: TIBStringField;
-    SAnaliticas: TDataSource;
-    QDelegacion: TIBDataSet;
-    IBStringField4: TIBStringField;
-    IBStringField5: TIBStringField;
-    SDelegacion: TDataSource;
-    QDepartamento: TIBDataSet;
-    IBStringField6: TIBStringField;
-    IBStringField7: TIBStringField;
-    SDepartamento: TDataSource;
-    QProyecto: TIBDataSet;
-    IBStringField8: TIBStringField;
-    IBStringField9: TIBStringField;
-    SProyecto: TDataSource;
-    QSeccion: TIBDataSet;
-    IBStringField10: TIBStringField;
-    IBStringField11: TIBStringField;
-    SSeccion: TDataSource;
-    QSubCuentasCalcSaldo: TFloatField;
-    QSubCuentasTipoDeSaldo: TStringField;
-    QSubCuentasSUBCUENTA: TIBStringField;
-    QSubCuentasDESCRIPCION: TIBStringField;
-    QSubCuentasCONTRAPARTIDA: TIBStringField;
-    QSubCuentasABREVIATURA: TIBStringField;
-    QSubCuentasSUMADB: TFloatField;
-    QSubCuentasSUMAHB: TFloatField;
-    QSubCuentasDESCCONTRAPARTIDA: TIBStringField;
-    QSubCuentasIVA: TFloatField;
-    QSubCuentasRECARGO: TFloatField;
   private
   public
   end;
 
   {*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-}
-  
+
   TSubcuentasModel = class(TCustomModel)
   private
-    DM   :TDataModuleSubcuentas;
+    DM :TDataModuleSubcuentas;
   protected
   public
     constructor Create(ADB :TIBDatabase; Initialize :Boolean = True); override;
     destructor Destroy; override;
     procedure DoInitialize; override;
     procedure Refresh;
-    procedure RefreshAccounts;
+    function GetAccountType(ASubaccount :string):string;
   end;
 
 var
@@ -95,42 +53,33 @@ end;
 procedure TSubcuentasModel.DoInitialize;
 begin
    inherited;
-   DM.QSubCuentas.Database := DB;
-   DM.QSubCuentas.ParamByName('prmLENGTH').AsInteger := Config.MaxLengthAccounts;
-   DM.QSubCuentas.Open;
-   
-   DM.QSubCuentasSUMADB.DisplayFormat    := '###,###,##0.#0';
-   DM.QSubCuentasSUMAHB.DisplayFormat    := '###,###,##0.#0';
-   DM.QSubCuentasCalcSaldo.DisplayFormat := '###,###,##0.#0';
+   //DM.QIVAS.Database := DB;
+   //DM.QIVAS.Open;
 
-   DM.QConceptos.Database := DB;
-   DM.QConceptos.Open;
+   //DM.QIVAR.Database := DB;
+   //DM.QIVAR.Open;
+end;
 
-   DM.QAnaliticas.Database := DB;
-   DM.QAnaliticas.Open;
-
-   DM.QDelegacion.Database := DB;
-   DM.QDelegacion.Open;
-
-   DM.QDepartamento.Database := DB;
-   DM.QDepartamento.Open;
-
-   DM.QSeccion.Database := DB;
-   DM.QSeccion.Open;
-
-   DM.QProyecto.Database := DB;
-   DM.QProyecto.Open;
+function TSubcuentasModel.GetAccountType(ASubaccount :string):string;
+var Q :TIBSQL;
+begin
+   Q := TIBSQL.Create(nil);
+   try
+      Q.Database := DB;
+      Q.SQL.Add('SELECT TIPOCUENTA          ');
+      Q.SQL.Add('FROM   CUENTAS             ');
+      Q.SQL.Add('WHERE  CUENTA = :prmCUENTA ');
+      Q.ParamByName('prmCUENTA').AsString := Copy(Trim(ASubaccount), 1, 3);
+      Q.ExecQuery;
+      Result := Q.FieldByName('TIPOCUENTA').AsString;
+   finally
+      Q.Free;
+   end;
 end;
 
 procedure TSubcuentasModel.Refresh;
 begin
 
-end;
-
-procedure TSubcuentasModel.RefreshAccounts;
-begin
-   DM.QSubCuentas.Close;
-   DM.QSubCuentas.Open;
 end;
 
 

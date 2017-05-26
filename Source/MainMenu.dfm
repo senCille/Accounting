@@ -245,7 +245,7 @@ object MainMenuForm: TMainMenuForm
     Left = 105
     Top = 63
     Bitmap = {
-      494C010109000E00300012001200FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109000E00340012001200FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000048000000360000000100200000000000C03C
       000000000000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -794,6 +794,14 @@ object MainMenuForm: TMainMenuForm
       object MenuItemProvincias: TMenuItem
         Caption = 'Provincias'
         OnClick = MenuItemProvinciasClick
+      end
+      object IVARepercutido1: TMenuItem
+        Caption = 'IVA Repercutido'
+        OnClick = IVARepercutido1Click
+      end
+      object IVASoportado1: TMenuItem
+        Caption = 'IVA Soportado'
+        OnClick = IVASoportado1Click
       end
       object MenuItemPaises: TMenuItem
         Caption = 'Pa'#237'ses'

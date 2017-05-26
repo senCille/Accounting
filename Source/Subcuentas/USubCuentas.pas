@@ -4,7 +4,8 @@ interface
 
 uses Buttons, Classes, ComCtrls, ComObj, Controls, Db, DBClient, DBCtrls, Dialogs,
      ExtCtrls, Forms, Graphics, Grids, IBX.IBCustomDataSet, IBX.IBDatabase, IBX.IBQuery, IBX.IBSQL, Mask, Menus, Messages,
-     StdCtrls, SysUtils, Windows, FormHandler, DBGrids, frxClass, frxDBSet, frxExportPDF;
+     StdCtrls, SysUtils, Windows, FormHandler, DBGrids, frxClass, frxDBSet, frxExportPDF,
+     USubcuentasModel, VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart;
 
 type
   TWSubCuentas = class(TForm)
@@ -14,10 +15,6 @@ type
     SFiltro: TDataSource;
     SFichero: TDataSource;
     QFicheroSaldo: TFloatField;
-    QIVAR: TIBDataSet;
-    QIVAS: TIBDataSet;
-    QIVARTIPO: TIBStringField;
-    QIVARDESCRIPCION: TIBStringField;
     QFicheroACUDB01: TFloatField;
     QFicheroACUDB02: TFloatField;
     QFicheroACUDB03: TFloatField;
@@ -167,7 +164,6 @@ type
     QSubcuentaPago: TIBDataSet;
     QSubcuentaPagoSUBCUENTA: TIBStringField;
     QSubcuentaPagoDESCRIPCION: TIBStringField;
-    QDiarioDescConcepto: TStringField;
     QFicheroDIAPAGO3: TSmallintField;
     QFicheroABREVIATURA: TIBStringField;
     QDiarioABREVIATURA: TStringField;
@@ -260,11 +256,11 @@ type
     ComboBoxPAIS: TDBLookupComboBox;
     EditNUMERO: TDBEdit;
     CheckBoxINTRA_UE: TDBCheckBox;
-    GBIVA: TGroupBox;
+    GroupBoxVATType: TGroupBox;
     Label46: TLabel;
     Label52: TLabel;
     Label53: TLabel;
-    ComboBoxLIVA: TDBLookupComboBox;
+    ComboBoxVATType: TDBLookupComboBox;
     EditIVA: TDBEdit;
     EditRE: TDBEdit;
     GroupBox25: TGroupBox;
@@ -453,8 +449,6 @@ type
     EditVEJAINICIO: TDBEdit;
     EditVEJAAMOR: TDBEdit;
     DBNavigator: TDBNavigator;
-    SIVAR: TDataSource;
-    SIVAS: TDataSource;
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
@@ -469,6 +463,17 @@ type
     ReportDBLInk: TfrxDBDataset;
     ReportDetails: TfrxReport;
     ReportSubCuentas: TfrxReport;
+    ChartCurrentExercise: TChart;
+    QVAT: TIBDataSet;
+    QVATTIPO: TIBStringField;
+    QVATDESCRIPCION: TIBStringField;
+    SVAT: TDataSource;
+    CDSFiltroBSUBCUENTA: TStringField;
+    CDSFiltroBNIF: TStringField;
+    CDSFiltroBDESCRIPCION: TStringField;
+    CDSFiltroBTITULO: TStringField;
+    CDSFiltroBGRUPO: TStringField;
+    QDiarioDescConcepto: TWideStringField;
     procedure fcIBCerrarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -476,8 +481,10 @@ type
     procedure BtnAppendClick(Sender: TObject);
     procedure QFicheroBeforeOpen(DataSet: TDataSet);
     procedure QFicheroNewRecord(DataSet: TDataSet);
-    procedure fcIBMinimizarClick(Sender: TObject);
     procedure QFicheroAfterEdit(DataSet: TDataSet);
+    procedure QFicheroCalcFields(DataSet: TDataSet);
+    procedure QFicheroAfterScroll(DataSet: TDataSet);
+    procedure fcIBMinimizarClick(Sender: TObject);
     procedure EditBSubCuentaEnter(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BtnDeleteClick(Sender: TObject);
@@ -486,7 +493,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure BtnReportsClick(Sender: TObject);
     procedure BtnRefreshClick(Sender: TObject);
-    procedure QFicheroCalcFields(DataSet: TDataSet);
     procedure QAmortizaNewRecord(DataSet: TDataSet);
     procedure Subcuentas1Click(Sender: TObject);
     procedure Subcuentas1AdvancedDrawItem(Sender: TObject; ACanvas: TCanvas; ARect: TRect; State: TOwnerDrawState);
@@ -495,9 +501,7 @@ type
     procedure BtnGeneraClick(Sender: TObject);
     procedure BtnFilterLettersClick(Sender: TObject);
     procedure QDiarioCalcFields(DataSet: TDataSet);
-    procedure QFicheroAfterScroll(DataSet: TDataSet);
-    procedure GBIVAEnter(Sender: TObject);
-    procedure EditID_FISCALExit(Sender: TObject);
+    procedure GroupBoxVATTypeEnter(Sender: TObject);
     procedure BtnRepGraphicsClick(Sender: TObject);
     procedure QMovimientosCalcFields(DataSet: TDataSet);
     procedure CalculoImportesAmortizaciones(Sender: TObject);
@@ -507,16 +511,17 @@ type
     procedure DataGridDblClick(Sender: TObject);
     procedure BtnModifyClick(Sender: TObject);
     procedure DataGridTitleClick(Column: TColumn);
+    procedure FormDestroy(Sender: TObject);
   private
-    FormManager :TccFormHandler;
-    lAdd:         Boolean;
-    CampoOrden:   String;
-    FEsProveedor: Boolean;
+    procedure CheckComboBoxLIVABehavior;
+  private
+    FormManager  :TccFormHandler;
+    FModel       :TSubcuentasModel;
+    lAdd         :Boolean;
+    CampoOrden   :string;
+    FEsProveedor :Boolean;
     procedure ActivarTransacciones;
-    procedure CrearFiltro;
     procedure CrearFiltroCartas;
-    procedure EjecutarQIVAR;
-    procedure EjecutarQIVAS;
     procedure InicializarFiltro;
     procedure PrepararQuery;
     procedure PrepararQueryDiario;
@@ -538,10 +543,12 @@ uses System.UITypes, System.Math,
 
 procedure TWSubCuentas.FormCreate(Sender: TObject);
 begin
+   FModel := TSubcuentasModel.Create(DMRef.BDContab);
+   Caption := '';
+
    Screen.Cursor  := crHourGlass;
    try
       ActivarTransacciones;
-      CrearFiltro;
       InicializarFiltro;
 
       CrearFiltroCartas;
@@ -595,7 +602,7 @@ begin
       FormManager.AddComp(EditBId_Fiscal.Name            , fmBrowse);
       FormManager.AddComp(EditBTitulo.Name               , fmBrowse);
       FormManager.AddComp(EditBGrupo.Name                , fmBrowse);
-      FormManager.AddComp(ComboBoxLIVA.Name              , fmEdit  );
+      FormManager.AddComp(ComboBoxVATType.Name           , fmEdit  );
       FormManager.AddComp(EditIVA.Name                   , fmEdit  );
       FormManager.AddComp(EditRE.Name                    , fmEdit  );
       FormManager.AddComp(ComboBoxCD_FORMAPAGO.Name      , fmEdit  );
@@ -693,8 +700,8 @@ begin
 
       {-----------------------------------------------------------------------------------------}
 
-      EjecutarQIVAR;
-      EjecutarQIVAS;
+      QVAT.Database := DMRef.BDContab;
+      QVAT.Open;
 
       QAmortiza.SelectSql.Clear;
       QAmortiza.CachedUpdates := True;
@@ -731,6 +738,11 @@ begin
    end;
 end;      
 
+procedure TWSubCuentas.FormDestroy(Sender: TObject);
+begin
+   FModel.Free;
+end;
+
 procedure TWSubCuentas.ActivarTransacciones;
 var i :Word;
 begin
@@ -748,20 +760,6 @@ begin
          TibTransaction(Components[i]).active := True;
       end;
    end;
-end;
-
-procedure TWSubCuentas.CrearFiltro;
-begin
-   CDSFiltro.Active := False;
-   CDSFiltro.FieldDefs.Clear;
-   CDSFiltro.FieldDefs.Add('BSubCuenta', ftString, 10, False);
-   CDSFiltro.FieldDefs.Add('BNif', ftString, 20, False);
-   CDSFiltro.FieldDefs.Add('BDescripcion', ftstring, 80, False);
-   CDSFiltro.FieldDefs.Add('BTitulo', ftString, 2, False);
-   CDSFiltro.FieldDefs.Add('BGrupo', ftString, 3, False);
-   CDSFiltro.CreateDataSet;
-   CDSFiltro.Active := True;
-   CDSFiltro.Append;
 end;
 
 procedure TWSubCuentas.CrearFiltroCartas;
@@ -787,31 +785,16 @@ begin
    CDSFiltroCartas.FieldByName('CONCEPTOH').AsString    := DmRef.QParametrosCTOPAGO.AsString;
 end;
 
-procedure TWSubCuentas.EjecutarQIVAR;
-begin
-   QIVAR.Close;
-   QIVAR.SelectSQL.Clear;
-   QIVAR.SelectSQL.Add('SELECT * FROM IVAR ORDER BY DESCRIPCION');
-   QIVAR.EnableControls;
-   QIVAR.Open;
-end;
-
-procedure TWSubCuentas.EjecutarQIVAS;
-begin
-   QIVAS.Close;
-   QIVAS.SelectSQL.Clear;
-   QIVAS.SelectSQL.Add('SELECT * FROM IVAS ORDER BY DESCRIPCION');
-   QIVAS.EnableControls;
-   QIVAS.Open;
-end;
-
 procedure TWSubCuentas.InicializarFiltro;
 begin
-   CDSFiltro.FieldByName('BSubCuenta').AsString   := DMRef.QParametrosFILTROSUBCTAS.AsString;
-   CDSFiltro.FieldByName('BDescripcion').AsString := '';
-   CDSFiltro.FieldByName('BNif').AsString         := '';
-   CDSFiltro.FieldByName('BTitulo').AsString      := '';
-   CDSFiltro.FieldByName('BGrupo').AsString       := '';
+   CDSFiltro.CreateDataSet;
+   CDSFiltro.Active := True;
+   CDSFiltro.Append;
+   CDSFiltroBSUBCUENTA.AsString   := DMRef.QParametrosFILTROSUBCTAS.AsString;
+   CDSFiltroBDESCRIPCION.AsString := '';
+   CDSFiltroBNIF.AsString         := '';
+   CDSFiltroBTITULO.AsString      := '';
+   CDSFiltroBGRUPO.AsString       := '';
 end;
 
 procedure TWSubCuentas.PrepararQuery;
@@ -819,53 +802,66 @@ begin
    QFichero.DisableControls;
    QFichero.Close;
    QFichero.ModifySql.Clear;
-   QFichero.ModifySql.Add(' UPDATE SUBCTAS SET PAIS=:PAIS,CODPOSTAL=:CODPOSTAL,POBLACION=:POBLACION,');
-   QFichero.ModifySql.Add(' PROVINCIA=:PROVINCIA,SUMADB=:SUMADB,SUMAHB=:SUMAHB,ACUDB01=:ACUDB01,');
-   QFichero.ModifySql.Add(' ACUDB02=:ACUDB02,ACUDB03=:ACUDB03,ACUDB04=:ACUDB04,ACUDB05=:ACUDB05,');
-   QFichero.ModifySql.Add(' ACUDB06=:ACUDB06,ACUDB07=:ACUDB07,ACUDB08=:ACUDB08,ACUDB09=:ACUDB09,');
-   QFichero.ModifySql.Add(' ACUDB10=:ACUDB10,ACUDB11=:ACUDB11,ACUDB12=:ACUDB12,ACUHB01=:ACUHB01,');
-   QFichero.ModifySql.Add(' ACUHB02=:ACUHB02,ACUHB03=:ACUHB03,ACUHB04=:ACUHB04,ACUHB05=:ACUHB05,');
-   QFichero.ModifySql.Add(' ACUHB06=:ACUHB06,ACUHB07=:ACUHB07,ACUHB08=:ACUHB08,ACUHB09=:ACUHB09,');
-   QFichero.ModifySql.Add(' ACUHB10=:ACUHB10,ACUHB11=:ACUHB11,ACUHB12=:ACUHB12,ANTDB01=:ANTDB01,');
-   QFichero.ModifySql.Add(' ANTDB02=:ANTDB02,ANTDB03=:ANTDB03,ANTDB04=:ANTDB04,ANTDB05=:ANTDB05,');
-   QFichero.ModifySql.Add(' ANTDB06=:ANTDB06,ANTDB07=:ANTDB07,ANTDB08=:ANTDB08,ANTDB09=:ANTDB09,');
-   QFichero.ModifySql.Add(' ANTDB10=:ANTDB10,ANTDB11=:ANTDB11,ANTDB12=:ANTDB12,ANTHB01=:ANTHB01,');
-   QFichero.ModifySql.Add(' ANTHB02=:ANTHB02,ANTHB03=:ANTHB03,ANTHB04=:ANTHB04,ANTHB05=:ANTHB05,');
-   QFichero.ModifySql.Add(' ANTHB06=:ANTHB06,ANTHB07=:ANTHB07,ANTHB08=:ANTHB08,ANTHB09=:ANTHB09,');
-   QFichero.ModifySql.Add(' ANTHB10=:ANTHB10,ANTHB11=:ANTHB11,ANTHB12=:ANTHB12,ANTHB=:ANTHB,');
-   QFichero.ModifySql.Add(' ANTDB=:ANTDB,IVA=:IVA,RECARGO=:RECARGO,NUMERO=:NUMERO,OBSOLETO=:OBSOLETO,');
-   QFichero.ModifySql.Add(' CONTRAPARTIDA=:CONTRAPARTIDA,DESCRIPCION=:DESCRIPCION,TELEFONO=:TELEFONO,');
-   QFichero.ModifySql.Add(' FAX=:FAX,DIRECCION=:DIRECCION,TIPOIVA=:TIPOIVA,ARRENDADOR=:ARRENDADOR,');
-   QFichero.ModifySql.Add(' PROFESIONAL=:PROFESIONAL,DIRECCION1=:DIRECCION1,NIF=:NIF,');
-   QFichero.ModifySql.Add(' FORMAPAGO=:FORMAPAGO,DIAPAGO1=:DIAPAGO1,DIAPAGO2=:DIAPAGO2,DIAPAGO3=:DIAPAGO3,');
-   QFichero.ModifySql.Add(' PRES01=:PRES01,PRES02=:PRES02,PRES03=:PRES03,PRES04=:PRES04,PRES05=:PRES05,');
-   QFichero.ModifySql.Add(' PRES06=:PRES06,PRES07=:PRES07,PRES08=:PRES08,PRES09=:PRES09,PRES10=:PRES10,');
-   QFichero.ModifySql.Add(' PRES11=:PRES11,PRES12=:PRES12,PRESTOT=:PRESTOT,ABREVIATURA=:ABREVIATURA,');
-   QFichero.ModifySql.Add(' INTRACOMUNITARIO=:INTRACOMUNITARIO,SUBCTARET=:SUBCTARET,');
-   QFichero.ModifySql.Add(' Subcuenta=:subcuenta WHERE SUBCUENTA=:old_SUBCUENTA');
+   QFichero.ModifySql.Add(' UPDATE SUBCTAS                                                                           ');
+   QFichero.ModifySql.Add('    SET PAIS      = :PAIS     ,                                                           ');
+   QFichero.ModifySql.Add('        CODPOSTAL = :CODPOSTAL,                                                           ');
+   QFichero.ModifySql.Add('        POBLACION = :POBLACION,                                                           ');
+   QFichero.ModifySql.Add('        PROVINCIA = :PROVINCIA,                                                           ');
+   QFichero.ModifySql.Add('        SUMADB    = :SUMADB   ,                                                           ');
+   QFichero.ModifySql.Add('        SUMAHB    = :SUMAHB   ,                                                           ');
+   QFichero.ModifySql.Add('        ACUDB01   = :ACUDB01  ,  ACUDB02 = :ACUDB02 , ACUDB03 = :ACUDB03 ,                ');
+   QFichero.ModifySql.Add('        ACUDB04   = :ACUDB04  ,  ACUDB05 = :ACUDB05 , ACUDB06 = :ACUDB06 ,                ');
+   QFichero.ModifySql.Add('        ACUDB07   = :ACUDB07  ,  ACUDB08 = :ACUDB08 , ACUDB09 = :ACUDB09 ,                ');
+   QFichero.ModifySql.Add('        ACUDB10   = :ACUDB10  ,  ACUDB11 = :ACUDB11 , ACUDB12 = :ACUDB12 ,                ');
+   QFichero.ModifySql.Add('        ACUHB01   = :ACUHB01  ,  ACUHB02 = :ACUHB02 , ACUHB03 = :ACUHB03 ,                ');
+   QFichero.ModifySql.Add('        ACUHB04   = :ACUHB04  ,  ACUHB05 = :ACUHB05 , ACUHB06 = :ACUHB06 ,                ');
+   QFichero.ModifySql.Add('        ACUHB07   = :ACUHB07  ,  ACUHB08 = :ACUHB08 , ACUHB09 = :ACUHB09 ,                ');
+   QFichero.ModifySql.Add('        ACUHB10   = :ACUHB10  ,  ACUHB11 = :ACUHB11 , ACUHB12 = :ACUHB12 ,                ');
+   QFichero.ModifySql.Add('        ANTDB01   = :ANTDB01  ,  ANTDB02 = :ANTDB02 , ANTDB03 = :ANTDB03 ,                ');
+   QFichero.ModifySql.Add('        ANTDB04   = :ANTDB04  ,  ANTDB05 = :ANTDB05 , ANTDB06 = :ANTDB06 ,                ');
+   QFichero.ModifySql.Add('        ANTDB07   = :ANTDB07  ,  ANTDB08 = :ANTDB08 , ANTDB09 = :ANTDB09 ,                ');
+   QFichero.ModifySql.Add('        ANTDB10   = :ANTDB10  ,  ANTDB11 = :ANTDB11 , ANTDB12 = :ANTDB12 ,                ');
+   QFichero.ModifySql.Add('        ANTHB01   = :ANTHB01  ,  ANTHB02 = :ANTHB02 , ANTHB03 = :ANTHB03 ,                ');
+   QFichero.ModifySql.Add('        ANTHB04   = :ANTHB04  ,  ANTHB05 = :ANTHB05 , ANTHB06 = :ANTHB06 ,                ');
+   QFichero.ModifySql.Add('        ANTHB07   = :ANTHB07  ,  ANTHB08 = :ANTHB08 , ANTHB09 = :ANTHB09 ,                ');
+   QFichero.ModifySql.Add('        ANTHB10   = :ANTHB10  ,  ANTHB11 = :ANTHB11 , ANTHB12 = :ANTHB12 ,                ');
+   QFichero.ModifySql.Add('        ANTHB     = :ANTHB    ,  ANTDB   = :ANTDB   ,                                     ');
+   QFichero.ModifySql.Add('        IVA = :IVA, RECARGO = :RECARGO, NUMERO = :NUMERO, OBSOLETO = :OBSOLETO,           ');
+   QFichero.ModifySql.Add('        CONTRAPARTIDA = :CONTRAPARTIDA, DESCRIPCION = :DESCRIPCION, TELEFONO = :TELEFONO, ');
+   QFichero.ModifySql.Add('        FAX = :FAX, DIRECCION = :DIRECCION, TIPOIVA = :TIPOIVA, ARRENDADOR = :ARRENDADOR, ');
+   QFichero.ModifySql.Add('        PROFESIONAL = :PROFESIONAL, DIRECCION1 = :DIRECCION1, NIF = :NIF,                 ');
+   QFichero.ModifySql.Add('        FORMAPAGO = :FORMAPAGO,                                                           ');
+   QFichero.ModifySql.Add('        DIAPAGO1 = :DIAPAGO1, DIAPAGO2 = :DIAPAGO2, DIAPAGO3 = :DIAPAGO3,                 ');
+   QFichero.ModifySql.Add('        PRES01 = :PRES01, PRES02 = :PRES02, PRES03 = :PRES03, PRES04 = :PRES04,           ');
+   QFichero.ModifySql.Add('        PRES05 = :PRES05, PRES06 = :PRES06, PRES07 = :PRES07, PRES08 = :PRES08,           ');
+   QFichero.ModifySql.Add('        PRES09 = :PRES09, PRES10 = :PRES10, PRES11 = :PRES11, PRES12 = :PRES12,           ');
+   QFichero.ModifySql.Add('        PRESTOT = :PRESTOT, ABREVIATURA = :ABREVIATURA,                                   ');
+   QFichero.ModifySql.Add('        INTRACOMUNITARIO = :INTRACOMUNITARIO, SUBCTARET = :SUBCTARET,                     ');
+   QFichero.ModifySql.Add('        SUBCUENTA = :SUBCUENTA                                                            ');
+   QFichero.ModifySql.Add('WHERE SUBCUENTA = :OLD_SUBCUENTA                                                          ');
 
    QFichero.DisableControls;
    QFichero.Close;
    QFichero.SelectSQL.Clear;
    QFichero.Transaction.Active := True;
-   QFichero.SelectSQL.Add('SELECT S.* FROM SubCtas S WHERE S.SubCuenta IS NOT NULL');
+   QFichero.SelectSQL.Add('SELECT S.* FROM SUBCTAS S WHERE S.SUBCUENTA IS NOT NULL');
 
-   if CDSFiltro.FieldByName('BSubCuenta').AsString <> '' then begin
+   if CDSFiltroBSUBCUENTA.AsString <> '' then begin
       QFichero.SelectSQL.Add('AND S.SubCuenta LIKE :BSubCuenta ');
    end else
-   if CDSFiltro.FieldByName('BDescripcion').AsString <> '' then begin
+   if CDSFiltroBDESCRIPCION.AsString <> '' then begin
       QFichero.SelectSQL.Add('AND Upper(S.Descripcion) LIKE Upper(:BDescripcion)');
    end else
-   if CDSFiltro.FieldByName('BNif').AsString <> '' then begin
+   if CDSFiltroBNIF.AsString <> '' then begin
       QFichero.SelectSQL.Add('AND Upper(S.Nif) LIKE Upper(:BNif)');
    end else
-   if CDSFiltro.FieldByName('BTitulo').AsString <> '' then begin
+   if CDSFiltroBTITULO.AsString <> '' then begin
       QFichero.SelectSQL.Add('AND SUBSTR(S.SUBCUENTA, 1, 3) IN');
       QFichero.SelectSQL.Add('         (SELECT C.CUENTA FROM CUENTAS C');
       QFichero.SelectSQL.Add('          WHERE C.CUENTA = SUBSTR(S.SUBCUENTA, 1, 3)');
       QFichero.SelectSQL.Add('                AND (C.GRUPO1 LIKE :TITULO OR C.GRUPO2 LIKE :TITULO))');
    end else
-   if CDSFiltro.FieldByName('BGrupo').AsString <> '' then begin
+   if CDSFiltroBGRUPO.AsString <> '' then begin
       QFichero.SelectSQL.Add('AND SUBSTR(S.SUBCUENTA, 1, 3) IN');
       QFichero.SelectSQL.Add('         (SELECT C.CUENTA FROM CUENTAS C');
       QFichero.SelectSQL.Add('          WHERE C.CUENTA = SUBSTR(S.SUBCUENTA, 1, 3)');
@@ -881,24 +877,20 @@ begin
    end;
 
    // PARÁMETROS
-   if CDSFiltro.FieldByName('BSubCuenta').AsString <> '' then begin
-      QFichero.Params.byname('BSubCuenta').AsString := Copy(CDSFiltro.FieldByName('BSubCuenta').AsString + '%', 1,
-                                                            CDSFiltro.FieldByName('BSubCuenta').Size);
+   if CDSFiltroBSUBCUENTA.AsString <> '' then begin
+      QFichero.Params.ByName('BSubCuenta').AsString := Copy(CDSFiltroBSUBCUENTA.AsString + '%', 1, CDSFiltroBSUBCUENTA.Size);
    end else
-   if CDSFiltro.FieldByName('BDescripcion').AsString <> '' then begin
-      QFichero.Params.byname('BDescripcion').AsString := Copy(CDSFiltro.FieldByName('BDescripcion').AsString + '%', 1,
-                                                              CDSFiltro.FieldByName('BDescripcion').Size);
+   if CDSFiltroBDESCRIPCION.AsString <> '' then begin
+      QFichero.Params.ByName('BDescripcion').AsString := Copy(CDSFiltroBDESCRIPCION.AsString + '%', 1, CDSFiltroBDESCRIPCION.Size);
    end else
-   if CDSFiltro.FieldByName('BNif').AsString <> '' then begin
-      QFichero.Params.byname('BNif').AsString := Copy(CDSFiltro.FieldByName('BNif').AsString + '%', 1,
-                                                      CDSFiltro.FieldByName('BNif').Size);
+   if CDSFiltroBNIF.AsString <> '' then begin
+      QFichero.Params.ByName('BNif').AsString := Copy(CDSFiltroBNIF.AsString + '%', 1, CDSFiltroBNIF.Size);
    end else
-   if CDSFiltro.FieldByName('BTitulo').AsString <> '' then begin
-      QFichero.Params.ByName('Titulo').AsString := CDSFiltro.FieldByName('BTitulo').AsString + '%';
+   if CDSFiltroBTITULO.AsString <> '' then begin
+      QFichero.Params.ByName('Titulo').AsString := CDSFiltroBTITULO.AsString + '%';
    end else
-   if CDSFiltro.FieldByName('BGrupo').AsString <> '' then begin
-      QFichero.Params.ByName('Grupo').AsString := Copy(CDSFiltro.FieldByName('BGrupo').AsString + '%', 1,
-                                                       CDSFiltro.FieldByName('BGrupo').Size);
+   if CDSFiltroBGRUPO.AsString <> '' then begin
+      QFichero.Params.ByName('Grupo').AsString := Copy(CDSFiltroBGRUPO.AsString + '%', 1, CDSFiltroBGRUPO.Size);
    end;
 
    QFichero.Prepare;
@@ -913,9 +905,9 @@ begin
    QDiario.Close;
    QDiario.SelectSQL.Clear;
    QDiario.DataSource := SFichero;
-   QDiario.SelectSQL.Add('SELECT D.*, C.DESCRIPCION DESCCONCEPTO');
-   QDiario.SelectSQL.Add('FROM DIARIO D, CONCEPTOS C');
-   QDiario.SelectSQL.Add('WHERE');
+   QDiario.SelectSQL.Add('SELECT D.*, C.DESCRIPCION DESCCONCEPTO   ');
+   QDiario.SelectSQL.Add('FROM DIARIO D, CONCEPTOS C               ');
+   QDiario.SelectSQL.Add('WHERE                                    ');
 
    if (DmContaRef.ObtenerTipoSubcuenta(QFicheroSUBCUENTA.AsString) = 'C') or
       (DmContaRef.ObtenerTipoSubcuenta(QFicheroSUBCUENTA.AsString) = 'P') then begin
@@ -1335,10 +1327,10 @@ end;
 
 procedure TWSubCuentas.QFicheroNewRecord(DataSet: TDataSet);
 begin
-   QFicheroPROFESIONAL.AsString := 'N';
-   QFicheroArrendador.AsString  := 'N';
-   QFicheroObsoleto.AsString    := 'N';
-   QFicheroPais.AsString        := 'ES';
+   QFicheroPROFESIONAL.AsString      := 'N';
+   QFicheroARRENDADOR.AsString       := 'N';
+   QFicheroOBSOLETO.AsString         := 'N';
+   QFicheroPAIS.AsString             := 'ES';
    QFicheroINTRACOMUNITARIO.AsString := 'N';
 end;
 
@@ -1355,13 +1347,13 @@ end;
 procedure TWSubCuentas.EditBSubCuentaEnter(Sender: TObject);
 begin
    if not (CDSFiltro.state in dseditmodes) then begin
-      CDSFiltro.edit;
+      CDSFiltro.Edit;
    end;
-   CDSFiltro.FieldByName('BSubCuenta').AsString   := '';
-   CDSFiltro.FieldByName('BDescripcion').AsString := '';
-   CDSFiltro.FieldByName('BTitulo').AsString      := '';
-   CDSFiltro.FieldByName('BNif').AsString         := '';
-   CDSFiltro.FieldByName('BGrupo').AsString       := '';
+   CDSFiltroBSUBCUENTA.AsString   := '';
+   CDSFiltroBDESCRIPCION.AsString := '';
+   CDSFiltroBTITULO.AsString      := '';
+   CDSFiltroBNIF.AsString         := '';
+   CDSFiltroBGRUPO.AsString       := '';
 end;
 
 procedure TWSubCuentas.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -1392,7 +1384,7 @@ begin
       try
          Subcta     := QFicheroSUBCUENTA.AsString;
          SubctaAmor := QAmortizaSUBAMOR.AsString;
-         SubctaRet  := QFicheroSubctaRet.AsString;
+         SubctaRet  := QFicheroSUBCTARET.AsString;
          // Primero hay que borrar su registro de amortizaciones relacionados
          Q := TIBSql.Create(nil);
          try
@@ -1442,9 +1434,9 @@ begin
    Perform(wm_NextDlgCtl, 0, 0);
 
    // Quitar espacios de subcuenta
-   QFicheroSubcuenta.AsString := Trim(QFicheroSubcuenta.AsString);
-   cDescripcion := QFicheroDescripcion.AsString;
-   cNif         := QFicheroNif.AsString;
+   QFicheroSUBCUENTA.AsString := Trim(QFicheroSUBCUENTA.AsString);
+   cDescripcion := QFicheroDESCRIPCION.AsString;
+   cNif         := QFicheroNIF.AsString;
 
    if Length(QFicheroSUBCUENTA.AsString) < DMRef.QParametrosLONGITUD_SUBCUENTAS.AsInteger then  begin
       EditSUBCUENTA.SetFocus;
@@ -1460,7 +1452,7 @@ begin
 
    try
       if CheckBoxSubctaRet.Checked then   begin
-         QFichero.FieldByName('SubctaRet').AsString := '434' + Copy(QFichero.FieldByName('Subcuenta').AsString, 4, 7);
+         QFicheroSUBCTARET.AsString := '434' + Copy(QFicheroSUBCUENTA.AsString, 4, 7);
       end;
       QFichero.DisableControls;
       QFichero.Post;
@@ -1470,24 +1462,23 @@ begin
       QAmortiza.Transaction.CommitRetaining;
       QFichero.EnableControls;
    except
-      DatabaseError('Error al guardar datos de la Subcuenta.' + #13 +
-         'Puede estar duplicada');
+      DatabaseError('Error al guardar datos de la Subcuenta.' + #13 + 'Puede estar duplicada');
       QFichero.EnableControls;
    end;
 
    if lAdd then  begin
-      if not (cdsfiltro.state in dseditmodes) then begin
-         cdsfiltro.edit;
+      if not (CDSFiltro.State in dsEditModes) then begin
+         CDSFiltro.Edit;
       end;
-      cdsfiltro.FieldByName('BSubcuenta').AsString :=
-         QFichero.FieldByName('Subcuenta').AsString;
-      if CheckBoxSubctaRet.Checked then   begin
-         cSubctaRet := '434' + Copy(QFichero.FieldByName('Subcuenta').AsString, 4, 7);
-         Qfichero.insert;
-         QFichero.FieldByName('Subcuenta').AsString   := cSubctaRet;
-         QFichero.FieldByName('Descripcion').AsString := cDescripcion;
-         QFichero.FieldByName('Nif').AsString         := cNif;
-         Qfichero.post;
+
+      CDSFiltroBSUBCUENTA.AsString := QFicheroSUBCUENTA.AsString;
+      if CheckBoxSubctaRet.Checked then begin
+         cSubctaRet := '434' + Copy(QFicheroSUBCUENTA.AsString, 4, 7);
+         QFichero.Insert;
+         QFicheroSUBCUENTA.AsString   := cSubctaRet;
+         QFicheroDESCRIPCION.AsString := cDescripcion;
+         QFicheroNIF.AsString         := cNif;
+         Qfichero.Post;
          QFichero.Transaction.CommitRetaining;
       end;
       PrepararQuery;
@@ -1529,8 +1520,8 @@ end;
 
 procedure TWSubCuentas.BtnRefreshClick(Sender: TObject);
 begin
-   if (CDSFiltro.State in dseditmodes) then begin
-      CDSFiltro.post;
+   if (CDSFiltro.State in dsEditModes) then begin
+      CDSFiltro.Post;
    end;
 
    NavAnimate.Active  := True;
@@ -1553,15 +1544,14 @@ end;
 
 procedure TWSubCuentas.QAmortizaNewRecord(DataSet: TDataSet);
 begin
-   QAmortizaSubcuenta.AsString  := QFicheroSubcuenta.AsString;
-   QAmortizaClase.AsInteger     :=
-      StrToInt(Copy(Trim(QFicheroSubcuenta.AsString), 2, 2));
+   QAmortizaSubcuenta.AsString  := QFicheroSUBCUENTA.AsString;
+   QAmortizaClase.AsInteger     := StrToInt(Copy(Trim(QFicheroSUBCUENTA.AsString), 2, 2));
    QAmortizaPeriodo.AsString    := 'M';
    QAmortizaFCompra.AsDateTime  := Date;
    QAmortizaFInicio.AsDateTime  := Date;
    QAmortizaFUltAmor.AsDateTime := Date;
    //QAmortizaFBaja.asdatetime:=-693594;
-   QAmortizaVcompra.AsFloat     := QFicheroSumadb.AsFloat;
+   QAmortizaVcompra.AsFloat     := QFicheroSUMADB.AsFloat;
 
    QAmortizaVamor.AsFloat    := QAmortizaVcompra.AsFloat  - QAmortizaVresidual.AsFloat;
    QAmortizaVejpamor.AsFloat := QAmortizaVamor.AsFloat    - QAmortizaVejpinicio.AsFloat;
@@ -1942,8 +1932,7 @@ begin
    QDiarioID_CONCEPTOS.AsString     := CDSFiltroCartas.FieldByName('CONCEPTOH').AsString;
    QDiarioIMPORTE.AsFloat           := nTotImporte;
    QDiarioNUMEROFACTURA.AsString    := cFactura;
-   QDiarioCOMENTARIO.AsString       := 'Ch: ' + CDSFiltroCartas.FieldByName('CHEQUE').AsString +
-      ' ' + Trim(QFicheroDESCRIPCION.AsString);
+   QDiarioCOMENTARIO.AsString       := 'Ch: ' + CDSFiltroCartas.FieldByName('CHEQUE').AsString + ' ' + Trim(QFicheroDESCRIPCION.AsString);
    QDiarioPUNTEO.AsString           := '';
    QDiario.Post;
    QDiario.Transaction.CommitRetaining;
@@ -2012,66 +2001,14 @@ begin
    end;
 end;
 
-procedure TWSubCuentas.GBIVAEnter(Sender: TObject);
-var Q : TIBSQL;
+procedure TWSubCuentas.GroupBoxVATTypeEnter(Sender: TObject);
 begin
-   ComboBoxLIVA.ReadOnly := False;
-
-   if IsEmpty(QFicheroSubcuenta.AsString) then begin
-      ComboBoxLIVA.ReadOnly := True;
-      EditSUBCUENTA.SetFocus;
-      Exit;
-   end;
-
-   Q := TIBSQL.Create(nil);
-   try
-      Q.Database := DMRef.BDContab;
-      Q.SQL.Add('select tipocuenta from cuentas');
-      Q.SQL.Add('where cuenta = :cuenta');
-      Q.Params.byname('cuenta').AsString := Copy(Trim(QFicheroSUBCUENTA.AsString), 1, 3);
-      Q.ExecQuery;
-      if (Q.FieldByName('Tipocuenta').AsString = 'R') then begin
-         ComboBoxLIVA.DataSource := SIVAR;
-         ComboBoxLIVA.DataSource.DataSet.EnableControls;
-      end else
-      if (Q.FieldByName('Tipocuenta').AsString = 'S') then   begin
-         ComboBoxLIVA.DataSource := SIVAS;
-         ComboBoxLIVA.DataSource.DataSet.EnableControls;
-      end
-      else begin
-         ComboBoxLIVA.ReadOnly := True;
-         EditSUBCUENTA.SetFocus;
-      end;
-   finally
-      Q.Free;
-   end;
-end;
-
-procedure TWSubCuentas.EditID_FISCALExit(Sender: TObject);
-//var NIF   :string;
-//    Letra :string;
-begin
-   (*if QFicheroPAIS.AsString = 'ES' then  begin
-      if QFichero.State in dsEditModes then   begin
-         NIF := QFicheroNIF.AsString;
-         if IsEmpty(NIF) then   begin
-            Exit;
-         end;
-         if NIF[1] in ['A'..'Z'] then   begin
-            Exit;
-         end;
-         // chequeo del nif
-         Letra := LetraNif(Copy(NIF, 1, 8));
-         if Letra <> NIF[9] then   begin
-            QFicheroNIF.AsString := Copy(NIF, 1, 8) + Letra;
-         end;
-      end;
-   end;*)
+   CheckComboBoxLIVABehavior;
 end;
 
 procedure TWSubCuentas.BtnRepGraphicsClick(Sender: TObject);
 begin
-   (*if PageControl.ActivePage = TabGraphics then  begin
+   (*if PageControl.ActivePage = TabGraphics then begin
       if MessageDlg('¿Desea imprimir este gráfico?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then begin
          if PageControlGraphics.ActivePage = TabGraphicCurrentYear then begin
             ChartActual.PrintLandscape;
@@ -2121,14 +2058,14 @@ begin
          try
             QOrigen.Database    := DMRef.BDContab;
             QOrigen.Transaction := Transaccion;
-            QOrigen.SelectSql.Add('select * from subctas where subcuenta=:subcuenta');
-            QOrigen.Params.ByName('Subcuenta').AsString := QFicheroSubcuenta.AsString;
+            QOrigen.SelectSql.Add('SELECT * FROM SUBCTAS WHERE SUBCUENTA = :SUBCUENTA');
+            QOrigen.Params.ByName('SUBCUENTA').AsString := QFicheroSUBCUENTA.AsString;
             QOrigen.Open;
 
             QFichero.Insert;
             for i := 0 to QOrigen.FieldCount - 1 do begin
                Campo           := QOrigen.Fields[i].Fieldname;
-               QFichero[campo] := QOrigen[campo];
+               QFichero[Campo] := QOrigen[campo];
             end;
             QOrigen.Close;
             TabData.Show;
@@ -2146,50 +2083,51 @@ begin
    end;
 end;
 
+procedure TWSubcuentas.CheckComboBoxLIVABehavior;
+var AccountType :string;
+begin
+   ComboBoxVATType.ReadOnly := False;
+
+   if IsEmpty(QFicheroSUBCUENTA.AsString) then begin
+      ComboBoxVATType.ReadOnly := True;
+      if PageControl.ActivePage = TabData then begin
+         EditSUBCUENTA.SetFocus;
+      end;
+      Exit;
+   end;
+
+   AccountType := FModel.GetAccountType(QFicheroSUBCUENTA.AsString);
+   if AccountType = 'R' then begin
+      QVAT.Close;
+      QVAT.SelectSQL.Clear;
+      QVAT.SelectSQL.Add('SELECT TIPO, DESCRIPCION FROM IVAR ORDER BY DESCRIPCION');
+      QVAT.Open;
+   end else
+   if AccountType = 'S' then begin
+      QVAT.Close;
+      QVAT.SelectSQL.Clear;
+      QVAT.SelectSQL.Add('SELECT TIPO, DESCRIPCION FROM IVAS ORDER BY DESCRIPCION');
+      QVAT.Open;
+   end
+   else begin
+      ComboBoxVATType.ReadOnly := True;
+   end;
+end;
+
 procedure TWSubCuentas.PageControlChange(Sender: TObject);
-var Q :TIBSQL;
 begin
    if Sender = TabData then begin
       //BtnAppend.Visible := not (QFichero.State in dsEditModes);
       //BtnDelete.Visible := not (QFichero.State in dsEditModes);
-
-      ComboBoxLIVA.ReadOnly := False;
-
-      if IsEmpty(QFicheroSubcuenta.AsString) then begin
-         ComboBoxLIVA.ReadOnly := True;
-         Exit;
-      end;
-      
-      Q := TIBSQL.Create(nil); 
-      try
-         Q.Database := DMRef.BDContab;
-         Q.SQL.Add('select tipocuenta from cuentas');
-         Q.SQL.Add('where cuenta = :cuenta');
-         Q.Params.ByName('cuenta').AsString := Copy(Trim(QFicheroSUBCUENTA.AsString), 1, 3);
-         Q.ExecQuery;
-         if Q.FieldByName('Tipocuenta').AsString = 'R' then begin
-            ComboBoxLIVA.DataSource := SIVAR;
-            ComboBoxLIVA.DataSource.DataSet.EnableControls;
-         end else
-         if Q.FieldByName('Tipocuenta').AsString = 'S' then begin
-            ComboBoxLIVA.DataSource := SIVAS;
-            ComboBoxLIVA.DataSource.DataSet.EnableControls;
-         end
-         else begin
-            ComboBoxLIVA.ReadOnly := True;
-         end;
-         Q.Close;
-      finally
-         Q.Free;
-      end;
+      CheckComboBoxLIVABehavior;
    end else
    if Sender = TabAmortizations then begin
-      if (QFichero.state in dseditmodes) then begin
+      if (QFichero.State in dsEditModes) then begin
          if (QAmortiza.EOF) then begin
-            QAmortiza.insert;
+            QAmortiza.Insert;
          end
          else begin
-            QAmortiza.edit;
+            QAmortiza.Edit;
          end;
       end;
    end else
@@ -2291,7 +2229,7 @@ begin
          // Si la subcuenta no es del tipo de cuenta de Amort. material o inmaterial
          // no tendra datos y no puede entrar.
          Valor := DmRef.ObtenerValor('TIPOCUENTA', 'CUENTAS', 'CUENTA = ' +
-            Copy(Trim(QFicheroSubcuenta.AsString), 1, 3));
+            Copy(Trim(QFicheroSUBCUENTA.AsString), 1, 3));
          if (Valor <> 'M') and (Valor <> 'I') then   begin
             TabAmortizations.Visible := False;
          end;

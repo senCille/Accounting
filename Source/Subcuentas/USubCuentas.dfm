@@ -16,6 +16,7 @@ object WSubCuentas: TWSubCuentas
   Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnKeyDown = FormKeyDown
   OnKeyPress = FormKeyPress
   OnShow = FormShow
@@ -348,7 +349,6 @@ object WSubCuentas: TWSubCuentas
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
-            MaxLength = 10
             ParentFont = False
             TabOrder = 0
             OnEnter = EditBSubCuentaEnter
@@ -366,7 +366,6 @@ object WSubCuentas: TWSubCuentas
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
-            MaxLength = 2
             ParentFont = False
             TabOrder = 3
             OnEnter = EditBSubCuentaEnter
@@ -383,7 +382,6 @@ object WSubCuentas: TWSubCuentas
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
-            MaxLength = 3
             ParentFont = False
             TabOrder = 4
             OnEnter = EditBSubCuentaEnter
@@ -784,7 +782,6 @@ object WSubCuentas: TWSubCuentas
             Font.Style = []
             ParentFont = False
             TabOrder = 0
-            OnExit = EditID_FISCALExit
           end
           object ComboBoxPROVINCIA: TDBLookupComboBox
             Left = 103
@@ -988,7 +985,7 @@ object WSubCuentas: TWSubCuentas
             ValueUnchecked = 'N'
           end
         end
-        object GBIVA: TGroupBox
+        object GroupBoxVATType: TGroupBox
           Left = 0
           Top = 290
           Width = 653
@@ -1002,7 +999,7 @@ object WSubCuentas: TWSubCuentas
           Font.Style = []
           ParentFont = False
           TabOrder = 2
-          OnEnter = GBIVAEnter
+          OnEnter = GroupBoxVATTypeEnter
           object Label46: TLabel
             Left = 103
             Top = 12
@@ -1024,7 +1021,7 @@ object WSubCuentas: TWSubCuentas
             Height = 13
             Caption = '% R. Equiv.'
           end
-          object ComboBoxLIVA: TDBLookupComboBox
+          object ComboBoxVATType: TDBLookupComboBox
             Left = 103
             Top = 27
             Width = 291
@@ -1036,6 +1033,9 @@ object WSubCuentas: TWSubCuentas
             Font.Height = -11
             Font.Name = 'Tahoma'
             Font.Style = []
+            KeyField = 'TIPO'
+            ListField = 'DESCRIPCION'
+            ListSource = SVAT
             ParentFont = False
             TabOrder = 0
           end
@@ -2587,11 +2587,23 @@ object WSubCuentas: TWSubCuentas
           Top = 0
           Width = 653
           Height = 449
-          ActivePage = TabGraphicComparativ
+          ActivePage = TabGraphicCurrentYear
           Align = alClient
           TabOrder = 0
           object TabGraphicCurrentYear: TTabSheet
             Caption = 'Ejercicio Actual'
+            object ChartCurrentExercise: TChart
+              Left = 0
+              Top = 0
+              Width = 645
+              Height = 421
+              Title.Text.Strings = (
+                'TChart')
+              Align = alClient
+              TabOrder = 0
+              DefaultCanvas = 'TGDIPlusCanvas'
+              ColorPaletteIndex = 13
+            end
           end
           object TabGraphicPreviousYear: TTabSheet
             Caption = 'Ejercicio Anterior'
@@ -3843,8 +3855,8 @@ object WSubCuentas: TWSubCuentas
   object SFichero: TDataSource
     AutoEdit = False
     DataSet = QFichero
-    Left = 303
-    Top = 309
+    Left = 311
+    Top = 189
   end
   object QFichero: TIBDataSet
     Transaction = Transaccion
@@ -4252,8 +4264,8 @@ object WSubCuentas: TWSubCuentas
         '       ')
     ParamCheck = True
     UniDirectional = False
-    Left = 231
-    Top = 308
+    Left = 239
+    Top = 188
     object QFicheroSUBCUENTA: TIBStringField
       DisplayWidth = 12
       FieldName = 'SUBCUENTA'
@@ -4757,47 +4769,38 @@ object WSubCuentas: TWSubCuentas
     end
   end
   object Transaccion: TIBTransaction
-    Left = 235
-    Top = 261
+    Left = 243
+    Top = 141
   end
   object CDSFiltro: TClientDataSet
     Aggregates = <>
     Params = <>
     Left = 378
     Top = 267
+    object CDSFiltroBSUBCUENTA: TStringField
+      FieldName = 'BSUBCUENTA'
+      Size = 10
+    end
+    object CDSFiltroBNIF: TStringField
+      FieldName = 'BNIF'
+    end
+    object CDSFiltroBDESCRIPCION: TStringField
+      FieldName = 'BDESCRIPCION'
+      Size = 80
+    end
+    object CDSFiltroBTITULO: TStringField
+      FieldName = 'BTITULO'
+      Size = 2
+    end
+    object CDSFiltroBGRUPO: TStringField
+      FieldName = 'BGRUPO'
+      Size = 3
+    end
   end
   object SFiltro: TDataSource
     DataSet = CDSFiltro
     Left = 458
     Top = 267
-  end
-  object QIVAR: TIBDataSet
-    Transaction = Transaccion
-    BufferChunks = 1000
-    CachedUpdates = False
-    SelectSQL.Strings = (
-      'select * from IVAR')
-    ParamCheck = True
-    UniDirectional = False
-    Left = 571
-    Top = 393
-    object QIVARTIPO: TIBStringField
-      FieldName = 'TIPO'
-      Size = 1
-    end
-    object QIVARDESCRIPCION: TIBStringField
-      FieldName = 'DESCRIPCION'
-      Size = 35
-    end
-  end
-  object QIVAS: TIBDataSet
-    Transaction = Transaccion
-    BufferChunks = 1000
-    CachedUpdates = False
-    ParamCheck = True
-    UniDirectional = False
-    Left = 571
-    Top = 441
   end
   object QAmortiza: TIBDataSet
     Transaction = Transaccion
@@ -5325,16 +5328,15 @@ object WSubCuentas: TWSubCuentas
       Origin = 'DIARIO.CUOTAIVA'
       Visible = False
     end
+    object QDiarioDescConcepto: TWideStringField
+      FieldName = 'DescConcepto'
+      Size = 30
+    end
     object QDiarioCUOTARECARGO: TFloatField
       DisplayWidth = 10
       FieldName = 'CUOTARECARGO'
       Origin = 'DIARIO.CUOTARECARGO'
       Visible = False
-    end
-    object QDiarioDescConcepto: TStringField
-      FieldName = 'DescConcepto'
-      Visible = False
-      Size = 30
     end
     object QDiarioABREVIATURA: TStringField
       FieldKind = fkLookup
@@ -6096,18 +6098,6 @@ object WSubCuentas: TWSubCuentas
     DataSet = QMovimientos
     Left = 301
     Top = 351
-  end
-  object SIVAR: TDataSource
-    AutoEdit = False
-    DataSet = QIVAR
-    Left = 629
-    Top = 384
-  end
-  object SIVAS: TDataSource
-    AutoEdit = False
-    DataSet = QIVAS
-    Left = 629
-    Top = 432
   end
   object PDFExport: TfrxPDFExport
     UseFileCache = True
@@ -7127,5 +7117,32 @@ object WSubCuentas: TWSubCuentas
         Width = 745.701269000000000000
       end
     end
+  end
+  object QVAT: TIBDataSet
+    BufferChunks = 1000
+    CachedUpdates = False
+    SelectSQL.Strings = (
+      'SELECT TIPO,'
+      '             DESCRIPCION '
+      'FROM IVAR'
+      'ORDER BY DESCRIPCION')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 555
+    Top = 145
+    object QVATTIPO: TIBStringField
+      FieldName = 'TIPO'
+      Size = 1
+    end
+    object QVATDESCRIPCION: TIBStringField
+      FieldName = 'DESCRIPCION'
+      Size = 35
+    end
+  end
+  object SVAT: TDataSource
+    AutoEdit = False
+    DataSet = QVAT
+    Left = 613
+    Top = 143
   end
 end

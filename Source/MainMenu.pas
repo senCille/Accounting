@@ -35,6 +35,8 @@ type
     MenuItemTraspasoDatos: TMenuItem;
     MenuItemActualizacionDB: TMenuItem;
     MenuItemVentana: TMenuItem;
+    IVASoportado1: TMenuItem;
+    IVARepercutido1: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
@@ -97,6 +99,8 @@ type
     procedure MenuItemActualizacionDBClick(Sender: TObject);
     procedure MenuItemAcercaDeClick(Sender: TObject);
     procedure MenuItemContabilidadClick(Sender: TObject);
+    procedure IVASoportado1Click(Sender: TObject);
+    procedure IVARepercutido1Click(Sender: TObject);
    private
    public
    end;
@@ -120,7 +124,7 @@ uses System.Win.Registry, System.StrUtils, System.UITypes,
      UIrpf110, UIrpf115, UISoc202, UPaises, UParametrizacion, UParametrizacionFacturacion,
      UPlanAnalico, UPlanContable, UPunteoDiario, URecalculoSaldos, USecciones, USubCuentas, UTiposDiario,
      UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios, UActualizacionBD,
-     ProjectsController;
+     ProjectsController, UInputVAT, UOutputVAT;
 
 {$R *.DFM}
 
@@ -150,6 +154,18 @@ procedure TMainMenuForm.FormShow(Sender: TObject);
 begin
    Self.Caption := DupeString(' ', 15) + Config.ActiveDS_ENTERPRISE + DupeString(' ', 15) + '-' + DupeString(' ', 5) +
       'senCille ACCOUNTING SMEs '+Config.VersionText;
+end;
+
+procedure TMainMenuForm.IVARepercutido1Click(Sender: TObject);
+begin
+   //if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPAISES') then Exit;
+   InsertMDIForm(Self, TWOutputVAT);
+end;
+
+procedure TMainMenuForm.IVASoportado1Click(Sender: TObject);
+begin
+   //if not DmControlRef.AccesoUsuario(Config.IdUser, 'WPAISES') then Exit;
+   InsertMDIForm(Self, TWInputVAT);
 end;
 
 procedure TMainMenuForm.ApplicationEventsException(Sender: TObject; E: Exception);
