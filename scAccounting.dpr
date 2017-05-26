@@ -98,7 +98,7 @@ uses
   UPunteoDiario in 'Source\UPunteoDiario.pas' {WPunteoDiario},
   USecciones in 'Source\USecciones.pas' {WSecciones},
   USituacionEfecto in 'Source\USituacionEfecto.pas' {WSituacionEfecto},
-  USubCuentas in 'Source\USubCuentas.pas' {WSubCuentas},
+  USubCuentas in 'Source\Subcuentas\USubCuentas.pas' {WSubCuentas},
   UTiposDiario in 'Source\UTiposDiario.pas' {WTiposDiario},
   UTitulos in 'Source\UTitulos.pas' {WTitulos},
   UTraspasoApuntes in 'Source\UTraspasoApuntes.pas' {WTraspasoApuntes},
@@ -108,7 +108,8 @@ uses
   UVencimientos in 'Source\UVencimientos.pas' {WVencimientos},
   ProjectsModel in 'Source\Projects\ProjectsModel.pas' {DataModule1: TDataModule},
   senCille.CustomVCLView in 'Source\senCille.CustomVCLView.pas' {FormCustomVCLView},
-  senCille.VCLValidations in 'Source\senCille.VCLValidations.pas';
+  senCille.VCLValidations in 'Source\senCille.VCLValidations.pas',
+  USubcuentasModel in 'Source\Subcuentas\USubcuentasModel.pas' {DataModuleSubcuentas: TDataModule};
 
 {$R *.res}
 
@@ -119,5 +120,6 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
+  Application.CreateForm(TDataModuleSubcuentas, DataModuleSubcuentas);
   Application.Run;
 end.
