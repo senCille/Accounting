@@ -4,7 +4,7 @@ interface
 
 uses Classes, comctrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCtrls,
      Forms, Graphics, Mask, Messages, StdCtrls, SysUtils, Windows,
-     UFiltroLibroFacturasEmitidasModel;
+     UFiltroLibroFacturasEmitidasModel, frxClass, frxExportPDF, frxDBSet;
      
 type
   TWFiltroLibroFactEmitidas = class(TForm)
@@ -71,6 +71,11 @@ type
     CDSFiltroID_DEPARTAMENTO: TStringField;
     CDSFiltroID_SECCION: TStringField;
     CDSFiltroID_PROYECTO: TStringField;
+    FastReportFacturasEmitidasSubcta: TfrxReport;
+    FastReportFacturasEmitidasTipoIVA: TfrxReport;
+    FastReportFacturasEmitidas: TfrxReport;
+    Enlace1: TfrxDBDataset;
+    PDFExport: TfrxPDFExport;
     procedure FormShow(Sender: TObject);
     procedure BtnProcessClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -78,6 +83,9 @@ type
     procedure FormDestroy(Sender: TObject);
   private
     FModel :TFiltroLibroFacturasEmitidasModel;
+    procedure CallBackReportFacturasEmitidasSubcta;
+    procedure CallBackReportFacturasEmitidasIVA;
+    procedure CallBackReportFacturasEmitidas;
   public
     TipoListado: Integer;
   end;
@@ -105,14 +113,14 @@ begin
    CDSFiltroFECHA_DESDE.AsDateTime := dPrimeraFecha;
    CDSFiltroFECHA_HASTA.AsDateTime := dUltimaFecha;
    CDSFiltroBASE_DESDE.AsFloat     := -999999999;
-   CDSFiltroBASE_HASTA.AsFloat     := 999999999;
-   CDSFiltroIMP_IVA_DESDE.AsFloat := -999999999;
-   CDSFiltroIMP_IVA_HASTA.AsFloat := 999999999;
-   CDSFiltroPRC_IVA_HASTA.AsFloat      := 16;
-   CDSFiltroORDEN.AsString        := 'F';
+   CDSFiltroBASE_HASTA.AsFloat     :=  999999999;
+   CDSFiltroIMP_IVA_DESDE.AsFloat  := -999999999;
+   CDSFiltroIMP_IVA_HASTA.AsFloat  :=  999999999;
+   CDSFiltroPRC_IVA_HASTA.AsFloat  :=         21;
+   CDSFiltroORDEN.AsString         := 'F';
    CDSFiltroFECHA_IMPRIMIR.Value   := Date;
-   CDSFiltroINFORME.AsString      := 'N';
-   CDSFiltroINTRACOMUN.AsString   := 'E';
+   CDSFiltroINFORME.AsString       := 'N';
+   CDSFiltroINTRACOMUN.AsString    := 'E';
 end;
 
 procedure TWFiltroLibroFactEmitidas.FormDestroy(Sender: TObject);
@@ -155,6 +163,63 @@ begin
    end;
 end;
 
+procedure TWFiltroLibroFactEmitidas.CallBackReportFacturasEmitidasSubcta;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'FacturasEmitidasSubcta.pdf';
+   FastReportFacturasEmitidasSubcta.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportFacturasEmitidasSubcta.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   {$Message Warn 'Pendant: complete the header with the dates and the user'}
+   {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
+                  DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
+                  FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
+
+   FastReportFacturasEmitidasSubcta.PrepareReport(True);
+   FastReportFacturasEmitidasSubcta.Export(PDFExport);
+end;
+
+procedure TWFiltroLibroFactEmitidas.CallBackReportFacturasEmitidasIVA;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'FacturasTipoIVA.pdf';
+   FastReportFacturasEmitidasTipoIVA.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportFacturasEmitidasTipoIVA.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   {$Message Warn 'Pendant: complete the header with the dates and the user'}
+   {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
+                  DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
+                  FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
+
+   FastReportFacturasEmitidasTipoIVA.PrepareReport(True);
+   FastReportFacturasEmitidasTipoIVA.Export(PDFExport);
+end;
+
+procedure TWFiltroLibroFactEmitidas.CallBackReportFacturasEmitidas;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'FacturasEmitidas.pdf';
+   FastReportFacturasEmitidas.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportFacturasEmitidas.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   {$Message Warn 'Pendant: complete the header with the dates and the user'}
+   {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
+                  DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
+                  FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
+
+   FastReportFacturasEmitidas.PrepareReport;
+   FastReportFacturasEmitidas.Export(PDFExport);
+end;
+
 procedure TWFiltroLibroFactEmitidas.BtnProcessClick(Sender: TObject);
 begin
    // Primero vaciar el fichero
@@ -168,97 +233,293 @@ begin
          // Abrir Formulario para crear fichero QIVa300
          WIva300 := TWIva300.Create(nil);
          try
-            FModel.ReportLibroIVA(CDSFiltroFECHA_DESDE.AsDateTime,             //AFechaInicial   ,
-                                  CDSFiltroFECHA_HASTA.AsDateTime,             //AFechaFinal     ,
-                                  CDSFiltroBASE_DESDE.AsFloat,                 //ABaseImpInicial ,
-                                  CDSFiltroBASE_HASTA.AsFloat,                 //ABaseImpFinal   ,
-                                  CDSFiltroIMP_IVA_DESDE.AsFloat,              //ACuotaIVAInicial,
-                                  CDSFiltroIMP_IVA_HASTA.AsFloat,              //ACuotaIVAFinal  ,
-                                  CDSFiltroPRC_IVA_DESDE.AsFloat,              //AIVAInicial     ,
-                                  CDSFiltroPRC_IVA_HASTA.AsFloat,              //AIVAFinal       :Double;
-                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,          //AFechaImpresion :TDateTime;
-                                  CheckBoxFormatoOficial.Checked,              //AFormatoOficial :Boolean;
-                                  'F',                                         //AOrden          ,
-                                  '3',// Orden por fecha                       //ATipoInforme    ,
-                                  CDSFiltroSUBCUENTA.AsString,                 //ASubcuenta      ,
-                                  CDSFiltroINFORME.AsString,                   //AAgrupacion     ,
-                                  CDSFiltroCUENTA.AsString,                    //ACuenta         ,
-                                  CDSFiltroID_DELEGACION.AsString,             //ADelegacion     ,
-                                  CDSFiltroID_DEPARTAMENTO.AsString,           //ADepartamento   ,
-                                  CDSFiltroID_SECCION.AsString,                //ASeccion        ,
-                                  CDSFiltroID_PROYECTO.AsString,               //AProyecto       ,
-                                  CDSFiltroINTRACOMUN.AsString);               //AIntracomun     :string);
+            if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
+               FModel.ReportLibroIVA(CallBackReportFacturasEmitidasSubcta,
+                                     CDSFiltroFECHA_DESDE.AsDateTime,             //AFechaInicial   ,
+                                     CDSFiltroFECHA_HASTA.AsDateTime,             //AFechaFinal     ,
+                                     CDSFiltroBASE_DESDE.AsFloat,                 //ABaseImpInicial ,
+                                     CDSFiltroBASE_HASTA.AsFloat,                 //ABaseImpFinal   ,
+                                     CDSFiltroIMP_IVA_DESDE.AsFloat,              //ACuotaIVAInicial,
+                                     CDSFiltroIMP_IVA_HASTA.AsFloat,              //ACuotaIVAFinal  ,
+                                     CDSFiltroPRC_IVA_DESDE.AsFloat,              //AIVAInicial     ,
+                                     CDSFiltroPRC_IVA_HASTA.AsFloat,              //AIVAFinal       :Double;
+                                     CDSFiltroFECHA_IMPRIMIR.AsDateTime,          //AFechaImpresion :TDateTime;
+                                     CheckBoxFormatoOficial.Checked,              //AFormatoOficial :Boolean;
+                                     'F',                                         //AOrden          ,
+                                     '3',// Orden por fecha                       //ATipoInforme    ,
+                                     CDSFiltroSUBCUENTA.AsString,                 //ASubcuenta      ,
+                                     CDSFiltroINFORME.AsString,                   //AAgrupacion     ,
+                                     CDSFiltroCUENTA.AsString,                    //ACuenta         ,
+                                     CDSFiltroID_DELEGACION.AsString,             //ADelegacion     ,
+                                     CDSFiltroID_DEPARTAMENTO.AsString,           //ADepartamento   ,
+                                     CDSFiltroID_SECCION.AsString,                //ASeccion        ,
+                                     CDSFiltroID_PROYECTO.AsString,               //AProyecto       ,
+                                     CDSFiltroINTRACOMUN.AsString);               //AIntracomun     :string);
+            end else
+            if CDSFiltroInforme.AsString = 'I' then begin {ReportFacturasTipoIVA(ACallBack)}
+               FModel.ReportLibroIVA(CallBackReportFacturasEmitidasIVA,
+                                     CDSFiltroFECHA_DESDE.AsDateTime,             //AFechaInicial   ,
+                                     CDSFiltroFECHA_HASTA.AsDateTime,             //AFechaFinal     ,
+                                     CDSFiltroBASE_DESDE.AsFloat,                 //ABaseImpInicial ,
+                                     CDSFiltroBASE_HASTA.AsFloat,                 //ABaseImpFinal   ,
+                                     CDSFiltroIMP_IVA_DESDE.AsFloat,              //ACuotaIVAInicial,
+                                     CDSFiltroIMP_IVA_HASTA.AsFloat,              //ACuotaIVAFinal  ,
+                                     CDSFiltroPRC_IVA_DESDE.AsFloat,              //AIVAInicial     ,
+                                     CDSFiltroPRC_IVA_HASTA.AsFloat,              //AIVAFinal       :Double;
+                                     CDSFiltroFECHA_IMPRIMIR.AsDateTime,          //AFechaImpresion :TDateTime;
+                                     CheckBoxFormatoOficial.Checked,              //AFormatoOficial :Boolean;
+                                     'F',                                         //AOrden          ,
+                                     '3',// Orden por fecha                       //ATipoInforme    ,
+                                     CDSFiltroSUBCUENTA.AsString,                 //ASubcuenta      ,
+                                     CDSFiltroINFORME.AsString,                   //AAgrupacion     ,
+                                     CDSFiltroCUENTA.AsString,                    //ACuenta         ,
+                                     CDSFiltroID_DELEGACION.AsString,             //ADelegacion     ,
+                                     CDSFiltroID_DEPARTAMENTO.AsString,           //ADepartamento   ,
+                                     CDSFiltroID_SECCION.AsString,                //ASeccion        ,
+                                     CDSFiltroID_PROYECTO.AsString,               //AProyecto       ,
+                                     CDSFiltroINTRACOMUN.AsString);               //AIntracomun     :string);
+            end
+            else begin {ReportFacturasEmitidas(ACallBack);}
+               FModel.ReportLibroIVA(CallBackReportFacturasEmitidas,
+                                     CDSFiltroFECHA_DESDE.AsDateTime,             //AFechaInicial   ,
+                                     CDSFiltroFECHA_HASTA.AsDateTime,             //AFechaFinal     ,
+                                     CDSFiltroBASE_DESDE.AsFloat,                 //ABaseImpInicial ,
+                                     CDSFiltroBASE_HASTA.AsFloat,                 //ABaseImpFinal   ,
+                                     CDSFiltroIMP_IVA_DESDE.AsFloat,              //ACuotaIVAInicial,
+                                     CDSFiltroIMP_IVA_HASTA.AsFloat,              //ACuotaIVAFinal  ,
+                                     CDSFiltroPRC_IVA_DESDE.AsFloat,              //AIVAInicial     ,
+                                     CDSFiltroPRC_IVA_HASTA.AsFloat,              //AIVAFinal       :Double;
+                                     CDSFiltroFECHA_IMPRIMIR.AsDateTime,          //AFechaImpresion :TDateTime;
+                                     CheckBoxFormatoOficial.Checked,              //AFormatoOficial :Boolean;
+                                     'F',                                         //AOrden          ,
+                                     '3',// Orden por fecha                       //ATipoInforme    ,
+                                     CDSFiltroSUBCUENTA.AsString,                 //ASubcuenta      ,
+                                     CDSFiltroINFORME.AsString,                   //AAgrupacion     ,
+                                     CDSFiltroCUENTA.AsString,                    //ACuenta         ,
+                                     CDSFiltroID_DELEGACION.AsString,             //ADelegacion     ,
+                                     CDSFiltroID_DEPARTAMENTO.AsString,           //ADepartamento   ,
+                                     CDSFiltroID_SECCION.AsString,                //ASeccion        ,
+                                     CDSFiltroID_PROYECTO.AsString,               //AProyecto       ,
+                                     CDSFiltroINTRACOMUN.AsString);               //AIntracomun     :string);
+            end;
             // Mostrar la ventana antes de imprimir el fichero
-            WIva300.ShowModal;
+            WIVA300.ShowModal;
          finally
-            FreeAndNil(WIva300);
+            FreeAndNil(WIVA300);
          end;
       end;
       INF_FACTURAS_EMITIDAS: begin
-         FModel.ReportLibroIVA(CDSFiltroFECHA_DESDE.AsDateTime,
-                               CDSFiltroFECHA_HASTA.AsDateTime,
-                               CDSFiltroBASE_DESDE.AsFloat,
-                               CDSFiltroBASE_HASTA.AsFloat,
-                               CDSFiltroIMP_IVA_DESDE.AsFloat,
-                               CDSFiltroIMP_IVA_HASTA.AsFloat,
-                               CDSFiltroPRC_IVA_DESDE.AsFloat,
-                               CDSFiltroPRC_IVA_HASTA.AsFloat,
-                               CDSFiltroFECHA_IMPRIMIR.AsDateTime,
-                               CheckBoxFormatoOficial.Checked,
-                               CDSFiltroORDEN.AsString,
-                               'E',
-                               CDSFiltroSUBCUENTA.AsString,
-                               CDSFiltroINFORME.AsString,
-                               CDSFiltroCUENTA.AsString,
-                               CDSFiltroID_DELEGACION.AsString,
-                               CDSFiltroID_DEPARTAMENTO.AsString,
-                               CDSFiltroID_SECCION.AsString,
-                               CDSFiltroID_PROYECTO.AsString,
-                               CDSFiltroINTRACOMUN.AsString);
+         if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasSubcta,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'E',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end else
+         if CDSFiltroInforme.AsString = 'I' then begin {ReportFacturasTipoIVA(ACallBack)}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasIVA,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'E',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end
+         else begin {ReportFacturasEmitidas(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidas,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'E',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end;
       end;
       INF_FACTURAS_RECIBIDAS: begin
-         FModel.ReportLibroIVA(CDSFiltroFECHA_DESDE.AsDateTime,
-                               CDSFiltroFECHA_HASTA.AsDateTime,
-                               CDSFiltroBASE_DESDE.AsFloat,
-                               CDSFiltroBASE_HASTA.AsFloat,
-                               CDSFiltroIMP_IVA_DESDE.AsFloat,
-                               CDSFiltroIMP_IVA_HASTA.AsFloat,
-                               CDSFiltroPRC_IVA_DESDE.AsFloat,
-                               CDSFiltroPRC_IVA_HASTA.AsFloat,
-                               CDSFiltroFECHA_IMPRIMIR.AsDateTime,
-                               CheckBoxFormatoOficial.Checked,
-                               CDSFiltroORDEN.AsString,
-                               'R',
-                               CDSFiltroSUBCUENTA.AsString,
-                               CDSFiltroINFORME.AsString,
-                               CDSFiltroCUENTA.AsString,
-                               CDSFiltroID_DELEGACION.AsString,
-                               CDSFiltroID_DEPARTAMENTO.AsString,
-                               CDSFiltroID_SECCION.AsString,
-                               CDSFiltroID_PROYECTO.AsString,
-                               CDSFiltroINTRACOMUN.AsString);
+         if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasSubcta,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'R',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end else
+         if CDSFiltroInforme.AsString = 'I' then begin {ReportFacturasTipoIVA(ACallBack)}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasIVA,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'R',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end
+         else begin {ReportFacturasEmitidas(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidas,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'R',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end;
       end;
       INF_FACTURAS_BIENES: begin
-         FModel.ReportLibroIVA(CDSFiltroFECHA_DESDE.AsDateTime,
-                               CDSFiltroFECHA_HASTA.AsDateTime,
-                               CDSFiltroBASE_DESDE.AsFloat,
-                               CDSFiltroBASE_HASTA.AsFloat,
-                               CDSFiltroIMP_IVA_DESDE.AsFloat,
-                               CDSFiltroIMP_IVA_HASTA.AsFloat,
-                               CDSFiltroPRC_IVA_DESDE.AsFloat,
-                               CDSFiltroPRC_IVA_HASTA.AsFloat,
-                               CDSFiltroFECHA_IMPRIMIR.AsDateTime,
-                               CheckBoxFormatoOficial.Checked,
-                               CDSFiltroORDEN.AsString,
-                               'B',
-                               CDSFiltroSUBCUENTA.AsString,
-                               CDSFiltroINFORME.AsString,
-                               CDSFiltroCUENTA.AsString,
-                               CDSFiltroID_DELEGACION.AsString,
-                               CDSFiltroID_DEPARTAMENTO.AsString,
-                               CDSFiltroID_SECCION.AsString,
-                               CDSFiltroID_PROYECTO.AsString,
-                               CDSFiltroINTRACOMUN.AsString);
+         if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasSubcta,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'B',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end else
+         if CDSFiltroInforme.AsString = 'I' then begin {ReportFacturasTipoIVA(ACallBack)}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidasIVA,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'B',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end
+         else begin {ReportFacturasEmitidas(ACallBack);}
+            FModel.ReportLibroIVA(CallBackReportFacturasEmitidas,
+                                  CDSFiltroFECHA_DESDE.AsDateTime,
+                                  CDSFiltroFECHA_HASTA.AsDateTime,
+                                  CDSFiltroBASE_DESDE.AsFloat,
+                                  CDSFiltroBASE_HASTA.AsFloat,
+                                  CDSFiltroIMP_IVA_DESDE.AsFloat,
+                                  CDSFiltroIMP_IVA_HASTA.AsFloat,
+                                  CDSFiltroPRC_IVA_DESDE.AsFloat,
+                                  CDSFiltroPRC_IVA_HASTA.AsFloat,
+                                  CDSFiltroFECHA_IMPRIMIR.AsDateTime,
+                                  CheckBoxFormatoOficial.Checked,
+                                  CDSFiltroORDEN.AsString,
+                                  'B',
+                                  CDSFiltroSUBCUENTA.AsString,
+                                  CDSFiltroINFORME.AsString,
+                                  CDSFiltroCUENTA.AsString,
+                                  CDSFiltroID_DELEGACION.AsString,
+                                  CDSFiltroID_DEPARTAMENTO.AsString,
+                                  CDSFiltroID_SECCION.AsString,
+                                  CDSFiltroID_PROYECTO.AsString,
+                                  CDSFiltroINTRACOMUN.AsString);
+         end;
       end;
    end;
 end;

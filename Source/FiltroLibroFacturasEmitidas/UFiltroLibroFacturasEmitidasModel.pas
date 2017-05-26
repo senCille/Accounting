@@ -1,10 +1,91 @@
-unit UFiltroLibroFacturasEmitidasModel;
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N-,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN SYMBOL_EXPERIMENTAL ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN UNIT_EXPERIMENTAL ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+{$WARN OPTION_TRUNCATED ON}
+{$WARN WIDECHAR_REDUCED ON}
+{$WARN DUPLICATES_IGNORED ON}
+{$WARN UNIT_INIT_SEQ ON}
+{$WARN LOCAL_PINVOKE ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN TYPEINFO_IMPLICITLY_ADDED ON}
+{$WARN RLINK_WARNING ON}
+{$WARN IMPLICIT_STRING_CAST ON}
+{$WARN IMPLICIT_STRING_CAST_LOSS ON}
+{$WARN EXPLICIT_STRING_CAST OFF}
+{$WARN EXPLICIT_STRING_CAST_LOSS OFF}
+{$WARN CVT_WCHAR_TO_ACHAR ON}
+{$WARN CVT_NARROWING_STRING_LOST ON}
+{$WARN CVT_ACHAR_TO_WCHAR ON}
+{$WARN CVT_WIDENING_STRING_LOST ON}
+{$WARN NON_PORTABLE_TYPECAST ON}
+{$WARN XML_WHITESPACE_NOT_ALLOWED ON}
+{$WARN XML_UNKNOWN_ENTITY ON}
+{$WARN XML_INVALID_NAME_START ON}
+{$WARN XML_INVALID_NAME ON}
+{$WARN XML_EXPECTED_CHARACTER ON}
+{$WARN XML_CREF_NO_RESOLVE ON}
+{$WARN XML_NO_PARM ON}
+{$WARN XML_NO_MATCHING_PARM ON}
+{$WARN IMMUTABLE_STRINGS OFF}
+Unit UFiltroLibroFacturasEmitidasModel;
 
 interface
 
 uses
   SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  DBClient, frxClass, frxDBSet, frxExportPDF;
+  DBClient, frxClass, frxDBSet, frxExportPDF,
+  senCille.CommonTypes;
 
 type
   TDataModuleFiltroLibroFacturasEmitidas = class(TDataModule)
@@ -115,11 +196,6 @@ type
     QInformesContaFSubcuenta: TStringField;
     QInformesContaFDescSubcuenta: TStringField;
     SInformesConta: TDataSource;
-    FastReportFacturasEmitidasSubcta: TfrxReport;
-    PDFExport: TfrxPDFExport;
-    Enlace1: TfrxDBDataset;
-    FastReportFacturasTipoIVA: TfrxReport;
-    FastReportFacturasEmitidas: TfrxReport;
     SInfDiario: TDataSource;
     QInfDiario: TIBDataSet;
     QInfDiarioASIENTO: TIntegerField;
@@ -154,9 +230,9 @@ type
   private
     DM :TDataModuleFiltroLibroFacturasEmitidas;
     procedure InicializarFicherosInformes;
-    procedure ReportFacturasEmitidasSubcta;
-    procedure ReportFacturasTipoIVA;
-    procedure ReportFacturasEmitidas;
+    procedure ReportFacturasEmitidasSubcta(ACallBack :TSimplyCallBack);
+    procedure ReportFacturasTipoIVA(ACallBack :TSimplyCallBack);
+    procedure ReportFacturasEmitidas(ACallBack :TSimplyCallBack);
   protected
   public
     constructor Create(ADB :TIBDatabase; Initialize :Boolean = True); override;
@@ -164,7 +240,8 @@ type
     procedure DoInitialize; override;
     function  DataModule :TDataModule;
     procedure Refresh;
-    procedure ReportLibroIVA(AFechaInicial   ,
+    procedure ReportLibroIVA(ACallBack       :TSimplyCallBack;
+                             AFechaInicial   ,
                              AFechaFinal     ,
                              ABaseImpInicial ,
                              ABaseImpFinal   ,
@@ -265,7 +342,8 @@ begin
 
 end;
 
-procedure TFiltroLibroFacturasEmitidasModel.ReportLibroIVA(AFechaInicial   ,
+procedure TFiltroLibroFacturasEmitidasModel.ReportLibroIVA(ACallBack       :TSimplyCallBack;
+                                                           AFechaInicial   ,
                                                            AFechaFinal     ,
                                                            ABaseImpInicial ,
                                                            ABaseImpFinal   ,
@@ -430,19 +508,19 @@ begin
       // Subcuentas
       QSubcuentas := TIBSQL.Create(nil);
       QSubcuentas.Database := DB;
-      QSubcuentas.SQL.Add('SELECT NIF        ,         ');
-      QSubcuentas.SQL.Add('       DESCRIPCION,         ');
-      QSubcuentas.SQL.Add('       PAIS       ,         ');
-      QSubcuentas.SQL.Add('       IVA        ,         ');
-      QSubcuentas.SQL.Add('       RECARGO              ');
-      QSubcuentas.SQL.Add('FROM  SUBCTAS               ');
-      QSubcuentas.SQL.Add('WHERE SUBCUENTA = :SUBCUENTA');
+      QSubcuentas.SQL.Add('SELECT NIF        ,          ');
+      QSubcuentas.SQL.Add('       DESCRIPCION,          ');
+      QSubcuentas.SQL.Add('       PAIS       ,          ');
+      QSubcuentas.SQL.Add('       IVA        ,          ');
+      QSubcuentas.SQL.Add('       RECARGO               ');
+      QSubcuentas.SQL.Add('FROM  SUBCTAS                ');
+      QSubcuentas.SQL.Add('WHERE SUBCUENTA = :SUBCUENTA ');
 
       // Selección del importe total de la factura
       QFacturas := TIBSQL.Create(nil);
       QFacturas.Database := DB;
       QFacturas.SQL.Add('SELECT D.IMPORTE                                                                                ');
-      QFacturas.sQL.Add('FROM DIARIO D,                                                                                  ');
+      QFacturas.sQL.Add('FROM DIARIO  D,                                                                                 ');
       QFacturas.sQL.Add('     CUENTAS C                                                                                  ');
       QFacturas.SQL.Add('WHERE D.ASIENTO = :ASIENTO                                                                      ');
       QFacturas.sQL.Add('AND  ((C.TIPOCUENTA = "P" AND D.DEBEHABER = "H") OR (C.TIPOCUENTA = "C" AND D.DEBEHABER = "D")) ');
@@ -482,6 +560,7 @@ begin
          QSubcuentas.ExecQuery;
          nTipo05 := QSubcuentas.FieldByName('IVA').AsFloat;
       end;
+
       // Verificacion para que no se quede nunca a cero
       if nTipo05 = 0 then begin
          if (DmRef.QParametrosSCTAIVACREDUCIDO.AsString <> '') then begin
@@ -499,6 +578,7 @@ begin
          QSubcuentas.ExecQuery;
          nTipo08 := QSubcuentas.FieldByName('IVA').AsFloat;
       end;
+
       // Verificacion para que no se quede nunca a cero
       if nTipo08 = 0 then begin
          if (DMRef.QParametrosSCTAIVACSUPER.AsString <> '') then begin
@@ -516,6 +596,7 @@ begin
          QSubcuentas.ExecQuery;
          nTipo11 := RoundTo(QSubcuentas.FieldByName('RECARGO').AsFloat, -2);
       end;
+
       // Recargo reducido
       if (DMRef.QParametrosSCTARECREDUCIDO.AsString <> '') then begin
          QSubcuentas.Close;
@@ -523,6 +604,7 @@ begin
          QSubcuentas.ExecQuery;
          nTipo14 := RoundTo(QSubcuentas.FieldByName('RECARGO').AsFloat, -2);
       end;
+
       // Recargo Superreducido
       if (DMRef.QParametrosSCTARECSUPER.AsString <> '') then begin
          QSubcuentas.Close;
@@ -585,18 +667,19 @@ begin
             if AOrden = 'S' then begin
                QApuntes216.SQL.Add('D.CONTRAPARTIDA,D.FECHA');
             end;
-            QApuntes216.parambyname('FechaIni').AsDateTime  := AFechaInicial;
-            QApuntes216.parambyname('FechaFin').AsDateTime  := AFechaFinal;
-            QApuntes216.parambyname('BaseIni').AsDouble     := ABaseImpInicial;
-            QApuntes216.parambyname('BaseFin').AsDouble     := ABaseImpFinal;
-            QApuntes216.parambyname('CuotaIvaIni').AsDouble := ACuotaIvaInicial;
-            QApuntes216.parambyname('CuotaIvaFin').AsDouble := ACuotaIvaFinal;
-            QApuntes216.parambyname('IvaIni').AsDouble      := AIvaInicial;
-            QApuntes216.parambyname('IvaFin').AsDouble      := AIvaFinal;
+
+            QApuntes216.ParamByName('FECHAINI'   ).AsDateTime := AFechaInicial;
+            QApuntes216.ParamByName('FechaFin'   ).AsDateTime := AFechaFinal;
+            QApuntes216.ParamByName('BaseIni'    ).AsDouble   := ABaseImpInicial;
+            QApuntes216.ParamByName('BaseFin'    ).AsDouble   := ABaseImpFinal;
+            QApuntes216.ParamByName('CuotaIvaIni').AsDouble   := ACuotaIvaInicial;
+            QApuntes216.ParamByName('CuotaIvaFin').AsDouble   := ACuotaIvaFinal;
+            QApuntes216.ParamByName('IvaIni'     ).AsDouble   := AIvaInicial;
+            QApuntes216.ParamByName('IvaFin'     ).AsDouble   := AIvaFinal;
             QApuntes216.ExecQuery;
 
             while not QApuntes216.EOF do begin
-               if (ASubcuenta <> '') and (QApuntes216.FieldByName('contrapartida').AsString <> ASubcuenta) then begin
+               if (ASubcuenta <> '') and (QApuntes216.FieldByName('CONTRAPARTIDA').AsString <> ASubcuenta) then begin
                   QApuntes216.Next;
                   Continue;
                end;
@@ -605,8 +688,8 @@ begin
                   Continue;
                end;
 
-               nBase216  := nBase216  + QApuntes216.FieldByName('Baseimponible').AsFloat;
-               nCuota216 := nCuota216 + QApuntes216.FieldByName('cuotaiva').AsFloat;
+               nBase216  := nBase216  + QApuntes216.FieldByName('BASEIMPONIBLE').AsFloat;
+               nCuota216 := nCuota216 + QApuntes216.FieldByName('CUOTAIVA'     ).AsFloat;
 
                QApuntes216.Next;
             end;
@@ -620,66 +703,82 @@ begin
       try
          QApuntes.Database := DMRef.BDContab;
 
-         QApuntes.SQL.Add('SELECT');
-         QApuntes.SQL.Add('   D.ASIENTO, D.NUMEROFACTURA, D.FECHA, D.IMPORTE, D.NIF, T.TIPOCUENTA,');
-         QApuntes.SQL.Add('   D.MONEDA, D.CONTRAPARTIDA, D.RECARGO, D.IVA, D.BASEIMPONIBLE, D.SERIE, D.EJERCICIO,');
-         QApuntes.SQL.Add('   D.COMENTARIO, D.ID_CONCEPTOS, S.TIPOIVA, D.CUOTARECARGO, D.CUOTAIVA, D.CUENTA_ANALITICA, D.SUBCUENTA');
-         QApuntes.SQL.Add(' From Diario D, Conceptos C , Cuentas T, Subctas S');
-         QApuntes.SQL.Add(' Where D.ID_Conceptos=C.id_Conceptos and (C.TipoConcepto="I" or c.tipoconcepto="2") ');
-         QApuntes.SQL.Add('  and SUBSTR(D.SUBCUENTA, 1, 3) = T.CUENTA and D.Subcuenta=S.subcuenta');
+         QApuntes.SQL.Add('SELECT D.ASIENTO         ,     ');
+         QApuntes.SQL.Add('       D.NUMEROFACTURA   ,     ');
+         QApuntes.SQL.Add('       D.FECHA           ,     ');
+         QApuntes.SQL.Add('       D.IMPORTE         ,     ');
+         QApuntes.SQL.Add('       D.NIF             ,     ');
+         QApuntes.SQL.Add('       T.TIPOCUENTA      ,     ');
+         QApuntes.SQL.Add('       D.MONEDA          ,     ');
+         QApuntes.SQL.Add('       D.CONTRAPARTIDA   ,     ');
+         QApuntes.SQL.Add('       D.RECARGO         ,     ');
+         QApuntes.SQL.Add('       D.IVA             ,     ');
+         QApuntes.SQL.Add('       D.BASEIMPONIBLE   ,     ');
+         QApuntes.SQL.Add('       D.SERIE           ,     ');
+         QApuntes.SQL.Add('       D.EJERCICIO       ,     ');
+         QApuntes.SQL.Add('       D.COMENTARIO      ,     ');
+         QApuntes.SQL.Add('       D.ID_CONCEPTOS    ,     ');
+         QApuntes.SQL.Add('       S.TIPOIVA         ,     ');
+         QApuntes.SQL.Add('       D.CUOTARECARGO    ,     ');
+         QApuntes.SQL.Add('       D.CUOTAIVA        ,     ');
+         QApuntes.SQL.Add('       D.CUENTA_ANALITICA,     ');
+         QApuntes.SQL.Add('       D.SUBCUENTA             ');
+         QApuntes.SQL.Add('FROM  DIARIO D, CONCEPTOS C , CUENTAS T, SUBCTAS S  ');
+         QApuntes.SQL.Add('WHERE D.ID_CONCEPTOS = C.ID_CONCEPTOS AND (C.TIPOCONCEPTO = "I" OR C.TIPOCONCEPTO = "2") ');
+         QApuntes.SQL.Add('AND   SUBSTR(D.SUBCUENTA, 1, 3) = T.CUENTA AND D.SUBCUENTA = S.SUBCUENTA                 ');
          if ATipoInforme = 'E' then begin
-            QApuntes.SQL.Add(' and T.Tipocuenta = "R"');
+            QApuntes.SQL.Add(' AND T.Tipocuenta = "R"');
          end else
          if ATipoInforme = '3' then begin
-            QApuntes.SQL.Add(' and (T.Tipocuenta = "S" or T.TipoCuenta = "R") ');
+            QApuntes.SQL.Add(' AND (T.Tipocuenta = "S" or T.TipoCuenta = "R") ');
          end else
          if ATipoInforme = 'R' then begin
-            QApuntes.SQL.Add(' and (T.Tipocuenta = "S" and S.TipoIva <> "B") ');
+            QApuntes.SQL.Add(' AND (T.Tipocuenta = "S" and S.TipoIva <> "B") ');
          end else
          if ATipoInforme = 'B' then begin
-            QApuntes.SQL.Add(' and (T.Tipocuenta = "S" and S.TipoIva = "B") ');
+            QApuntes.SQL.Add(' AND (T.Tipocuenta = "S" and S.TipoIva = "B") ');
          end;
 
-         QApuntes.SQL.Add('  and D.Fecha>=:FechaIni and D.Fecha<=:FechaFin ');
-         QApuntes.SQL.Add('  and d.BaseImponible>=:BaseIni and D.BaseImponible<=:BaseFin ');
-         QApuntes.SQL.Add('  and d.Importe>=:CuotaIvaIni and D.Importe<=:CuotaIvaFin ');
-         if (Aivainicial = 0) or (Aivafinal = 0) then begin
-            QApuntes.SQL.Add('  and ((d.Iva>=:IvaIni and D.Iva<=:IvaFin) or (d.iva is null)) ');
+         QApuntes.SQL.Add('  AND D.Fecha         >= :FechaIni    AND D.Fecha         <= :FechaFin    ');
+         QApuntes.SQL.Add('  AND D.BaseImponible >= :BaseIni     AND D.BaseImponible <= :BaseFin     ');
+         QApuntes.SQL.Add('  AND D.Importe       >= :CuotaIvaIni AND D.Importe       <= :CuotaIvaFin ');
+         if (AIVAINICIAL = 0) or (AIVAFINAL = 0) then begin
+            QApuntes.SQL.Add('  AND ((D.IVA >= :IvaIni AND D.Iva <= :IvaFin) OR (d.IVA IS NULL))     ');
          end
          else begin
-            QApuntes.SQL.Add('  and d.Iva>=:IvaIni and D.Iva<=:IvaFin ');
+            QApuntes.SQL.Add('  AND D.IVA >= :IvaIni AND D.Iva <= :IvaFin ');
          end;
          // Recordar que en importe esta la misma cantidad que en cuotaiva
          if AAgrupacion = 'S' then begin    // Agrupado por subcuenta
-            QApuntes.SQL.Add('order by D.CONTRAPARTIDA,');
+            QApuntes.SQL.Add('ORDER BY D.CONTRAPARTIDA,');
          end else
          if AAgrupacion = 'I' then begin // Agrupado por Subcuenta (IVA)
-            QApuntes.SQL.Add('order by D.SUBCUENTA,');
+            QApuntes.SQL.Add('ORDER BY D.SUBCUENTA,');
          end
          else begin
-            QApuntes.SQL.Add('order by');
+            QApuntes.SQL.Add('ORDER BY ');
          end;
 
          if AOrden = 'F' then begin
-            QApuntes.SQL.Add('D.FECHA,D.ASIENTO');
+            QApuntes.SQL.Add('D.FECHA, D.ASIENTO');
          end else
          if AOrden = 'N' then begin
-            QApuntes.SQL.Add('D.EJERCICIO,D.SERIE,D.NUMEROFACTURA');
+            QApuntes.SQL.Add('D.EJERCICIO, D.SERIE, D.NUMEROFACTURA');
          end else
          if AOrden = 'A' then begin
             QApuntes.SQL.Add('D.ASIENTO');
          end else
          if AOrden = 'S' then begin
-            QApuntes.SQL.Add('D.CONTRAPARTIDA,D.FECHA');
+            QApuntes.SQL.Add('D.CONTRAPARTIDA, D.FECHA');
          end;
-         QApuntes.parambyname('FechaIni').AsDateTime  := AFechaInicial;
-         QApuntes.parambyname('FechaFin').AsDateTime  := AFechaFinal;
-         QApuntes.parambyname('BaseIni').AsDouble     := ABaseImpInicial;
-         QApuntes.parambyname('BaseFin').AsDouble     := ABaseImpFinal;
-         QApuntes.parambyname('CuotaIvaIni').AsDouble := ACuotaIvaInicial;
-         QApuntes.parambyname('CuotaIvaFin').AsDouble := ACuotaIvaFinal;
-         QApuntes.parambyname('IvaIni').AsDouble      := AIvaInicial;
-         QApuntes.parambyname('IvaFin').AsDouble      := AIvaFinal;
+         QApuntes.ParamByName('FechaIni'   ).AsDateTime := AFechaInicial;
+         QApuntes.ParamByName('FechaFin'   ).AsDateTime := AFechaFinal;
+         QApuntes.ParamByName('BaseIni'    ).AsDouble   := ABaseImpInicial;
+         QApuntes.ParamByName('BaseFin'    ).AsDouble   := ABaseImpFinal;
+         QApuntes.ParamByName('CuotaIvaIni').AsDouble   := ACuotaIvaInicial;
+         QApuntes.ParamByName('CuotaIvaFin').AsDouble   := ACuotaIvaFinal;
+         QApuntes.ParamByName('IvaIni'     ).AsDouble   := AIvaInicial;
+         QApuntes.ParamByName('IvaFin'     ).AsDouble   := AIvaFinal;
          QApuntes.ExecQuery;
       { Tipo de Listado :    (3) Modelo 300
                              (G) Modelo 420
@@ -692,10 +791,11 @@ begin
 
          try
             while not QApuntes.EOF do begin
-               if (ASubcuenta <> '') and (QApuntes.FieldByName('contrapartida').AsString <> ASubcuenta) then begin
+               if (ASubcuenta <> '') and (QApuntes.FieldByName('CONTRAPARTIDA').AsString <> ASubcuenta) then begin
                   QApuntes.Next;
                   Continue;
                end;
+
                if not DMContaRef.Pertenece_Analitica(QApuntes.FieldByName('CUENTA_ANALITICA').AsString,
                   ACuenta, '', ADelegacion, ADepartamento, ASeccion, AProyecto) then begin
                   QApuntes.Next;
@@ -723,63 +823,58 @@ begin
                // el enlace automatico se traspasa al apunte del iva.
          {if not gvTratamientoRecargo then
            nSumaBaseImponible:=nSumaBaseImponible+Fieldbyname('BaseImponible').asfloat;}
-               nSumaCuotaIva     := nSumaCuotaIva     + QApuntes.FieldByName('cuotaiva').AsFloat;
-               nSumaCuotaRecargo := nSumaCuotaRecargo + QApuntes.FieldByName('cuotarecargo').AsFloat;
+               nSumaCuotaIva     := nSumaCuotaIva     + QApuntes.FieldByName('CUOTAIVA'    ).AsFloat;
+               nSumaCuotaRecargo := nSumaCuotaRecargo + QApuntes.FieldByName('CUOTARECARGO').AsFloat;
 
                // Informe Mod. 300
-               if (ATipoInforme = '3') and (QApuntes.FieldByName('Tipocuenta').AsString = 'R') then begin
-                  if (QApuntes.FieldByName('iva').AsFloat = nTipo00) and
+               if (ATipoInforme = '3') and (QApuntes.FieldByName('TIPOCUENTA').AsString = 'R') then begin
+                  if (QApuntes.FieldByName('IVA'      ).AsFloat = nTipo00) and
                      (QApuntes.FieldByName('SUBCUENTA').AsString = DMRef.QParametrosSCTAIVAEXENTOCEE.AsString) then begin
-                     nBase38 := nBase38 + QApuntes.FieldByName('Baseimponible').AsFloat;
+                     nBase38 := nBase38 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
                   end;
-                  if (QApuntes.FieldByName('iva').AsFloat = nTipo00) and
+
+                  if (QApuntes.FieldByName('IVA'      ).AsFloat = nTipo00) and
                      (QApuntes.FieldByName('SUBCUENTA').AsString = DMRef.QParametrosSCTAEXPORTACIONES.AsString) then begin
-                     nBase36 := nBase36 + QApuntes.FieldByName('Baseimponible').AsFloat;
+                     nBase36 := nBase36 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
                   end;
-                  if (QApuntes.FieldByName('IVA').AsFloat = nTipo00) and
-                     (QApuntes.FieldByName('SUBCUENTA').AsString = DMRef.QParametrosSCTAINTERESES.AsString)
-                  then begin
+
+                  if (QApuntes.FieldByName('IVA'      ).AsFloat = nTipo00) and
+                     (QApuntes.FieldByName('SUBCUENTA').AsString = DMRef.QParametrosSCTAINTERESES.AsString) then begin
                      nBase37 := nBase37 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
                   end;
-                  if QApuntes.FieldByName('Tipoiva').AsString = 'C' then         // Entregas intracomunitarias
-                  begin
-                     nBase32 := nBase32 + QApuntes.FieldByName('baseimponible').AsFloat;
+
+                  if QApuntes.FieldByName('TIPOIVA').AsString = 'C' then begin        // Entregas intracomunitarias
+                     nBase32 := nBase32 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
                   end;
-                  if QApuntes.FieldByName('Tipoiva').AsString = 'A' then        // Adquisiciones intracomunitarias
-                  begin
-                     nBase19  := nBase19 + QApuntes.FieldByName('BaseImponible').AsFloat;
-                     nCuota20 := nCuota20 + QApuntes.FieldByName('importe').AsFloat;
-                  end
-                  else
-                  if QApuntes.FieldByName('Tipoiva').AsString = 'L' then        // Servicios Intracomunitarios
-                  begin
+
+                  if QApuntes.FieldByName('TIPOIVA').AsString = 'A' then begin       // Adquisiciones intracomunitarias
+                     nBase19  := nBase19 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
+                     nCuota20 := nCuota20 + QApuntes.FieldByName('IMPORTE').AsFloat;
+                  end else
+                  if QApuntes.FieldByName('TIPOIVA').AsString = 'L' then begin       // Servicios Intracomunitarios
                      nBase19SI  := nBase19SI + QApuntes.FieldByName('BaseImponible').AsFloat;
                      nCuota20SI := nCuota20SI + QApuntes.FieldByName('importe').AsFloat;
                   end
                   else begin
-                     if (QApuntes.FieldByName('iva').AsFloat = nTipo00) and
-                        (RoundTo(QApuntes.FieldByName('recargo').AsFloat, -2) = 0) then begin
-                        nBase00 := nBase00 + QApuntes.FieldByName('Baseimponible').AsFloat;
+                     if (QApuntes.FieldByName('IVA').AsFloat = nTipo00) and
+                        (RoundTo(QApuntes.FieldByName('RECARGO').AsFloat, -2) = 0) then begin
+                        nBase00 := nBase00 + QApuntes.FieldByName('BASEIMPONIBLE').AsFloat;
                         // Buscar desglose
-                     end
-                     else
+                     end else
                      if (QApuntes.FieldByName('iva').AsFloat = nTipo02) then begin
                         nBase01  := nBase01 + QApuntes.FieldByName('Baseimponible').AsFloat;
                         nCuota03 := nCuota03 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                     end
-                     else
+                     end else
                      if QApuntes.FieldByName('iva').AsFloat = nTipo05 then begin
                         nBase04  := nBase04 + QApuntes.FieldByName('Baseimponible').AsFloat;
                         nCuota06 := nCuota06 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                     end
-                     else
+                     end else
                      if QApuntes.FieldByName('iva').AsFloat = nTipo08 then begin
                         nBase07  := nBase07 + QApuntes.FieldByName('Baseimponible').AsFloat;
                         nCuota09 := nCuota09 + QApuntes.FieldByName('cuotaiva').AsFloat;
                      end;
 
-                     if RoundTo(QApuntes.FieldByName('Recargo').AsFloat, -2) <> 0 then         // Tiene recargo
-                     begin
+                     if RoundTo(QApuntes.FieldByName('Recargo').AsFloat, -2) <> 0 then begin         // Tiene recargo
                         if QApuntes.FieldByName('Recargo').AsFloat = nTipo11 then begin
                            nBase10  := nBase10 + QApuntes.FieldByName('Baseimponible').AsFloat;
                            nCuota12 := nCuota12 + QApuntes.FieldByName('cuotarecargo').AsFloat;
@@ -817,45 +912,36 @@ begin
                         if QApuntes.FieldByName('iva').AsFloat = nTipo00 then begin
                            nBase22T00  := nBase22T00 + QApuntes.FieldByName('Baseimponible').AsFloat;
                            nCuota22T00 := nCuota22T00 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                        end
-                        else
+                        end else
                         if QApuntes.FieldByName('iva').AsFloat = nTipo02 then begin
                            nBase22T02  := nBase22T02 + QApuntes.FieldByName('Baseimponible').AsFloat;
                            nCuota22T02 := nCuota22T02 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                        end
-                        else
+                        end else
                         if QApuntes.FieldByName('iva').AsFloat = nTipo05 then begin
                            nBase22T05  := nBase22T05 + QApuntes.FieldByName('Baseimponible').AsFloat;
                            nCuota22T05 := nCuota22T05 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                        end
-                        else
+                        end else
                         if QApuntes.FieldByName('iva').AsFloat = nTipo08 then begin
                            nBase22T08  := nBase22T08 + QApuntes.FieldByName('Baseimponible').AsFloat;
                            nCuota22T08 := nCuota22T08 + QApuntes.FieldByName('cuotaiva').AsFloat;
                         end;
                      end;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'I' then begin
                      nCuota23 := nCuota23 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'X' then begin
                      nCuota23BI := nCuota23BI + QApuntes.FieldByName('cuotaiva').AsFloat;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'C' then begin
                      nCuota24 := nCuota24 + QApuntes.FieldByName('cuotaiva').AsFloat;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'W' then begin
                      nCuota24BI := nCuota24BI + QApuntes.FieldByName('cuotaiva').AsFloat;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'L' then begin
                      nCuota24SI := nCuota24SI + QApuntes.FieldByName('cuotaiva').AsFloat;
-                  end
-                  else
+                  end else
                   if QApuntes.FieldByName('Tipoiva').AsString = 'R' then begin
                      nCuota25 := nCuota25 + QApuntes.FieldByName('cuotaiva').AsFloat;
                   end;
@@ -864,12 +950,12 @@ begin
                if (ATipoInforme <> '3') then begin
                   // Grabar campos del informe
                   // Imprimir el número de línea y el total factura
-                  //sólo en el primer apunte del asiento
+                  // sólo en el primer apunte del asiento
                   DM.QInformesConta.Append;
                   DM.QInformesContaASIENTO.AsInteger         := QApuntes.FieldByName('ASIENTO').AsInteger;
                   { Almacenar datos necesarios para el título del informe }
                   DM.QInformesContaTitulo.AsString           := Titulo;
-                  DM.QInformesContaClienteProveedor.AsString := clienteproveedor;
+                  DM.QInformesContaClienteProveedor.AsString := ClienteProveedor;
                   DM.QInformesContaFechaImpresion.AsDateTime := AFechaImpresion;
                   DM.QInformesContaFechaInicial.AsDateTime   := AFechaInicial;
                   DM.QInformesContaFechaFinal.AsDateTime     := AFechaFinal;
@@ -924,10 +1010,10 @@ begin
                      DM.QInformesContaDESCSUBCUENTA.AsString := QSubcuentas.FieldByName('DESCRIPCION').AsString;
                      if AAgrupacion = 'I' then begin
                         QSubcuentas.Close;
-                        QSubcuentas.parambyname('subcuenta').AsString := QApuntes.FieldByName('contrapartida').AsString;
+                        QSubcuentas.parambyname('subcuenta').AsString    := QApuntes.FieldByName('contrapartida').AsString;
                         QSubcuentas.ExecQuery;
-                        DMContaRef.QInformesContaFSubcuenta.AsString := QApuntes.FieldByName('contrapartida').AsString;
-                        DMContaRef.QInformesContaFDESCSUBCUENTA.AsString := QSubcuentas.FieldByName('DESCRIPCION').AsString;
+                        DM.QInformesContaFSubcuenta.AsString     := QApuntes.FieldByName('contrapartida').AsString;
+                        DM.QInformesContaFDESCSUBCUENTA.AsString := QSubcuentas.FieldByName('DESCRIPCION').AsString;
                      end;
                      DM.QInformesContaNIF.AsString := QSubcuentas.FieldByName('PAIS').AsString + '-' +
                         Trim(QSubcuentas.FieldByName('NIF').AsString);
@@ -997,22 +1083,22 @@ begin
    end;
 
    {$Message Warn 'This reports requires to be create newly starting from zero'}
-   {This report has in his style of ReportBuilde a very complex structure, to allow it the
+   {This report has in his style of ReportBuild a very complex structure, to allow it the
    interaction with the user. The user can delete or query the program based on the information
-   showed at preview window. The new version shall drop this feature an be more simple.   }
+   showed at preview window. The new version shall drop this feature and be more simple.   }
 
    if ATipoInforme <> '3' then begin
-   {HERE IS THE LAUNCHING OF THE REPORTS }
+      {HERE IS THE LAUNCHING OF THE REPORTS }
       if AAgrupacion = 'S' then begin
-         ReportFacturasEmitidasSubcta;
+         ReportFacturasEmitidasSubcta(ACallBack);
          //FormPrincipal.LanzarListado('LLibroFacturasEmitidasSubcta.rtm', DM.SInformesConta);
       end else
       if AAgrupacion = 'I' then begin
-         ReportFacturasTipoIVA;
+         ReportFacturasTipoIVA(ACallBack);
          //FormPrincipal.LanzarListado('LLibroFacturasTipoIva.rtm', DM.SInformesConta);
       end
       else begin
-         ReportFacturasEmitidas;
+         ReportFacturasEmitidas(ACallBack);
          //FormPrincipal.LanzarListado('LLibroFacturasEmitidas.rtm', DM.SInformesConta);
       end;
       InicializarFicherosInformes;
@@ -1128,29 +1214,15 @@ begin
    end;
 end;
 
-procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasEmitidasSubcta;
+procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasEmitidasSubcta(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QInformesConta.GetBookMark;
-   DM.Enlace1.DataSet := DM.QInformesConta;
+   //DM.Enlace1.DataSet := DM.QInformesConta;
 
    DM.QInformesConta.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'FacturasEmitidasSubcta.pdf';
-      DM.FastReportFacturasEmitidasSubcta.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportFacturasEmitidasSubcta.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportFacturasEmitidasSubcta.PrepareReport(True);
-      DM.FastReportFacturasEmitidasSubcta.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QInformesConta.EOF then begin
          DM.QInformesConta.GotoBookMark(Marca);
@@ -1161,29 +1233,15 @@ begin
    end;
 end;
 
-procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasTipoIVA;
+procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasTipoIVA(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QInformesConta.GetBookMark;
-   DM.Enlace1.DataSet := DM.QInformesConta;
+   //DM.Enlace1.DataSet := DM.QInformesConta;
 
    DM.QInformesConta.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'FacturasTipoIVA.pdf';
-      DM.FastReportFacturasTipoIVA.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportFacturasTipoIVA.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportFacturasTipoIVA.PrepareReport(True);
-      DM.FastReportFacturasTipoIVA.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QInformesConta.EOF then begin
          DM.QInformesConta.GotoBookMark(Marca);
@@ -1194,29 +1252,15 @@ begin
    end;
 end;
 
-procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasEmitidas;
+procedure TFiltroLibroFacturasEmitidasModel.ReportFacturasEmitidas(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QInformesConta.GetBookMark;
-   DM.Enlace1.DataSet := DM.QInformesConta;
+   //DM.Enlace1.DataSet := DM.QInformesConta;
 
    DM.QInformesConta.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'FacturasEmitidas.pdf';
-      DM.FastReportFacturasEmitidas.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportFacturasEmitidas.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportFacturasEmitidas.PrepareReport(True);
-      DM.FastReportFacturasEmitidas.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QInformesConta.EOF then begin
          DM.QInformesConta.GotoBookMark(Marca);

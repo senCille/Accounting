@@ -320,7 +320,7 @@ begin
    QCuentas.Open;
    try
       while not QCuentas.EOF do begin
-         FInProgress.ShowNext(Format('Actualizando Cuenta %s : %s ', [QCuentas.FieldByName('CD_CUENTA').AsString, QCuentas.FieldByName('DS_CUENTA').AsString]));
+         FInProgress.ShowNext(Format('Actualizando Cuenta %s : %s ', [QCuentas.FieldByName('CUENTA').AsString, QCuentas.FieldByName('DESCRIPCION').AsString]));
          UpdateSaldoCuenta(QCuentas.FieldByName('CUENTA').AsString, YearMonths);
          QCuentas.Next;
       end;
