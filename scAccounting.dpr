@@ -109,7 +109,9 @@ uses
   ProjectsModel in 'Source\Projects\ProjectsModel.pas' {DataModule1: TDataModule},
   senCille.CustomVCLView in 'Source\senCille.CustomVCLView.pas' {FormCustomVCLView},
   senCille.VCLValidations in 'Source\senCille.VCLValidations.pas',
-  USubcuentasModel in 'Source\Subcuentas\USubcuentasModel.pas' {DataModuleSubcuentas: TDataModule};
+  USubcuentasModel in 'Source\Subcuentas\USubcuentasModel.pas' {DataModuleSubcuentas: TDataModule},
+  UInputVAT in 'Source\InputVAT\UInputVAT.pas' {WInputVAT},
+  UOutputVAT in 'Source\OutputVAT\UOutputVAT.pas' {WOutputVAT};
 
 {$R *.res}
 
@@ -120,6 +122,5 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
-  Application.CreateForm(TDataModuleSubcuentas, DataModuleSubcuentas);
   Application.Run;
 end.
