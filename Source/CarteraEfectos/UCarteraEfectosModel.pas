@@ -4,7 +4,8 @@ interface
 
 uses
   SysUtils, Classes, CustomModel, IBX.IBDatabase, IBX.IBSQL, DB, IBX.IBCustomDataSet,
-  frxClass, frxDBSet, frxExportPDF, DBClient;
+  frxClass, frxDBSet, frxExportPDF, DBClient,
+  senCille.CommonTypes;
 
 type
   TDataModuleCarteraEfectos = class(TDataModule)
@@ -37,9 +38,6 @@ type
     IBStringField38: TIBStringField;
     SSubCTAClientesProv: TDataSource;
     SSubCtaClientes: TDataSource;
-    FastReportCarteraBanco: TfrxReport;
-    PDFExport: TfrxPDFExport;
-    Enlace1: TfrxDBDataset;
     QFichero: TIBDataSet;
     QFicheroID_CARTERAEFECTOS: TIntegerField;
     QFicheroFVENCIMIENTO: TDateTimeField;
@@ -90,10 +88,6 @@ type
     CDSFiltroSITUACION: TStringField;
     CDSFiltroMONEDA: TStringField;
     DSFiltro: TDataSource;
-    FastReportCarteraSubcta: TfrxReport;
-    FastReportCarteraFVenc: TfrxReport;
-    FastReportCarteraSituacion: TfrxReport;
-    FastReportCarteraComercial: TfrxReport;
     procedure QFicheroBeforeOpen(DataSet: TDataSet);
     procedure QFicheroCalcFields(DataSet: TDataSet);
     procedure QFicheroNewRecord(DataSet: TDataSet);
@@ -127,11 +121,11 @@ type
     procedure DoInitialize; override;
     function  DataModule :TDataModuleCarteraEfectos;
     procedure Refresh;
-    procedure ReportCarteraFVenc;
-    procedure ReportCarteraSubcta;
-    procedure ReportCarteraBanco;
-    procedure ReportCarteraSituacion;
-    procedure ReportCarteraComercial;
+    procedure ReportCarteraFVenc    (ACallBack :TSimplyCallBack);
+    procedure ReportCarteraSubcta   (ACallBack :TSimplyCallBack);
+    procedure ReportCarteraBanco    (ACallBack :TSimplyCallBack);
+    procedure ReportCarteraSituacion(ACallBack :TSimplyCallBack);
+    procedure ReportCarteraComercial(ACallBack :TSimplyCallBack);
     property NuevoVto          :Boolean read GetNuevoVto          write SetNuevoVto;
     property SubcuentaNuevoVto :string  read GetSubcuentaNuevoVto write SetSubcuentaNuevoVto;
     property ConceptoNuevoVto  :string  read GetConceptoNuevoVto  write SetConceptoNuevoVto;
@@ -209,28 +203,13 @@ begin
 
 end;
 
-procedure TCarteraEfectosModel.ReportCarteraBanco;
+procedure TCarteraEfectosModel.ReportCarteraBanco(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QFichero.GetBookMark;
-   DM.Enlace1.DataSet := DM.QFichero;
    DM.QFichero.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'CarteraBanco.pdf';
-      DM.FastReportCarteraBanco.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportCarteraBanco.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportCarteraBanco.PrepareReport(True);
-      DM.FastReportCarteraBanco.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QFichero.EOF then begin
          DM.QFichero.GotoBookMark(Marca);
@@ -241,29 +220,14 @@ begin
    end;
 end;
 
-procedure TCarteraEfectosModel.ReportCarteraComercial;
+procedure TCarteraEfectosModel.ReportCarteraComercial(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QFichero.GetBookMark;
-   DM.Enlace1.DataSet := DM.QFichero;
 
    DM.QFichero.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'CarteraComercial.pdf';
-      DM.FastReportCarteraComercial.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportCarteraComercial.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportCarteraComercial.PrepareReport(True);
-      DM.FastReportCarteraComercial.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QFichero.EOF then begin
          DM.QFichero.GotoBookMark(Marca);
@@ -274,28 +238,14 @@ begin
    end;
 end;
 
-procedure TCarteraEfectosModel.ReportCarteraFVenc;
+procedure TCarteraEfectosModel.ReportCarteraFVenc(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QFichero.GetBookMark;
-   DM.Enlace1.DataSet := DM.QFichero;
 
    DM.QFichero.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.PDFExport.FileName := 'CarteraFVenc.pdf';
-      DM.FastReportCarteraFVenc.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportCarteraFVenc.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      DM.FastReportCarteraFVenc.PrepareReport(True);
-      DM.FastReportCarteraFVenc.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QFichero.EOF then begin
          DM.QFichero.GotoBookMark(Marca);
@@ -306,29 +256,14 @@ begin
    end;
 end;
 
-procedure TCarteraEfectosModel.ReportCarteraSituacion;
+procedure TCarteraEfectosModel.ReportCarteraSituacion(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QFichero.GetBookMark;
-   DM.Enlace1.DataSet := DM.QFichero;
 
    DM.QFichero.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'CarteraSituacion.pdf';
-      DM.FastReportCarteraSituacion.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportCarteraSituacion.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportCarteraSituacion.PrepareReport(True);
-      DM.FastReportCarteraSituacion.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QFichero.EOF then begin
          DM.QFichero.GotoBookMark(Marca);
@@ -339,29 +274,14 @@ begin
    end;
 end;
 
-procedure TCarteraEfectosModel.ReportCarteraSubcta;
+procedure TCarteraEfectosModel.ReportCarteraSubcta(ACallBack :TSimplyCallBack);
 var Marca :TBookMark;
 begin
    Marca := DM.QFichero.GetBookMark;
-   DM.Enlace1.DataSet := DM.QFichero;
 
    DM.QFichero.DisableControls;
    try
-      DM.PDFExport.Author          := 'senCille Accounting';
-      DM.PDFExport.ShowDialog      := False;
-      DM.PDFExport.OpenAfterExport := True;
-
-      DM.PDFExport.FileName := 'CarteraSubcta.pdf';
-      DM.FastReportCarteraSubcta.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
-      DM.FastReportCarteraSubcta.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-
-      {$Message Warn 'Pendant: complete the header with the dates and the user'}
-      {Descripcion := 'Desde la fecha ' + FormatDateTime('dd/mm/yyyy',
-                     DataSource.DataSet.FieldByName('FechaInicial').AsDateTime) + ' hasta ' +
-                     FormatDateTime('dd/mm/yyyy', DataSource.DataSet.FieldByName('FechaFinal').AsDateTime);}
-
-      DM.FastReportCarteraSubcta.PrepareReport(True);
-      DM.FastReportCarteraSubcta.Export(DM.PDFExport);
+      if Assigned(ACallBack) then ACallBack;
 
       if not DM.QFichero.EOF then begin
          DM.QFichero.GotoBookMark(Marca);

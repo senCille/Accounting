@@ -200,17 +200,17 @@ begin
       Q.SQL.Clear;
       Q.Database := DMRef.BDContab;
       Q.SQL.Add('SELECT NOMBRE FROM PROVINCIAS');
-      Q.SQL.Add('WHERE PROVINCIA=:PROVINCIA');
-      Q.Parambyname('provincia').AsString := DmRef.QParametrosPROVINCIA.AsString;
+      Q.SQL.Add('WHERE PROVINCIA = :PROVINCIA');
+      Q.Parambyname('PROVINCIA').AsString := DmRef.QParametrosPROVINCIA.AsString;
       Q.ExecQuery;
-      cProvincia := Q.FieldByName('nombre').AsString;
+      cProvincia := Q.FieldByName('NOMBRE').AsString;
       Q.Close;
    finally
       Q.Free;
    end;
 
-   // Preparacion registro a imprimir por impresor de Hacienda
-   AssignFile(F, Config.AppFolder + 'Hacienda\Entrada.txt');
+   // Preparacion registro a imprimir por impresora de Hacienda
+   AssignFile(F, Config.AppFolder + 'Entrada.txt');
    Rewrite(F);
    Registro := '110' +                // Modelo 110
       '01' +                          // Pagina 01
@@ -439,7 +439,7 @@ begin
    if not (QIrpf110.State in dsEditModes) then begin
       QIrpf110.Edit;
    end;
-   QIrpf110.FieldByName('Liquidacion22').AsFloat :=
+   QIrpf110LIQUIDACION_22.AsFloat :=
       RoundTo(QIrpf110LIQUIDACION_03.AsFloat +
               QIrpf110LIQUIDACION_06.AsFloat +
               QIrpf110LIQUIDACION_09.AsFloat +

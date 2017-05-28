@@ -6,7 +6,7 @@ uses Buttons, Classes, ComCtrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCt
      Forms, Graphics, Grids, IBX.IBCustomDataSet, IBX.IBDatabase, IBX.IBQuery, IBX.IBSQL, jpeg, Mask, Menus, Messages,
      StdCtrls, SysUtils, Variants, Windows,
      FormHandler,
-     UCarteraEfectosModel, DBGrids;
+     UCarteraEfectosModel, DBGrids, frxClass, frxExportPDF, frxDBSet;
      
 type
   TWCarteraEfectos = class(TForm)
@@ -16,7 +16,6 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     Label2: TLabel;
-    Shape1: TShape;
     PopupMenuListados: TPopupMenu;
     InformeFVenc: TMenuItem;
     InformeporSubcuenta1: TMenuItem;
@@ -126,6 +125,13 @@ type
     FiltroRemesasBancarias: TCheckBox;
     RadioGroupSITUACION: TDBRadioGroup;
     DBGrid: TDBGrid;
+    FastReportCarteraBanco: TfrxReport;
+    FastReportCarteraSubcta: TfrxReport;
+    FastReportCarteraFVenc: TfrxReport;
+    FastReportCarteraSituacion: TfrxReport;
+    FastReportCarteraComercial: TfrxReport;
+    Enlace1: TfrxDBDataset;
+    PDFExport: TfrxPDFExport;
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -169,6 +175,12 @@ type
     procedure SetImporteNuevoVto(const Value: Double);
     procedure SetNuevoVto(const Value: Boolean);
     procedure SetSubcuentaNuevoVto(const Value: string);
+    {--------------------------------}
+    procedure CallBackReportCarteraFVenc;
+    procedure CallBackReportCarteraSubcta;
+    procedure CallBackReportCarteraBanco;
+    procedure CallBackReportCarteraSituacion;
+    procedure CallBackReportCarteraComercial;
   public
     FFacturaCliente    :string;
     FFacturaProveedor  :string;
@@ -1196,7 +1208,7 @@ begin
       PrepararQuery;
    end;
    
-   FModel.ReportCarteraFVenc;
+   FModel.ReportCarteraFVenc(CallBackReportCarteraFVenc);
 end;
 
 procedure TWCarteraEfectos.InformeporSubcuenta1Click(Sender: TObject);
@@ -1209,7 +1221,8 @@ begin
       CampoOrden := 'SUBCUENTA';
       PrepararQuery;
    end;
-   FModel.ReportCarteraSubcta;
+
+   FModel.ReportCarteraSubcta(CallBackReportCarteraSubcta);
 end;
 
 procedure TWCarteraEfectos.InformeporBanco1Click(Sender: TObject);
@@ -1222,7 +1235,7 @@ begin
       CampoOrden := 'SUBCTABANCO';
       PrepararQuery;
    end;
-   FModel.ReportCarteraBanco;
+   FModel.ReportCarteraBanco(CallBackReportCarteraBanco);
 end;
 
 procedure TWCarteraEfectos.InformeporSituacin1Click(Sender: TObject);
@@ -1235,7 +1248,7 @@ begin
       CampoOrden := 'SITUACION, FVENCIMIENTO';
       PrepararQuery;
    end;
-   FModel.ReportCarteraSituacion;
+   FModel.ReportCarteraSituacion(CallBackReportCarteraSituacion);
 end;
 
 procedure TWCarteraEfectos.InformeporComercial1Click(Sender: TObject);
@@ -1248,7 +1261,7 @@ begin
       CampoOrden := 'COMERCIAL, SUBCUENTA, FVENCIMIENTO';
       PrepararQuery;
    end;
-   FModel.ReportCarteraComercial;
+   FModel.ReportCarteraComercial(CallBackReportCarteraComercial);
 end;
 
 procedure TWCarteraEfectos.BtnAsientoClick(Sender: TObject);
@@ -1730,6 +1743,96 @@ end;
 procedure TWCarteraEfectos.SetSubcuentaNuevoVto(const Value: string);
 begin
    FModel.SubcuentaNuevoVto := Value;
+end;
+
+procedure TWCarteraEfectos.CallBackReportCarteraFVenc;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'CarteraFVenc.pdf';
+   FastReportCarteraFVenc.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportCarteraFVenc.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   FastReportCarteraFVenc.Variables['REPORT_DESCRIPTION'] := ''''+'Desde la fecha de Vencimiento' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_DESDE.DataSource.DataSet.FieldByName('FECHAVENCIMDESDE').AsDateTime) + ' hasta ' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_HASTA.DataSource.DataSet.FieldByName('FECHAVENCIMHASTA').AsDateTime)+'''';
+
+   FastReportCarteraFVenc.PrepareReport(True);
+   FastReportCarteraFVenc.Export(PDFExport);
+end;
+
+procedure TWCarteraEfectos.CallBackReportCarteraSubcta;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'CarteraSubcta.pdf';
+   FastReportCarteraSubcta.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportCarteraSubcta.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   FastReportCarteraSubcta.Variables['REPORT_DESCRIPTION'] := ''''+'Desde la fecha de Vencimiento' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_DESDE.DataSource.DataSet.FieldByName('FECHAVENCIMDESDE').AsDateTime) + ' hasta ' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_HASTA.DataSource.DataSet.FieldByName('FECHAVENCIMHASTA').AsDateTime)+'''';
+
+   FastReportCarteraSubcta.PrepareReport(True);
+   FastReportCarteraSubcta.Export(PDFExport);
+end;
+
+procedure TWCarteraEfectos.CallBackReportCarteraBanco;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'CarteraBanco.pdf';
+   FastReportCarteraBanco.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportCarteraBanco.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   FastReportCarteraBanco.Variables['REPORT_DESCRIPTION'] := ''''+'Desde la fecha de Vencimiento' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_DESDE.DataSource.DataSet.FieldByName('FECHAVENCIMDESDE').AsDateTime) + ' hasta ' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_HASTA.DataSource.DataSet.FieldByName('FECHAVENCIMHASTA').AsDateTime)+'''';
+
+   FastReportCarteraBanco.PrepareReport(True);
+   FastReportCarteraBanco.Export(PDFExport);
+end;
+
+procedure TWCarteraEfectos.CallBackReportCarteraSituacion;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'CarteraSituacion.pdf';
+   FastReportCarteraSituacion.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportCarteraSituacion.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   FastReportCarteraSituacion.Variables['REPORT_DESCRIPTION'] := ''''+'Desde la fecha de Vencimiento' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_DESDE.DataSource.DataSet.FieldByName('FECHAVENCIMDESDE').AsDateTime) + ' hasta ' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_HASTA.DataSource.DataSet.FieldByName('FECHAVENCIMHASTA').AsDateTime)+'''';
+
+   FastReportCarteraSituacion.PrepareReport(True);
+   FastReportCarteraSituacion.Export(PDFExport);
+end;
+
+procedure TWCarteraEfectos.CallBackReportCarteraComercial;
+begin
+   PDFExport.Author          := 'senCille Accounting';
+   PDFExport.ShowDialog      := False;
+   PDFExport.OpenAfterExport := True;
+
+   PDFExport.FileName := 'CarteraComercial.pdf';
+   FastReportCarteraComercial.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
+   FastReportCarteraComercial.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+
+   FastReportCarteraComercial.Variables['REPORT_DESCRIPTION'] := ''''+'Desde la fecha de Vencimiento' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_DESDE.DataSource.DataSet.FieldByName('FECHAVENCIMDESDE').AsDateTime) + ' hasta ' +
+      FormatDateTime('dd/mm/yyyy', EditFECHA_EMISION_HASTA.DataSource.DataSet.FieldByName('FECHAVENCIMHASTA').AsDateTime)+'''';
+
+   FastReportCarteraComercial.PrepareReport(True);
+   FastReportCarteraComercial.Export(PDFExport);
 end;
 
 end.

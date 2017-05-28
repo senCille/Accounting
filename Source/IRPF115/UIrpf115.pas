@@ -130,7 +130,7 @@ begin
    end;
 
    // Preparacion registro a imprimir por impresor de Hacienda
-   AssignFile(F, Config.AppFolder + 'Hacienda\Entrada.txt');
+   AssignFile(F, Config.AppFolder + 'Entrada.txt');
    Rewrite(F);
    Registro      := '115' +                // Modelo 115
       '01' +                 // Pagina 01
