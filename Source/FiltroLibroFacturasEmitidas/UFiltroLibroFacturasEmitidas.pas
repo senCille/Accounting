@@ -230,8 +230,8 @@ begin
 
    case TipoListado of
       INF_MOD_300: begin
-         // Abrir Formulario para crear fichero QIVa300
-         WIva300 := TWIva300.Create(nil);
+         // Abrir Formulario para crear fichero QIVA300
+         WIVA300 := TWIVA300.Create(nil);
          try
             if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
                FModel.ReportLibroIVA(CallBackReportFacturasEmitidasSubcta,
