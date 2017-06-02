@@ -350,7 +350,7 @@ begin
    QSubcuentas.Open;
    try
       while not QSubcuentas.EOF do begin
-         FInProgress.ShowNext(Format('Actualizando Subcuenta %s : %s ', [QSubcuentas.FieldByName('CD_SUBCUENTA').AsString, QSubcuentas.FieldByName('DS_SUBCUENTA').AsString]));
+         FInProgress.ShowNext(Format('Actualizando Subcuenta %s : %s ', [QSubcuentas.FieldByName('SUBCUENTA').AsString, QSubcuentas.FieldByName('DESCRIPCION').AsString]));
          UpdateSaldoSubcuenta(QSubcuentas.FieldByName('SUBCUENTA').AsString, YearMonths);
          QSubcuentas.Next;
       end;
