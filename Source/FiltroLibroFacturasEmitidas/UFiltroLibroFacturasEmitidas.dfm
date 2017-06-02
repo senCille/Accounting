@@ -667,7 +667,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.638457245400000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42883.565179780090000000
+    ReportOptions.LastChange = 42888.590851770830000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -840,7 +840,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         object Label7: TfrxMemoView
           Left = 342.002110640000000000
           Top = 101.000380190000000000
-          Width = 228.000147250000000000
+          Width = 299.811217250000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -867,7 +867,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label1: TfrxMemoView
-          Left = 758.003639150000000000
+          Left = 832.003639150000000000
           Top = 101.000380190000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -879,21 +879,6 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           HAlign = haRight
           Memo.UTF8W = (
             'Importe IVA')
-          ParentFont = False
-        end
-        object Label2: TfrxMemoView
-          Left = 919.004058090000000000
-          Top = 101.000380190000000000
-          Width = 73.999417870000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Importe Neto')
           ParentFont = False
         end
         object SystemVariable1: TfrxMemoView
@@ -911,7 +896,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label4: TfrxMemoView
-          Left = 732.000472750000000000
+          Left = 806.000472750000000000
           Top = 101.000380190000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -926,7 +911,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label3: TfrxMemoView
-          Left = 572.001629260000000000
+          Left = 646.001629260000000000
           Top = 101.000380190000000000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
@@ -970,7 +955,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label12: TfrxMemoView
-          Left = 827.002738830000000000
+          Left = 901.002738830000000000
           Top = 101.000380190000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -985,7 +970,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label6: TfrxMemoView
-          Left = 853.002125700000000000
+          Left = 927.002125700000000000
           Top = 101.000380190000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -1000,7 +985,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label13: TfrxMemoView
-          Left = 655.000108060000000000
+          Left = 729.000108060000000000
           Top = 101.000380190000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -1107,8 +1092,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText11: TfrxMemoView
           Left = 342.002110640000000000
-          Top = 1.001575449999990000
-          Width = 228.000147250000000000
+          Top = 1.001575450000000000
+          Width = 299.811217250000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
           DataSet = DataModuleAmortizaciones.Enlace1
@@ -1141,7 +1126,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe: TfrxMemoView
-          Left = 827.002738830000000000
+          Left = 901.002738830000000000
           Top = 1.001575450000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -1155,32 +1140,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."Recargo"]')
           ParentFont = False
         end
-        object Importe1: TfrxMemoView
-          Left = 919.004058090000000000
-          Top = 1.001575450000000000
-          Width = 73.001621950000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[ENLACE1."TotalFactura"]')
-          ParentFont = False
-        end
         object IVA: TfrxMemoView
-          Left = 732.000472750000000000
+          Left = 806.000472750000000000
           Top = 1.001575450000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -1199,8 +1164,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object DBText3: TfrxMemoView
-          Left = 572.001629260000000000
-          Top = 1.001575449999990000
+          Left = 646.001629260000000000
+          Top = 1.001575450000000000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
           DataField = 'NIF'
@@ -1252,7 +1217,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe4: TfrxMemoView
-          Left = 853.002125700000000000
+          Left = 927.002125700000000000
           Top = 1.001575450000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -1266,13 +1231,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."cuotarecargo"]')
           ParentFont = False
         end
         object Importe5: TfrxMemoView
-          Left = 655.000108060000000000
+          Left = 729.000108060000000000
           Top = 1.001575450000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -1291,7 +1255,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe3: TfrxMemoView
-          Left = 758.003639150000000000
+          Left = 832.003639150000000000
           Top = 1.001575450000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -1334,27 +1298,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             '[SUM(<ENLACE1."Importe">,SUBINFORME)]')
           ParentFont = False
         end
-        object Memo2: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 15.000000000000000000
-          Width = 73.001621950000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[SUM(<ENLACE1."TotalFactura">,SUBINFORME)]')
-          ParentFont = False
-        end
         object Memo3: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 925.860707640000000000
           Top = 15.000000000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -1368,13 +1313,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[SUM(<ENLACE1."CuotaRecargo">,SUBINFORME)]')
           ParentFont = False
         end
         object Memo4: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 727.858690000000000000
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -1393,7 +1337,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 830.862221090000000000
           Top = 15.000000000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -1412,7 +1356,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 830.862221090000000000
           Top = 0.779530000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -1426,23 +1370,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             'Importe IVA')
           ParentFont = False
         end
-        object Memo7: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 0.779530000000000000
-          Width = 73.999417870000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Imp. Neto')
-          ParentFont = False
-        end
         object Memo8: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 925.860707640000000000
           Top = 0.779530000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -1457,7 +1386,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo9: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 727.858690000000000000
           Top = 0.779530000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -1499,7 +1428,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.639097233800000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42883.565316898150000000
+    ReportOptions.LastChange = 42888.592356979170000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1653,7 +1582,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label1: TfrxMemoView
-          Left = 654.002312140000000000
+          Left = 748.002312140000000000
           Top = 101.000380190000000000
           Width = 85.001629700000000000
           Height = 13.999379120000000000
@@ -1665,21 +1594,6 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           HAlign = haRight
           Memo.UTF8W = (
             'Importe IVA')
-          ParentFont = False
-        end
-        object Label2: TfrxMemoView
-          Left = 862.001186630000000000
-          Top = 101.000380190000000000
-          Width = 92.001319260000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Importe Neto')
           ParentFont = False
         end
         object SystemVariable1: TfrxMemoView
@@ -1697,7 +1611,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label4: TfrxMemoView
-          Left = 617.000713440000000000
+          Left = 711.000713440000000000
           Top = 101.000380190000000000
           Width = 37.999394620000000000
           Height = 13.999379120000000000
@@ -1756,7 +1670,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label12: TfrxMemoView
-          Left = 738.002366390000000000
+          Left = 832.002366390000000000
           Top = 101.000380190000000000
           Width = 42.999712810000000000
           Height = 13.999379120000000000
@@ -1771,7 +1685,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label6: TfrxMemoView
-          Left = 780.000503750000000000
+          Left = 874.000503750000000000
           Top = 101.000380190000000000
           Width = 82.998478800000000000
           Height = 13.999379120000000000
@@ -1786,7 +1700,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label13: TfrxMemoView
-          Left = 527.002545080000000000
+          Left = 621.002545080000000000
           Top = 101.000380190000000000
           Width = 90.999743810000000000
           Height = 13.999379120000000000
@@ -1870,7 +1784,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe: TfrxMemoView
-          Left = 738.002366390000000000
+          Left = 832.002366390000000000
           Top = 1.001575450000000000
           Width = 42.999712810000000000
           Height = 13.999379120000000000
@@ -1884,32 +1798,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."Recargo"]')
           ParentFont = False
         end
-        object Importe1: TfrxMemoView
-          Left = 862.001186630000000000
-          Top = 1.001575450000000000
-          Width = 92.001319260000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[ENLACE1."TotalFactura"]')
-          ParentFont = False
-        end
         object IVA: TfrxMemoView
-          Left = 617.000713440000000000
+          Left = 711.000713440000000000
           Top = 1.001575450000000000
           Width = 37.999394620000000000
           Height = 13.999379120000000000
@@ -1964,7 +1858,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe3: TfrxMemoView
-          Left = 654.002312140000000000
+          Left = 748.002312140000000000
           Top = 1.001575450000000000
           Width = 85.001629700000000000
           Height = 13.999379120000000000
@@ -1983,7 +1877,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe4: TfrxMemoView
-          Left = 780.000503750000000000
+          Left = 874.000503750000000000
           Top = 1.001575450000000000
           Width = 82.998478800000000000
           Height = 13.999379120000000000
@@ -1997,13 +1891,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."cuotarecargo"]')
           ParentFont = False
         end
         object Importe5: TfrxMemoView
-          Left = 527.002545080000000000
+          Left = 621.002545080000000000
           Top = 1.001575450000000000
           Width = 90.999743810000000000
           Height = 13.999379120000000000
@@ -2081,9 +1974,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         Top = 245.669450000000000000
         Width = 1122.520410000000000000
         object Memo1: TfrxMemoView
-          Left = 993.861429270000000000
+          Left = 965.861429270000000000
           Top = 15.000000000000000000
-          Width = 73.999417870000000000
+          Width = 89.117537870000000000
           Height = 13.995599590000000000
           DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
@@ -2099,29 +1992,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             '[SUM(<ENLACE1."Importe">,SUBINFORME)]')
           ParentFont = False
         end
-        object Memo2: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 15.000000000000000000
-          Width = 73.001621950000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[SUM(<ENLACE1."TotalFactura">,SUBINFORME)]')
-          ParentFont = False
-        end
         object Memo3: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 877.860707640000000000
           Top = 15.000000000000000000
-          Width = 63.998781490000000000
+          Width = 79.116901490000000000
           Height = 13.999379120000000000
           DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
@@ -2133,15 +2007,14 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[SUM(<ENLACE1."CuotaRecargo">,SUBINFORME)]')
           ParentFont = False
         end
         object Memo4: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 625.858690000000000000
           Top = 15.000000000000000000
-          Width = 73.999417870000000000
+          Width = 89.117537870000000000
           Height = 13.999379120000000000
           DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
@@ -2158,9 +2031,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 753.862221090000000000
           Top = 15.000000000000000000
-          Width = 66.001932390000000000
+          Width = 77.340522390000000000
           Height = 13.999379120000000000
           DataSet = DataModuleAmortizaciones.Enlace1
           DataSetName = 'ENLACE1'
@@ -2177,9 +2050,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 753.862221090000000000
           Top = 0.779530000000000000
-          Width = 66.001932390000000000
+          Width = 77.340522390000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2191,25 +2064,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             'Importe IVA')
           ParentFont = False
         end
-        object Memo7: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 0.779530000000000000
-          Width = 73.999417870000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Imp. Neto')
-          ParentFont = False
-        end
         object Memo8: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 877.860707640000000000
           Top = 0.779530000000000000
-          Width = 63.998781490000000000
+          Width = 79.116901490000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2222,9 +2080,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo9: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 625.858690000000000000
           Top = 0.779530000000000000
-          Width = 73.999417870000000000
+          Width = 89.117537870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2237,9 +2095,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo10: TfrxMemoView
-          Left = 993.861429270000000000
+          Left = 965.861429270000000000
           Top = 0.779530000000000000
-          Width = 73.999417870000000000
+          Width = 89.117537870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2264,7 +2122,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.638637905100000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42883.565033958330000000
+    ReportOptions.LastChange = 42888.589864282410000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -2437,7 +2295,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         object Label7: TfrxMemoView
           Left = 342.002110640000000000
           Top = 101.000380190000000000
-          Width = 228.000147250000000000
+          Width = 296.031687250000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2464,7 +2322,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label1: TfrxMemoView
-          Left = 758.003639150000000000
+          Left = 831.003639150000000000
           Top = 101.000380190000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -2476,21 +2334,6 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           HAlign = haRight
           Memo.UTF8W = (
             'Importe IVA')
-          ParentFont = False
-        end
-        object Label2: TfrxMemoView
-          Left = 919.004058090000000000
-          Top = 101.000380190000000000
-          Width = 73.999417870000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Imp. Neto')
           ParentFont = False
         end
         object SystemVariable1: TfrxMemoView
@@ -2508,7 +2351,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label4: TfrxMemoView
-          Left = 732.000472750000000000
+          Left = 805.000472750000000000
           Top = 101.000380190000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -2523,7 +2366,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label3: TfrxMemoView
-          Left = 572.001629260000000000
+          Left = 645.001629260000000000
           Top = 101.000380190000000000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
@@ -2567,7 +2410,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label12: TfrxMemoView
-          Left = 827.002738830000000000
+          Left = 900.002738830000000000
           Top = 101.000380190000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -2582,7 +2425,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label6: TfrxMemoView
-          Left = 853.002125700000000000
+          Left = 926.002125700000000000
           Top = 101.000380190000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -2597,7 +2440,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label13: TfrxMemoView
-          Left = 655.000108060000000000
+          Left = 728.000108060000000000
           Top = 101.000380190000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -2704,7 +2547,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         object DBText11: TfrxMemoView
           Left = 342.002110640000000000
           Top = 1.001575450000000000
-          Width = 228.000147250000000000
+          Width = 296.031687250000000000
           Height = 13.999379120000000000
           DataField = 'DescSubcuenta'
           DataSet = DataModuleAmortizaciones.Enlace1
@@ -2737,7 +2580,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe: TfrxMemoView
-          Left = 827.002738830000000000
+          Left = 900.002738830000000000
           Top = 1.001575450000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -2751,32 +2594,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."Recargo"]')
           ParentFont = False
         end
-        object Importe1: TfrxMemoView
-          Left = 919.004058090000000000
-          Top = 1.001575450000000000
-          Width = 73.001621950000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[ENLACE1."TotalFactura"]')
-          ParentFont = False
-        end
         object IVA: TfrxMemoView
-          Left = 732.000472750000000000
+          Left = 805.000472750000000000
           Top = 1.001575450000000000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
@@ -2795,8 +2618,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object DBText3: TfrxMemoView
-          Left = 572.001629260000000000
-          Top = 1.001575449999990000
+          Left = 645.001629260000000000
+          Top = 1.001575450000000000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
           DataField = 'NIF'
@@ -2848,7 +2671,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe4: TfrxMemoView
-          Left = 853.002125700000000000
+          Left = 926.002125700000000000
           Top = 1.001575450000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -2862,13 +2685,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[ENLACE1."cuotarecargo"]')
           ParentFont = False
         end
         object Importe5: TfrxMemoView
-          Left = 655.000108060000000000
+          Left = 728.000108060000000000
           Top = 1.001575450000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -2887,7 +2709,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Importe3: TfrxMemoView
-          Left = 758.003639150000000000
+          Left = 831.003639150000000000
           Top = 1.001575450000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -2930,27 +2752,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             '[SUM(<ENLACE1."Importe">,SUBINFORME)]')
           ParentFont = False
         end
-        object Memo2: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 15.000000000000000000
-          Width = 73.001621950000000000
-          Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
-          DataSetName = 'ENLACE1'
-          DisplayFormat.FormatStr = '%2.2n'
-          DisplayFormat.Kind = fkNumeric
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8W = (
-            '[SUM(<ENLACE1."TotalFactura">,SUBINFORME)]')
-          ParentFont = False
-        end
         object Memo3: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 924.860707640000000000
           Top = 15.000000000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -2964,13 +2767,12 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
-          HideZeros = True
           Memo.UTF8W = (
             '[SUM(<ENLACE1."CuotaRecargo">,SUBINFORME)]')
           ParentFont = False
         end
         object Memo4: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 726.858690000000000000
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
@@ -2989,7 +2791,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 829.862221090000000000
           Top = 15.000000000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -3009,7 +2811,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 756.862221090000000000
+          Left = 829.862221090000000000
           Top = 0.779530000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
@@ -3023,23 +2825,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
             'Importe IVA')
           ParentFont = False
         end
-        object Memo7: TfrxMemoView
-          Left = 917.862640030000000000
-          Top = 0.779530000000000000
-          Width = 73.999417870000000000
-          Height = 13.999379120000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Imp. Neto')
-          ParentFont = False
-        end
         object Memo8: TfrxMemoView
-          Left = 851.860707640000000000
+          Left = 924.860707640000000000
           Top = 0.779530000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
@@ -3054,7 +2841,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Memo9: TfrxMemoView
-          Left = 653.858690000000000000
+          Left = 726.858690000000000000
           Top = 0.779530000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000

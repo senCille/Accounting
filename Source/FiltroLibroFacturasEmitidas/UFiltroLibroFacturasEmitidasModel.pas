@@ -686,43 +686,48 @@ begin
       try
          QApuntes.Database := DMRef.BDContab;
 
-         QApuntes.SQL.Add('SELECT D.ASIENTO         ,     ');
-         QApuntes.SQL.Add('       D.NUMEROFACTURA   ,     ');
-         QApuntes.SQL.Add('       D.FECHA           ,     ');
-         QApuntes.SQL.Add('       D.IMPORTE         ,     ');
-         QApuntes.SQL.Add('       D.NIF             ,     ');
-         QApuntes.SQL.Add('       T.TIPOCUENTA      ,     ');
-         QApuntes.SQL.Add('       D.MONEDA          ,     ');
-         QApuntes.SQL.Add('       D.CONTRAPARTIDA   ,     ');
-         QApuntes.SQL.Add('       D.RECARGO         ,     ');
-         QApuntes.SQL.Add('       D.IVA             ,     ');
-         QApuntes.SQL.Add('       D.BASEIMPONIBLE   ,     ');
-         QApuntes.SQL.Add('       D.SERIE           ,     ');
-         QApuntes.SQL.Add('       D.EJERCICIO       ,     ');
-         QApuntes.SQL.Add('       D.COMENTARIO      ,     ');
-         QApuntes.SQL.Add('       D.ID_CONCEPTOS    ,     ');
-         QApuntes.SQL.Add('       S.TIPOIVA         ,     ');
-         QApuntes.SQL.Add('       D.CUOTARECARGO    ,     ');
-         QApuntes.SQL.Add('       D.CUOTAIVA        ,     ');
-         QApuntes.SQL.Add('       D.CUENTA_ANALITICA,     ');
-         QApuntes.SQL.Add('       D.SUBCUENTA             ');
-         QApuntes.SQL.Add('FROM  DIARIO D, CONCEPTOS C , CUENTAS T, SUBCTAS S  ');
-         QApuntes.SQL.Add('WHERE D.ID_CONCEPTOS = C.ID_CONCEPTOS AND (C.TIPOCONCEPTO = "I" OR C.TIPOCONCEPTO = "2") ');
-         QApuntes.SQL.Add('AND   SUBSTR(D.SUBCUENTA, 1, 3) = T.CUENTA AND D.SUBCUENTA = S.SUBCUENTA                 ');
+         QApuntes.SQL.Add('SELECT D.ASIENTO         ,                             ');
+         QApuntes.SQL.Add('       D.NUMEROFACTURA   ,                             ');
+         QApuntes.SQL.Add('       D.FECHA           ,                             ');
+         QApuntes.SQL.Add('       D.IMPORTE         ,                             ');
+         QApuntes.SQL.Add('       D.NIF             ,                             ');
+         QApuntes.SQL.Add('       T.TIPOCUENTA      ,                             ');
+         QApuntes.SQL.Add('       D.MONEDA          ,                             ');
+         QApuntes.SQL.Add('       D.CONTRAPARTIDA   ,                             ');
+         QApuntes.SQL.Add('       D.RECARGO         ,                             ');
+         QApuntes.SQL.Add('       D.IVA             ,                             ');
+         QApuntes.SQL.Add('       D.BASEIMPONIBLE   ,                             ');
+         QApuntes.SQL.Add('       D.SERIE           ,                             ');
+         QApuntes.SQL.Add('       D.EJERCICIO       ,                             ');
+         QApuntes.SQL.Add('       D.COMENTARIO      ,                             ');
+         QApuntes.SQL.Add('       D.ID_CONCEPTOS    ,                             ');
+         QApuntes.SQL.Add('       S.TIPOIVA         ,                             ');
+         QApuntes.SQL.Add('       D.CUOTARECARGO    ,                             ');
+         QApuntes.SQL.Add('       D.CUOTAIVA        ,                             ');
+         QApuntes.SQL.Add('       D.CUENTA_ANALITICA,                             ');
+         QApuntes.SQL.Add('       D.SUBCUENTA                                     ');
+         QApuntes.SQL.Add('FROM  DIARIO    D,                                     ');
+         QApuntes.SQL.Add('      CONCEPTOS C,                                     ');
+         QApuntes.SQL.Add('      CUENTAS   T,                                     ');
+         QApuntes.SQL.Add('      SUBCTAS   S                                      ');
+         QApuntes.SQL.Add('WHERE (D.ID_CONCEPTOS  = C.ID_CONCEPTOS             )  ');
+         QApuntes.SQL.Add('AND   (C.TIPOCONCEPTO  = "I" OR C.TIPOCONCEPTO = "2")  ');
+         QApuntes.SQL.Add('AND   (SUBSTR(D.SUBCUENTA, 1, 3) = T.CUENTA         )  ');
+         QApuntes.SQL.Add('AND   (D.SUBCUENTA     = S.SUBCUENTA                )  ');
 
          if ATipoInforme = 'E' then QApuntes.SQL.Add(' AND  T.TIPOCUENTA = "R"'                          ) else
          if ATipoInforme = '3' then QApuntes.SQL.Add(' AND (T.TIPOCUENTA = "S" OR  T.TIPOCUENTA =  "R") ') else
          if ATipoInforme = 'R' then QApuntes.SQL.Add(' AND (T.TIPOCUENTA = "S" AND S.TIPOIVA    <> "B") ') else
          if ATipoInfoRME = 'B' then QApuntes.SQL.Add(' AND (T.TIPOCUENTA = "S" and S.TIPOIVA     = "B") ');
 
-         QApuntes.SQL.Add('  AND D.Fecha         >= :FechaIni    AND D.Fecha         <= :FechaFin    ');
-         QApuntes.SQL.Add('  AND D.BaseImponible >= :BaseIni     AND D.BaseImponible <= :BaseFin     ');
-         QApuntes.SQL.Add('  AND D.Importe       >= :CuotaIvaIni AND D.Importe       <= :CuotaIvaFin ');
+         QApuntes.SQL.Add('  AND D.FECHA         >= :FECHAINI    AND D.FECHA         <= :FECHAFIN    ');
+         QApuntes.SQL.Add('  AND D.BASEIMPONIBLE >= :BASEINI     AND D.BASEIMPONIBLE <= :BASEFIN     ');
+         QApuntes.SQL.Add('  AND D.IMPORTE       >= :CUOTAIVAINI AND D.IMPORTE       <= :CUOTAIVAFIN ');
          if (AIVAINICIAL = 0) or (AIVAFINAL = 0) then begin
             QApuntes.SQL.Add('  AND ((D.IVA >= :IVAINI AND D.IVA <= :IVAFIN) OR (D.IVA IS NULL))     ');
          end
          else begin
-            QApuntes.SQL.Add('  AND D.IVA >= :IvaIni AND D.Iva <= :IvaFin ');
+            QApuntes.SQL.Add('  AND D.IVA >= :IVAINI AND D.IVA <= :IVAFIN ');
          end;
 
          // Recordar que en importe esta la misma cantidad que en cuotaiva

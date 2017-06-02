@@ -84,7 +84,8 @@ var WEmpresas: TWEmpresas;
 implementation
 
 uses System.UITypes,
-     DM, DMConta, DMControl, Tools, Globales, Processing, UUtilEmpresas;
+     DM, DMConta, DMControl, Tools, Globales, Processing,
+     EnterpriseTools;
 
 {$R *.DFM}
 

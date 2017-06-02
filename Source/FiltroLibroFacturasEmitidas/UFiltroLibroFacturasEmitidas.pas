@@ -222,15 +222,15 @@ end;
 
 procedure TWFiltroLibroFactEmitidas.BtnProcessClick(Sender: TObject);
 begin
-   // Primero vaciar el fichero
+   { Empty previous Data }
    DMContaRef.QInformesConta.EmptyDataset;
 
-   // Pasamos al siguiente registro para que el ultimo campo se guarde correctamente
+   { Goes to the next component, visually, to be sure that current component flush data to controller }
    Perform(wm_NextDlgCtl, 0, 0);
 
    case TipoListado of
       INF_MOD_300: begin
-         // Abrir Formulario para crear fichero QIVA300
+         { Opens the view to create QIVA300 file }
          WIVA300 := TWIVA300.Create(nil);
          try
             if CDSFiltroInforme.AsString = 'S' then begin  {ReportFacturasEmitidasSubcta(ACallBack);}
@@ -302,7 +302,7 @@ begin
                                      CDSFiltroID_PROYECTO.AsString,               //AProyecto       ,
                                      CDSFiltroINTRACOMUN.AsString);               //AIntracomun     :string);
             end;
-            // Mostrar la ventana antes de imprimir el fichero
+            {Shows the form that allows print the report }
             WIVA300.ShowModal;
          finally
             FreeAndNil(WIVA300);

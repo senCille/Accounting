@@ -123,7 +123,7 @@ uses System.Win.Registry, System.StrUtils, System.UITypes,
      UFiltroListadosAsientos, UFiltroListadosMayor, UFiltroSitPgGg, UFormasPago, UGrupos, UImportacion,
      UIrpf110, UIrpf115, UISoc202, UPaises, UParametrizacion, UParametrizacionFacturacion,
      UPlanAnalico, UPlanContable, UPunteoDiario, URecalculoSaldos, USecciones, USubCuentas, UTiposDiario,
-     UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios, UActualizacionBD,
+     UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios, DatabaseUpdate,
      ProjectsController, UInputVAT, UOutputVAT;
 
 {$R *.DFM}
@@ -739,11 +739,11 @@ end;
 
 procedure TMainMenuForm.MenuItemActualizacionDBClick(Sender: TObject);
 begin
-   WActualizacionBD := TWActualizacionBD.Create(nil);
+   ViewDatabaseUpdate := TViewDatabaseUpdate.Create(nil);
    try
-      WActualizacionBD.ShowModal;
+      ViewDatabaseUpdate.ShowModal;
    finally
-      FreeAndNil(WActualizacionBD);
+      FreeAndNil(ViewDatabaseUpdate);
    end;
 end;
 

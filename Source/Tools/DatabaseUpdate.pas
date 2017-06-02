@@ -1,11 +1,11 @@
-unit UActualizacionBD;
+unit DatabaseUpdate;
 
 interface
 uses SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls, Forms, Dialogs, Grids, DB,
      StdCtrls, Buttons, ExtCtrls, DBCtrls, Mask, IBX.IBDatabase, IBX.IBSQL, ComCtrls, IBX.IBServices;
 
 type
-  TWActualizacionBD = class(TForm)
+  TViewDatabaseUpdate = class(TForm)
     Datos: TGroupBox;
     Shape1: TShape;
     lTitulo: TLabel;
@@ -22,18 +22,18 @@ type
     cUbicacionEmpresa, cNombreServidor: String;
   end;
 
-var WActualizacionBD: TWActualizacionBD;
+var ViewDatabaseUpdate: TViewDatabaseUpdate;
 
 implementation
 
 uses System.Types, System.IOUtils,
      IBX.IBScript,
      DM,
-     Globales, UUTilEmpresas;
+     Globales;
 
 {$R *.DFM}
 
-procedure TWActualizacionBD.MostrarActualizacionActual;
+procedure TViewDatabaseUpdate.MostrarActualizacionActual;
 //var Q :TIBSQL;
 begin
    //Q := TIBSQL.Create(nil);
@@ -47,7 +47,7 @@ begin
    //end;
 end;
 
-procedure TWActualizacionBD.ShowAllSQLFiles;
+procedure TViewDatabaseUpdate.ShowAllSQLFiles;
 var LList         :TStringDynArray;
     i             :Integer;
     LSearchOption :TSearchOption;
@@ -72,7 +72,7 @@ begin
    end;
 end;
 
-procedure TWActualizacionBD.BtnAcceptClick(Sender: TObject);
+procedure TViewDatabaseUpdate.BtnAcceptClick(Sender: TObject);
 var IBScript :TIBScript;
 begin
    if FileListBox.ItemIndex <> -1 then begin
@@ -95,13 +95,13 @@ begin
    end;
 end;
 
-procedure TWActualizacionBD.FormShow(Sender: TObject);
+procedure TViewDatabaseUpdate.FormShow(Sender: TObject);
 begin
    //MostrarActualizacionActual;
    ShowAllSQLFiles;
 end;
 
-procedure TWActualizacionBD.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TViewDatabaseUpdate.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
    case Key of
       VK_F9: begin

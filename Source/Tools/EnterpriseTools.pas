@@ -1,4 +1,4 @@
-unit UUtilEmpresas;
+unit EnterpriseTools;
 
 interface
 uses SysUtils, WinTypes, WinProcs, Messages, Classes, Graphics, Controls, Forms, Dialogs, Grids, DB,
@@ -29,7 +29,7 @@ var WUtilEmpresas: TWUtilEmpresas;
 implementation
 
 uses System.UITypes,
-     DM, Globales, UActualizacionBD, Processing;
+     DM, Globales, Processing;
 
 {$R *.DFM}
 
@@ -248,12 +248,12 @@ begin
             Transaccion.Active := True;
          end;
          
-         WActualizacionBD := TWActualizacionBD.Create(nil);
+         (*WActualizacionBD := TWActualizacionBD.Create(nil);
          try
             WActualizacionBD.ShowModal;
          finally
             FreeAndNil(WActualizacionBD);
-         end;
+         end;*)
 
          Transaccion.active := False;
          BdMinima.connected := False;
