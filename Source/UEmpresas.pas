@@ -536,8 +536,8 @@ procedure TWEmpresas.BtnToolsClick(Sender: TObject);
 begin
    WUtilEmpresas := TWUtilEmpresas.Create(nil);
    try
-      WUtilEmpresas.lbNombreEmpresa.Caption := 'Base de Datos actual: ' + Trim(QFicheroNombre.AsString);
-      WUtilEmpresas.cUbicacionEmpresa       := Trim(QFicheroUbicacion.AsString);
+      WUtilEmpresas.LabelEnterpriseName.Caption := 'Base de Datos actual: ' + Trim(QFicheroNombre.AsString);
+      WUtilEmpresas.cUbicacionEmpresa           := Trim(QFicheroUbicacion.AsString);
       WUtilEmpresas.ShowModal;
    finally
       WUtilEmpresas.Free;

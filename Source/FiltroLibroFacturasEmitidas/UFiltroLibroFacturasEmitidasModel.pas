@@ -715,6 +715,11 @@ begin
          QApuntes.SQL.Add('AND   (SUBSTR(D.SUBCUENTA, 1, 3) = T.CUENTA         )  ');
          QApuntes.SQL.Add('AND   (D.SUBCUENTA     = S.SUBCUENTA                )  ');
 
+
+         //if ATipoInforme = 'B' then 'LIBRO DE FACTURAS BIENES DE INVERSION'; ClienteProveedor := 'Proveedor';
+         //if ATipoInforme = 'R' then 'LIBRO DE FACTURAS RECIBIDAS'          ; ClienteProveedor := 'Proveedor';
+         //                           'LIBRO DE FACTURAS EMITIDAS'           ; ClienteProveedor := 'Cliente';
+
          if ATipoInforme = 'E' then QApuntes.SQL.Add(' AND  T.TIPOCUENTA = "R"'                          ) else
          if ATipoInforme = '3' then QApuntes.SQL.Add(' AND (T.TIPOCUENTA = "S" OR  T.TIPOCUENTA =  "R") ') else
          if ATipoInforme = 'R' then QApuntes.SQL.Add(' AND (T.TIPOCUENTA = "S" AND S.TIPOIVA    <> "B") ') else

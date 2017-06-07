@@ -2653,7 +2653,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
     AutoEdit = False
     DataSet = QInfDiario
     Left = 427
-    Top = 115
+    Top = 139
   end
   object QInfDiario: TIBDataSet
     Database = DMRef.BDContab
@@ -2798,7 +2798,7 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
     UniDirectional = False
     DataSource = SInformesConta
     Left = 357
-    Top = 122
+    Top = 138
     object QInfDiarioASIENTO: TIntegerField
       DisplayWidth = 8
       FieldName = 'ASIENTO'

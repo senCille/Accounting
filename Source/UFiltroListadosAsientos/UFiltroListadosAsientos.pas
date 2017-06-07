@@ -4,7 +4,8 @@ interface
 
 uses Classes, comctrls, Controls, Db, DBClient, DBCtrls, Dialogs, ExtCtrls,
      Forms, Graphics, Mask, Messages, StdCtrls, SysUtils, Windows,
-     UFiltroListadosAsientosModel, frxClass, frxDBSet, frxExportPDF;
+     frxClass, frxDBSet, frxExportPDF,
+     UFiltroListadosAsientosModel;
      
 type
   TWFiltroListadosAsientos = class(TForm)
@@ -60,9 +61,10 @@ type
     CDSFiltroID_SECCION: TStringField;
     CDSFiltroID_PROYECTO: TStringField;
     PDFExport: TfrxPDFExport;
-    FRXEnlace1: TfrxDBDataset;
+    Enlace1: TfrxDBDataset;
     FastReportAsientos: TfrxReport;
     FastReportAsientosExpandido: TfrxReport;
+    frxReport1: TfrxReport;
     procedure BtnProcessClick(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
@@ -79,7 +81,7 @@ var WFiltroListadosAsientos: TWFiltroListadosAsientos;
 
 implementation
 
-uses DM, DMConta,  Globales;
+uses DM, DMConta, Globales;
 
 {$R *.DFM}
 
@@ -114,8 +116,6 @@ end;
 
 procedure TWFiltroListadosAsientos.BtnProcessClick(Sender: TObject);
 begin
-   DMContaRef.QInformesConta.EmptyDataset;
-
    {Force next control selection}
    Perform(wm_NextDlgCtl, 0, 0);
    Config.SetAccountingType(CDSFiltroTIPO_CONCEPTO.AsString);
@@ -123,6 +123,7 @@ begin
    try
       case TipoListado of
          INF_ASIENTOS: begin
+            Enlace1.DataSet := FModel.DM.QInformesConta;
             FModel.LanzarInfAsientos(CallBackReportEntries,
                                      CDSFiltroASIENTO_DESDE.AsInteger  ,
                                      CDSFiltroASIENTO_HASTA.AsInteger  ,

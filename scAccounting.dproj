@@ -168,7 +168,6 @@
         <DCCReference Include="Source\Parametrizacion\UParametrizacionModel.pas"/>
         <DCCReference Include="Source\RecalculoSaldos\URecalculoSaldos.pas"/>
         <DCCReference Include="Source\RecalculoSaldos\URecalculoSaldosModel.pas"/>
-        <DCCReference Include="Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas"/>
         <DCCReference Include="Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas"/>
         <DCCReference Include="Source\UFiltroListadosMayor\UFiltroListadosMayor.pas"/>
         <DCCReference Include="Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas"/>
@@ -357,6 +356,10 @@
             <Form>WOutputVAT</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas">
+            <Form>WFiltroListadosAsientos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -389,12 +392,27 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -773,27 +791,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>

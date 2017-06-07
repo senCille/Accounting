@@ -1057,9 +1057,9 @@ begin
    else begin
       QFicheroHaber.AsFloat := QFicheroIMPORTE.AsFloat;
    end;
-   QFichero.FieldByName('FechaInicial'  ).AsDateTime := QFiltro.FieldByName('FechaDesde').AsDateTime;
-   QFichero.FieldByName('FechaFinal'    ).AsDateTime := QFiltro.FieldByName('FechaHasta').AsDateTime;
-   QFichero.FieldByName('FechaImpresion').AsDateTime := Date;
+   QFichero.FieldByName('FECHAINICIAL'  ).AsDateTime := QFiltro.FieldByName('FECHADESDE').AsDateTime;
+   QFichero.FieldByName('FECHAFINAL'    ).AsDateTime := QFiltro.FieldByName('FECHAHASTA').AsDateTime;
+   QFichero.FieldByName('FECHAIMPRESION').AsDateTime := Date;
 end;
 
 procedure TWDiario.ListadoAsientosClick(Sender: TObject);
@@ -1068,24 +1068,24 @@ begin
       Exit;
    end;
 
-   // Necessary for the report
+   { Necessary for the report }
    Config.SetAccountingType(QFiltro.FieldByName('TIPOCONCEPTO').AsString);
    Config.ReportCurrency  := QFiltro.FieldByName('MONEDA').AsString;
    Config.FormatoOficial  := False;
 
-   //FModel.ReportAsientos(QFichero);
+   Enlace1.Close;
+   Enlace1.DataSet := nil;
+   Enlace1.DataSet := QFichero;
+   Enlace1.Open;
 
-   Enlace1.DataSet           := QFichero;
    PDFExport.Author          := 'senCille Accounting';
    PDFExport.ShowDialog      := False;
    PDFExport.OpenAfterExport := True;
 
-   PDFExport.FileName := 'AsientosDesdeElDiario.pdf';
+   PDFExport.FileName := 'Asientos _Desde el Diario_.pdf';
    FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
    FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
-   //DM.FastReportAsientos.Variables['DESCRIPTION'    ] := ''''+'Desde la fecha ' + FormatDateTime('dd/mm/yyyy', AFECHA_DESDE) +
-   //                                                           ' hasta '         + FormatDateTime('dd/mm/yyyy', AFECHA_HASTA) +'''';
-   //DM.FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+FormatDateTime('dd/mm/yyyy', AFechaImpresion)+'''';
+   FastReportAsientos.Variables['DESCRIPTION'    ] := '''Selección actual en Pantalla''';
 
    if FastReportAsientos.PrepareReport then begin
       FastReportAsientos.Export(PDFExport);
@@ -1101,19 +1101,17 @@ begin
       Exit;
    end;
 
-   { First, empty current invormation }
-   DMContaRef.QInformesConta.EmptyDataset;
-
    Perform(wm_NextDlgCtl, 0, 0);
 
-   // Necessary for the report
+   { Necessary for the report }
    Config.SetAccountingType(QFiltro.FieldByName('TipoConcepto').AsString);
    Config.ReportCurrency := QFiltro.FieldByName('Moneda'      ).AsString;
 
    if not QFichero.IsEmpty then begin
       Model := TFiltroListadosAsientosModel.Create(DMRef.BDContab);
+      { First, empty current information }
+      Enlace1.DataSet := Model.DM.QInformesConta;
       try
-
          Model.LanzarInfAsientos(CallBackReportEntries,
                                  QFichero.FieldByName('Asiento').AsInteger,
                                  QFichero.FieldByName('Asiento').AsInteger,
@@ -1126,14 +1124,14 @@ begin
                                  '',
                                  '',
                                  '',
-                                 True,  // Ordenado por asiento
-                                 True,  // Informe Normal
-                                 False, // Solo asientos descuadrados
+                                 True,  { Order by ASIENTO               }
+                                 True,  { Normal Report                  }
+                                 False, { Only BookEntries not balanced. }
                                  False);
       finally
          Model.Free;
       end;
-   end; // Formato Oficial
+   end; {Official Format}
 
    PageControl.ActivePage := TabSheetDiario;
 end;
@@ -1144,9 +1142,10 @@ begin
    PDFExport.ShowDialog      := False;
    PDFExport.OpenAfterExport := True;
 
-   PDFExport.FileName := 'Asientos (Desde Diario).pdf';
+   PDFExport.FileName := 'Asiento Actual _Desde el Diario_.pdf';
    FastReportAsientos.Variables['ENTERPRISE_NAME'] := ''''+DMRef.QParametrosNOMBREFISCAL.AsString+'''';
    FastReportAsientos.Variables['USER_NAME'      ] := ''''+Config.LoggedUser+'''';
+   FastReportAsientos.Variables['DESCRIPTION'    ] := '''Asiento Actual''';
 
    if FastReportAsientos.PrepareReport then begin
       FastReportAsientos.Export(PDFExport);
@@ -1225,7 +1224,7 @@ begin
             QDuplicar.Params.byname('MONEDA'       ).AsString   := QDiario.FieldByName('MONEDA'       ).AsString;
             QDuplicar.Params.byname('NUMEROFACTURA').AsString   := QDiario.FieldByName('NUMEROFACTURA').AsString;
             QDuplicar.Params.byname('RECARGO'      ).AsFloat    := QDiario.FieldByName('RECARGO'      ).AsFloat;
-            if (QDiario.FieldByName('contrapartida').AsString <> '') then begin
+            if (QDiario.FieldByName('CONTRAPARTIDA').AsString <> '') then begin
                QDuplicar.Params.byname('CONTRAPARTIDA').AsString := QDiario.FieldByName('CONTRAPARTIDA').AsString;
             end;
             QDuplicar.ExecQuery;
@@ -1249,11 +1248,11 @@ begin
 
       QDuplicar.Close;
       QDuplicar.Free;
-      //Mostrar asiento duplicado
+      { Show duplicates BookEntry }
       if not (QFiltro.State in dseditmodes) then begin
          QFiltro.Edit;
       end;
-      QFiltro.FieldByName('BAsiento').AsInteger := nAsiento;
+      QFiltro.FieldByName('BASIENTO').AsInteger := nAsiento;
       QFiltro.Post;
    end;
 
@@ -1261,18 +1260,17 @@ begin
    EditFiltroBAsiento.Repaint;
    DataGrid.Repaint;
 
-   // Editar asiento duplicado
+   { Edit duplicated BookEntry }
    ModificarAsiento;
 end;
 
 procedure TWDiario.BtnDueDatesClick(Sender: TObject);
 var TipoCuenta :string;
-    Q :TIBQuery;
+    Q          :TIBQuery;
 begin
    if not DmControlRef.AccesoUsuario(Config.IdUser, 'WCARTERAEFECTOS') then begin
       Exit;
    end;
-
 
    if not QFichero.IsEmpty then  begin
       TipoCuenta := '';
@@ -1280,8 +1278,9 @@ begin
       try 
          Q.Database := DMRef.BDContab;
          Q.SQL.Clear;
-         Q.SQL.Add('SELECT TIPOCUENTA FROM CUENTAS');
-         Q.SQL.Add('WHERE CUENTA = :CUENTA');
+         Q.SQL.Add('SELECT TIPOCUENTA       ');
+         Q.SQL.Add('FROM   CUENTAS          ');
+         Q.SQL.Add('WHERE  CUENTA = :CUENTA ');
          Q.ParamByName('CUENTA').AsString := Copy(QFicheroSUBCUENTA.AsString, 1, 3);
          Q.Open;
          if not Q.EOF then begin
@@ -1382,23 +1381,22 @@ begin
                Q.SQL.Add(' :ID_CONCEPTOS, :CUENTA_ANALITICA)');
                while not QAsientos.EOF do begin
                   Q.Close;
-                  Q.ParamByName('APUNTE').AsInteger        := QAsientos.FieldByName('APUNTE').AsInteger;
-                  Q.ParamByName('ASIENTO').AsInteger       := Asiento;
-                  Q.ParamByName('COMENTARIO').AsString     := QAsientos.FieldByName('COMENTARIO').AsString;
-                  Q.ParamByName('CONTRAPARTIDA').AsVariant := QAsientos.FieldByName('SUBCUENTA').AsVariant;
-                  Q.ParamByName('DEBEHABER').AsString      := QAsientos.FieldByName('DEBEHABER').AsString;
-                  Q.ParamByName('FECHA').AsDateTime        := Date;
-                  Q.ParamByName('IMPORTE').AsDouble        := RoundTo(QAsientos.FieldByName('IMPORTE').AsFloat, -2);
-                  Q.ParamByName('MONEDA').AsString         := QAsientos.FieldByName('MONEDA').AsString;
-                  Q.ParamByName('NUMEROFACTURA').AsString  := QAsientos.FieldByName('NUMEROFACTURA').AsString;
-                  Q.ParamByName('SUBCUENTA').AsVariant     := QAsientos.FieldByName('CONTRAPARTIDA').AsVariant;
-                  Q.ParamByName('ID_CONCEPTOS').AsVariant  := QAsientos.FieldByName('ID_CONCEPTOS').AsVariant;
-                  Q.ParamByName('CUENTA_ANALITICA').AsVariant := QAsientos.FieldByName('CUENTA_ANALITICA').AsVariant;
+                  Q.ParamByName('APUNTE'          ).AsInteger  := QAsientos.FieldByName('APUNTE'    ).AsInteger;
+                  Q.ParamByName('ASIENTO'         ).AsInteger  := Asiento;
+                  Q.ParamByName('COMENTARIO'      ).AsString   := QAsientos.FieldByName('COMENTARIO').AsString;
+                  Q.ParamByName('CONTRAPARTIDA'   ).AsVariant  := QAsientos.FieldByName('SUBCUENTA' ).AsVariant;
+                  Q.ParamByName('DEBEHABER'       ).AsString   := QAsientos.FieldByName('DEBEHABER' ).AsString;
+                  Q.ParamByName('FECHA'           ).AsDateTime := Date;
+                  Q.ParamByName('IMPORTE'         ).AsDouble   := RoundTo(QAsientos.FieldByName('IMPORTE').AsFloat, -2);
+                  Q.ParamByName('MONEDA'          ).AsString   := QAsientos.FieldByName('MONEDA'          ).AsString;
+                  Q.ParamByName('NUMEROFACTURA'   ).AsString   := QAsientos.FieldByName('NUMEROFACTURA'   ).AsString;
+                  Q.ParamByName('SUBCUENTA'       ).AsVariant  := QAsientos.FieldByName('CONTRAPARTIDA'   ).AsVariant;
+                  Q.ParamByName('ID_CONCEPTOS'    ).AsVariant  := QAsientos.FieldByName('ID_CONCEPTOS'    ).AsVariant;
+                  Q.ParamByName('CUENTA_ANALITICA').AsVariant  := QAsientos.FieldByName('CUENTA_ANALITICA').AsVariant;
                   Q.ExecQuery;
                   Q.Transaction.CommitRetaining;
                   QAsientos.Next;
-               end;  // while not QAsientos.Eof do
-
+               end;
             finally
                Q.Free;
             end;

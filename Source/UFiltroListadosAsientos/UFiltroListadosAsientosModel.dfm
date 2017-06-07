@@ -2361,9 +2361,4 @@ object DataModuleFiltroListadosAsientos: TDataModuleFiltroListadosAsientos
       Size = 80
     end
   end
-  object SInformesConta: TDataSource
-    DataSet = QInformesConta
-    Left = 513
-    Top = 151
-  end
 end

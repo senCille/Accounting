@@ -6786,7 +6786,7 @@ object WSubCuentas: TWSubCuentas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.640118981500000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42793.557956261570000000
+    ReportOptions.LastChange = 42892.716962083330000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -7057,7 +7057,7 @@ object WSubCuentas: TWSubCuentas
         end
         object InformeDBText1: TfrxMemoView
           Left = 54.999720560000000000
-          Top = 1.999371370000006000
+          Top = 1.999371370000000000
           Width = 70.000675130000000000
           Height = 13.001583200000000000
           DataField = 'SUBCUENTA'
@@ -7068,7 +7068,7 @@ object WSubCuentas: TWSubCuentas
           Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
-          HAlign = haCenter
+          HAlign = haRight
           Memo.UTF8W = (
             '[SUBCUENTAS."SUBCUENTA"]')
           ParentFont = False

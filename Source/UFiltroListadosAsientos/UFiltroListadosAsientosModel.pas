@@ -116,7 +116,6 @@ type
     QInformesContaPUNTEO: TStringField;
     QInformesContaFSubcuenta: TStringField;
     QInformesContaFDescSubcuenta: TStringField;
-    SInformesConta: TDataSource;
   private
   public
   end;
@@ -125,7 +124,7 @@ type
 
   TFiltroListadosAsientosModel = class(TCustomModel)
   private
-    DM :TDataModuleFiltroListadosAsientos;
+    //DM :TDataModuleFiltroListadosAsientos;
     function Pertenece_Analitica(CuentaAnalitica   ,
                                  FiltroCuenta      ,
                                  FiltroCuentaH     ,
@@ -142,6 +141,7 @@ type
                                   AbrevSubcta      :string):string;
   protected
   public
+    DM :TDataModuleFiltroListadosAsientos;
     constructor Create(ADB :TIBDatabase; Initialize :Boolean = True); override;
     destructor Destroy; override;
     procedure DoInitialize; override;
@@ -175,7 +175,7 @@ implementation
 
 uses System.Math,
      VCL.Forms,
-     DMControl, DM, Globales, Processing;
+     DMControl, DM, Globales, Processing, UFiltroListadosAsientos;
 
 {$R *.dfm}
 
@@ -402,7 +402,7 @@ var QApuntes :TIBQuery;
             QConceptos.Params.ByName('ID_CONCEPTOS').AsString := QApuntes.FieldByName('ID_CONCEPTOS').AsString;
             QConceptos.ExecQuery;
             if (TipoConcepto <> 'T') and
-               (QConceptos.FieldByName('TipoContabilidad').AsString <> TipoConcepto) then begin
+               (QConceptos.FieldByName('TIPOCONTABILIDAD').AsString <> TipoConcepto) then begin
                AsientoOK := False;
             end;
          end;
@@ -445,10 +445,10 @@ var QApuntes :TIBQuery;
          while not QApuntes.EOF do begin
             DM.QInformesConta.Append;
             DM.QInformesConta.Edit;
-            DM.QInformesConta.FieldByName('FECHA').AsDateTime      := QApuntes.FieldByName('FECHA').AsDateTime;
-            DM.QInformesConta.FieldByName('ASIENTO').AsInteger     := QApuntes.FieldByName('ASIENTO').AsInteger;
-            DM.QInformesConta.FieldByName('APUNTE').AsInteger      := QApuntes.FieldByName('APUNTE').AsInteger;
-            DM.QInformesConta.FieldByName('ID_CONCEPTOS').AsString := QApuntes.FieldByName('ID_CONCEPTOS').AsString;
+            DM.QInformesConta.FieldByName('FECHA'       ).AsDateTime := QApuntes.FieldByName('FECHA'       ).AsDateTime;
+            DM.QInformesConta.FieldByName('ASIENTO'     ).AsInteger  := QApuntes.FieldByName('ASIENTO'     ).AsInteger;
+            DM.QInformesConta.FieldByName('APUNTE'      ).AsInteger  := QApuntes.FieldByName('APUNTE'      ).AsInteger;
+            DM.QInformesConta.FieldByName('ID_CONCEPTOS').AsString   := QApuntes.FieldByName('ID_CONCEPTOS').AsString;
 
             // Subcuenta y descripción
             Abreviatura := '';
@@ -483,7 +483,7 @@ var QApuntes :TIBQuery;
             DM.QInformesConta.FieldByName('DESCAPUNTE').AsString := Copy(DescApunte, 1, 100);
 
             DM.QInformesConta.FieldByName('DEBEHABER').AsString  := QApuntes.FieldByName('DEBEHABER').AsString;
-            DM.QInformesConta.FieldByName('IMPORTE').AsFloat     := QApuntes.FieldByName('IMPORTE'  ).AsFloat;
+            DM.QInformesConta.FieldByName('IMPORTE'  ).AsFloat   := QApuntes.FieldByName('IMPORTE'  ).AsFloat;
 
             if QApuntes.FieldByName('DEBEHABER').AsString = 'D' then begin
                DM.QInformesConta.FieldByName('DEBE').AsFloat := QApuntes.FieldByName('IMPORTE').AsFloat;
@@ -494,11 +494,10 @@ var QApuntes :TIBQuery;
 
             DM.QInformesConta.FieldByName('CONTRAPARTIDA').AsString := QApuntes.FieldByName('CONTRAPARTIDA').AsString;
 
-            //  Almacenar el intervalo de fechas y la fecha de impresión para
-            //incluirlas en la descripción del listado.
-            DM.QInformesConta.FieldByName('FechaInicial'  ).AsDateTime := FechaInicial;
-            DM.QInformesConta.FieldByName('FechaFinal'    ).AsDateTime := FechaFinal;
-            DM.QInformesConta.FieldByName('FechaImpresion').AsDateTime := FechaImpresion;
+            // Almacenar el intervalo de fechas y la fecha de impresión para incluirlas en la descripción del listado.
+            DM.QInformesConta.FieldByName('FECHAINICIAL'  ).AsDateTime := FechaInicial;
+            DM.QInformesConta.FieldByName('FECHAFINAL'    ).AsDateTime := FechaFinal;
+            DM.QInformesConta.FieldByName('FECHAIMPRESION').AsDateTime := FechaImpresion;
 
             DM.QInformesConta.Post;
 
@@ -516,41 +515,53 @@ begin
       // Selección de datos de subcuenta
       QSubcuentas := TIBSQL.Create(nil);
       QSubcuentas.Database := DMRef.BDContab;
-      QSubcuentas.SQL.Add('SELECT');
-      QSubcuentas.SQL.Add('   SUBCUENTA, DESCRIPCION, ABREVIATURA');
-      QSubcuentas.SQL.Add('FROM SUBCTAS');
-      QSubcuentas.SQL.Add('WHERE SUBCUENTA = :SUBCUENTA');
+      QSubcuentas.SQL.Add('SELECT SUBCUENTA  ,          ');
+      QSubcuentas.SQL.Add('       DESCRIPCION,          ');
+      QSubcuentas.SQL.Add('       ABREVIATURA           ');
+      QSubcuentas.SQL.Add('FROM SUBCTAS                 ');
+      QSubcuentas.SQL.Add('WHERE SUBCUENTA = :SUBCUENTA ');
       QSubcuentas.Prepare;
 
       // Selección de datos de concepto
       QConceptos := TIBSQL.Create(nil);
       QConceptos.Database := DMRef.BDContab;
-      QConceptos.SQL.Add('SELECT ID_CONCEPTOS, DESCRIPCION, TIPOCONTABILIDAD');
-      QConceptos.SQL.Add('FROM CONCEPTOS');
-      QConceptos.SQL.Add('WHERE ID_CONCEPTOS = :ID_CONCEPTOS');
+      QConceptos.SQL.Add('SELECT ID_CONCEPTOS    ,           ');
+      QConceptos.SQL.Add('       DESCRIPCION     ,           ');
+      QConceptos.SQL.Add('       TIPOCONTABILIDAD            ');
+      QConceptos.SQL.Add('FROM CONCEPTOS                     ');
+      QConceptos.SQL.Add('WHERE ID_CONCEPTOS = :ID_CONCEPTOS ');
       QConceptos.Prepare;
 
       // Selección de apuntes
       QApuntes := TIBQuery.Create(nil);
       QApuntes.Database := DMRef.BDContab;
-      QApuntes.SQL.Add('SELECT');
-      QApuntes.SQL.Add('   D.APUNTE, D.SUBCUENTA, D.FECHA, D.CONTRAPARTIDA, D.IMPORTE,');
-      QApuntes.SQL.Add('   D.NUMEROFACTURA, D.ID_CONCEPTOS, D.ID_DIARIO,D.SERIE, D.EJERCICIO,');
-      QApuntes.SQL.Add('   D.DEBEHABER, D.ASIENTO, D.COMENTARIO, D.MONEDA, D.CUENTA_ANALITICA');
-      QApuntes.SQL.Add('FROM');
-      QApuntes.SQL.Add('   DIARIO D');
-      QApuntes.SQL.Add('WHERE D.ASIENTO = :ASIENTO');
-      QApuntes.SQL.Add('ORDER BY D.ASIENTO, D.APUNTE');
+      QApuntes.SQL.Add('SELECT D.APUNTE            ,  ');
+      QApuntes.SQL.Add('       D.SUBCUENTA         ,  ');
+      QApuntes.SQL.Add('       D.FECHA             ,  ');
+      QApuntes.SQL.Add('       D.CONTRAPARTIDA     ,  ');
+      QApuntes.SQL.Add('       D.IMPORTE           ,  ');
+      QApuntes.SQL.Add('       D.NUMEROFACTURA     ,  ');
+      QApuntes.SQL.Add('       D.ID_CONCEPTOS      ,  ');
+      QApuntes.SQL.Add('       D.ID_DIARIO         ,  ');
+      QApuntes.SQL.Add('       D.SERIE             ,  ');
+      QApuntes.SQL.Add('       D.EJERCICIO         ,  ');
+      QApuntes.SQL.Add('       D.DEBEHABER         ,  ');
+      QApuntes.SQL.Add('       D.ASIENTO           ,  ');
+      QApuntes.SQL.Add('       D.COMENTARIO        ,  ');
+      QApuntes.SQL.Add('       D.MONEDA            ,  ');
+      QApuntes.SQL.Add('       D.CUENTA_ANALITICA     ');
+      QApuntes.SQL.Add('FROM  DIARIO D                ');
+      QApuntes.SQL.Add('WHERE D.ASIENTO = :ASIENTO    ');
+      QApuntes.SQL.Add('ORDER BY D.ASIENTO, D.APUNTE  ');
 
       // Selección de asientos
       QAsientos := TIBSQL.Create(nil);
       QAsientos.Database := DMRef.BDContab;
 
-      QAsientos.SQL.Add('SELECT');
-      QAsientos.SQL.Add('   DISTINCT D.ASIENTO, D.FECHA');
-      QAsientos.SQL.Add('FROM');
-      QAsientos.SQL.Add('   DIARIO D');
-      QAsientos.SQL.Add('WHERE');
+      QAsientos.SQL.Add('SELECT DISTINCT D.ASIENTO, ');
+      QAsientos.SQL.Add('                D.FECHA    ');
+      QAsientos.SQL.Add('FROM DIARIO D              ');
+      QAsientos.SQL.Add('WHERE                      ');
 
       QAsientos.SQL.Add('   D.ASIENTO >= :ASIENTOINICIAL AND D.ASIENTO <= :ASIENTOFINAL AND');
 
@@ -562,30 +573,29 @@ begin
 
       QAsientos.Prepare;
 
-      QAsientos.Params.ByName('ASIENTOINICIAL').AsInteger := AsientoInicial;
-      QAsientos.Params.ByName('ASIENTOFINAL').AsInteger   := AsientoFinal;
-      QAsientos.Params.ByName('FECHAINICIAL').AsDateTime  := FechaInicial;
-      QAsientos.Params.ByName('FECHAFINAL').AsDateTime    := FechaFinal;
+      QAsientos.Params.ByName('ASIENTOINICIAL').AsInteger  := AsientoInicial;
+      QAsientos.Params.ByName('ASIENTOFINAL'  ).AsInteger  := AsientoFinal;
+      QAsientos.Params.ByName('FECHAINICIAL'  ).AsDateTime := FechaInicial;
+      QAsientos.Params.ByName('FECHAFINAL'    ).AsDateTime := FechaFinal;
 
       QAsientos.ExecQuery;
       try
          try
-            nAsiento := -MaxInt;
+            nAsiento := -1;
             while (not QAsientos.EOF) and (not Config.AbortedProcess) do begin
                InProgress.ShowNext(Format('Procesando Asiento %s ', [QAsientos.FieldByName('ASIENTO').AsString]));
                ProcesarAsiento(QAsientos.FieldByName('ASIENTO').AsInteger, AsientoOK);
 
-               // Forzar la inserción de una banda de separación entre asientos
-               // Si es formato oficial
+               {Insert a separation band, if the show official format}
                if AsientoOK and (nAsiento <> QAsientos.FieldByName('ASIENTO').AsInteger) then begin
-                  if (nAsiento <> -MaxInt) and FormatoOficial then begin
+                  if (nAsiento <> -1) and FormatoOficial then begin
                      DM.QInformesConta.Append;
                      DM.QInformesConta.Edit;
 
                      {Almacenar el intervalo de fechas y la fecha de impresión para incluirlas en la descripción del listado.}
-                     DM.QInformesConta.FieldByName('FechaInicial'  ).AsDateTime := FechaInicial;
-                     DM.QInformesConta.FieldByName('FechaFinal'    ).AsDateTime := FechaFinal;
-                     DM.QInformesConta.FieldByName('FechaImpresion').AsDateTime := FechaImpresion;
+                     DM.QInformesConta.FieldByName('FECHAINICIAL'  ).AsDateTime := FechaInicial;
+                     DM.QInformesConta.FieldByName('FECHAFINAL'    ).AsDateTime := FechaFinal;
+                     DM.QInformesConta.FieldByName('FECHAIMPRESION').AsDateTime := FechaImpresion;
 
                      DM.QInformesConta.Post;
                   end;

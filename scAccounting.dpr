@@ -60,7 +60,6 @@ uses
   UParametrizacionModel in 'Source\Parametrizacion\UParametrizacionModel.pas',
   URecalculoSaldos in 'Source\RecalculoSaldos\URecalculoSaldos.pas',
   URecalculoSaldosModel in 'Source\RecalculoSaldos\URecalculoSaldosModel.pas',
-  UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas',
   UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas',
   UFiltroListadosMayor in 'Source\UFiltroListadosMayor\UFiltroListadosMayor.pas',
   UFiltroListadosMayorModel in 'Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas',
@@ -111,7 +110,8 @@ uses
   senCille.VCLValidations in 'Source\senCille.VCLValidations.pas',
   USubcuentasModel in 'Source\Subcuentas\USubcuentasModel.pas' {DataModuleSubcuentas: TDataModule},
   UInputVAT in 'Source\InputVAT\UInputVAT.pas' {WInputVAT},
-  UOutputVAT in 'Source\OutputVAT\UOutputVAT.pas' {WOutputVAT};
+  UOutputVAT in 'Source\OutputVAT\UOutputVAT.pas' {WOutputVAT},
+  UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas' {WFiltroListadosAsientos};
 
 {$R *.res}
 
@@ -122,5 +122,6 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
+  Application.CreateForm(TWFiltroListadosAsientos, WFiltroListadosAsientos);
   Application.Run;
 end.

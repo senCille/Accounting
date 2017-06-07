@@ -2469,7 +2469,7 @@ object WDiario: TWDiario
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.636844884300000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42845.495352071800000000
+    ReportOptions.LastChange = 42893.480905671300000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -2527,7 +2527,7 @@ object WDiario: TWDiario
           Width = 64.781144200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2695,7 +2695,7 @@ object WDiario: TWDiario
           Top = 66.999728310000000000
           Width = 734.997640040000000000
           Height = 13.001583200000000000
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = 'dd mmm yyyy'
           DisplayFormat.Kind = fkDateTime
@@ -2797,7 +2797,7 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            'LineaTipoConta')
+            '[LineaTipoConta]')
           ParentFont = False
         end
         object Memo1: TfrxMemoView
@@ -2825,11 +2825,10 @@ object WDiario: TWDiario
         RowCount = 0
         object cAsiento: TfrxMemoView
           Left = 77.219577430000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 42.999712810000000000
           Height = 10.998432300000000000
-          DataField = 'Asiento'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2838,16 +2837,15 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haRight
           Memo.UTF8W = (
-            '[ENLACE1."Asiento"]')
+            '[ENLACE1."Asiento"] ')
           ParentFont = False
         end
         object DBText3: TfrxMemoView
           Left = 122.222441140000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 18.999697310000000000
           Height = 10.998432300000000000
-          DataField = 'Apunte'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2856,16 +2854,15 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[ENLACE1."Apunte"]')
+            '[ENLACE1."Apunte"] ')
           ParentFont = False
         end
         object DBText101: TfrxMemoView
           Left = 143.221509820000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 56.001296010000000000
           Height = 10.998432300000000000
-          DataField = 'Subcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2873,16 +2870,15 @@ object WDiario: TWDiario
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."Subcuenta"]')
+            '[ENLACE1."Subcuenta"] ')
           ParentFont = False
         end
         object DBText11: TfrxMemoView
           Left = 201.222177200000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 154.000729380000000000
           Height = 10.998432300000000000
-          DataField = 'DescSubcuenta'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2890,16 +2886,15 @@ object WDiario: TWDiario
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."DescSubcuenta"]')
+            '[ENLACE1."DescSubcuenta"]  ')
           ParentFont = False
         end
         object DBText2: TfrxMemoView
           Left = 357.222277950000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 18.001901390000000000
           Height = 10.998432300000000000
-          DataField = 'id_conceptos'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2908,16 +2903,15 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[ENLACE1."id_conceptos"]')
+            '[ENLACE1."id_conceptos"] ')
           ParentFont = False
         end
         object DBText10: TfrxMemoView
           Left = 380.220718000000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 236.999208180000000000
           Height = 10.998432300000000000
-          DataField = 'DescApunte'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2925,16 +2919,17 @@ object WDiario: TWDiario
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."DescApunte"]')
+            '[ENLACE1."DescApunte"] '
+            ' ')
           ParentFont = False
         end
         object DBText7: TfrxMemoView
           Left = 620.220873000000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000010000
           Width = 12.000007750000000000
           Height = 10.998432300000000000
           DataField = 'DebeHaber'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2948,12 +2943,13 @@ object WDiario: TWDiario
         end
         object Importe: TfrxMemoView
           Left = 634.224031650000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 66.999728310000000000
           Height = 10.998432300000000000
-          DataField = 'Importe'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
@@ -2966,11 +2962,10 @@ object WDiario: TWDiario
         end
         object DBText4: TfrxMemoView
           Left = 701.223759960000000000
-          Top = 4.781105450000010000
+          Top = 2.781105450000000000
           Width = 63.000985570000000000
           Height = 10.998432300000000000
-          DataField = 'Contrapartida'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2979,16 +2974,15 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haRight
           Memo.UTF8W = (
-            '[ENLACE1."Contrapartida"]')
+            '[ENLACE1."Contrapartida"] ')
           ParentFont = False
         end
         object DBText1: TfrxMemoView
           Left = 26.219546430000000000
-          Top = 5.778901370000000000
+          Top = 3.778901370000000000
           Width = 57.339249630000000000
           Height = 10.998432300000000000
-          DataField = 'Fecha'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2997,66 +2991,61 @@ object WDiario: TWDiario
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[ENLACE1."Fecha"]')
+            '[ENLACE1."Fecha"] ')
           ParentFont = False
         end
       end
-      object MasterData2: TfrxMasterData
+      object PageFooter1: TfrxPageFooter
         FillType = ftBrush
-        Height = 49.999402370000000000
-        Top = 207.874150000000000000
+        Height = 22.677180000000000000
+        Top = 291.023810000000000000
         Width = 793.701300000000000000
-        DataSetName = 'Enlace'
-        RowCount = 0
-      end
-      object Footer1: TfrxFooter
-        FillType = ftBrush
-        Height = 24.000015500000000000
-        Top = 279.685220000000000000
-        Width = 793.701300000000000000
+        PrintOnLastPage = False
         object Line2: TfrxLineView
-          Left = 32.999076430000000000
+          Left = 45.354360000000000000
           Width = 735.001419570000000000
           Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Importe1: TfrxMemoView
-          Left = 253.999534120000000000
-          Top = 3.998742740000010000
+          Left = 266.354817690000000000
+          Top = 3.998742740000000000
           Width = 104.001327010000000000
           Height = 10.998432300000000000
-          DataField = 'Debe'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."Debe"]')
+            '[SUM(<ENLACE1."Debe">,MasterData1)]')
           ParentFont = False
         end
         object Importe4: TfrxMemoView
-          Left = 517.999704620000000000
-          Top = 3.998742740000010000
+          Left = 530.354988190000000000
+          Top = 3.998742740000000000
           Width = 104.001327010000000000
           Height = 10.998432300000000000
-          DataField = 'Haber'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."Haber"]')
+            '[SUM(<ENLACE1."Haber">,MasterData1)]')
           ParentFont = False
         end
         object Label13: TfrxMemoView
-          Left = 162.999790310000000000
-          Top = 3.998742740000010000
+          Left = 175.355073880000000000
+          Top = 3.998742740000000000
           Width = 89.000372440000000000
           Height = 10.998432300000000000
           Font.Charset = ANSI_CHARSET
@@ -3070,8 +3059,8 @@ object WDiario: TWDiario
           ParentFont = False
         end
         object Label5: TfrxMemoView
-          Left = 423.001218070000000000
-          Top = 3.998742740000010000
+          Left = 435.356501640000000000
+          Top = 3.998742740000000000
           Width = 92.999115180000000000
           Height = 10.998432300000000000
           Font.Charset = ANSI_CHARSET
@@ -3087,53 +3076,55 @@ object WDiario: TWDiario
       end
       object ReportSummary1: TfrxReportSummary
         FillType = ftBrush
-        Height = 49.999402370000000000
-        Top = 362.834880000000000000
+        Height = 22.677180000000000000
+        Top = 245.669450000000000000
         Width = 793.701300000000000000
         object Line1: TfrxLineView
-          Left = 32.999076430000000000
-          Top = 1.001575450000020000
+          Left = 37.795300000000000000
+          Top = 3.779530000000000000
           Width = 735.001419570000000000
           Color = clBlack
           Frame.Typ = [ftTop]
         end
         object Importe2: TfrxMemoView
-          Left = 253.999534120000000000
-          Top = 5.000318189999970000
+          Left = 258.795757690000000000
+          Top = 7.778272740000000000
           Width = 104.001327010000000000
           Height = 10.998432300000000000
-          DataField = 'Debe'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."Debe"]')
+            '[SUM(<ENLACE1."Debe">,MasterData1)]')
           ParentFont = False
         end
         object Importe3: TfrxMemoView
-          Left = 517.999704620000000000
-          Top = 5.000318189999970000
+          Left = 522.795928190000000000
+          Top = 7.778272740000000000
           Width = 104.001327010000000000
           Height = 10.998432300000000000
-          DataField = 'Haber'
-          DataSet = DataModuleFiltroBalances.Enlace1
+          DataSet = WFiltroListadosAsientos.Enlace1
           DataSetName = 'ENLACE1'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[ENLACE1."Haber"]')
+            '[SUM(<ENLACE1."Haber">,MasterData1)]')
           ParentFont = False
         end
         object Label3: TfrxMemoView
-          Left = 162.999790310000000000
-          Top = 5.000318189999970000
+          Left = 167.796013880000000000
+          Top = 7.778272740000000000
           Width = 89.000372440000000000
           Height = 10.998432300000000000
           Font.Charset = ANSI_CHARSET
@@ -3147,8 +3138,8 @@ object WDiario: TWDiario
           ParentFont = False
         end
         object Label9: TfrxMemoView
-          Left = 423.001218070000000000
-          Top = 5.000318189999970000
+          Left = 427.797441640000000000
+          Top = 7.778272740000000000
           Width = 92.999115180000000000
           Height = 10.998432300000000000
           Font.Charset = ANSI_CHARSET
