@@ -215,7 +215,7 @@ type
     procedure ModificarAsiento;
     procedure MostrarUltimosMovimientos;
     procedure PrepararQuery;
-    procedure PrepararRefresh;
+    //procedure PrepararRefresh;
   public
     FModoConsulta :Boolean;
     FImporteDesde :Double;
@@ -332,7 +332,7 @@ end;
 procedure TWDiario.BorrarAsiento(ASIENTO: Integer);
 begin
    try
-      DmRef.EjecutarSQL('DELETE FROM DIARIO ' + 'WHERE ' + 'ASIENTO = ' + IntToStr(ASIENTO));
+      DmRef.EjecutarSQL('DELETE FROM DIARIO WHERE ASIENTO = ' + IntToStr(ASIENTO));
       PrepararQuery;
    except
       DatabaseError('No se ha podido borrar el asiento seleccionado.');
@@ -469,7 +469,7 @@ begin
       if not (QFiltro.State in dsEditModes) then begin
          QFiltro.Edit;
       end;
-      QFiltro.FieldByName('BAsiento').AsInteger := QFichero.FieldByName('ASIENTO').AsInteger;
+      QFiltro.FieldByName('BASIENTO').AsInteger := QFichero.FieldByName('ASIENTO').AsInteger;
       PrepararQuery;
    end;
 
@@ -524,40 +524,66 @@ begin
    QFichero.Close;
    QFichero.SelectSQL.Clear;
 
-   QFichero.SelectSQL.Add('SELECT');
-   QFichero.SelectSQL.Add('   D.*,');
-   QFichero.SelectSQL.Add('   S1.DESCRIPCION DESCSUBCUENTA, S2.DESCRIPCION DESCCONTRAPARTIDA,');
-   QFichero.SelectSQL.Add('   C.DESCRIPCION DESCCONCEPTO, S1.ABREVIATURA');
-   QFichero.SelectSQL.Add('FROM DIARIO D LEFT JOIN CONCEPTOS C ON D.ID_CONCEPTOS = C.ID_CONCEPTOS');
-   QFichero.SelectSQL.Add('              LEFT JOIN SUBCTAS S1 ON D.SUBCUENTA = S1.SUBCUENTA');
-   QFichero.SelectSQL.Add('              LEFT JOIN SUBCTAS S2 ON D.CONTRAPARTIDA = S2.SUBCUENTA');
+   QFichero.SelectSQL.Add('SELECT D.ID_DIARIO       ,                                               ');
+   QFichero.SelectSQL.Add('       D.APUNTE          ,                                               ');
+   QFichero.SelectSQL.Add('       D.ASIENTO         ,                                               ');
+   QFichero.SelectSQL.Add('       D.BASEIMPONIBLE   ,                                               ');
+   QFichero.SelectSQL.Add('       D.COMENTARIO      ,                                               ');
+   QFichero.SelectSQL.Add('       D.CONTRAPARTIDA   ,                                               ');
+   QFichero.SelectSQL.Add('       D.DEBEHABER       ,                                               ');
+   QFichero.SelectSQL.Add('       D.FECHA           ,                                               ');
+   QFichero.SelectSQL.Add('       D.IMPORTE         ,                                               ');
+   QFichero.SelectSQL.Add('       D.IVA             ,                                               ');
+   QFichero.SelectSQL.Add('       D.NIF             ,                                               ');
+   QFichero.SelectSQL.Add('       D.MONEDA          ,                                               ');
+   QFichero.SelectSQL.Add('       D.NUMEROFACTURA   ,                                               ');
+   QFichero.SelectSQL.Add('       D.RECARGO         ,                                               ');
+   QFichero.SelectSQL.Add('       D.SUBCUENTA       ,                                               ');
+   QFichero.SelectSQL.Add('       D.PUNTEO          ,                                               ');
+   QFichero.SelectSQL.Add('       D.ASIENTOPUNTEO   ,                                               ');
+   QFichero.SelectSQL.Add('       D.PUNTEOIVA       ,                                               ');
+   QFichero.SelectSQL.Add('       D.ID_CONCEPTOS    ,                                               ');
+   QFichero.SelectSQL.Add('       D.TIPODIARIO      ,                                               ');
+   QFichero.SelectSQL.Add('       D.CUENTA_ANALITICA,                                               ');
+   QFichero.SelectSQL.Add('       D.CUOTAIVA        ,                                               ');
+   QFichero.SelectSQL.Add('       D.CUOTARECARGO    ,                                               ');
+   QFichero.SelectSQL.Add('       D.TIPOASIENTO     ,                                               ');
+   QFichero.SelectSQL.Add('       D.ASIENTONOMINA   ,                                               ');
+   QFichero.SelectSQL.Add('       D.EJERCICIO       ,                                               ');
+   QFichero.SelectSQL.Add('       D.SERIE           ,                                               ');
+   QFichero.SelectSQL.Add('       S1.DESCRIPCION DESCSUBCUENTA    ,                                 ');
+   QFichero.SelectSQL.Add('       S2.DESCRIPCION DESCCONTRAPARTIDA,                                 ');
+   QFichero.SelectSQL.Add('       C.DESCRIPCION  DESCCONCEPTO     ,                                 ');
+   QFichero.SelectSQL.Add('       S1.ABREVIATURA                                                    ');
+   QFichero.SelectSQL.Add('FROM DIARIO D LEFT JOIN CONCEPTOS C  ON D.ID_CONCEPTOS  = C.ID_CONCEPTOS ');
+   QFichero.SelectSQL.Add('              LEFT JOIN SUBCTAS   S1 ON D.SUBCUENTA     = S1.SUBCUENTA   ');
+   QFichero.SelectSQL.Add('              LEFT JOIN SUBCTAS   S2 ON D.CONTRAPARTIDA = S2.SUBCUENTA   ');
 
-   if (QFiltro.FieldByName('BASIENTO').AsInteger = 0) and
-      (QFiltro.FieldByName('BFACTURA').AsString = '') and
-      (QFiltro.FieldByName('BSUBCUENTA').AsString = '') and
-      (QFiltro.FieldByName('BDESCSUBCUENTA').AsString = '') and
-      (QFiltro.FieldByName('BCONTRAPARTIDA').AsString = '') and
+   if (QFiltro.FieldByName('BASIENTO'          ).AsInteger = 0) and
+      (QFiltro.FieldByName('BFACTURA'          ).AsString = '') and
+      (QFiltro.FieldByName('BSUBCUENTA'        ).AsString = '') and
+      (QFiltro.FieldByName('BDESCSUBCUENTA'    ).AsString = '') and
+      (QFiltro.FieldByName('BCONTRAPARTIDA'    ).AsString = '') and
       (QFiltro.FieldByName('BDESCCONTRAPARTIDA').AsString = '') and
-      ((QFiltro.FieldByName('CUENTA').AsString <> '') or
-      (QFiltro.FieldByName('ID_DELEGACION').AsString <> '') or
-      (QFiltro.FieldByName('ID_DEPARTAMENTO').AsString <> '') or
-      (QFiltro.FieldByName('ID_SECCION').AsString <> '') or
-      (QFiltro.FieldByName('ID_PROYECTO').AsString <> '')) then begin
+      ((QFiltro.FieldByName('CUENTA'            ).AsString <> '') or
+       (QFiltro.FieldByName('ID_DELEGACION'     ).AsString <> '') or
+       (QFiltro.FieldByName('ID_DEPARTAMENTO'   ).AsString <> '') or
+       (QFiltro.FieldByName('ID_SECCION'        ).AsString <> '') or
+       (QFiltro.FieldByName('ID_PROYECTO'       ).AsString <> '')) then begin
       QFichero.SelectSQL.Add(', ANALITICAS A');
    end;
    QFichero.SelectSQL.Add('WHERE');
 
-   if QFiltro.FieldByName('TipoConcepto').AsString <> 'T' then begin
-      QFichero.SelectSQL.Add(' C.TIPOCONTABILIDAD=:TIPOCONCEPTO AND');
+   if QFiltro.FieldByName('TIPOCONCEPTO').AsString <> 'T' then begin
+      QFichero.SelectSQL.Add(' C.TIPOCONTABILIDAD = :TIPOCONCEPTO AND ');
    end;
 
-   if QFiltro.FieldByName('BASIENTO').AsInteger <> 0 then
+   if QFiltro.FieldByName('BASIENTO').AsInteger <> 0 then begin
       // Mostrar el asiento buscado y los n asientos anteriores y posteriores a él
-   begin
       QFichero.SelectSQL.Add('  D.ASIENTO >= :ASIENTOINI AND D.ASIENTO <= :ASIENTOFIN');
    end else
-   if QFiltro.FieldByName('BImporte').AsInteger <> 0 then begin
-      QFichero.SelectSQL.Add('  D.IMPORTE>=:BIMPORTEDESDE and D.Importe<=:BimporteHasta ');
+   if QFiltro.FieldByName('BIMPORTE').AsInteger <> 0 then begin
+      QFichero.SelectSQL.Add('  D.IMPORTE >= :BIMPORTEDESDE AND D.IMPORTE <= :BIMPORTEHASTA ');
    end else
    if (QFiltro.FieldByName('BFACTURA').AsString <> '') then begin
       QFichero.SelectSQL.Add(' D.NUMEROFACTURA = :FACTURA  AND');
@@ -634,11 +660,11 @@ begin
       if QFiltro.FieldByName('ID_PROYECTO').AsString <> '' then begin
          QFichero.SelectSQL.Add('   AND A.ID_PROYECTO = :ID_PROYECTO');
       end;
-      if (QFiltro.FieldByName('CUENTA').AsString <> '') or
-         (QFiltro.FieldByName('ID_DELEGACION').AsString <> '') or
+      if (QFiltro.FieldByName('CUENTA'         ).AsString <> '') or
+         (QFiltro.FieldByName('ID_DELEGACION'  ).AsString <> '') or
          (QFiltro.FieldByName('ID_DEPARTAMENTO').AsString <> '') or
-         (QFiltro.FieldByName('ID_SECCION').AsString <> '') or
-         (QFiltro.FieldByName('ID_PROYECTO').AsString <> '') then begin
+         (QFiltro.FieldByName('ID_SECCION'     ).AsString <> '') or
+         (QFiltro.FieldByName('ID_PROYECTO'    ).AsString <> '') then begin
          QFichero.SelectSQL.Add('   AND A.CUENTA = D.CUENTA_ANALITICA');
       end;
    end;
@@ -652,7 +678,7 @@ begin
    if FCampoOrden <> '' then QFichero.SelectSQL.Add('ORDER BY ' + FCampoOrden)
    else QFichero.SelectSQL.Add('ORDER BY D.ASIENTO, D.APUNTE');
 
-   // PARÁMETROS
+   {Parameters}
    if QFiltro.FieldByName('BASIENTO').AsInteger <> 0 then  begin
       // Mostrar el asiento buscado y los n asientos anteriores y posteriores a él
       QFichero.Params.ByName('ASIENTOINI').AsInteger := QFiltro.FieldByName('BASIENTO').AsInteger -
@@ -703,8 +729,8 @@ begin
       QFichero.Params.ByName('ASIENTOHASTA').AsInteger := QFiltro.FieldByName('ASIENTOHASTA').AsInteger;
 
       // Fecha
-      QFichero.Params.ByName('FECHADESDE').AsDateTime := QFiltro.FieldByName('FECHADESDE').AsDateTime;
-      QFichero.Params.ByName('FECHAHASTA').AsDateTime := QFiltro.FieldByName('FECHAHASTA').AsDateTime;
+      QFichero.Params.ByName('FECHADESDE'  ).AsDateTime := QFiltro.FieldByName('FECHADESDE').AsDateTime;
+      QFichero.Params.ByName('FECHAHASTA'  ).AsDateTime := QFiltro.FieldByName('FECHAHASTA').AsDateTime;
 
       // Importe
       QFichero.Params.ByName('IMPORTEDESDE').AsDouble := QFiltro.FieldByName('IMPORTEDESDE').AsFloat - 0.01;
@@ -787,7 +813,7 @@ begin
    DataGrid.Repaint;
 end;
 
-procedure TWDiario.PrepararRefresh;
+(*procedure TWDiario.PrepararRefresh;
 begin
    QFichero.RefreshSQL.Clear;
 
@@ -825,7 +851,7 @@ begin
    else begin
       QFichero.RefreshSQL.Add('ORDER BY D.ASIENTO, D.APUNTE');
    end;
-end;
+end;*)
 
 procedure TWDiario.BtnNavCerrarClick(Sender: TObject);
 begin
@@ -838,8 +864,7 @@ end;
 
 procedure TWDiario.FormKeyPress(Sender: TObject; var Key: Char);
 begin
-   // Si pulsamos enter y el control actual no es un grid pasamos al siguiente
-   // control
+   { Si pulsamos enter y el control actual no es un grid pasamos al siguiente control}
    if (Key = Chr(VK_RETURN)) then begin
       // Comprobación del filtro por asiento
       if (EditFiltroBAsiento.Focused) and (Trim(EditFiltroBAsiento.Text) <> '') then begin
@@ -950,7 +975,7 @@ procedure TWDiario.FormShow(Sender: TObject);
 begin
    InicializarFiltro;
    FCampoOrden := 'ASIENTO, APUNTE';
-   PrepararRefresh;
+   //PrepararRefresh;
    PrepararQuery;
    QFichero.Last;
 
@@ -979,7 +1004,7 @@ end;
 
 procedure TWDiario.SpFiltroClick(Sender: TObject);
 begin
-   if (QFiltro.State in dseditmodes) then begin
+   if (QFiltro.State in dsEditModes) then begin
       QFiltro.post;
    end;
 
@@ -1014,13 +1039,13 @@ begin
    if not (QFiltro.state in dsEditModes) then begin
       QFiltro.Edit;
    end;
-   QFiltro.FieldByName('BImporte').AsInteger          := 0;
-   QFiltro.FieldByName('BAsiento').AsInteger          := 0;
-   QFiltro.FieldByName('BFactura').AsString           := '';
-   QFiltro.FieldByName('BSUBCUENTA').AsString         := '';
-   QFiltro.FieldByName('BDESCSUBCUENTA').AsString     := '';
-   QFiltro.FieldByName('BCONTRAPARTIDA').AsString     := '';
-   QFiltro.FieldByName('BDESCCONTRAPARTIDA').AsString := '';
+   QFiltro.FieldByName('BIMPORTE'          ).AsInteger := 0;
+   QFiltro.FieldByName('BASIENTO'          ).AsInteger := 0;
+   QFiltro.FieldByName('BFACTURA'          ).AsString  := '';
+   QFiltro.FieldByName('BSUBCUENTA'        ).AsString  := '';
+   QFiltro.FieldByName('BDESCSUBCUENTA'    ).AsString  := '';
+   QFiltro.FieldByName('BCONTRAPARTIDA'    ).AsString  := '';
+   QFiltro.FieldByName('BDESCCONTRAPARTIDA').AsString  := '';
 end;
 
 procedure TWDiario.LimpiarFiltroFacturas(Sender: TObject);

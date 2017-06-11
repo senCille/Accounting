@@ -759,6 +759,7 @@ begin
          QApuntes.ParamByName('CUOTAIVAFIN').AsDouble   := ACuotaIvaFinal;
          QApuntes.ParamByName('IVAINI'     ).AsDouble   := AIvaInicial;
          QApuntes.ParamByName('IVAFIN'     ).AsDouble   := AIvaFinal;
+         // Only for Debug QApuntes.SQL.SaveToFile('C:\views\cONSULTA.SQL');
          QApuntes.ExecQuery;
       { Tipo de Listado :    (3) Modelo 300
                              (G) Modelo 420

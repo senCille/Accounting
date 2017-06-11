@@ -196,7 +196,7 @@ end;
 destructor TFiltroListadosAsientosModel.Destroy;
 begin
    DM.Free;
-   inherited;
+   //inherited;
 end;
 
 procedure TFiltroListadosAsientosModel.DoInitialize;

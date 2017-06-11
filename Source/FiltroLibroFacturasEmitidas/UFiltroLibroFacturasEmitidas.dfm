@@ -667,7 +667,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.638457245400000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42888.590851770830000000
+    ReportOptions.LastChange = 42897.724558611110000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -712,7 +712,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 68.001303760000000000
           Height = 13.995599590000000000
           DataField = 'ClienteProveedor'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -729,7 +729,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 1015.000340560000000000
           Height = 15.998750490000000000
           DataField = 'Titulo'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -783,7 +783,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 61.001614200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1030,7 +1030,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       end
       object SUBINFORME: TfrxMasterData
         FillType = ftBrush
-        Height = 17.880956430000000000
+        Height = 21.660486430000000000
         Top = 166.299320000000000000
         Width = 1122.520410000000000000
         DataSet = Enlace1
@@ -1038,10 +1038,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         RowCount = 0
         object Importe15: TfrxMemoView
           Left = 995.002847330000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 73.999417870000000000
           Height = 13.995599590000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1057,11 +1057,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText1: TfrxMemoView
           Left = 42.999712810000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 37.001598700000000000
           Height = 13.999379120000000000
-          DataField = 'NumLinea'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1075,11 +1074,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText101: TfrxMemoView
           Left = 272.001435510000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 68.001303760000000000
           Height = 13.999379120000000000
-          DataField = 'Subcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1092,11 +1090,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText11: TfrxMemoView
           Left = 342.002110640000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 299.811217250000000000
           Height = 13.999379120000000000
-          DataField = 'DescSubcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1109,11 +1106,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object cAsiento: TfrxMemoView
           Left = 82.000682880000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 46.998455550000000000
           Height = 13.999379120000000000
-          DataField = 'Asiento'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1127,10 +1123,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe: TfrxMemoView
           Left = 901.002738830000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1146,16 +1142,16 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object IVA: TfrxMemoView
           Left = 806.000472750000000000
-          Top = 1.001575450000000000
-          Width = 24.000015500000000000
+          Top = 3.001575449999990000
+          Width = 27.779545500000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
@@ -1165,11 +1161,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText3: TfrxMemoView
           Left = 646.001629260000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
-          DataField = 'NIF'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1182,11 +1177,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText7: TfrxMemoView
           Left = 130.998509800000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 78.001940140000000000
           Height = 13.999379120000000000
-          DataField = 'Factura'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1200,11 +1194,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText9: TfrxMemoView
           Left = 210.999821310000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 58.000667380000000000
           Height = 13.999379120000000000
-          DataField = 'Fecha'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1218,10 +1211,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe4: TfrxMemoView
           Left = 927.002125700000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1237,10 +1230,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe5: TfrxMemoView
           Left = 729.000108060000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1256,10 +1249,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe3: TfrxMemoView
           Left = 832.003639150000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1277,14 +1270,14 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 34.015770000000000000
-        Top = 245.669450000000000000
+        Top = 249.448980000000000000
         Width = 1122.520410000000000000
         object Memo1: TfrxMemoView
           Left = 993.861429270000000000
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.995599590000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1303,7 +1296,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1322,7 +1315,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1341,7 +1334,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1357,7 +1350,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo6: TfrxMemoView
           Left = 830.862221090000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 66.001932390000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -1372,7 +1365,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo8: TfrxMemoView
           Left = 925.860707640000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 63.998781490000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -1387,7 +1380,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo9: TfrxMemoView
           Left = 727.858690000000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 73.999417870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -1402,7 +1395,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo10: TfrxMemoView
           Left = 993.861429270000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 73.999417870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -1428,7 +1421,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 42776.639097233800000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42888.592356979170000000
+    ReportOptions.LastChange = 42897.725068229160000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -1473,7 +1466,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 1015.000340560000000000
           Height = 15.998750490000000000
           DataField = 'Titulo'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1527,7 +1520,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 61.001614200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1759,7 +1752,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       end
       object SUBINFORME: TfrxMasterData
         FillType = ftBrush
-        Height = 17.877176900000000000
+        Height = 21.656706900000000000
         Top = 166.299320000000000000
         Width = 1122.520410000000000000
         DataSet = Enlace1
@@ -1767,11 +1760,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         RowCount = 0
         object cAsiento: TfrxMemoView
           Left = 46.000659630000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 54.999720560000000000
           Height = 13.999379120000000000
-          DataField = 'Asiento'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1785,10 +1777,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe: TfrxMemoView
           Left = 832.002366390000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 42.999712810000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1804,16 +1796,16 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object IVA: TfrxMemoView
           Left = 711.000713440000000000
-          Top = 1.001575450000000000
-          Width = 37.999394620000000000
+          Top = 3.001575449999990000
+          Width = 41.778924620000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haRight
@@ -1823,11 +1815,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText7: TfrxMemoView
           Left = 104.999122930000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 80.999107430000000000
           Height = 13.999379120000000000
-          DataField = 'Factura'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1841,11 +1832,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText9: TfrxMemoView
           Left = 188.999177180000000000
-          Top = 1.001575449999990000
+          Top = 3.001575449999990000
           Width = 72.000046500000000000
           Height = 13.999379120000000000
-          DataField = 'Fecha'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1859,10 +1849,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe3: TfrxMemoView
           Left = 748.002312140000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 85.001629700000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1878,10 +1868,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe4: TfrxMemoView
           Left = 874.000503750000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 82.998478800000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1897,10 +1887,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe5: TfrxMemoView
           Left = 621.002545080000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 90.999743810000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1916,10 +1906,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe15: TfrxMemoView
           Left = 960.004399530000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 92.999115180000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1935,11 +1925,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText1: TfrxMemoView
           Left = 264.559230500000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 85.999425620000000000
           Height = 13.999379120000000000
-          DataField = 'FSubcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1952,11 +1941,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText3: TfrxMemoView
           Left = 354.561178390000000000
-          Top = 1.001575450000000000
+          Top = 3.001575449999990000
           Width = 171.001055320000000000
           Height = 13.999379120000000000
-          DataField = 'FDescSubcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -1971,14 +1959,14 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 34.015770000000000000
-        Top = 245.669450000000000000
+        Top = 249.448980000000000000
         Width = 1122.520410000000000000
         object Memo1: TfrxMemoView
           Left = 965.861429270000000000
           Top = 15.000000000000000000
           Width = 89.117537870000000000
           Height = 13.995599590000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -1997,7 +1985,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 79.116901490000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2016,7 +2004,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 89.117537870000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2035,7 +2023,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 77.340522390000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2051,7 +2039,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo6: TfrxMemoView
           Left = 753.862221090000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 77.340522390000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2066,7 +2054,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo8: TfrxMemoView
           Left = 877.860707640000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 79.116901490000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2081,7 +2069,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo9: TfrxMemoView
           Left = 625.858690000000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 89.117537870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2096,7 +2084,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo10: TfrxMemoView
           Left = 965.861429270000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 89.117537870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2120,9 +2108,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
-    ReportOptions.CreateDate = 42776.638637905100000000
+    ReportOptions.CreateDate = 42776.638637905090000000
     ReportOptions.Name = 'Report1'
-    ReportOptions.LastChange = 42888.589864282410000000
+    ReportOptions.LastChange = 42897.724178622690000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -2167,7 +2155,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 68.001303760000000000
           Height = 13.995599590000000000
           DataField = 'ClienteProveedor'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2184,7 +2172,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 863.819140560000000000
           Height = 15.998750490000000000
           DataField = 'Titulo'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2238,7 +2226,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Width = 61.001614200000000000
           Height = 13.999379120000000000
           DataField = 'FechaImpresion'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2295,7 +2283,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         object Label7: TfrxMemoView
           Left = 342.002110640000000000
           Top = 101.000380190000000000
-          Width = 296.031687250000000000
+          Width = 284.693097249999900000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2366,9 +2354,9 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object Label3: TfrxMemoView
-          Left = 645.001629260000000000
+          Left = 632.001629260000000000
           Top = 101.000380190000000000
-          Width = 80.999107430000000000
+          Width = 92.337697429999970000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2485,7 +2473,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       end
       object SUBINFORME: TfrxMasterData
         FillType = ftBrush
-        Height = 17.880956430000000000
+        Height = 21.660486430000000000
         Top = 166.299320000000000000
         Width = 1122.520410000000000000
         DataSet = Enlace1
@@ -2493,10 +2481,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         RowCount = 0
         object Importe15: TfrxMemoView
           Left = 995.002847330000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 73.999417870000000000
           Height = 13.995599590000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2512,10 +2500,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText1: TfrxMemoView
           Left = 42.999712810000000000
-          Top = 1.001575449999990000
+          Top = 2.001575449999990000
           Width = 37.001598700000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2529,11 +2517,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText101: TfrxMemoView
           Left = 272.001435510000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 68.001303760000000000
           Height = 13.999379120000000000
-          DataField = 'Subcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2546,11 +2533,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText11: TfrxMemoView
           Left = 342.002110640000000000
-          Top = 1.001575450000000000
-          Width = 296.031687250000000000
+          Top = 2.001575449999990000
+          Width = 284.693097249999900000
           Height = 13.999379120000000000
-          DataField = 'DescSubcuenta'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2563,11 +2549,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object cAsiento: TfrxMemoView
           Left = 82.000682880000000000
-          Top = 1.001575449999990000
+          Top = 2.001575449999990000
           Width = 46.998455550000000000
           Height = 13.999379120000000000
-          DataField = 'Asiento'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2581,10 +2566,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe: TfrxMemoView
           Left = 900.002738830000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 24.000015500000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2600,16 +2585,16 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object IVA: TfrxMemoView
           Left = 805.000472750000000000
-          Top = 1.001575450000000000
-          Width = 24.000015500000000000
+          Top = 2.001575449999990000
+          Width = 27.779545500000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -9
           Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
@@ -2618,12 +2603,11 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           ParentFont = False
         end
         object DBText3: TfrxMemoView
-          Left = 645.001629260000000000
-          Top = 1.001575450000000000
-          Width = 80.999107430000000000
+          Left = 634.001629260000000000
+          Top = 2.001575449999990000
+          Width = 92.337697430000000000
           Height = 13.999379120000000000
-          DataField = 'NIF'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2636,11 +2620,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText7: TfrxMemoView
           Left = 130.998509800000000000
-          Top = 1.001575449999990000
+          Top = 2.001575449999990000
           Width = 78.001940140000000000
           Height = 13.999379120000000000
-          DataField = 'Factura'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2654,11 +2637,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object DBText9: TfrxMemoView
           Left = 210.999821310000000000
-          Top = 1.001575449999990000
+          Top = 2.001575449999990000
           Width = 58.000667380000000000
           Height = 13.999379120000000000
-          DataField = 'Fecha'
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -2672,10 +2654,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe4: TfrxMemoView
           Left = 926.002125700000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2691,10 +2673,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe5: TfrxMemoView
           Left = 728.000108060000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2710,10 +2692,10 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Importe3: TfrxMemoView
           Left = 831.003639150000000000
-          Top = 1.001575450000000000
+          Top = 2.001575449999990000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2731,14 +2713,14 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 34.015770000000000000
-        Top = 245.669450000000000000
+        Top = 249.448980000000000000
         Width = 1122.520410000000000000
         object Memo1: TfrxMemoView
           Left = 993.861429270000000000
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.995599590000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2757,7 +2739,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 63.998781490000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2776,7 +2758,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 73.999417870000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2795,7 +2777,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
           Top = 15.000000000000000000
           Width = 66.001932390000000000
           Height = 13.999379120000000000
-          DataSet = DataModuleAmortizaciones.Enlace1
+          DataSet = WDiario.Enlace1
           DataSetName = 'ENLACE1'
           DisplayFormat.FormatStr = '%2.2n'
           DisplayFormat.Kind = fkNumeric
@@ -2812,7 +2794,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo6: TfrxMemoView
           Left = 829.862221090000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 66.001932390000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2827,7 +2809,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo8: TfrxMemoView
           Left = 924.860707640000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 63.998781490000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2842,7 +2824,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo9: TfrxMemoView
           Left = 726.858690000000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 73.999417870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2857,7 +2839,7 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
         end
         object Memo10: TfrxMemoView
           Left = 993.861429270000000000
-          Top = 0.779530000000000000
+          Top = 0.779529999999994100
           Width = 73.999417870000000000
           Height = 13.999379120000000000
           Font.Charset = ANSI_CHARSET
@@ -2946,8 +2928,8 @@ object WFiltroLibroFactEmitidas: TWFiltroLibroFactEmitidas
       'FDescSubcuenta=FDescSubcuenta')
     DataSource = DataModuleFiltroLibroFacturasEmitidas.SInformesConta
     BCDToCurrency = False
-    Left = 485
-    Top = 58
+    Left = 461
+    Top = 66
   end
   object PDFExport: TfrxPDFExport
     UseFileCache = True

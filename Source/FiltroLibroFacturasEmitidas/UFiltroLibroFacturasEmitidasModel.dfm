@@ -2498,8 +2498,8 @@ object DataModuleFiltroLibroFacturasEmitidas: TDataModuleFiltroLibroFacturasEmit
       Size = 10
     end
     object QInformesContaNIF: TStringField
+      DisplayWidth = 20
       FieldName = 'NIF'
-      Size = 15
     end
     object QInformesContaBaseImponible: TFloatField
       FieldName = 'BaseImponible'
