@@ -60,7 +60,6 @@ uses
   UParametrizacionModel in 'Source\Parametrizacion\UParametrizacionModel.pas',
   URecalculoSaldos in 'Source\RecalculoSaldos\URecalculoSaldos.pas',
   URecalculoSaldosModel in 'Source\RecalculoSaldos\URecalculoSaldosModel.pas',
-  UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas',
   UFiltroListadosMayor in 'Source\UFiltroListadosMayor\UFiltroListadosMayor.pas',
   UFiltroListadosMayorModel in 'Source\UFiltroListadosMayor\UFiltroListadosMayorModel.pas',
   Tools in 'Source\icenet\Tools.pas',
@@ -111,7 +110,8 @@ uses
   USubcuentasModel in 'Source\Subcuentas\USubcuentasModel.pas' {DataModuleSubcuentas: TDataModule},
   UInputVAT in 'Source\InputVAT\UInputVAT.pas' {WInputVAT},
   UOutputVAT in 'Source\OutputVAT\UOutputVAT.pas' {WOutputVAT},
-  UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas' {WFiltroListadosAsientos};
+  UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas' {WFiltroListadosAsientos},
+  UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas' {DataModuleFiltroListadosAsientos: TDataModule};
 
 {$R *.res}
 
@@ -123,5 +123,6 @@ begin
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
   Application.CreateForm(TWFiltroListadosAsientos, WFiltroListadosAsientos);
+  Application.CreateForm(TDataModuleFiltroListadosAsientos, DataModuleFiltroListadosAsientos);
   Application.Run;
 end.
