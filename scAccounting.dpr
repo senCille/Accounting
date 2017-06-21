@@ -4,8 +4,6 @@ uses
   Vcl.Forms,
   UAmortizaciones in 'Source\Amortizaciones\UAmortizaciones.pas' {WAmortizaciones},
   UAmortizacionesModel in 'Source\Amortizaciones\UAmortizacionesModel.pas' {DataModuleAmortizaciones: TDataModule},
-  UBalAcumulados in 'Source\BalAcumulados\UBalAcumulados.pas',
-  UBalAcumuladosModel in 'Source\BalAcumulados\UBalAcumuladosModel.pas',
   UBalExplotacion in 'Source\BalExplotacion\UBalExplotacion.pas',
   UBalExplotacionModel in 'Source\BalExplotacion\UBalExplotacionModel.pas',
   UBorradoDiario in 'Source\BorradoDiario\UBorradoDiario.pas',
@@ -56,7 +54,6 @@ uses
   UISoc202Model in 'Source\ISoc202\UISoc202Model.pas',
   UIVA300 in 'Source\IVA300\UIVA300.pas',
   UIVA300Model in 'Source\IVA300\UIVA300Model.pas',
-  UParametrizacion in 'Source\Parametrizacion\UParametrizacion.pas',
   UParametrizacionModel in 'Source\Parametrizacion\UParametrizacionModel.pas',
   URecalculoSaldos in 'Source\RecalculoSaldos\URecalculoSaldos.pas',
   URecalculoSaldosModel in 'Source\RecalculoSaldos\URecalculoSaldosModel.pas',
@@ -90,7 +87,7 @@ uses
   UFormasPago in 'Source\UFormasPago.pas' {WFormasPago},
   UGeneracionAsiento in 'Source\UGeneracionAsiento.pas' {WGeneracionAsiento},
   UGrupos in 'Source\UGrupos.pas' {WGrupos},
-  UImportacion in 'Source\UImportacion.pas' {WImportacion},
+  ControllerImportData in 'Source\ImportData\ControllerImportData.pas' {ImportDataView},
   UPlanAnalico in 'Source\UPlanAnalico.pas' {WPlanAnalitico},
   UPlanContable in 'Source\UPlanContable.pas' {WPlanContable},
   UPunteoDiario in 'Source\UPunteoDiario.pas' {WPunteoDiario},
@@ -111,7 +108,13 @@ uses
   UInputVAT in 'Source\InputVAT\UInputVAT.pas' {WInputVAT},
   UOutputVAT in 'Source\OutputVAT\UOutputVAT.pas' {WOutputVAT},
   UFiltroListadosAsientos in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientos.pas' {WFiltroListadosAsientos},
-  UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas' {DataModuleFiltroListadosAsientos: TDataModule};
+  UFiltroListadosAsientosModel in 'Source\UFiltroListadosAsientos\UFiltroListadosAsientosModel.pas' {DataModuleFiltroListadosAsientos: TDataModule},
+  UParametrizacion in 'Source\Parametrizacion\UParametrizacion.pas' {WParametrizacion},
+  UBalAcumulados in 'Source\BalAcumulados\UBalAcumulados.pas' {WBalAcumulados},
+  UBalAcumuladosModel in 'Source\BalAcumulados\UBalAcumuladosModel.pas' {DataModuleBalAcumulados: TDataModule},
+  ModelImportData in 'Source\ImportData\ModelImportData.pas' {DataModuleImportData: TDataModule},
+  senCille.FrameWorkTools in 'Source\scFramework\senCille.FrameWorkTools.pas',
+  senCille.MainController in 'Source\scFramework\senCille.MainController.pas';
 
 {$R *.res}
 
@@ -122,7 +125,6 @@ begin
   {Shall be created first DMControlRef and inmediately after MainMenuForm}
   Application.CreateForm(TDMControlRef, DMControlRef);
   Application.CreateForm(TMainMenuForm, MainMenuForm);
-  Application.CreateForm(TWFiltroListadosAsientos, WFiltroListadosAsientos);
-  Application.CreateForm(TDataModuleFiltroListadosAsientos, DataModuleFiltroListadosAsientos);
+  Application.CreateForm(TDataModuleImportData, DataModuleImportData);
   Application.Run;
 end.

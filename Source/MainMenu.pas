@@ -4,8 +4,11 @@ interface
 
 uses System.ImageList, System.Classes, System.SysUtils,
      WinAPI.Windows,
-     Vcl.Forms, Vcl.AppEvnts, Vcl.ImgList, Vcl.Controls, Vcl.Buttons, Vcl.ExtCtrls,  Vcl.Imaging.jpeg, Vcl.Menus;
-     
+     Vcl.Forms, Vcl.AppEvnts, Vcl.ImgList, Vcl.Controls, Vcl.Buttons, Vcl.ExtCtrls,  Vcl.Imaging.jpeg, Vcl.Menus,
+     senCille.ControllersManager,
+     senCille.MainController,
+     senCille.Setup;
+
 type
   TMainMenuForm = class(TForm)
     ImageList: TImageList;
@@ -37,6 +40,7 @@ type
     MenuItemVentana: TMenuItem;
     IVASoportado1: TMenuItem;
     IVARepercutido1: TMenuItem;
+    MenuItem_ImportData :TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
@@ -94,15 +98,20 @@ type
     procedure MenuItemImpresionPlanAnaliticaClick(Sender: TObject);
     procedure MenuItemCobrosPagosClick(Sender: TObject);
     procedure MenuItemFacturacionClick(Sender: TObject);
-    procedure MenuItemImportacionClick(Sender: TObject);
+    procedure MenuItem_ImportDataClick(Sender: TObject);
     procedure MenuItemSalirClick(Sender: TObject);
     procedure MenuItemActualizacionDBClick(Sender: TObject);
     procedure MenuItemAcercaDeClick(Sender: TObject);
     procedure MenuItemContabilidadClick(Sender: TObject);
     procedure IVASoportado1Click(Sender: TObject);
     procedure IVARepercutido1Click(Sender: TObject);
-   private
-   public
+  private
+     MainController   :TMainController;
+  public
+     Setup :TSetup;
+     FControllers :TControllersManager;
+     constructor Create(AOwner: TComponent); override;
+
    end;
 
 var MainMenuForm :TMainMenuForm;
@@ -115,18 +124,28 @@ uses System.Win.Registry, System.StrUtils, System.UITypes,
      DM, DMConta, DMControl,
      Globales, UtilesMDIForms,
      IBX.IB,
+     senCille.FrameworkTools,
      Login, Splash,
      UAmortizaciones, UAnaliticas, UBalAcumulados, UBalExplotacion, UBorradoDiario,
      UCargaApuntes, UCargaCobrosPagos, UCargaRapidaFacturas, UCargaRapidaNominas, UCarteraEfectos,
      UCierreEjercicio, UComerciales, UConceptos, UCopiaAsientos, UCuentas, UDelegaciones, UDepartamentos,
      UDiario, UEmpresas, UEnlaceContable, UFiltro347, UFiltroBalances, UFiltroLibroFacturasEmitidas,
-     UFiltroListadosAsientos, UFiltroListadosMayor, UFiltroSitPgGg, UFormasPago, UGrupos, UImportacion,
+     UFiltroListadosAsientos, UFiltroListadosMayor, UFiltroSitPgGg, UFormasPago, UGrupos,
      UIrpf110, UIrpf115, UISoc202, UPaises, UParametrizacion, UParametrizacionFacturacion,
      UPlanAnalico, UPlanContable, UPunteoDiario, URecalculoSaldos, USecciones, USubCuentas, UTiposDiario,
      UTitulos, UTraspasoApuntes, UTraspasoDatos, UUsuarios, DatabaseUpdate,
-     ProjectsController, UInputVAT, UOutputVAT;
+     ProjectsController, UInputVAT, UOutputVAT,
+     ControllerImportData;
 
 {$R *.DFM}
+
+constructor TMainMenuForm.Create(AOwner: TComponent);
+begin
+   inherited;
+   MainController := TMainController.Create();
+   Setup          := MainController.Setup;
+   FControllers   := MainController.Controllers;
+end;
 
 procedure TMainMenuForm.FormCreate(Sender: TObject);
 begin
@@ -727,14 +746,16 @@ begin
    end;
 end;
 
-procedure TMainMenuForm.MenuItemImportacionClick(Sender: TObject);
+procedure TMainMenuForm.MenuItem_ImportDataClick(Sender: TObject);
 begin
-   WImportacion := TWImportacion.Create(nil);
-   try
-      WImportacion.ShowModal;
-   finally
-      WImportacion.Free;
-   end;
+   if Sender = MenuItem_ImportData       then FControllers.Instantiate(TImportDataController       , Setup, TfwTools.IsShiftKeyPressed);
+
+   //WImportacion := TWImportacion.Create(nil);
+   //try
+   //   WImportacion.ShowModal;
+   //finally
+   //   WImportacion.Free;
+   //end;
 end;
 
 procedure TMainMenuForm.MenuItemActualizacionDBClick(Sender: TObject);

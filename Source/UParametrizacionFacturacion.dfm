@@ -129,10 +129,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     TabOrder = 4
     object TabSheetSales: TTabSheet
       Caption = 'Ventas'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object PageControl2: TPageControl
         Left = 0
         Top = 0
@@ -144,10 +140,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         TabPosition = tpBottom
         object TabSheetRegimGeneral: TTabSheet
           Caption = 'R'#233'gimen General'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Label7: TLabel
             Left = 452
             Top = 13
@@ -254,7 +246,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label4: TLabel
             Left = 15
-            Top = 173
+            Top = 187
             Width = 203
             Height = 14
             Caption = 'Subcuenta IVA Intracomunitario Soportado'
@@ -267,7 +259,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label32: TLabel
             Left = 452
-            Top = 173
+            Top = 200
             Width = 144
             Height = 14
             Caption = 'Concepto IVA Intracomunitario'
@@ -280,7 +272,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label33: TLabel
             Left = 15
-            Top = 249
+            Top = 308
             Width = 104
             Height = 14
             Caption = 'Subcuenta de Ventas'
@@ -293,7 +285,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label42: TLabel
             Left = 452
-            Top = 249
+            Top = 308
             Width = 98
             Height = 14
             Caption = 'Concepto de Ventas'
@@ -306,7 +298,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label47: TLabel
             Left = 15
-            Top = 289
+            Top = 345
             Width = 160
             Height = 14
             Caption = 'Subcuenta de Devoluci'#243'n Ventas'
@@ -319,7 +311,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label51: TLabel
             Left = 452
-            Top = 289
+            Top = 345
             Width = 154
             Height = 14
             Caption = 'Concepto de Devoluci'#243'n Ventas'
@@ -332,7 +324,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label52: TLabel
             Left = 452
-            Top = 328
+            Top = 272
             Width = 102
             Height = 14
             Caption = 'Concepto de Clientes'
@@ -345,7 +337,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object Label95: TLabel
             Left = 15
-            Top = 212
+            Top = 226
             Width = 211
             Height = 14
             Caption = 'Subcuenta IVA Intracomunitario Repercutido'
@@ -418,7 +410,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBText5: TDBText
             Left = 669
-            Top = 173
+            Top = 198
             Width = 65
             Height = 14
             Alignment = taRightJustify
@@ -433,7 +425,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBText6: TDBText
             Left = 669
-            Top = 249
+            Top = 308
             Width = 65
             Height = 14
             Alignment = taRightJustify
@@ -448,7 +440,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBText7: TDBText
             Left = 669
-            Top = 289
+            Top = 345
             Width = 65
             Height = 14
             Alignment = taRightJustify
@@ -463,7 +455,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBText8: TDBText
             Left = 669
-            Top = 328
+            Top = 272
             Width = 65
             Height = 14
             Alignment = taRightJustify
@@ -475,6 +467,18 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
             Font.Name = 'Arial'
             Font.Style = []
             ParentFont = False
+          end
+          object Shape2: TShape
+            Left = 15
+            Top = 268
+            Width = 719
+            Height = 6
+          end
+          object Shape3: TShape
+            Left = 15
+            Top = 178
+            Width = 722
+            Height = 6
           end
           object CBDESCSUBCUENTA8: TDBLookupComboBox
             Left = 114
@@ -694,7 +698,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo9: TDBLookupComboBox
             Left = 114
-            Top = 187
+            Top = 201
             Width = 295
             Height = 22
             DataField = 'SCTAIVAINTRADEDUCIBLE'
@@ -712,7 +716,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object CBSUBCUENTA3: TDBLookupComboBox
             Left = 15
-            Top = 187
+            Top = 201
             Width = 100
             Height = 22
             DataField = 'SCTAIVAINTRADEDUCIBLE'
@@ -730,7 +734,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo15: TDBLookupComboBox
             Left = 452
-            Top = 187
+            Top = 214
             Width = 282
             Height = 22
             DataField = 'CTOIVAINTRA'
@@ -748,7 +752,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo23: TDBLookupComboBox
             Left = 114
-            Top = 263
+            Top = 322
             Width = 295
             Height = 22
             DataField = 'SCTAVENTAS'
@@ -766,7 +770,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object CBSUBCUENTA4: TDBLookupComboBox
             Left = 15
-            Top = 263
+            Top = 322
             Width = 100
             Height = 22
             DataField = 'SCTAVENTAS'
@@ -784,7 +788,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo26: TDBLookupComboBox
             Left = 452
-            Top = 263
+            Top = 322
             Width = 282
             Height = 22
             DataField = 'CTOVENTAS'
@@ -802,7 +806,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo34: TDBLookupComboBox
             Left = 114
-            Top = 303
+            Top = 359
             Width = 295
             Height = 22
             DataField = 'SCTADEVOLUCION'
@@ -820,7 +824,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object CBSUBCUENTA5: TDBLookupComboBox
             Left = 15
-            Top = 303
+            Top = 359
             Width = 100
             Height = 22
             DataField = 'SCTADEVOLUCION'
@@ -838,7 +842,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo36: TDBLookupComboBox
             Left = 452
-            Top = 303
+            Top = 359
             Width = 282
             Height = 22
             DataField = 'CTODEVOLUCION'
@@ -856,7 +860,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo37: TDBLookupComboBox
             Left = 452
-            Top = 342
+            Top = 286
             Width = 282
             Height = 22
             DataField = 'CTOCLIENTES'
@@ -874,7 +878,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object CBSUBCUENTA32: TDBLookupComboBox
             Left = 15
-            Top = 226
+            Top = 240
             Width = 100
             Height = 22
             DataField = 'SCTAIVAINTRA'
@@ -892,7 +896,7 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
           end
           object DBLookupCombo31: TDBLookupComboBox
             Left = 114
-            Top = 226
+            Top = 240
             Width = 295
             Height = 22
             DataField = 'SCTAIVAINTRA'
@@ -912,10 +916,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
         object TabSheetSurcharge: TTabSheet
           Caption = 'Recargo de Equivalencia / Otros'
           ImageIndex = 1
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object GroupBox5: TGroupBox
             Left = 0
             Top = 0
@@ -1574,10 +1574,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     object TabSheetPurchases: TTabSheet
       Caption = 'Compras'
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DBText20: TDBText
         Left = 663
         Top = 294
@@ -2342,10 +2338,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     object TabSheetEffectDossier: TTabSheet
       Caption = 'Cartera de Efectos'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label9: TLabel
         Left = 15
         Top = 179
@@ -2720,10 +2712,6 @@ object WParametrizacionFacturacion: TWParametrizacionFacturacion
     object TabSheetOthers: TTabSheet
       Caption = 'Otras'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label73: TLabel
         Left = 22
         Top = 237

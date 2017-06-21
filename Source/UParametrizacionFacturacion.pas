@@ -242,6 +242,8 @@ type
     DBLookupCombo37: TDBLookupComboBox;
     CBSUBCUENTA32: TDBLookupComboBox;
     DBLookupCombo31: TDBLookupComboBox;
+    Shape2: TShape;
+    Shape3: TShape;
     procedure BtnNavCerrarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);

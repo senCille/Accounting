@@ -10,7 +10,8 @@ uses
   {Firebird}
   FireDAC.Phys.FB,
   FireDAC.Phys.IBBase,
-  CommonUnit;
+  CommonUnit,
+  senCille.DBController;
 
 type
   TDB_Methods = class

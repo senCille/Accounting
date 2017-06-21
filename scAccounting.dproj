@@ -46,7 +46,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_UnitSearchPath>..\ssssenCilleMVC\$(Platform);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\senCilleMVC\$(Platform);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>3082</VerInfo_Locale>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
@@ -112,8 +112,6 @@
             <Form>DataModuleAmortizaciones</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Source\BalAcumulados\UBalAcumulados.pas"/>
-        <DCCReference Include="Source\BalAcumulados\UBalAcumuladosModel.pas"/>
         <DCCReference Include="Source\BalExplotacion\UBalExplotacion.pas"/>
         <DCCReference Include="Source\BalExplotacion\UBalExplotacionModel.pas"/>
         <DCCReference Include="Source\BorradoDiario\UBorradoDiario.pas"/>
@@ -164,7 +162,6 @@
         <DCCReference Include="Source\ISoc202\UISoc202Model.pas"/>
         <DCCReference Include="Source\IVA300\UIVA300.pas"/>
         <DCCReference Include="Source\IVA300\UIVA300Model.pas"/>
-        <DCCReference Include="Source\Parametrizacion\UParametrizacion.pas"/>
         <DCCReference Include="Source\Parametrizacion\UParametrizacionModel.pas"/>
         <DCCReference Include="Source\RecalculoSaldos\URecalculoSaldos.pas"/>
         <DCCReference Include="Source\RecalculoSaldos\URecalculoSaldosModel.pas"/>
@@ -276,8 +273,8 @@
             <Form>WGrupos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Source\UImportacion.pas">
-            <Form>WImportacion</Form>
+        <DCCReference Include="Source\ImportData\ControllerImportData.pas">
+            <Form>ImportDataView</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Source\UPlanAnalico.pas">
@@ -364,6 +361,26 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
+        <DCCReference Include="Source\Parametrizacion\UParametrizacion.pas">
+            <Form>WParametrizacion</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\BalAcumulados\UBalAcumulados.pas">
+            <Form>WBalAcumulados</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Source\BalAcumulados\UBalAcumuladosModel.pas">
+            <Form>DataModuleBalAcumulados</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Source\ImportData\ModelImportData.pas">
+            <Form>DataModuleImportData</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Source\scFramework\senCille.FrameWorkTools.pas"/>
+        <DCCReference Include="Source\scFramework\senCille.MainController.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

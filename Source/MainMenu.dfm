@@ -245,7 +245,7 @@ object MainMenuForm: TMainMenuForm
     Left = 105
     Top = 63
     Bitmap = {
-      494C010109000E00340012001200FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010109000E003C0012001200FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000048000000360000000100200000000000C03C
       000000000000000000000000000000000000FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
@@ -1070,9 +1070,9 @@ object MainMenuForm: TMainMenuForm
           OnClick = MenuItemFacturacionClick
         end
       end
-      object MenuItemImportacion: TMenuItem
+      object MenuItem_ImportData: TMenuItem
         Caption = 'Importacion'
-        OnClick = MenuItemImportacionClick
+        OnClick = MenuItem_ImportDataClick
       end
       object MenuItemTraspasoDatos: TMenuItem
         Caption = 'Traspaso de Datos'
