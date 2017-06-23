@@ -45,7 +45,6 @@ uses
   CustomModel in 'Source\icenet\CustomModel.pas',
   FormHandler in 'Source\icenet\FormHandler.pas',
   UtilesMDIForms in 'Source\icenet\UtilesMDIForms.pas',
-  SQLConnect in 'Source\icenet\SQLConnect.pas',
   UIrpf110 in 'Source\IRPF110\UIrpf110.pas',
   UIRPF110Model in 'Source\IRPF110\UIRPF110Model.pas',
   UIrpf115 in 'Source\IRPF115\UIrpf115.pas',

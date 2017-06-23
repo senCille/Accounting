@@ -68,3 +68,4 @@ __recovery/
 /Source/Subcuentas/*.vlb
 /Deploy/*.pdf
 /Deploy/Entrada.txt
+/*.res

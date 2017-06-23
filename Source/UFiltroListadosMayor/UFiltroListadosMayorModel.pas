@@ -214,7 +214,6 @@ implementation
 
 uses System.Math,
      VCL.ComCtrls,
-     SQLConnect,
      DM, DMConta, Processing, ccStr, Globales, DMControl;
 
 {$R *.dfm}

@@ -7,6 +7,16 @@ uses SysUtils, Classes, DB, IBX.IBDatabase, IBX.IBSQL, IBX.IBQuery;
 type
   TShowMessageEvent = procedure(Value :string) of object;
 
+  TccIBDatabase = class helper for TIBDatabase
+  private
+  protected
+  public
+    function CreateQuery(const prmSQL :array of string):TIBQuery;
+  published
+  end;
+
+  {--------------------------------------------------------------------------------------------------------------------}
+
   TCustomModel = class(TPersistent)
   private
     FDB                  :TIBDatabase;
@@ -27,7 +37,20 @@ type
 
 implementation
 
-uses TypInfo, SQLConnect;
+uses TypInfo;
+
+{ Helper TccIBDatabase }
+function TccIBDatabase.CreateQuery(const prmSQL :array of string):TIBQuery;
+var Query :TIBQuery;
+    i     :Integer;
+begin
+   Query := TIBQuery.Create(nil);
+   Query.Database := Self;
+   for i := Low(prmSQL) to High(prmSQL) do begin
+      Query.SQL.Add(prmSQL[i]);
+   end;
+   Result := Query;
+end;
 
 { TCustomDocumentModel }
 constructor TCustomModel.Create(ADB :TIBDatabase; Initialize :Boolean = True); 
