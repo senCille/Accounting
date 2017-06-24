@@ -5,7 +5,7 @@ object DMRef: TDMRef
   Height = 489
   Width = 871
   object BDContab: TIBDatabase
-    DatabaseName = '192.168.1.40:C:\IB_DATA\EMP_03.gdb'
+    DatabaseName = '192.168.0.200:C:\IB_DATA\EMP_03.gdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey')
