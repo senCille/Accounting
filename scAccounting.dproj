@@ -65,14 +65,14 @@
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;tethering;svnui;DataSnapFireDAC;FireDACADSDriver;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;svn;Intraweb;inetdb;emsedge;FireDACIBDriver;fmx;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;vclwinx;FireDACDSDriver;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;frxe24;dbxcds;VclSmp;adortl;FireDACODBCDriver;frxDB24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;FireDACMongoDBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;tethering;svnui;DataSnapFireDAC;FireDACADSDriver;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;svn;Intraweb;inetdb;emsedge;FireDACIBDriver;fmx;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;vclwinx;FireDACDSDriver;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;frxe24;dbxcds;VclSmp;adortl;FireDACODBCDriver;frxDB24;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;FireDACMongoDBDriver;fmxFireDAC;senCilleMVC;$(DCC_UsePackage)</DCC_UsePackage>
         <BT_BuildType>Debug</BT_BuildType>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;Intraweb;inetdb;emsedge;FireDACIBDriver;fmx;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;vclwinx;FireDACDSDriver;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;FireDACMongoDBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>DBXSqliteDriver;RESTComponents;DBXInterBaseDriver;vclactnband;vclFireDAC;emsclientfiredac;tethering;DataSnapFireDAC;FireDACADSDriver;FireDACMSSQLDriver;vcltouch;vcldb;bindcompfmx;Intraweb;inetdb;emsedge;FireDACIBDriver;fmx;vclib;FireDACDBXDriver;dbexpress;IndyCore;vclx;dsnap;emsclient;DataSnapCommon;FireDACCommon;RESTBackendComponents;VCLRESTComponents;soapserver;vclie;bindengine;DBXMySQLDriver;CloudService;FireDACOracleDriver;FireDACMySQLDriver;FireDACCommonODBC;FireDACCommonDriver;DataSnapClient;inet;bindcompdbx;IndyIPCommon;vcl;IndyIPServer;IndySystem;FireDACDb2Driver;dsnapcon;FireDACMSAccDriver;FireDACInfxDriver;vclimg;TeeDB;FireDAC;emshosting;FireDACSqliteDriver;FireDACPgDriver;ibmonitor;FireDACASADriver;FireDACTDataDriver;soaprtl;DbxCommonDriver;ibxpress;Tee;xmlrtl;soapmidas;ibxbindings;vclwinx;FireDACDSDriver;rtl;DbxClientDriver;CustomIPTransport;vcldsnap;bindcomp;appanalytics;IndyIPClient;bindcompvcl;TeeUI;dbxcds;VclSmp;adortl;FireDACODBCDriver;dsnapxml;dbrtl;inetdbxpress;IndyProtocols;FireDACMongoDBDriver;fmxFireDAC;$(DCC_UsePackage)</DCC_UsePackage>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -412,27 +412,12 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployClass Name="DependencyModule">
-                    <Platform Name="Win32">
-                        <Operation>0</Operation>
-                        <Extensions>.dll;.bpl</Extensions>
-                    </Platform>
+                <DeployClass Name="ProjectiOSDeviceResourceRules">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="OSX32">
-                        <RemoteDir>Contents\MacOS</RemoteDir>
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
-                    </Platform>
-                    <Platform Name="iOSSimulator">
-                        <Operation>1</Operation>
-                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXResource">
@@ -811,12 +796,27 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <DeployClass Name="ProjectiOSDeviceResourceRules">
+                <DeployClass Name="DependencyModule">
+                    <Platform Name="Win32">
+                        <Operation>0</Operation>
+                        <Extensions>.dll;.bpl</Extensions>
+                    </Platform>
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice32">
                         <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
                     </Platform>
                 </DeployClass>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
